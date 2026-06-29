@@ -13,7 +13,8 @@ from services.patch_service import get_patch_progress,get_wave_progress, get_dep
 
 
 app = Flask(__name__)
-
+create_database()
+initialize_database()
 
 # ============================================
 # All Tables: DBの全テーブルをそのまま表示する機能で使用
