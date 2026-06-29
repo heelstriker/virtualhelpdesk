@@ -202,20 +202,4 @@ if __name__ == "__main__":
     app.run(host="0.0.0.0", port=port)
 
 
-#@app.errorhandler(500)
-#def error(e):
-#    import traceback
-#    traceback.print_exc()
-#    return "DEBUG 500 ERROR - check terminal", 500
 
-
-
-#if __name__ == "__main__":
-
-#   create_database()        #Create DB
-#   initialize_database()    #Insert CSV to DB
-
-#  app.run(
-#        host="0.0.0.0",
-#        port=5055
-#   )
