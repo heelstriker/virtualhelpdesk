@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block title %}All Tables - VirtualHelpDesk{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='src/css/all_tables.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<h1>All Tables</h1>
+<p class="subtitle">Browse every dataset tracked by VirtualHelpDesk.</p>
+
+<!--
+    タブ切り替え方式:
+    - tables 変数は app.py の all_tables() から以下の形で渡されます
+      (db_init.py の create_database() で作られた6テーブルに対応):
+
+        tables = {
+            "devices":        {"label": "Devices",       "rows": [...] },
+            "software":       {"label": "Software",      "rows": [...] },
+            "hardware":       {"label": "Hardware",      "rows": [...] },
+            "printers":       {"label": "Printers",      "rows": [...] },
+            "network_drives": {"label": "Network Drives","rows": [...] },
+            "patches":        {"label": "Patches",       "rows": [...] },
+        }
+
+    - 各 rows は SELECT * FROM <table> の結果(辞書のリスト)。
+      1つ目の行のキーをそのままテーブルヘッダーとして使うので、
+      DBのカラム名がそのまま画面に表示されます(idやserial_numberなども含む)。
+    - データが空のテーブルでも「No data」と表示されるので問題ありません。
+-->
+
+<p class="hint">
+    Each tab below mirrors a real SQLite table behind VirtualHelpDesk — what you see is the literal output of <code>SELECT * FROM &lt;table&gt;</code>.
+</p>
+
+<div class="panel">
+
+    <div class="table-tabs" role="tablist">
+        {% for key, table in tables.items() %}
+        <button class="table-tab {{ 'active' if loop.first else '' }}"
+                data-target="table-panel-{{ key }}"
+                role="tab">
+            {{ table.label }}
+        </button>
+        {% endfor %}
+    </div>
+
+    {% for key, table in tables.items() %}
+    <div class="table-panel {{ 'active' if loop.first else '' }}" id="table-panel-{{ key }}">
+
+        {% if table.rows and table.rows|length > 0 %}
+        <div style="overflow-x:auto;">
+            <table>
+                <tr>
+                    {% for col in table.rows[0].keys() %}
+                    <th>{{ col }}</th>
+                    {% endfor %}
+                </tr>
+
+                {% for row in table.rows %}
+                <tr>
+                    {% for value in row.values() %}
+                    <td>{{ value }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        {% else %}
+        <p class="empty-state">No data available for {{ table.label }}.</p>
+        {% endif %}
+
+    </div>
+    {% endfor %}
+
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='src/javascript/all_tables.js') }}"></script>
+{% endblock %}

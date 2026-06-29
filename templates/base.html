@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}VirtualHelpDesk{% endblock %}</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='src/css/theme.css') }}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <span class="dot"></span>
+            VirtualHelpDesk
+        </div>
+
+        <div class="navbar-links">
+            <a href="{{ url_for('show_readme') }}" class="{{ 'active' if active_page == 'readme' else '' }}">About</a>
+            <a href="{{ url_for('dashboard') }}" class="{{ 'active' if active_page == 'dashboard' else '' }}">Dashboard</a>
+            <a href="{{ url_for('all_tables') }}" class="{{ 'active' if active_page == 'all_tables' else '' }}">All Tables</a>
+        </div>
+
+        <button class="navbar-toggle" id="navbarToggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <div class="navbar-mobile-menu" id="navbarMobileMenu">
+        <a href="{{ url_for('show_readme') }}" class="{{ 'active' if active_page == 'readme' else '' }}">About</a>
+        <a href="{{ url_for('dashboard') }}" class="{{ 'active' if active_page == 'dashboard' else '' }}">Dashboard</a>
+        <a href="{{ url_for('all_tables') }}" class="{{ 'active' if active_page == 'all_tables' else '' }}">All Tables</a>
+    </div>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <script src="{{ url_for('static', filename='src/javascript/navbar.js') }}"></script>
+    {% block extra_js %}{% endblock %}
+
+</body>
+</html>

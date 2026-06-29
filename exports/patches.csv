@@ -1,0 +1,151 @@
+id,hostname,patch,description,installed,install_date,release_month,deployment_date,applicable,downloaded,deployment_window
+1,LAXITSPC001,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-05-21,26-May,2026-05-20,YES,YES,Wave 1
+2,LAXITSPC001,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-20,NO,YES,Wave 1
+3,LAXITSPC001,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-05-20,NO,YES,Wave 1
+4,LAXITSPC002,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-05-25,26-May,2026-05-20,YES,YES,Wave 1
+5,LAXITSPC002,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-20,NO,YES,Wave 1
+6,LAXITSPC002,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-05-20,NO,YES,Wave 1
+7,LAXITSPC003,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-05-22,26-May,2026-05-20,YES,YES,Wave 1
+8,LAXITSPC003,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-20,NO,YES,Wave 1
+9,LAXITSPC003,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,1,2026-05-27,26-Jun,2026-05-20,YES,YES,Wave 1
+10,LAXITSPC004,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-05-25,26-May,2026-05-20,YES,YES,Wave 1
+11,LAXITSPC004,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-20,NO,YES,Wave 1
+12,LAXITSPC004,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-05-20,NO,YES,Wave 1
+13,LAXITSPC005,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-05-22,26-May,2026-05-20,YES,YES,Wave 1
+14,LAXITSPC005,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-20,NO,YES,Wave 1
+15,LAXITSPC005,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-05-20,NO,YES,Wave 1
+16,LAXITSPC006,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-05-21,26-May,2026-05-20,YES,YES,Wave 1
+17,LAXITSPC006,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-20,NO,YES,Wave 1
+18,LAXITSPC006,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,1,2026-05-27,26-Jun,2026-05-20,YES,YES,Wave 1
+19,LAXITSPC007,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-05-29,26-May,2026-05-20,YES,YES,Wave 1
+20,LAXITSPC007,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-20,NO,YES,Wave 1
+21,LAXITSPC007,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-05-20,NO,YES,Wave 1
+22,LAXITSPC008,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-05-29,26-May,2026-05-20,YES,YES,Wave 1
+23,LAXITSPC008,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-20,NO,YES,Wave 1
+24,LAXITSPC008,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-05-20,NO,YES,Wave 1
+25,LAXITSPC009,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-05-26,26-May,2026-05-20,YES,YES,Wave 1
+26,LAXITSPC009,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-20,NO,YES,Wave 1
+27,LAXITSPC009,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,0,,26-Jun,2026-05-20,YES,YES,Wave 1
+28,LAXITSPC010,KB5062553,Corporate Security Rollup - Required for all managed endpoints,0,,26-May,2026-05-20,YES,NO,Wave 1
+29,LAXITSPC010,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-20,NO,YES,Wave 1
+30,LAXITSPC010,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-05-20,NO,YES,Wave 1
+31,LAXACTPC001,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-05-26,26-May,2026-05-23,YES,YES,Wave 2
+32,LAXACTPC001,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-23,NO,YES,Wave 2
+33,LAXACTPC001,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-05-23,NO,YES,Wave 2
+34,LAXACTPC002,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-05-26,26-May,2026-05-23,YES,YES,Wave 2
+35,LAXACTPC002,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,1,2026-05-29,26-May,2026-05-23,YES,YES,Wave 2
+36,LAXACTPC002,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-05-23,NO,YES,Wave 2
+37,LAXACTPC003,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-06-01,26-May,2026-05-23,YES,YES,Wave 2
+38,LAXACTPC003,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-23,NO,YES,Wave 2
+39,LAXACTPC003,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,1,2026-05-29,26-Jun,2026-05-23,YES,YES,Wave 2
+40,LAXACTPC004,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-05-27,26-May,2026-05-23,YES,YES,Wave 2
+41,LAXACTPC004,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-23,NO,YES,Wave 2
+42,LAXACTPC004,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-05-23,NO,YES,Wave 2
+43,LAXACTPC005,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-05-26,26-May,2026-05-23,YES,YES,Wave 2
+44,LAXACTPC005,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-23,NO,YES,Wave 2
+45,LAXACTPC005,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-05-23,NO,YES,Wave 2
+46,LAXACTPC006,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-05-24,26-May,2026-05-23,YES,YES,Wave 2
+47,LAXACTPC006,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-23,NO,YES,Wave 2
+48,LAXACTPC006,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,1,2026-05-30,26-Jun,2026-05-23,YES,YES,Wave 2
+49,LAXACTPC007,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-05-25,26-May,2026-05-23,YES,YES,Wave 2
+50,LAXACTPC007,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-23,NO,YES,Wave 2
+51,LAXACTPC007,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-05-23,NO,YES,Wave 2
+52,LAXACTPC008,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-06-02,26-May,2026-05-23,YES,YES,Wave 2
+53,LAXACTPC008,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-23,NO,YES,Wave 2
+54,LAXACTPC008,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-05-23,NO,YES,Wave 2
+55,LAXACTPC009,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-05-30,26-May,2026-05-23,YES,YES,Wave 2
+56,LAXACTPC009,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-23,NO,YES,Wave 2
+57,LAXACTPC009,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,0,,26-Jun,2026-05-23,YES,YES,Wave 2
+58,LAXACTPC010,KB5062553,Corporate Security Rollup - Required for all managed endpoints,0,,26-May,2026-05-23,YES,NO,Wave 2
+59,LAXACTPC010,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-23,NO,YES,Wave 2
+60,LAXACTPC010,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-05-23,NO,YES,Wave 2
+61,LAXHRPC001,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-06-02,26-May,2026-05-27,YES,YES,Wave 3
+62,LAXHRPC001,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-27,NO,YES,Wave 3
+63,LAXHRPC001,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-05-27,NO,YES,Wave 3
+64,LAXHRPC002,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-06-04,26-May,2026-05-27,YES,YES,Wave 3
+65,LAXHRPC002,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-27,NO,YES,Wave 3
+66,LAXHRPC002,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-05-27,NO,YES,Wave 3
+67,LAXHRPC003,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-05-29,26-May,2026-05-27,YES,YES,Wave 3
+68,LAXHRPC003,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-27,NO,YES,Wave 3
+69,LAXHRPC003,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,1,2026-05-28,26-Jun,2026-05-27,YES,YES,Wave 3
+70,LAXHRPC004,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-05-29,26-May,2026-05-27,YES,YES,Wave 3
+71,LAXHRPC004,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-27,NO,YES,Wave 3
+72,LAXHRPC004,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-05-27,NO,YES,Wave 3
+73,LAXHRPC005,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-05-30,26-May,2026-05-27,YES,YES,Wave 3
+74,LAXHRPC005,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-27,NO,YES,Wave 3
+75,LAXHRPC005,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-05-27,NO,YES,Wave 3
+76,LAXHRPC006,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-05-30,26-May,2026-05-27,YES,YES,Wave 3
+77,LAXHRPC006,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-27,NO,YES,Wave 3
+78,LAXHRPC006,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,1,2026-05-28,26-Jun,2026-05-27,YES,YES,Wave 3
+79,LAXHRPC007,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-06-01,26-May,2026-05-27,YES,YES,Wave 3
+80,LAXHRPC007,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-27,NO,YES,Wave 3
+81,LAXHRPC007,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-05-27,NO,YES,Wave 3
+82,LAXHRPC008,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-06-03,26-May,2026-05-27,YES,YES,Wave 3
+83,LAXHRPC008,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-27,NO,YES,Wave 3
+84,LAXHRPC008,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-05-27,NO,YES,Wave 3
+85,LAXHRPC009,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-06-06,26-May,2026-05-27,YES,YES,Wave 3
+86,LAXHRPC009,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-27,NO,YES,Wave 3
+87,LAXHRPC009,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,0,,26-Jun,2026-05-27,YES,YES,Wave 3
+88,LAXHRPC010,KB5062553,Corporate Security Rollup - Required for all managed endpoints,0,,26-May,2026-05-27,YES,NO,Wave 3
+89,LAXHRPC010,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-27,NO,YES,Wave 3
+90,LAXHRPC010,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-05-27,NO,YES,Wave 3
+91,LAXMKTPC001,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-06-09,26-May,2026-06-01,YES,YES,Wave 4
+92,LAXMKTPC001,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-06-01,NO,YES,Wave 4
+93,LAXMKTPC001,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-06-01,NO,YES,Wave 4
+94,LAXMKTPC002,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-06-02,26-May,2026-06-01,YES,YES,Wave 4
+95,LAXMKTPC002,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-06-01,NO,YES,Wave 4
+96,LAXMKTPC002,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-06-01,NO,YES,Wave 4
+97,LAXMKTPC003,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-06-06,26-May,2026-06-01,YES,YES,Wave 4
+98,LAXMKTPC003,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-06-01,NO,YES,Wave 4
+99,LAXMKTPC003,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,1,2026-06-07,26-Jun,2026-06-01,YES,YES,Wave 4
+100,LAXMKTPC004,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-06-10,26-May,2026-06-01,YES,YES,Wave 4
+101,LAXMKTPC004,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-06-01,NO,YES,Wave 4
+102,LAXMKTPC004,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-06-01,NO,YES,Wave 4
+103,LAXMKTPC005,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-06-09,26-May,2026-06-01,YES,YES,Wave 4
+104,LAXMKTPC005,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-06-01,NO,YES,Wave 4
+105,LAXMKTPC005,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-06-01,NO,YES,Wave 4
+106,LAXMKTPC006,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-06-05,26-May,2026-06-01,YES,YES,Wave 4
+107,LAXMKTPC006,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-06-01,NO,YES,Wave 4
+108,LAXMKTPC006,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,1,2026-06-11,26-Jun,2026-06-01,YES,YES,Wave 4
+109,LAXMKTPC007,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-06-10,26-May,2026-06-01,YES,YES,Wave 4
+110,LAXMKTPC007,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-06-01,NO,YES,Wave 4
+111,LAXMKTPC007,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-06-01,NO,YES,Wave 4
+112,LAXMKTPC008,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-06-11,26-May,2026-06-01,YES,YES,Wave 4
+113,LAXMKTPC008,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-06-01,NO,YES,Wave 4
+114,LAXMKTPC008,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-06-01,NO,YES,Wave 4
+115,LAXMKTPC009,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-06-07,26-May,2026-06-01,YES,YES,Wave 4
+116,LAXMKTPC009,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-06-01,NO,YES,Wave 4
+117,LAXMKTPC009,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,0,,26-Jun,2026-06-01,YES,YES,Wave 4
+118,LAXMKTPC010,KB5062553,Corporate Security Rollup - Required for all managed endpoints,0,,26-May,2026-06-01,YES,NO,Wave 4
+119,LAXMKTPC010,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-06-01,NO,YES,Wave 4
+120,LAXMKTPC010,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-06-01,NO,YES,Wave 4
+121,LAXOPSPC001,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-06-10,26-May,2026-06-01,YES,YES,Wave 4
+122,LAXOPSPC001,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-06-01,NO,YES,Wave 4
+123,LAXOPSPC001,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-06-01,NO,YES,Wave 4
+124,LAXOPSPC002,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-06-08,26-May,2026-06-01,YES,YES,Wave 4
+125,LAXOPSPC002,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-06-01,NO,YES,Wave 4
+126,LAXOPSPC002,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-06-01,NO,YES,Wave 4
+127,LAXOPSPC003,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-06-10,26-May,2026-06-01,YES,YES,Wave 4
+128,LAXOPSPC003,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-06-01,NO,YES,Wave 4
+129,LAXOPSPC003,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,1,2026-06-11,26-Jun,2026-06-01,YES,YES,Wave 4
+130,LAXOPSPC004,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-06-09,26-May,2026-06-01,YES,YES,Wave 4
+131,LAXOPSPC004,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-06-01,NO,YES,Wave 4
+132,LAXOPSPC004,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-06-01,NO,YES,Wave 4
+133,LAXOPSPC005,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-06-10,26-May,2026-06-01,YES,YES,Wave 4
+134,LAXOPSPC005,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-06-01,NO,YES,Wave 4
+135,LAXOPSPC005,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-06-01,NO,YES,Wave 4
+136,LAXOPSPC006,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-06-08,26-May,2026-06-01,YES,YES,Wave 4
+137,LAXOPSPC006,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-06-01,NO,YES,Wave 4
+138,LAXOPSPC006,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,1,2026-06-07,26-Jun,2026-06-01,YES,YES,Wave 4
+139,LAXOPSPC007,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-06-10,26-May,2026-06-01,YES,YES,Wave 4
+140,LAXOPSPC007,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-06-01,NO,YES,Wave 4
+141,LAXOPSPC007,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-06-01,NO,YES,Wave 4
+142,LAXOPSPC008,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-06-02,26-May,2026-06-01,YES,YES,Wave 4
+143,LAXOPSPC008,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-06-01,NO,YES,Wave 4
+144,LAXOPSPC008,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-06-01,NO,YES,Wave 4
+145,LAXOPSPC009,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-06-04,26-May,2026-06-01,YES,YES,Wave 4
+146,LAXOPSPC009,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-06-01,NO,YES,Wave 4
+147,LAXOPSPC009,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,0,,26-Jun,2026-06-01,YES,YES,Wave 4
+148,LAXOPSPC010,KB5062553,Corporate Security Rollup - Required for all managed endpoints,0,,26-May,2026-06-01,YES,NO,Wave 4
+149,LAXOPSPC010,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-06-01,NO,YES,Wave 4
+150,LAXOPSPC010,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-06-01,NO,YES,Wave 4

@@ -1,0 +1,188 @@
+{% extends "base.html" %}
+
+{% block title %}{{ device.hostname }} - VirtualHelpDesk{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='src/css/device_detail.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="page-title">
+    {{ device.hostname }}
+</div>
+
+<div class="subtitle">
+    Endpoint Management Console
+</div>
+
+
+
+<div class="card-row">
+
+    <div class="metric-card">
+        <div class="metric-label">Owner</div>
+        <div class="metric-value">{{ device.owner }}</div>
+    </div>
+
+    <div class="metric-card">
+        <div class="metric-label">Department</div>
+        <div class="metric-value">{{ device.department }}</div>
+    </div>
+
+    <div class="metric-card">
+        <div class="metric-label">Status</div>
+        <div class="metric-value">{{ device.status }}</div>
+    </div>
+
+    <div class="metric-card">
+        <div class="metric-label">Compliance Score</div>
+
+        {% if compliance_score >= 90 %}
+            <div class="metric-value" style="color:#0fb9b1;">
+                {{ compliance_score }}%
+        {% elif compliance_score >= 70 %}
+            <div class="metric-value" style="color:#ff9f1c;">
+                {{ compliance_score }}%
+        {% else %}
+            <div class="metric-value" style="color:#e63946;">
+                {{ compliance_score }}%
+        {% endif %}
+            </div>
+    </div>
+</div>
+
+
+
+<div class="panel">
+    <h2>Active Alerts</h2>
+
+    {% for alert in alerts %}
+    <div class="alert-item">
+        {{ alert }}
+    </div>
+    {% endfor %}
+</div>
+
+
+
+<div class="panel">
+    <h2>Hardware Specification</h2>
+
+    <div class="hardware-grid">
+
+        <div class="hardware-box">
+            <div class="hardware-label">CPU</div>
+            <div class="hardware-value">{{ hardware.cpu }}</div>
+        </div>
+
+        <div class="hardware-box">
+            <div class="hardware-label">RAM</div>
+            <div class="hardware-value">{{ hardware.memory_gb }} GB</div>
+        </div>
+
+        <div class="hardware-box">
+            <div class="hardware-label">Storage</div>
+            <div class="hardware-value">{{ hardware.disk_gb }} GB</div>
+        </div>
+
+        <div class="hardware-box">
+            <div class="hardware-label">Operating System</div>
+            <div class="hardware-value">{{ hardware.os }}</div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<div class="panel">
+    <h2>Patch Updates</h2>
+
+    <table>
+        {% for stat in patch %}
+        <tr>
+            <td>{{ stat.patch }}</td>
+            <td>
+                {% if stat.installed == 1 %}
+                    <span class="ok">INSTALLED</span>
+                {% elif stat.installed == 99 %}
+                    <span class="warning">NOT REQUIRED</span>
+                {% else %}
+                    <span class="missing">MISSING</span>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+
+
+<div class="panel">
+    <h2>Software Overview</h2>
+
+    <table>
+        {% for app in software %}
+        <tr>
+            <td>{{ app.software_name }}</td>
+            <td>
+                {% if app.installed == 1 %}
+                    <span class="ok">INSTALLED</span>
+                {% elif app.installed == 99 %}
+                    <span class="warning">NOT COMPATIBLE</span>
+                {% else %}
+                    <span class="missing">MISSING</span>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+
+
+<div class="panel">
+    <h2>Printers Overview</h2>
+
+    <table>
+        {% for status in printer %}
+        <tr>
+            <td>{{ status.printer_name }}</td>
+            <td>
+                {% if status.installed == 1 %}
+                    <span class="ok">INSTALLED</span>
+                {% elif status.installed == 99 %}
+                    <span class="warning">PROHIBITED</span>
+                {% else %}
+                    <span class="missing">NOT INSTALLED</span>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+
+<div class="panel">
+    <h2>Network Drives</h2>
+
+    <table>
+        {% for conn in network_drive %}
+        <tr>
+            <td>{{ conn.network_drive }}</td>
+            <td>
+                {% if conn.connected == 1 %}
+                    <span class="ok">CONNECTED</span>
+                {% elif conn.connected == 99 %}
+                    <span class="warning">CONNECTION PROHIBITED</span>
+                {% else %}
+                    <span class="missing">NOT CONNECTED</span>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}

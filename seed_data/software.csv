@@ -1,0 +1,251 @@
+﻿hostname,software_name,description,installed
+LAXACTPC001,Banana VPN,Corporate VPN Client,0
+LAXACTPC001,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXACTPC001,Google Chrome,Web Browser,1
+LAXACTPC001,Microsoft Teams,Collaboration Platform,1
+LAXACTPC001,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXACTPC002,Banana VPN,Corporate VPN Client,0
+LAXACTPC002,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXACTPC002,Google Chrome,Web Browser,1
+LAXACTPC002,Microsoft Teams,Collaboration Platform,0
+LAXACTPC002,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXACTPC003,Banana VPN,Corporate VPN Client,99
+LAXACTPC003,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXACTPC003,Google Chrome,Web Browser,1
+LAXACTPC003,Microsoft Teams,Collaboration Platform,1
+LAXACTPC003,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXACTPC004,Banana VPN,Corporate VPN Client,99
+LAXACTPC004,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXACTPC004,Google Chrome,Web Browser,1
+LAXACTPC004,Microsoft Teams,Collaboration Platform,1
+LAXACTPC004,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXACTPC005,Banana VPN,Corporate VPN Client,1
+LAXACTPC005,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXACTPC005,Google Chrome,Web Browser,0
+LAXACTPC005,Microsoft Teams,Collaboration Platform,1
+LAXACTPC005,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXACTPC006,Banana VPN,Corporate VPN Client,1
+LAXACTPC006,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXACTPC006,Google Chrome,Web Browser,1
+LAXACTPC006,Microsoft Teams,Collaboration Platform,1
+LAXACTPC006,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXACTPC007,Banana VPN,Corporate VPN Client,99
+LAXACTPC007,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXACTPC007,Google Chrome,Web Browser,1
+LAXACTPC007,Microsoft Teams,Collaboration Platform,1
+LAXACTPC007,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXACTPC008,Banana VPN,Corporate VPN Client,1
+LAXACTPC008,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXACTPC008,Google Chrome,Web Browser,1
+LAXACTPC008,Microsoft Teams,Collaboration Platform,1
+LAXACTPC008,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXACTPC009,Banana VPN,Corporate VPN Client,99
+LAXACTPC009,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXACTPC009,Google Chrome,Web Browser,1
+LAXACTPC009,Microsoft Teams,Collaboration Platform,1
+LAXACTPC009,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXACTPC010,Banana VPN,Corporate VPN Client,1
+LAXACTPC010,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXACTPC010,Google Chrome,Web Browser,1
+LAXACTPC010,Microsoft Teams,Collaboration Platform,1
+LAXACTPC010,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXHRPC001,Banana VPN,Corporate VPN Client,1
+LAXHRPC001,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXHRPC001,Google Chrome,Web Browser,1
+LAXHRPC001,Microsoft Teams,Collaboration Platform,1
+LAXHRPC001,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXHRPC002,Banana VPN,Corporate VPN Client,99
+LAXHRPC002,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXHRPC002,Google Chrome,Web Browser,1
+LAXHRPC002,Microsoft Teams,Collaboration Platform,1
+LAXHRPC002,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXHRPC003,Banana VPN,Corporate VPN Client,99
+LAXHRPC003,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXHRPC003,Google Chrome,Web Browser,1
+LAXHRPC003,Microsoft Teams,Collaboration Platform,1
+LAXHRPC003,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXHRPC004,Banana VPN,Corporate VPN Client,1
+LAXHRPC004,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXHRPC004,Google Chrome,Web Browser,1
+LAXHRPC004,Microsoft Teams,Collaboration Platform,1
+LAXHRPC004,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXHRPC005,Banana VPN,Corporate VPN Client,99
+LAXHRPC005,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXHRPC005,Google Chrome,Web Browser,1
+LAXHRPC005,Microsoft Teams,Collaboration Platform,1
+LAXHRPC005,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXHRPC006,Banana VPN,Corporate VPN Client,99
+LAXHRPC006,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXHRPC006,Google Chrome,Web Browser,0
+LAXHRPC006,Microsoft Teams,Collaboration Platform,1
+LAXHRPC006,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXHRPC007,Banana VPN,Corporate VPN Client,1
+LAXHRPC007,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXHRPC007,Google Chrome,Web Browser,1
+LAXHRPC007,Microsoft Teams,Collaboration Platform,1
+LAXHRPC007,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXHRPC008,Banana VPN,Corporate VPN Client,99
+LAXHRPC008,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXHRPC008,Google Chrome,Web Browser,0
+LAXHRPC008,Microsoft Teams,Collaboration Platform,1
+LAXHRPC008,Otter Endpoint Security,Endpoint Protection Platform,0
+LAXHRPC009,Banana VPN,Corporate VPN Client,99
+LAXHRPC009,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXHRPC009,Google Chrome,Web Browser,0
+LAXHRPC009,Microsoft Teams,Collaboration Platform,1
+LAXHRPC009,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXHRPC010,Banana VPN,Corporate VPN Client,1
+LAXHRPC010,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXHRPC010,Google Chrome,Web Browser,1
+LAXHRPC010,Microsoft Teams,Collaboration Platform,1
+LAXHRPC010,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXITSPC001,Banana VPN,Corporate VPN Client,1
+LAXITSPC001,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXITSPC001,Google Chrome,Web Browser,1
+LAXITSPC001,Microsoft Teams,Collaboration Platform,1
+LAXITSPC001,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXITSPC002,Banana VPN,Corporate VPN Client,99
+LAXITSPC002,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXITSPC002,Google Chrome,Web Browser,1
+LAXITSPC002,Microsoft Teams,Collaboration Platform,1
+LAXITSPC002,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXITSPC003,Banana VPN,Corporate VPN Client,1
+LAXITSPC003,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXITSPC003,Google Chrome,Web Browser,1
+LAXITSPC003,Microsoft Teams,Collaboration Platform,1
+LAXITSPC003,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXITSPC004,Banana VPN,Corporate VPN Client,99
+LAXITSPC004,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXITSPC004,Google Chrome,Web Browser,1
+LAXITSPC004,Microsoft Teams,Collaboration Platform,1
+LAXITSPC004,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXITSPC005,Banana VPN,Corporate VPN Client,1
+LAXITSPC005,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXITSPC005,Google Chrome,Web Browser,1
+LAXITSPC005,Microsoft Teams,Collaboration Platform,1
+LAXITSPC005,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXITSPC006,Banana VPN,Corporate VPN Client,1
+LAXITSPC006,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXITSPC006,Google Chrome,Web Browser,1
+LAXITSPC006,Microsoft Teams,Collaboration Platform,1
+LAXITSPC006,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXITSPC007,Banana VPN,Corporate VPN Client,99
+LAXITSPC007,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXITSPC007,Google Chrome,Web Browser,1
+LAXITSPC007,Microsoft Teams,Collaboration Platform,1
+LAXITSPC007,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXITSPC008,Banana VPN,Corporate VPN Client,1
+LAXITSPC008,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXITSPC008,Google Chrome,Web Browser,1
+LAXITSPC008,Microsoft Teams,Collaboration Platform,1
+LAXITSPC008,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXITSPC009,Banana VPN,Corporate VPN Client,99
+LAXITSPC009,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXITSPC009,Google Chrome,Web Browser,1
+LAXITSPC009,Microsoft Teams,Collaboration Platform,1
+LAXITSPC009,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXITSPC010,Banana VPN,Corporate VPN Client,1
+LAXITSPC010,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXITSPC010,Google Chrome,Web Browser,1
+LAXITSPC010,Microsoft Teams,Collaboration Platform,1
+LAXITSPC010,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXMKTPC001,Banana VPN,Corporate VPN Client,1
+LAXMKTPC001,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXMKTPC001,Google Chrome,Web Browser,1
+LAXMKTPC001,Microsoft Teams,Collaboration Platform,1
+LAXMKTPC001,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXMKTPC002,Banana VPN,Corporate VPN Client,1
+LAXMKTPC002,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXMKTPC002,Google Chrome,Web Browser,1
+LAXMKTPC002,Microsoft Teams,Collaboration Platform,1
+LAXMKTPC002,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXMKTPC003,Banana VPN,Corporate VPN Client,1
+LAXMKTPC003,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXMKTPC003,Google Chrome,Web Browser,1
+LAXMKTPC003,Microsoft Teams,Collaboration Platform,1
+LAXMKTPC003,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXMKTPC004,Banana VPN,Corporate VPN Client,99
+LAXMKTPC004,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXMKTPC004,Google Chrome,Web Browser,1
+LAXMKTPC004,Microsoft Teams,Collaboration Platform,1
+LAXMKTPC004,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXMKTPC005,Banana VPN,Corporate VPN Client,99
+LAXMKTPC005,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXMKTPC005,Google Chrome,Web Browser,1
+LAXMKTPC005,Microsoft Teams,Collaboration Platform,1
+LAXMKTPC005,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXMKTPC006,Banana VPN,Corporate VPN Client,99
+LAXMKTPC006,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXMKTPC006,Google Chrome,Web Browser,1
+LAXMKTPC006,Microsoft Teams,Collaboration Platform,1
+LAXMKTPC006,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXMKTPC007,Banana VPN,Corporate VPN Client,1
+LAXMKTPC007,Canon Scan Utility,MFP Scan Integration Tool,0
+LAXMKTPC007,Google Chrome,Web Browser,1
+LAXMKTPC007,Microsoft Teams,Collaboration Platform,1
+LAXMKTPC007,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXMKTPC008,Banana VPN,Corporate VPN Client,1
+LAXMKTPC008,Canon Scan Utility,MFP Scan Integration Tool,0
+LAXMKTPC008,Google Chrome,Web Browser,1
+LAXMKTPC008,Microsoft Teams,Collaboration Platform,1
+LAXMKTPC008,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXMKTPC009,Banana VPN,Corporate VPN Client,1
+LAXMKTPC009,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXMKTPC009,Google Chrome,Web Browser,0
+LAXMKTPC009,Microsoft Teams,Collaboration Platform,1
+LAXMKTPC009,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXMKTPC010,Banana VPN,Corporate VPN Client,99
+LAXMKTPC010,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXMKTPC010,Google Chrome,Web Browser,0
+LAXMKTPC010,Microsoft Teams,Collaboration Platform,1
+LAXMKTPC010,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXOPSPC001,Banana VPN,Corporate VPN Client,1
+LAXOPSPC001,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXOPSPC001,Google Chrome,Web Browser,0
+LAXOPSPC001,Microsoft Teams,Collaboration Platform,1
+LAXOPSPC001,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXOPSPC002,Banana VPN,Corporate VPN Client,99
+LAXOPSPC002,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXOPSPC002,Google Chrome,Web Browser,0
+LAXOPSPC002,Microsoft Teams,Collaboration Platform,1
+LAXOPSPC002,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXOPSPC003,Banana VPN,Corporate VPN Client,1
+LAXOPSPC003,Canon Scan Utility,MFP Scan Integration Tool,0
+LAXOPSPC003,Google Chrome,Web Browser,1
+LAXOPSPC003,Microsoft Teams,Collaboration Platform,1
+LAXOPSPC003,Otter Endpoint Security,Endpoint Protection Platform,0
+LAXOPSPC004,Banana VPN,Corporate VPN Client,99
+LAXOPSPC004,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXOPSPC004,Google Chrome,Web Browser,1
+LAXOPSPC004,Microsoft Teams,Collaboration Platform,1
+LAXOPSPC004,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXOPSPC005,Banana VPN,Corporate VPN Client,1
+LAXOPSPC005,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXOPSPC005,Google Chrome,Web Browser,1
+LAXOPSPC005,Microsoft Teams,Collaboration Platform,1
+LAXOPSPC005,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXOPSPC006,Banana VPN,Corporate VPN Client,99
+LAXOPSPC006,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXOPSPC006,Google Chrome,Web Browser,1
+LAXOPSPC006,Microsoft Teams,Collaboration Platform,1
+LAXOPSPC006,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXOPSPC007,Banana VPN,Corporate VPN Client,99
+LAXOPSPC007,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXOPSPC007,Google Chrome,Web Browser,1
+LAXOPSPC007,Microsoft Teams,Collaboration Platform,1
+LAXOPSPC007,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXOPSPC008,Banana VPN,Corporate VPN Client,99
+LAXOPSPC008,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXOPSPC008,Google Chrome,Web Browser,1
+LAXOPSPC008,Microsoft Teams,Collaboration Platform,1
+LAXOPSPC008,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXOPSPC009,Banana VPN,Corporate VPN Client,99
+LAXOPSPC009,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXOPSPC009,Google Chrome,Web Browser,1
+LAXOPSPC009,Microsoft Teams,Collaboration Platform,1
+LAXOPSPC009,Otter Endpoint Security,Endpoint Protection Platform,1
+LAXOPSPC010,Banana VPN,Corporate VPN Client,99
+LAXOPSPC010,Canon Scan Utility,MFP Scan Integration Tool,1
+LAXOPSPC010,Google Chrome,Web Browser,1
+LAXOPSPC010,Microsoft Teams,Collaboration Platform,1
+LAXOPSPC010,Otter Endpoint Security,Endpoint Protection Platform,1

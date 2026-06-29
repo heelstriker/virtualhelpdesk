@@ -1,0 +1,79 @@
+/* ============================================
+   All Tables - page specific styles
+   ============================================ */
+
+.subtitle{
+    color:var(--text-soft);
+    margin-bottom:8px;
+}
+
+.hint{
+    color:var(--text-soft);
+    font-size:14px;
+    margin-bottom:25px;
+}
+
+.hint code{
+    background:var(--turquoise-light);
+    color:var(--turquoise-dark);
+    padding:2px 6px;
+    border-radius:4px;
+    font-family:'Consolas', monospace;
+}
+
+.table-tabs{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:20px;
+    border-bottom:1px solid var(--border);
+    padding-bottom:12px;
+}
+
+.table-tab{
+    background:none;
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:8px 18px;
+    font-size:14px;
+    font-weight:600;
+    color:var(--text-soft);
+    cursor:pointer;
+    font-family:'Segoe UI', sans-serif;
+}
+
+.table-tab:hover{
+    background:var(--panel-alt);
+    color:var(--turquoise-dark);
+}
+
+.table-tab.active{
+    background:var(--turquoise);
+    border-color:var(--turquoise);
+    color:#ffffff;
+}
+
+.table-panel{
+    display:none;
+}
+
+.table-panel.active{
+    display:block;
+}
+
+.empty-state{
+    color:var(--text-soft);
+    padding:30px 0;
+    text-align:center;
+}
+
+@media (max-width: 768px){
+    .table-tabs{
+        gap:6px;
+    }
+
+    .table-tab{
+        padding:6px 14px;
+        font-size:13px;
+    }
+}

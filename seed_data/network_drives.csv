@@ -1,0 +1,401 @@
+hostname,network_drive,connected,drive_name,status
+LAXACTPC001,A:\\NYCSERVER01\Accounting Shared,1,Accounting Shared,Online
+LAXACTPC001,G:\\LAXSERVER01\General,1,General,Online
+LAXACTPC001,H:\\LAXSERVER01\HR_Shared,99,HR Shared,Online
+LAXACTPC001,I:\\LAXSERVER01\IT_Shared,99,IT Shared,Online
+LAXACTPC001,M:\\LAXSERVER01\Marketing_Shared,1,Marketing Shared,Online
+LAXACTPC001,O:\\LAXSERVER01\Operation_Shared,0,Operation Shared,Online
+LAXACTPC001,S:\\NYCSERVER01\Sales_Shared,1,Sales Shared,Online
+LAXACTPC001,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXACTPC002,A:\\NYCSERVER01\Accounting Shared,1,Accounting Shared,Online
+LAXACTPC002,G:\\LAXSERVER01\General,1,General,Online
+LAXACTPC002,H:\\LAXSERVER01\HR_Shared,99,HR Shared,Online
+LAXACTPC002,I:\\LAXSERVER01\IT_Shared,99,IT Shared,Online
+LAXACTPC002,M:\\LAXSERVER01\Marketing_Shared,1,Marketing Shared,Online
+LAXACTPC002,O:\\LAXSERVER01\Operation_Shared,0,Operation Shared,Online
+LAXACTPC002,S:\\NYCSERVER01\Sales_Shared,1,Sales Shared,Online
+LAXACTPC002,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXACTPC003,A:\\NYCSERVER01\Accounting Shared,1,Accounting Shared,Online
+LAXACTPC003,G:\\LAXSERVER01\General,1,General,Online
+LAXACTPC003,H:\\LAXSERVER01\HR_Shared,99,HR Shared,Online
+LAXACTPC003,I:\\LAXSERVER01\IT_Shared,99,IT Shared,Online
+LAXACTPC003,M:\\LAXSERVER01\Marketing_Shared,1,Marketing Shared,Online
+LAXACTPC003,O:\\LAXSERVER01\Operation_Shared,0,Operation Shared,Online
+LAXACTPC003,S:\\NYCSERVER01\Sales_Shared,1,Sales Shared,Online
+LAXACTPC003,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXACTPC004,A:\\NYCSERVER01\Accounting Shared,1,Accounting Shared,Online
+LAXACTPC004,G:\\LAXSERVER01\General,1,General,Online
+LAXACTPC004,H:\\LAXSERVER01\HR_Shared,99,HR Shared,Online
+LAXACTPC004,I:\\LAXSERVER01\IT_Shared,99,IT Shared,Online
+LAXACTPC004,M:\\LAXSERVER01\Marketing_Shared,1,Marketing Shared,Online
+LAXACTPC004,O:\\LAXSERVER01\Operation_Shared,0,Operation Shared,Online
+LAXACTPC004,S:\\NYCSERVER01\Sales_Shared,1,Sales Shared,Online
+LAXACTPC004,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXACTPC005,A:\\NYCSERVER01\Accounting Shared,1,Accounting Shared,Online
+LAXACTPC005,G:\\LAXSERVER01\General,1,General,Online
+LAXACTPC005,H:\\LAXSERVER01\HR_Shared,99,HR Shared,Online
+LAXACTPC005,I:\\LAXSERVER01\IT_Shared,99,IT Shared,Online
+LAXACTPC005,M:\\LAXSERVER01\Marketing_Shared,1,Marketing Shared,Online
+LAXACTPC005,O:\\LAXSERVER01\Operation_Shared,0,Operation Shared,Online
+LAXACTPC005,S:\\NYCSERVER01\Sales_Shared,1,Sales Shared,Online
+LAXACTPC005,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXACTPC006,A:\\NYCSERVER01\Accounting Shared,1,Accounting Shared,Online
+LAXACTPC006,G:\\LAXSERVER01\General,1,General,Online
+LAXACTPC006,H:\\LAXSERVER01\HR_Shared,99,HR Shared,Online
+LAXACTPC006,I:\\LAXSERVER01\IT_Shared,99,IT Shared,Online
+LAXACTPC006,M:\\LAXSERVER01\Marketing_Shared,1,Marketing Shared,Online
+LAXACTPC006,O:\\LAXSERVER01\Operation_Shared,0,Operation Shared,Online
+LAXACTPC006,S:\\NYCSERVER01\Sales_Shared,1,Sales Shared,Online
+LAXACTPC006,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXACTPC007,A:\\NYCSERVER01\Accounting Shared,1,Accounting Shared,Online
+LAXACTPC007,G:\\LAXSERVER01\General,1,General,Online
+LAXACTPC007,H:\\LAXSERVER01\HR_Shared,99,HR Shared,Online
+LAXACTPC007,I:\\LAXSERVER01\IT_Shared,99,IT Shared,Online
+LAXACTPC007,M:\\LAXSERVER01\Marketing_Shared,1,Marketing Shared,Online
+LAXACTPC007,O:\\LAXSERVER01\Operation_Shared,0,Operation Shared,Online
+LAXACTPC007,S:\\NYCSERVER01\Sales_Shared,1,Sales Shared,Online
+LAXACTPC007,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXACTPC008,A:\\NYCSERVER01\Accounting Shared,1,Accounting Shared,Online
+LAXACTPC008,G:\\LAXSERVER01\General,1,General,Online
+LAXACTPC008,H:\\LAXSERVER01\HR_Shared,99,HR Shared,Online
+LAXACTPC008,I:\\LAXSERVER01\IT_Shared,99,IT Shared,Online
+LAXACTPC008,M:\\LAXSERVER01\Marketing_Shared,1,Marketing Shared,Online
+LAXACTPC008,O:\\LAXSERVER01\Operation_Shared,0,Operation Shared,Online
+LAXACTPC008,S:\\NYCSERVER01\Sales_Shared,1,Sales Shared,Online
+LAXACTPC008,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXACTPC009,A:\\NYCSERVER01\Accounting Shared,1,Accounting Shared,Online
+LAXACTPC009,G:\\LAXSERVER01\General,1,General,Online
+LAXACTPC009,H:\\LAXSERVER01\HR_Shared,99,HR Shared,Online
+LAXACTPC009,I:\\LAXSERVER01\IT_Shared,99,IT Shared,Online
+LAXACTPC009,M:\\LAXSERVER01\Marketing_Shared,1,Marketing Shared,Online
+LAXACTPC009,O:\\LAXSERVER01\Operation_Shared,0,Operation Shared,Online
+LAXACTPC009,S:\\NYCSERVER01\Sales_Shared,1,Sales Shared,Online
+LAXACTPC009,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXACTPC010,A:\\NYCSERVER01\Accounting Shared,1,Accounting Shared,Online
+LAXACTPC010,G:\\LAXSERVER01\General,1,General,Online
+LAXACTPC010,H:\\LAXSERVER01\HR_Shared,99,HR Shared,Online
+LAXACTPC010,I:\\LAXSERVER01\IT_Shared,99,IT Shared,Online
+LAXACTPC010,M:\\LAXSERVER01\Marketing_Shared,1,Marketing Shared,Online
+LAXACTPC010,O:\\LAXSERVER01\Operation_Shared,0,Operation Shared,Online
+LAXACTPC010,S:\\NYCSERVER01\Sales_Shared,1,Sales Shared,Online
+LAXACTPC010,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXHRPC001,A:\\NYCSERVER01\Accounting Shared,0,Accounting Shared,Online
+LAXHRPC001,G:\\LAXSERVER01\General,1,General,Online
+LAXHRPC001,H:\\LAXSERVER01\HR_Shared,1,HR Shared,Online
+LAXHRPC001,I:\\LAXSERVER01\IT_Shared,99,IT Shared,Online
+LAXHRPC001,M:\\LAXSERVER01\Marketing_Shared,0,Marketing Shared,Online
+LAXHRPC001,O:\\LAXSERVER01\Operation_Shared,0,Operation Shared,Online
+LAXHRPC001,S:\\NYCSERVER01\Sales_Shared,0,Sales Shared,Online
+LAXHRPC001,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXHRPC002,A:\\NYCSERVER01\Accounting Shared,0,Accounting Shared,Online
+LAXHRPC002,G:\\LAXSERVER01\General,1,General,Online
+LAXHRPC002,H:\\LAXSERVER01\HR_Shared,1,HR Shared,Online
+LAXHRPC002,I:\\LAXSERVER01\IT_Shared,99,IT Shared,Online
+LAXHRPC002,M:\\LAXSERVER01\Marketing_Shared,0,Marketing Shared,Online
+LAXHRPC002,O:\\LAXSERVER01\Operation_Shared,0,Operation Shared,Online
+LAXHRPC002,S:\\NYCSERVER01\Sales_Shared,0,Sales Shared,Online
+LAXHRPC002,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXHRPC003,A:\\NYCSERVER01\Accounting Shared,0,Accounting Shared,Online
+LAXHRPC003,G:\\LAXSERVER01\General,1,General,Online
+LAXHRPC003,H:\\LAXSERVER01\HR_Shared,1,HR Shared,Online
+LAXHRPC003,I:\\LAXSERVER01\IT_Shared,99,IT Shared,Online
+LAXHRPC003,M:\\LAXSERVER01\Marketing_Shared,0,Marketing Shared,Online
+LAXHRPC003,O:\\LAXSERVER01\Operation_Shared,0,Operation Shared,Online
+LAXHRPC003,S:\\NYCSERVER01\Sales_Shared,0,Sales Shared,Online
+LAXHRPC003,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXHRPC004,A:\\NYCSERVER01\Accounting Shared,0,Accounting Shared,Online
+LAXHRPC004,G:\\LAXSERVER01\General,1,General,Online
+LAXHRPC004,H:\\LAXSERVER01\HR_Shared,1,HR Shared,Online
+LAXHRPC004,I:\\LAXSERVER01\IT_Shared,99,IT Shared,Online
+LAXHRPC004,M:\\LAXSERVER01\Marketing_Shared,0,Marketing Shared,Online
+LAXHRPC004,O:\\LAXSERVER01\Operation_Shared,0,Operation Shared,Online
+LAXHRPC004,S:\\NYCSERVER01\Sales_Shared,0,Sales Shared,Online
+LAXHRPC004,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXHRPC005,A:\\NYCSERVER01\Accounting Shared,0,Accounting Shared,Online
+LAXHRPC005,G:\\LAXSERVER01\General,1,General,Online
+LAXHRPC005,H:\\LAXSERVER01\HR_Shared,1,HR Shared,Online
+LAXHRPC005,I:\\LAXSERVER01\IT_Shared,99,IT Shared,Online
+LAXHRPC005,M:\\LAXSERVER01\Marketing_Shared,0,Marketing Shared,Online
+LAXHRPC005,O:\\LAXSERVER01\Operation_Shared,0,Operation Shared,Online
+LAXHRPC005,S:\\NYCSERVER01\Sales_Shared,0,Sales Shared,Online
+LAXHRPC005,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXHRPC006,A:\\NYCSERVER01\Accounting Shared,0,Accounting Shared,Online
+LAXHRPC006,G:\\LAXSERVER01\General,1,General,Online
+LAXHRPC006,H:\\LAXSERVER01\HR_Shared,1,HR Shared,Online
+LAXHRPC006,I:\\LAXSERVER01\IT_Shared,99,IT Shared,Online
+LAXHRPC006,M:\\LAXSERVER01\Marketing_Shared,0,Marketing Shared,Online
+LAXHRPC006,O:\\LAXSERVER01\Operation_Shared,0,Operation Shared,Online
+LAXHRPC006,S:\\NYCSERVER01\Sales_Shared,0,Sales Shared,Online
+LAXHRPC006,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXHRPC007,A:\\NYCSERVER01\Accounting Shared,0,Accounting Shared,Online
+LAXHRPC007,G:\\LAXSERVER01\General,1,General,Online
+LAXHRPC007,H:\\LAXSERVER01\HR_Shared,1,HR Shared,Online
+LAXHRPC007,I:\\LAXSERVER01\IT_Shared,99,IT Shared,Online
+LAXHRPC007,M:\\LAXSERVER01\Marketing_Shared,0,Marketing Shared,Online
+LAXHRPC007,O:\\LAXSERVER01\Operation_Shared,0,Operation Shared,Online
+LAXHRPC007,S:\\NYCSERVER01\Sales_Shared,0,Sales Shared,Online
+LAXHRPC007,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXHRPC008,A:\\NYCSERVER01\Accounting Shared,0,Accounting Shared,Online
+LAXHRPC008,G:\\LAXSERVER01\General,1,General,Online
+LAXHRPC008,H:\\LAXSERVER01\HR_Shared,1,HR Shared,Online
+LAXHRPC008,I:\\LAXSERVER01\IT_Shared,99,IT Shared,Online
+LAXHRPC008,M:\\LAXSERVER01\Marketing_Shared,0,Marketing Shared,Online
+LAXHRPC008,O:\\LAXSERVER01\Operation_Shared,0,Operation Shared,Online
+LAXHRPC008,S:\\NYCSERVER01\Sales_Shared,0,Sales Shared,Online
+LAXHRPC008,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXHRPC009,A:\\NYCSERVER01\Accounting Shared,0,Accounting Shared,Online
+LAXHRPC009,G:\\LAXSERVER01\General,1,General,Online
+LAXHRPC009,H:\\LAXSERVER01\HR_Shared,1,HR Shared,Online
+LAXHRPC009,I:\\LAXSERVER01\IT_Shared,99,IT Shared,Online
+LAXHRPC009,M:\\LAXSERVER01\Marketing_Shared,0,Marketing Shared,Online
+LAXHRPC009,O:\\LAXSERVER01\Operation_Shared,0,Operation Shared,Online
+LAXHRPC009,S:\\NYCSERVER01\Sales_Shared,0,Sales Shared,Online
+LAXHRPC009,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXHRPC010,A:\\NYCSERVER01\Accounting Shared,0,Accounting Shared,Online
+LAXHRPC010,G:\\LAXSERVER01\General,1,General,Online
+LAXHRPC010,H:\\LAXSERVER01\HR_Shared,1,HR Shared,Online
+LAXHRPC010,I:\\LAXSERVER01\IT_Shared,99,IT Shared,Online
+LAXHRPC010,M:\\LAXSERVER01\Marketing_Shared,0,Marketing Shared,Online
+LAXHRPC010,O:\\LAXSERVER01\Operation_Shared,0,Operation Shared,Online
+LAXHRPC010,S:\\NYCSERVER01\Sales_Shared,0,Sales Shared,Online
+LAXHRPC010,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXITSPC001,A:\\NYCSERVER01\Accounting Shared,1,Accounting Shared,Online
+LAXITSPC001,G:\\LAXSERVER01\General,1,General,Online
+LAXITSPC001,H:\\LAXSERVER01\HR_Shared,99,HR Shared,Online
+LAXITSPC001,I:\\LAXSERVER01\IT_Shared,1,IT Shared,Online
+LAXITSPC001,M:\\LAXSERVER01\Marketing_Shared,1,Marketing Shared,Online
+LAXITSPC001,O:\\LAXSERVER01\Operation_Shared,1,Operation Shared,Online
+LAXITSPC001,S:\\NYCSERVER01\Sales_Shared,1,Sales Shared,Online
+LAXITSPC001,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXITSPC002,A:\\NYCSERVER01\Accounting Shared,1,Accounting Shared,Online
+LAXITSPC002,G:\\LAXSERVER01\General,1,General,Online
+LAXITSPC002,H:\\LAXSERVER01\HR_Shared,99,HR Shared,Online
+LAXITSPC002,I:\\LAXSERVER01\IT_Shared,1,IT Shared,Online
+LAXITSPC002,M:\\LAXSERVER01\Marketing_Shared,1,Marketing Shared,Online
+LAXITSPC002,O:\\LAXSERVER01\Operation_Shared,1,Operation Shared,Online
+LAXITSPC002,S:\\NYCSERVER01\Sales_Shared,1,Sales Shared,Online
+LAXITSPC002,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXITSPC003,A:\\NYCSERVER01\Accounting Shared,1,Accounting Shared,Online
+LAXITSPC003,G:\\LAXSERVER01\General,1,General,Online
+LAXITSPC003,H:\\LAXSERVER01\HR_Shared,99,HR Shared,Online
+LAXITSPC003,I:\\LAXSERVER01\IT_Shared,1,IT Shared,Online
+LAXITSPC003,M:\\LAXSERVER01\Marketing_Shared,1,Marketing Shared,Online
+LAXITSPC003,O:\\LAXSERVER01\Operation_Shared,1,Operation Shared,Online
+LAXITSPC003,S:\\NYCSERVER01\Sales_Shared,1,Sales Shared,Online
+LAXITSPC003,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXITSPC004,A:\\NYCSERVER01\Accounting Shared,1,Accounting Shared,Online
+LAXITSPC004,G:\\LAXSERVER01\General,1,General,Online
+LAXITSPC004,H:\\LAXSERVER01\HR_Shared,99,HR Shared,Online
+LAXITSPC004,I:\\LAXSERVER01\IT_Shared,1,IT Shared,Online
+LAXITSPC004,M:\\LAXSERVER01\Marketing_Shared,1,Marketing Shared,Online
+LAXITSPC004,O:\\LAXSERVER01\Operation_Shared,1,Operation Shared,Online
+LAXITSPC004,S:\\NYCSERVER01\Sales_Shared,1,Sales Shared,Online
+LAXITSPC004,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXITSPC005,A:\\NYCSERVER01\Accounting Shared,1,Accounting Shared,Online
+LAXITSPC005,G:\\LAXSERVER01\General,1,General,Online
+LAXITSPC005,H:\\LAXSERVER01\HR_Shared,99,HR Shared,Online
+LAXITSPC005,I:\\LAXSERVER01\IT_Shared,1,IT Shared,Online
+LAXITSPC005,M:\\LAXSERVER01\Marketing_Shared,1,Marketing Shared,Online
+LAXITSPC005,O:\\LAXSERVER01\Operation_Shared,1,Operation Shared,Online
+LAXITSPC005,S:\\NYCSERVER01\Sales_Shared,1,Sales Shared,Online
+LAXITSPC005,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXITSPC006,A:\\NYCSERVER01\Accounting Shared,1,Accounting Shared,Online
+LAXITSPC006,G:\\LAXSERVER01\General,1,General,Online
+LAXITSPC006,H:\\LAXSERVER01\HR_Shared,99,HR Shared,Online
+LAXITSPC006,I:\\LAXSERVER01\IT_Shared,1,IT Shared,Online
+LAXITSPC006,M:\\LAXSERVER01\Marketing_Shared,1,Marketing Shared,Online
+LAXITSPC006,O:\\LAXSERVER01\Operation_Shared,1,Operation Shared,Online
+LAXITSPC006,S:\\NYCSERVER01\Sales_Shared,1,Sales Shared,Online
+LAXITSPC006,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXITSPC007,A:\\NYCSERVER01\Accounting Shared,1,Accounting Shared,Online
+LAXITSPC007,G:\\LAXSERVER01\General,1,General,Online
+LAXITSPC007,H:\\LAXSERVER01\HR_Shared,99,HR Shared,Online
+LAXITSPC007,I:\\LAXSERVER01\IT_Shared,1,IT Shared,Online
+LAXITSPC007,M:\\LAXSERVER01\Marketing_Shared,1,Marketing Shared,Online
+LAXITSPC007,O:\\LAXSERVER01\Operation_Shared,1,Operation Shared,Online
+LAXITSPC007,S:\\NYCSERVER01\Sales_Shared,1,Sales Shared,Online
+LAXITSPC007,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXITSPC008,A:\\NYCSERVER01\Accounting Shared,1,Accounting Shared,Online
+LAXITSPC008,G:\\LAXSERVER01\General,1,General,Online
+LAXITSPC008,H:\\LAXSERVER01\HR_Shared,99,HR Shared,Online
+LAXITSPC008,I:\\LAXSERVER01\IT_Shared,1,IT Shared,Online
+LAXITSPC008,M:\\LAXSERVER01\Marketing_Shared,1,Marketing Shared,Online
+LAXITSPC008,O:\\LAXSERVER01\Operation_Shared,1,Operation Shared,Online
+LAXITSPC008,S:\\NYCSERVER01\Sales_Shared,1,Sales Shared,Online
+LAXITSPC008,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXITSPC009,A:\\NYCSERVER01\Accounting Shared,1,Accounting Shared,Online
+LAXITSPC009,G:\\LAXSERVER01\General,1,General,Online
+LAXITSPC009,H:\\LAXSERVER01\HR_Shared,99,HR Shared,Online
+LAXITSPC009,I:\\LAXSERVER01\IT_Shared,1,IT Shared,Online
+LAXITSPC009,M:\\LAXSERVER01\Marketing_Shared,1,Marketing Shared,Online
+LAXITSPC009,O:\\LAXSERVER01\Operation_Shared,1,Operation Shared,Online
+LAXITSPC009,S:\\NYCSERVER01\Sales_Shared,1,Sales Shared,Online
+LAXITSPC009,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXITSPC010,A:\\NYCSERVER01\Accounting Shared,1,Accounting Shared,Online
+LAXITSPC010,G:\\LAXSERVER01\General,1,General,Online
+LAXITSPC010,H:\\LAXSERVER01\HR_Shared,99,HR Shared,Online
+LAXITSPC010,I:\\LAXSERVER01\IT_Shared,1,IT Shared,Online
+LAXITSPC010,M:\\LAXSERVER01\Marketing_Shared,1,Marketing Shared,Online
+LAXITSPC010,O:\\LAXSERVER01\Operation_Shared,1,Operation Shared,Online
+LAXITSPC010,S:\\NYCSERVER01\Sales_Shared,1,Sales Shared,Online
+LAXITSPC010,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXMKTPC001,A:\\NYCSERVER01\Accounting Shared,0,Accounting Shared,Online
+LAXMKTPC001,G:\\LAXSERVER01\General,1,General,Online
+LAXMKTPC001,H:\\LAXSERVER01\HR_Shared,99,HR Shared,Online
+LAXMKTPC001,I:\\LAXSERVER01\IT_Shared,99,IT Shared,Online
+LAXMKTPC001,M:\\LAXSERVER01\Marketing_Shared,1,Marketing Shared,Online
+LAXMKTPC001,O:\\LAXSERVER01\Operation_Shared,0,Operation Shared,Online
+LAXMKTPC001,S:\\NYCSERVER01\Sales_Shared,99,Sales Shared,Online
+LAXMKTPC001,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXMKTPC002,A:\\NYCSERVER01\Accounting Shared,0,Accounting Shared,Online
+LAXMKTPC002,G:\\LAXSERVER01\General,1,General,Online
+LAXMKTPC002,H:\\LAXSERVER01\HR_Shared,99,HR Shared,Online
+LAXMKTPC002,I:\\LAXSERVER01\IT_Shared,99,IT Shared,Online
+LAXMKTPC002,M:\\LAXSERVER01\Marketing_Shared,1,Marketing Shared,Online
+LAXMKTPC002,O:\\LAXSERVER01\Operation_Shared,0,Operation Shared,Online
+LAXMKTPC002,S:\\NYCSERVER01\Sales_Shared,99,Sales Shared,Online
+LAXMKTPC002,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXMKTPC003,A:\\NYCSERVER01\Accounting Shared,0,Accounting Shared,Online
+LAXMKTPC003,G:\\LAXSERVER01\General,1,General,Online
+LAXMKTPC003,H:\\LAXSERVER01\HR_Shared,99,HR Shared,Online
+LAXMKTPC003,I:\\LAXSERVER01\IT_Shared,99,IT Shared,Online
+LAXMKTPC003,M:\\LAXSERVER01\Marketing_Shared,1,Marketing Shared,Online
+LAXMKTPC003,O:\\LAXSERVER01\Operation_Shared,0,Operation Shared,Online
+LAXMKTPC003,S:\\NYCSERVER01\Sales_Shared,99,Sales Shared,Online
+LAXMKTPC003,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXMKTPC004,A:\\NYCSERVER01\Accounting Shared,0,Accounting Shared,Online
+LAXMKTPC004,G:\\LAXSERVER01\General,1,General,Online
+LAXMKTPC004,H:\\LAXSERVER01\HR_Shared,99,HR Shared,Online
+LAXMKTPC004,I:\\LAXSERVER01\IT_Shared,99,IT Shared,Online
+LAXMKTPC004,M:\\LAXSERVER01\Marketing_Shared,1,Marketing Shared,Online
+LAXMKTPC004,O:\\LAXSERVER01\Operation_Shared,0,Operation Shared,Online
+LAXMKTPC004,S:\\NYCSERVER01\Sales_Shared,99,Sales Shared,Online
+LAXMKTPC004,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXMKTPC005,A:\\NYCSERVER01\Accounting Shared,0,Accounting Shared,Online
+LAXMKTPC005,G:\\LAXSERVER01\General,1,General,Online
+LAXMKTPC005,H:\\LAXSERVER01\HR_Shared,99,HR Shared,Online
+LAXMKTPC005,I:\\LAXSERVER01\IT_Shared,99,IT Shared,Online
+LAXMKTPC005,M:\\LAXSERVER01\Marketing_Shared,1,Marketing Shared,Online
+LAXMKTPC005,O:\\LAXSERVER01\Operation_Shared,0,Operation Shared,Online
+LAXMKTPC005,S:\\NYCSERVER01\Sales_Shared,99,Sales Shared,Online
+LAXMKTPC005,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXMKTPC006,A:\\NYCSERVER01\Accounting Shared,0,Accounting Shared,Online
+LAXMKTPC006,G:\\LAXSERVER01\General,1,General,Online
+LAXMKTPC006,H:\\LAXSERVER01\HR_Shared,99,HR Shared,Online
+LAXMKTPC006,I:\\LAXSERVER01\IT_Shared,99,IT Shared,Online
+LAXMKTPC006,M:\\LAXSERVER01\Marketing_Shared,1,Marketing Shared,Online
+LAXMKTPC006,O:\\LAXSERVER01\Operation_Shared,0,Operation Shared,Online
+LAXMKTPC006,S:\\NYCSERVER01\Sales_Shared,99,Sales Shared,Online
+LAXMKTPC006,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXMKTPC007,A:\\NYCSERVER01\Accounting Shared,0,Accounting Shared,Online
+LAXMKTPC007,G:\\LAXSERVER01\General,1,General,Online
+LAXMKTPC007,H:\\LAXSERVER01\HR_Shared,99,HR Shared,Online
+LAXMKTPC007,I:\\LAXSERVER01\IT_Shared,99,IT Shared,Online
+LAXMKTPC007,M:\\LAXSERVER01\Marketing_Shared,1,Marketing Shared,Online
+LAXMKTPC007,O:\\LAXSERVER01\Operation_Shared,0,Operation Shared,Online
+LAXMKTPC007,S:\\NYCSERVER01\Sales_Shared,99,Sales Shared,Online
+LAXMKTPC007,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXMKTPC008,A:\\NYCSERVER01\Accounting Shared,0,Accounting Shared,Online
+LAXMKTPC008,G:\\LAXSERVER01\General,1,General,Online
+LAXMKTPC008,H:\\LAXSERVER01\HR_Shared,99,HR Shared,Online
+LAXMKTPC008,I:\\LAXSERVER01\IT_Shared,99,IT Shared,Online
+LAXMKTPC008,M:\\LAXSERVER01\Marketing_Shared,1,Marketing Shared,Online
+LAXMKTPC008,O:\\LAXSERVER01\Operation_Shared,0,Operation Shared,Online
+LAXMKTPC008,S:\\NYCSERVER01\Sales_Shared,99,Sales Shared,Online
+LAXMKTPC008,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXMKTPC009,A:\\NYCSERVER01\Accounting Shared,0,Accounting Shared,Online
+LAXMKTPC009,G:\\LAXSERVER01\General,1,General,Online
+LAXMKTPC009,H:\\LAXSERVER01\HR_Shared,99,HR Shared,Online
+LAXMKTPC009,I:\\LAXSERVER01\IT_Shared,99,IT Shared,Online
+LAXMKTPC009,M:\\LAXSERVER01\Marketing_Shared,1,Marketing Shared,Online
+LAXMKTPC009,O:\\LAXSERVER01\Operation_Shared,0,Operation Shared,Online
+LAXMKTPC009,S:\\NYCSERVER01\Sales_Shared,99,Sales Shared,Online
+LAXMKTPC009,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXMKTPC010,A:\\NYCSERVER01\Accounting Shared,0,Accounting Shared,Online
+LAXMKTPC010,G:\\LAXSERVER01\General,1,General,Online
+LAXMKTPC010,H:\\LAXSERVER01\HR_Shared,99,HR Shared,Online
+LAXMKTPC010,I:\\LAXSERVER01\IT_Shared,99,IT Shared,Online
+LAXMKTPC010,M:\\LAXSERVER01\Marketing_Shared,1,Marketing Shared,Online
+LAXMKTPC010,O:\\LAXSERVER01\Operation_Shared,0,Operation Shared,Online
+LAXMKTPC010,S:\\NYCSERVER01\Sales_Shared,99,Sales Shared,Online
+LAXMKTPC010,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXOPSPC001,A:\\NYCSERVER01\Accounting Shared,99,Accounting Shared,Online
+LAXOPSPC001,G:\\LAXSERVER01\General,1,General,Online
+LAXOPSPC001,H:\\LAXSERVER01\HR_Shared,99,HR Shared,Online
+LAXOPSPC001,I:\\LAXSERVER01\IT_Shared,99,IT Shared,Online
+LAXOPSPC001,M:\\LAXSERVER01\Marketing_Shared,1,Marketing Shared,Online
+LAXOPSPC001,O:\\LAXSERVER01\Operation_Shared,1,Operation Shared,Online
+LAXOPSPC001,S:\\NYCSERVER01\Sales_Shared,0,Sales Shared,Online
+LAXOPSPC001,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXOPSPC002,A:\\NYCSERVER01\Accounting Shared,99,Accounting Shared,Online
+LAXOPSPC002,G:\\LAXSERVER01\General,1,General,Online
+LAXOPSPC002,H:\\LAXSERVER01\HR_Shared,99,HR Shared,Online
+LAXOPSPC002,I:\\LAXSERVER01\IT_Shared,99,IT Shared,Online
+LAXOPSPC002,M:\\LAXSERVER01\Marketing_Shared,1,Marketing Shared,Online
+LAXOPSPC002,O:\\LAXSERVER01\Operation_Shared,1,Operation Shared,Online
+LAXOPSPC002,S:\\NYCSERVER01\Sales_Shared,0,Sales Shared,Online
+LAXOPSPC002,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXOPSPC003,A:\\NYCSERVER01\Accounting Shared,99,Accounting Shared,Online
+LAXOPSPC003,G:\\LAXSERVER01\General,1,General,Online
+LAXOPSPC003,H:\\LAXSERVER01\HR_Shared,99,HR Shared,Online
+LAXOPSPC003,I:\\LAXSERVER01\IT_Shared,99,IT Shared,Online
+LAXOPSPC003,M:\\LAXSERVER01\Marketing_Shared,1,Marketing Shared,Online
+LAXOPSPC003,O:\\LAXSERVER01\Operation_Shared,1,Operation Shared,Online
+LAXOPSPC003,S:\\NYCSERVER01\Sales_Shared,0,Sales Shared,Online
+LAXOPSPC003,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXOPSPC004,A:\\NYCSERVER01\Accounting Shared,99,Accounting Shared,Online
+LAXOPSPC004,G:\\LAXSERVER01\General,1,General,Online
+LAXOPSPC004,H:\\LAXSERVER01\HR_Shared,99,HR Shared,Online
+LAXOPSPC004,I:\\LAXSERVER01\IT_Shared,99,IT Shared,Online
+LAXOPSPC004,M:\\LAXSERVER01\Marketing_Shared,1,Marketing Shared,Online
+LAXOPSPC004,O:\\LAXSERVER01\Operation_Shared,1,Operation Shared,Online
+LAXOPSPC004,S:\\NYCSERVER01\Sales_Shared,0,Sales Shared,Online
+LAXOPSPC004,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXOPSPC005,A:\\NYCSERVER01\Accounting Shared,99,Accounting Shared,Online
+LAXOPSPC005,G:\\LAXSERVER01\General,1,General,Online
+LAXOPSPC005,H:\\LAXSERVER01\HR_Shared,99,HR Shared,Online
+LAXOPSPC005,I:\\LAXSERVER01\IT_Shared,99,IT Shared,Online
+LAXOPSPC005,M:\\LAXSERVER01\Marketing_Shared,1,Marketing Shared,Online
+LAXOPSPC005,O:\\LAXSERVER01\Operation_Shared,1,Operation Shared,Online
+LAXOPSPC005,S:\\NYCSERVER01\Sales_Shared,0,Sales Shared,Online
+LAXOPSPC005,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXOPSPC006,A:\\NYCSERVER01\Accounting Shared,99,Accounting Shared,Online
+LAXOPSPC006,G:\\LAXSERVER01\General,1,General,Online
+LAXOPSPC006,H:\\LAXSERVER01\HR_Shared,99,HR Shared,Online
+LAXOPSPC006,I:\\LAXSERVER01\IT_Shared,99,IT Shared,Online
+LAXOPSPC006,M:\\LAXSERVER01\Marketing_Shared,1,Marketing Shared,Online
+LAXOPSPC006,O:\\LAXSERVER01\Operation_Shared,1,Operation Shared,Online
+LAXOPSPC006,S:\\NYCSERVER01\Sales_Shared,0,Sales Shared,Online
+LAXOPSPC006,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXOPSPC007,A:\\NYCSERVER01\Accounting Shared,99,Accounting Shared,Online
+LAXOPSPC007,G:\\LAXSERVER01\General,1,General,Online
+LAXOPSPC007,H:\\LAXSERVER01\HR_Shared,99,HR Shared,Online
+LAXOPSPC007,I:\\LAXSERVER01\IT_Shared,99,IT Shared,Online
+LAXOPSPC007,M:\\LAXSERVER01\Marketing_Shared,1,Marketing Shared,Online
+LAXOPSPC007,O:\\LAXSERVER01\Operation_Shared,1,Operation Shared,Online
+LAXOPSPC007,S:\\NYCSERVER01\Sales_Shared,0,Sales Shared,Online
+LAXOPSPC007,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXOPSPC008,A:\\NYCSERVER01\Accounting Shared,99,Accounting Shared,Online
+LAXOPSPC008,G:\\LAXSERVER01\General,1,General,Online
+LAXOPSPC008,H:\\LAXSERVER01\HR_Shared,99,HR Shared,Online
+LAXOPSPC008,I:\\LAXSERVER01\IT_Shared,99,IT Shared,Online
+LAXOPSPC008,M:\\LAXSERVER01\Marketing_Shared,1,Marketing Shared,Online
+LAXOPSPC008,O:\\LAXSERVER01\Operation_Shared,1,Operation Shared,Online
+LAXOPSPC008,S:\\NYCSERVER01\Sales_Shared,0,Sales Shared,Online
+LAXOPSPC008,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXOPSPC009,A:\\NYCSERVER01\Accounting Shared,99,Accounting Shared,Online
+LAXOPSPC009,G:\\LAXSERVER01\General,1,General,Online
+LAXOPSPC009,H:\\LAXSERVER01\HR_Shared,99,HR Shared,Online
+LAXOPSPC009,I:\\LAXSERVER01\IT_Shared,99,IT Shared,Online
+LAXOPSPC009,M:\\LAXSERVER01\Marketing_Shared,1,Marketing Shared,Online
+LAXOPSPC009,O:\\LAXSERVER01\Operation_Shared,1,Operation Shared,Online
+LAXOPSPC009,S:\\NYCSERVER01\Sales_Shared,0,Sales Shared,Online
+LAXOPSPC009,Z:\\LAXSERVER01\system,1,System Drive,Online
+LAXOPSPC010,A:\\NYCSERVER01\Accounting Shared,99,Accounting Shared,Online
+LAXOPSPC010,G:\\LAXSERVER01\General,1,General,Online
+LAXOPSPC010,H:\\LAXSERVER01\HR_Shared,99,HR Shared,Online
+LAXOPSPC010,I:\\LAXSERVER01\IT_Shared,99,IT Shared,Online
+LAXOPSPC010,M:\\LAXSERVER01\Marketing_Shared,1,Marketing Shared,Online
+LAXOPSPC010,O:\\LAXSERVER01\Operation_Shared,1,Operation Shared,Online
+LAXOPSPC010,S:\\NYCSERVER01\Sales_Shared,0,Sales Shared,Online
+LAXOPSPC010,Z:\\LAXSERVER01\system,1,System Drive,Online

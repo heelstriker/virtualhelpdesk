@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block title %}About - VirtualHelpDesk{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='src/css/readme.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<h1>VirtualHelpDesk</h1>
+<div class="subtitle">
+    Enterprise IT Operations & Endpoint Management Simulation Platform
+</div>
+
+<div class="panel">
+    <h2>🚀 What This Project Is</h2>
+    <p>
+        VirtualHelpDesk simulates a real-world enterprise IT environment where IT teams manage endpoints,
+        monitor compliance, handle incidents, and enforce change control across an organization.
+    </p>
+    <p>
+        Built to demonstrate <span class="highlight">enterprise IT operations thinking</span>, not just application development.
+    </p>
+</div>
+
+<div class="grid">
+
+    <div class="panel">
+        <h2>🏢 Business Scenario</h2>
+        <ul>
+            <li>Banana Corporation (50 employees)</li>
+            <li>5 departments</li>
+            <li>Laptop & Desktop per user</li>
+            <li>Central IT Help Desk simulation</li>
+        </ul>
+    </div>
+
+    <div class="panel">
+        <h2>🧠 Core IT Concepts Modeled</h2>
+        <ul>
+            <li>CMDB (Configuration Management Database)</li>
+            <li>Incident / Problem / Change Management</li>
+            <li>SLA & Patch Compliance Tracking</li>
+            <li>Endpoint Health Scoring</li>
+        </ul>
+    </div>
+
+</div>
+
+<div class="panel">
+    <h2>📊 Key Features</h2>
+    <ul>
+        <li>Real-time endpoint inventory & compliance dashboard</li>
+        <li>Risk detection engine (misconfigurations, patch failures, printer issues)</li>
+        <li>Department-based resource segmentation</li>
+        <li>Patch lifecycle simulation (download → install → reboot tracking)</li>
+        <li>Aggregated compliance scoring across all endpoints</li>
+    </ul>
+</div>
+
+<div class="panel">
+    <h2>⚠ Risk Intelligence Layer</h2>
+    <p>
+        The system detects operational risks such as:
+    </p>
+    <ul>
+        <li>Pending or failed patch installations</li>
+        <li>Reboot-required endpoints affecting compliance</li>
+        <li>Storage-related deployment failures</li>
+        <li>Cross-department misconfigured printer access</li>
+    </ul>
+</div>
+
+<div class="panel">
+    <h2>🛠 Tech Stack</h2>
+    <span class="tag">Python (Flask)</span>
+    <span class="tag">SQLite</span>
+    <span class="tag">Jinja2</span>
+    <span class="tag">HTML / CSS</span>
+    <span class="tag">PowerShell Automation</span>
+    <span class="tag">GitHub</span>
+    <span class="tag">Render Deployment</span>
+</div>
+
+<div class="panel">
+    <h2>🎯 Why This Matters</h2>
+    <p>
+        This project demonstrates the ability to design and implement systems that reflect
+        <span class="highlight">real enterprise IT operations</span>, including infrastructure modeling,
+        operational workflows, and compliance-driven endpoint management.
+    </p>
+</div>
+
+<div class="footer">
+    VirtualHelpDesk — Designed as an IT operations simulation and portfolio project.
+</div>
+
+{% endblock %}

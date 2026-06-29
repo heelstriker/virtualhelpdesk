@@ -1,0 +1,33 @@
+/* ============================================
+   Readme / About - page specific styles
+   (theme.css に共通の色・panel・tagは定義済み)
+   ============================================ */
+
+.subtitle{
+    font-size:18px;
+    color:var(--turquoise-dark);
+    margin-bottom:30px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.highlight{
+    color:var(--orange);
+    font-weight:bold;
+}
+
+.footer{
+    margin-top:30px;
+    font-size:13px;
+    color:var(--text-soft);
+}
+
+@media (max-width: 768px){
+    .grid{
+        grid-template-columns:1fr;
+    }
+}

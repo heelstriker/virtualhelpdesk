@@ -1,0 +1,285 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - VirtualHelpDesk{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='src/css/dashboard.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <h1>VirtualHelpDesk</h1>
+
+    <p>
+        A lightweight Endpoint Management & IT Operations platform built with Python, Flask, SQLite, and PowerShell automation.
+    </p>
+
+    <p>
+        VirtualHelpDesk is a web-based IT operations and endpoint management system designed to simulate real-world enterprise support environments.
+        It centralizes endpoint visibility, compliance monitoring, and IT asset tracking into a unified dashboard for desktop support and IT operations teams.
+    </p>
+
+    <div class="section">
+        <h2>Overview</h2>
+        <p>
+            This project demonstrates how enterprise IT operations can be modeled using modern web technologies and automation scripting.
+            It combines backend data management with frontend dashboards and PowerShell-based endpoint simulation.
+        </p>
+        <p>
+            The goal is to replicate a realistic IT support environment including inventory management, compliance tracking, and operational workflows.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Key Objectives</h2>
+        <ul>
+            <li>Endpoint inventory management</li>
+            <li>Software compliance monitoring</li>
+            <li>Hardware asset tracking</li>
+            <li>Patch status validation</li>
+            <li>Department-based resource organization</li>
+            <li>Help desk workflow simulation and automation</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Enterprise Concepts Demonstrated</h2>
+        <ul>
+            <li>Configuration Management Database (CMDB)</li>
+            <li>Asset lifecycle tracking</li>
+            <li>Endpoint compliance monitoring</li>
+            <li>Software deployment workflows</li>
+            <li>Role-based access control concepts</li>
+            <li>IT operations dashboard design</li>
+            <li>Department-aware infrastructure modeling</li>
+        </ul>
+
+        <p>
+            Devices are organized using hostname conventions, IP addressing, and subnet allocation to simulate departmental ownership and network segmentation.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Example</h2>
+        <div class="example-box">
+    LAXACTPC002   Accounting Department
+    17.110.120.2
+
+    LAXITPC002    IT Department
+    17.110.121.2
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Technology Stack</h2>
+        <span class="tag">Python (Flask, Jinja2)</span>
+        <span class="tag">SQLite</span>
+        <span class="tag">HTML / CSS</span>
+        <span class="tag">PowerShell</span>
+        <span class="tag">GitHub</span>
+        <span class="tag">Render Deployment</span>
+    </div>
+
+    <div class="section">
+        <h2>Notes</h2>
+        <p>
+            This project is intended for educational and demonstration purposes, showcasing how endpoint management and IT operations concepts can be implemented in a lightweight web-based system.
+        </p>
+    </div>
+
+</div>
+
+
+
+<hr>
+
+<h2>Operations Center</h2>
+<p>Real-time Endpoint Monitoring & Compliance Dashboard</p>
+
+
+<div class="alert-wrapper">
+
+    <div class="alert-card">
+        <h3>Active Alerts</h3>
+
+        <div class="value orange blink">
+            {{ summary.alert_count }}
+        </div>
+    </div>
+
+
+    <div class="alertboard">
+        <h2>Active Alert Breakdown</h2>
+        {% for msg in alertboard %}
+        <div class="notice">
+            ⚠ {{ msg }}
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+
+
+<h2>Device Compliance Overview</h2>
+
+<div class="compliance-wrapper">
+
+    <div class="managed-card">
+        <h3>Managed Devices</h3>
+
+        <div class="value">
+            {{ summary.total_devices }}
+        </div>
+    </div>
+
+    <div class="compliance-card">
+        <h3>Device Compliance Score</h3>
+        <canvas id="complianceChart"></canvas>
+    </div>
+
+    <div class="breakdown-card">
+        <h3>Risk Breakdown</h3>
+        <canvas id="riskBreakdownChart"></canvas>
+    </div>
+
+</div>
+
+
+<br>
+
+
+<div class="label">
+    <h2>May 2026 Required Patch (KB5062553) Installation Trend </h2>
+</div>
+
+<div class="breakdown-card chart-fixed-width">
+    <canvas id="patchTrendChart"></canvas>
+</div>
+
+<div class="patchtrend-wrapper">
+
+    <div class="breakdown-card">
+        <h3>Patch Installation Trend by Wave</h3>
+        <canvas id="PatchWaveBreakdownChart"></canvas>
+    </div>
+
+    <div class="breakdown-card">
+        <h3>Patch Installation Trend by Department</h3>
+        <canvas id="PatchDeptBreakdownChart"></canvas>
+    </div>
+
+</div>
+
+
+<div class="panel">
+
+    <h2>Risk Devices</h2>
+
+    <table>
+        <tr>
+            <th>Hostname</th>
+            <th>Owner</th>
+            <th>Status</th>
+        </tr>
+
+        {% for device in risks %}
+        <tr>
+            <td>
+                <a href="/devices/{{ device.hostname }}">
+                    {{ device.hostname }}
+                </a>
+            </td>
+            <td>{{ device.owner }}</td>
+            <td>
+                <span class="critical">Needs Attention</span>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+
+
+<div class="panel">
+
+    <h2>Enterprise Asset Inventory</h2>
+
+    <div style="overflow-x:auto;">
+
+        <table>
+            <tr>
+                <th>Hostname</th>
+                <th>Owner</th>
+                <th>Department</th>
+                <th>Status</th>
+                <th>Last Seen</th>
+                <th>OS</th>
+                <th>RAM</th>
+                <th>Disk</th>
+                <th>Serial Number</th>
+                <th>Asset Tag</th>
+                <th>Purchase Date</th>
+                <th>Warranty Expiration</th>
+                <th>Retirement Date</th>
+                <th>Location</th>
+                <th>Cost Center</th>
+            </tr>
+
+            {% for row in inventory %}
+            <tr>
+                <td>
+                    <a href="/devices/{{ row.hostname }}">
+                        {{ row.hostname }}
+                    </a>
+                </td>
+                <td>{{ row.owner }}</td>
+                <td>{{ row.department }}</td>
+                <td>{{ row.status }}</td>
+                <td>{{ row.last_seen }}</td>
+                <td>{{ row.os }}</td>
+                <td>{{ row.memory_gb }}GB</td>
+                <td>{{ row.disk_gb }}GB</td>
+                <td>{{ row.serial_number }}</td>
+                <td>{{ row.asset_tag }}</td>
+                <td>{{ row.purchase_date }}</td>
+                <td>{{ row.warranty_expiration }}</td>
+                <td>{{ row.retirement_date }}</td>
+                <td>{{ row.location }}</td>
+                <td>{{ row.cost_center }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+
+</div>
+
+<!--
+    Chart.js用データの受け渡し:
+    static/src/javascript/dashboard.js は純粋なJSファイルのため Jinja2 が使えない。
+    そのため、この非表示div の data-* 属性にサーバ側の値を埋め込み、
+    dashboard.js 側で document.getElementById('dashboard-data').dataset.xxx として読み取る。
+-->
+<div id="dashboard-data"
+     data-compliance-percent="{{ summary.compliance_percent }}"
+     data-risk-percent="{{ summary.risk_percent }}"
+     data-risk-labels='{{ summary.risk_labels|tojson }}'
+     data-risk-counts='{{ summary.risk_counts|tojson }}'
+     data-trend-dates='{{ patch_progress.trend_dates|tojson }}'
+     data-trend-percent='{{ patch_progress.trend_percent|tojson }}'
+     data-wave-labels='{{ wave_progress.trend_wave|tojson }}'
+     data-wave-counts='{{ wave_progress.wave_percent|tojson }}'
+     data-dept-labels='{{ dept_progress.trend_dept|tojson }}'
+     data-dept-counts='{{ dept_progress.dept_percent|tojson }}'
+     style="display:none;">
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ url_for('static', filename='src/javascript/dashboard.js') }}"></script>
+{% endblock %}

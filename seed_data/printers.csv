@@ -1,0 +1,153 @@
+﻿hostname,printer_name,installed,driver_name
+LAXACTPC001,ACT-CANON-01,1,Canon Universal Print Driver
+LAXACTPC001,ACT-HP-01,1,HP Universal PCL6 Driver
+LAXACTPC001,ACT-BRO-01,0,Brother Universal Driver
+LAXACTPC002,ACT-CANON-01,1,Canon Universal Print Driver
+LAXACTPC002,ACT-HP-01,1,HP Universal PCL6 Driver
+LAXACTPC002,ACT-BRO-01,0,Brother Universal Driver
+LAXACTPC003,ACT-CANON-01,1,Canon Universal Print Driver
+LAXACTPC003,ACT-HP-01,1,HP Universal PCL6 Driver
+LAXACTPC003,ACT-BRO-01,0,Brother Universal Driver
+LAXACTPC004,ACT-CANON-01,1,Canon Universal Print Driver
+LAXACTPC004,ACT-HP-01,1,HP Universal PCL6 Driver
+LAXACTPC004,ACT-BRO-01,0,Brother Universal Driver
+LAXACTPC005,ACT-CANON-01,1,Canon Universal Print Driver
+LAXACTPC005,ACT-HP-01,1,HP Universal PCL6 Driver
+LAXACTPC005,ACT-BRO-01,1,Brother Universal Driver
+LAXACTPC006,ACT-CANON-01,1,Canon Universal Print Driver
+LAXACTPC006,ACT-HP-01,1,HP Universal PCL6 Driver
+LAXACTPC006,ACT-BRO-01,0,Brother Universal Driver
+LAXACTPC007,ACT-CANON-01,1,Canon Universal Print Driver
+LAXACTPC007,ACT-HP-01,1,HP Universal PCL6 Driver
+LAXACTPC007,ACT-BRO-01,0,Brother Universal Driver
+LAXACTPC008,ACT-CANON-01,1,Canon Universal Print Driver
+LAXACTPC008,ACT-HP-01,1,HP Universal PCL6 Driver
+LAXACTPC008,ACT-BRO-01,0,Brother Universal Driver
+LAXACTPC009,ACT-CANON-01,1,Canon Universal Print Driver
+LAXACTPC009,ACT-HP-01,1,HP Universal PCL6 Driver
+LAXACTPC009,ACT-BRO-01,0,Brother Universal Driver
+LAXACTPC010,ACT-CANON-01,1,Canon Universal Print Driver
+LAXACTPC010,ACT-HP-01,1,HP Universal PCL6 Driver
+LAXACTPC010,ACT-BRO-01,0,Brother Universal Driver
+LAXITSPC001,IT-CANON-01,1,Canon Universal Print Driver
+LAXITSPC001,IT-HP-01,1,HP Universal PCL6 Driver
+LAXITSPC001,IT-BRO-01,1,Brother Universal Driver
+LAXITSPC002,IT-CANON-01,1,Canon Universal Print Driver
+LAXITSPC002,IT-HP-01,1,HP Universal PCL6 Driver
+LAXITSPC002,IT-BRO-01,1,Brother Universal Driver
+LAXITSPC003,IT-CANON-01,1,Canon Universal Print Driver
+LAXITSPC003,IT-HP-01,1,HP Universal PCL6 Driver
+LAXITSPC003,IT-BRO-01,0,Brother Universal Driver
+LAXITSPC004,IT-CANON-01,1,Canon Universal Print Driver
+LAXITSPC004,IT-HP-01,1,HP Universal PCL6 Driver
+LAXITSPC004,IT-BRO-01,1,Brother Universal Driver
+LAXITSPC005,IT-CANON-01,1,Canon Universal Print Driver
+LAXITSPC005,IT-HP-01,1,HP Universal PCL6 Driver
+LAXITSPC005,IT-BRO-01,1,Brother Universal Driver
+LAXITSPC006,IT-CANON-01,1,Canon Universal Print Driver
+LAXITSPC006,IT-HP-01,1,HP Universal PCL6 Driver
+LAXITSPC006,IT-BRO-01,0,Brother Universal Driver
+LAXITSPC007,IT-CANON-01,1,Canon Universal Print Driver
+LAXITSPC007,IT-HP-01,1,HP Universal PCL6 Driver
+LAXITSPC007,IT-BRO-01,1,Brother Universal Driver
+LAXITSPC008,IT-CANON-01,1,Canon Universal Print Driver
+LAXITSPC008,IT-HP-01,1,HP Universal PCL6 Driver
+LAXITSPC008,IT-BRO-01,1,Brother Universal Driver
+LAXITSPC009,IT-CANON-01,1,Canon Universal Print Driver
+LAXITSPC009,IT-HP-01,1,HP Universal PCL6 Driver
+LAXITSPC009,IT-BRO-01,0,Brother Universal Driver
+LAXITSPC010,IT-CANON-01,1,Canon Universal Print Driver
+LAXITSPC010,IT-HP-01,1,HP Universal PCL6 Driver
+LAXITSPC010,IT-BRO-01,0,Brother Universal Driver
+LAXHRPC001,HR-CANON-01,1,Canon Universal Print Driver
+LAXHRPC001,HR-HP-01,1,HP Universal PCL6 Driver
+LAXHRPC001,HR-BRO-01,0,Brother Universal Driver
+LAXHRPC001,IT-HP-01,99,HP Universal PCL6 Driver
+LAXHRPC002,HR-CANON-01,1,Canon Universal Print Driver
+LAXHRPC002,HR-HP-01,1,HP Universal PCL6 Driver
+LAXHRPC002,HR-BRO-01,0,Brother Universal Driver
+LAXHRPC003,HR-CANON-01,1,Canon Universal Print Driver
+LAXHRPC003,HR-HP-01,1,HP Universal PCL6 Driver
+LAXHRPC003,HR-BRO-01,0,Brother Universal Driver
+LAXHRPC004,HR-CANON-01,1,Canon Universal Print Driver
+LAXHRPC004,HR-HP-01,1,HP Universal PCL6 Driver
+LAXHRPC004,HR-BRO-01,0,Brother Universal Driver
+LAXHRPC005,HR-CANON-01,1,Canon Universal Print Driver
+LAXHRPC005,HR-HP-01,1,HP Universal PCL6 Driver
+LAXHRPC005,HR-BRO-01,0,Brother Universal Driver
+LAXHRPC006,HR-CANON-01,1,Canon Universal Print Driver
+LAXHRPC006,HR-HP-01,1,HP Universal PCL6 Driver
+LAXHRPC006,HR-BRO-01,0,Brother Universal Driver
+LAXHRPC007,HR-CANON-01,1,Canon Universal Print Driver
+LAXHRPC007,HR-HP-01,1,HP Universal PCL6 Driver
+LAXHRPC007,HR-BRO-01,0,Brother Universal Driver
+LAXHRPC008,HR-CANON-01,1,Canon Universal Print Driver
+LAXHRPC008,HR-HP-01,1,HP Universal PCL6 Driver
+LAXHRPC008,HR-BRO-01,0,Brother Universal Driver
+LAXHRPC009,HR-CANON-01,1,Canon Universal Print Driver
+LAXHRPC009,HR-HP-01,1,HP Universal PCL6 Driver
+LAXHRPC009,HR-BRO-01,0,Brother Universal Driver
+LAXHRPC010,HR-CANON-01,1,Canon Universal Print Driver
+LAXHRPC010,HR-HP-01,1,HP Universal PCL6 Driver
+LAXHRPC010,HR-BRO-01,0,Brother Universal Driver
+LAXHRPC010,OPS-CANON-01,99,Canon Universal Print Driver
+LAXMKTPC001,MKT-CANON-01,1,Canon Universal Print Driver
+LAXMKTPC001,MKT-HP-01,1,HP Universal PCL6 Driver
+LAXMKTPC001,MKT-BRO-01,0,Brother Universal Driver
+LAXMKTPC002,MKT-CANON-01,1,Canon Universal Print Driver
+LAXMKTPC002,MKT-HP-01,1,HP Universal PCL6 Driver
+LAXMKTPC002,MKT-BRO-01,0,Brother Universal Driver
+LAXMKTPC003,MKT-CANON-01,1,Canon Universal Print Driver
+LAXMKTPC003,MKT-HP-01,1,HP Universal PCL6 Driver
+LAXMKTPC003,MKT-BRO-01,0,Brother Universal Driver
+LAXMKTPC004,MKT-CANON-01,1,Canon Universal Print Driver
+LAXMKTPC004,MKT-HP-01,1,HP Universal PCL6 Driver
+LAXMKTPC004,MKT-BRO-01,0,Brother Universal Driver
+LAXMKTPC005,MKT-CANON-01,1,Canon Universal Print Driver
+LAXMKTPC005,MKT-HP-01,1,HP Universal PCL6 Driver
+LAXMKTPC005,MKT-BRO-01,0,Brother Universal Driver
+LAXMKTPC006,MKT-CANON-01,1,Canon Universal Print Driver
+LAXMKTPC006,MKT-HP-01,1,HP Universal PCL6 Driver
+LAXMKTPC006,MKT-BRO-01,0,Brother Universal Driver
+LAXMKTPC007,MKT-CANON-01,1,Canon Universal Print Driver
+LAXMKTPC007,MKT-HP-01,1,HP Universal PCL6 Driver
+LAXMKTPC007,MKT-BRO-01,0,Brother Universal Driver
+LAXMKTPC008,MKT-CANON-01,1,Canon Universal Print Driver
+LAXMKTPC008,MKT-HP-01,1,HP Universal PCL6 Driver
+LAXMKTPC008,MKT-BRO-01,0,Brother Universal Driver
+LAXMKTPC009,MKT-CANON-01,1,Canon Universal Print Driver
+LAXMKTPC009,MKT-HP-01,1,HP Universal PCL6 Driver
+LAXMKTPC009,MKT-BRO-01,0,Brother Universal Driver
+LAXMKTPC010,MKT-CANON-01,1,Canon Universal Print Driver
+LAXMKTPC010,MKT-HP-01,1,HP Universal PCL6 Driver
+LAXMKTPC010,MKT-BRO-01,0,Brother Universal Driver
+LAXOPSPC001,OPS-CANON-01,0,Canon Universal Print Driver
+LAXOPSPC001,OPS-HP-01,0,HP Universal PCL6 Driver
+LAXOPSPC001,OPS-BRO-01,1,Brother Universal Driver
+LAXOPSPC002,OPS-CANON-01,0,Canon Universal Print Driver
+LAXOPSPC002,OPS-HP-01,0,HP Universal PCL6 Driver
+LAXOPSPC002,OPS-BRO-01,1,Brother Universal Driver
+LAXOPSPC003,OPS-CANON-01,0,Canon Universal Print Driver
+LAXOPSPC003,OPS-HP-01,0,HP Universal PCL6 Driver
+LAXOPSPC003,OPS-BRO-01,1,Brother Universal Driver
+LAXOPSPC004,OPS-CANON-01,0,Canon Universal Print Driver
+LAXOPSPC004,OPS-HP-01,0,HP Universal PCL6 Driver
+LAXOPSPC004,OPS-BRO-01,1,Brother Universal Driver
+LAXOPSPC005,OPS-CANON-01,0,Canon Universal Print Driver
+LAXOPSPC005,OPS-HP-01,0,HP Universal PCL6 Driver
+LAXOPSPC005,OPS-BRO-01,1,Brother Universal Driver
+LAXOPSPC006,OPS-CANON-01,0,Canon Universal Print Driver
+LAXOPSPC006,OPS-HP-01,0,HP Universal PCL6 Driver
+LAXOPSPC006,OPS-BRO-01,1,Brother Universal Driver
+LAXOPSPC007,OPS-CANON-01,0,Canon Universal Print Driver
+LAXOPSPC007,OPS-HP-01,0,HP Universal PCL6 Driver
+LAXOPSPC007,OPS-BRO-01,1,Brother Universal Driver
+LAXOPSPC008,OPS-CANON-01,0,Canon Universal Print Driver
+LAXOPSPC008,OPS-HP-01,0,HP Universal PCL6 Driver
+LAXOPSPC008,OPS-BRO-01,1,Brother Universal Driver
+LAXOPSPC009,OPS-CANON-01,0,Canon Universal Print Driver
+LAXOPSPC009,OPS-HP-01,0,HP Universal PCL6 Driver
+LAXOPSPC009,OPS-BRO-01,1,Brother Universal Driver
+LAXOPSPC010,OPS-CANON-01,0,Canon Universal Print Driver
+LAXOPSPC010,OPS-HP-01,0,HP Universal PCL6 Driver
+LAXOPSPC010,OPS-BRO-01,1,Brother Universal Driver
