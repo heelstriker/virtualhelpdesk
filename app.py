@@ -61,6 +61,7 @@ if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
 
+
 @app.route("/dashboard")
 def dashboard():
 
@@ -193,20 +194,27 @@ def all_tables():
     )
 
 
+
 @app.errorhandler(500)
 def error(e):
-    import traceback
-    traceback.print_exc()
-    return "DEBUG 500 ERROR - check terminal", 500
+    return "Internal Server Error", 500
 
 
 
-if __name__ == "__main__":
+#@app.errorhandler(500)
+#def error(e):
+#    import traceback
+#    traceback.print_exc()
+#    return "DEBUG 500 ERROR - check terminal", 500
 
-    create_database()        #Create DB
-    initialize_database()    #Insert CSV to DB
 
-    app.run(
-        host="0.0.0.0",
-        port=5055
-    )
+
+#if __name__ == "__main__":
+
+#   create_database()        #Create DB
+#   initialize_database()    #Insert CSV to DB
+
+#  app.run(
+#        host="0.0.0.0",
+#        port=5055
+#   )
