@@ -82,7 +82,7 @@ def generate_alerts(
 
 
     for drive in network_drive:
-        if drive["connected"]==0:
+        if drive["drive_name"]="System Drive" && drive["connected"]==0:
             alerts.append(
                 f"⚠ {drive['network_drive']} is missing. Please re-connect."
             )
