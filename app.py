@@ -11,12 +11,27 @@ from services.inventory_service import get_inventory
 from services.alertboard_service import generate_alertboard
 from services.patch_service import get_patch_progress,get_wave_progress, get_department_progress
 
-if not os.path.exists(DB_PATH):
-    print("Creating database...")
-    create_database()
-    initialize_database()
 
 app = Flask(__name__)
+
+def init_db():
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        SELECT name FROM sqlite_master
+        WHERE type='table' AND name='devices'
+    """)
+
+    exists = cursor.fetchone()
+    conn.close()
+
+    if not exists:
+        print("DB not initialized. Creating tables...")
+        create_database()
+        initialize_database()
+
+init_db()
 
 
 # ============================================
