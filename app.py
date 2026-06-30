@@ -169,7 +169,6 @@ def device_detail(hostname):
         printer = printer,
         network_drive = network_drive,
         patch = patch,
-        printer = printer,
         compliance_score = score,
         alerts= alerts
     )
