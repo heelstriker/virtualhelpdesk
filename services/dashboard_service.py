@@ -168,4 +168,22 @@ def get_risk_devices():
     conn.close()
 
     return rows
+    
+def get_device_status_summary():
+
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    rows = cursor.execute("""
+        SELECT
+            status,
+            COUNT(*) AS count
+        FROM devices
+        GROUP BY status
+        ORDER BY count DESC
+    """).fetchall()
+
+    conn.close()
+
+    return rows
 

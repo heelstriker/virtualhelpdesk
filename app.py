@@ -5,7 +5,7 @@ import sqlite3
 from services.inventory_import import initialize_database
 from services.device_service import get_all_devices, get_device_by_hostname, get_device_software,get_device_hardware,get_device_printers, get_network_drives, get_patches
 from services.db_init import create_database, DB_PATH
-from services.dashboard_service import get_dashboard_summary, get_risk_devices
+from services.dashboard_service import　get_dashboard_summary　get_risk_devices,　get_device_status_summary
 from services.compliance_service import calculate_compliance_score, generate_alerts
 from services.inventory_service import get_inventory
 from services.alertboard_service import generate_alertboard
@@ -74,7 +74,7 @@ def dashboard():
     patch_progress = get_patch_progress()
     wave_progress = get_wave_progress()
     dept_progress = get_department_progress()
-
+    device_status = get_device_status_summary()
 
     return render_template(
         "dashboard.html",
@@ -85,7 +85,8 @@ def dashboard():
         alertboard=alertboard,
         patch_progress=patch_progress,
         wave_progress=wave_progress,
-        dept_progress=dept_progress
+        dept_progress=dept_progress,
+        device_status=device_status
 
     )
 

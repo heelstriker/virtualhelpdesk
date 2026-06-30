@@ -22,6 +22,51 @@ document.addEventListener('DOMContentLoaded', function () {
     const waveCounts = JSON.parse(dataEl.dataset.waveCounts);
     const deptLabels = JSON.parse(dataEl.dataset.deptLabels);
     const deptCounts = JSON.parse(dataEl.dataset.deptCounts);
+    
+    const deviceStatus =  JSON.parase(dataEl.dataset.device_status);
+
+    const labels = deviceStatus.map(item => item.status);
+    const values = deviceStatus.map(item => item.count);
+
+    const ctx = document.getElementById('deviceStatusChart');
+
+    new Chart(ctx, {
+
+        type: 'pie',
+
+        data: {
+            labels: labels,
+            datasets: [{
+                data: values,
+                backgroundColor: [
+                    '#2ecc71',
+                    '#e74c3c',
+                    '#f1c40f'
+                ]
+            }]
+        },
+
+        options: {
+
+            responsive: true,
+
+            plugins: {
+                datalabels: {
+
+                formatter: (value, context) => {
+
+                const total = context.dataset.data.reduce((a,b)=>a+b,0);
+
+                return Math.round(value / total * 100) + "%";
+                      }
+                      }
+                legend: {
+                    position: 'bottom'
+                }
+            }
+        }
+    });
+    
 
     const centerTextPlugin = {
         id: 'centerText',
