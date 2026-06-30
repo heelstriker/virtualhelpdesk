@@ -83,9 +83,11 @@ def generate_alerts(
 
     for printer in printers:
         if printer["installed"]==99:
+            
             alerts.append(
                 f"⚠ Security Alert! Your department does not allow connection to  {printers['printer_name']} printer."
-
+            )
+            
     for drive in network_drive:
         if drive["drive_name"]==System Drive and drive["connected"]==0:
             alerts.append(
