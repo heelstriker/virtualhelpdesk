@@ -10,6 +10,8 @@ from services.inventory_service import get_inventory
 from services.alertboard_service import generate_alertboard
 from services.patch_service import get_patch_progress,get_wave_progress, get_department_progress
 
+print("DB_PATH =", DB_PATH)
+print("ABS PATH =", os.path.abspath(DB_PATH))
 
 app = Flask(__name__)
 
