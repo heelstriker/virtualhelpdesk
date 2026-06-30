@@ -1,9 +1,5 @@
-import os
-import sqlite3
-
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DB_PATH = os.path.join(BASE_DIR, "..", "database", "inventory.db")
-
+from services.db import get_db_connection
+conn = get_db_connection()
 
 def create_database():
 
