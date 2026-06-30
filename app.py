@@ -1,4 +1,3 @@
-import os
 from flask import Flask, render_template, redirect
 from services.inventory_import import initialize_database
 from services.device_service import get_all_devices, get_device_by_hostname, get_device_software,get_device_hardware,get_device_printers, get_network_drives, get_patches
