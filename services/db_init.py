@@ -1,10 +1,9 @@
 import sqlite3
 from services.db import get_db_connection
-conn = get_db_connection()
+
 
 def create_database():
-
-    conn = sqlite3.connect(DB_PATH)
+    conn = get_db_connection()
     cursor = conn.cursor()
 
     cursor.execute("DROP TABLE IF EXISTS devices")
