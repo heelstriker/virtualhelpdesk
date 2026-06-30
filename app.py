@@ -1,8 +1,9 @@
+import os
 from flask import Flask, render_template, redirect
-
 from services.inventory_import import initialize_database
 from services.device_service import get_all_devices, get_device_by_hostname, get_device_software,get_device_hardware,get_device_printers, get_network_drives, get_patches
 from services.db_init import create_database
+from services.db import DB_PATH
 from services.db import get_db_connection
 from services.dashboard_service import get_dashboard_summary, get_risk_devices, get_device_status_summary
 from services.compliance_service import calculate_compliance_score, generate_alerts
@@ -10,6 +11,10 @@ from services.inventory_service import get_inventory
 from services.alertboard_service import generate_alertboard
 from services.patch_service import get_patch_progress,get_wave_progress, get_department_progress
 
+if not os.path.exists(DB_PATH):
+    print("Creating database...")
+    create_database()
+    initialize_database()
 
 app = Flask(__name__)
 
