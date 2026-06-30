@@ -1,9 +1,8 @@
-import os
 from flask import Flask, render_template, redirect
+
 from services.inventory_import import initialize_database
 from services.device_service import get_all_devices, get_device_by_hostname, get_device_software,get_device_hardware,get_device_printers, get_network_drives, get_patches
 from services.db_init import create_database
-from services.db import DB_PATH
 from services.db import get_db_connection
 from services.dashboard_service import get_dashboard_summary, get_risk_devices, get_device_status_summary
 from services.compliance_service import calculate_compliance_score, generate_alerts
@@ -14,24 +13,15 @@ from services.patch_service import get_patch_progress,get_wave_progress, get_dep
 
 app = Flask(__name__)
 
-def init_db():
-    conn = get_db_connection()
-    cursor = conn.cursor()
-
-    cursor.execute("""
-        SELECT name FROM sqlite_master
-        WHERE type='table' AND name='devices'
-    """)
-
-    exists = cursor.fetchone()
-    conn.close()
-
-    if not exists:
-        print("DB not initialized. Creating tables...")
-        create_database()
-        initialize_database()
-
-init_db()
+# ============================================
+# DB初期化
+# 重要: gunicorn等(if __name__ == "__main__" を通らない起動方法)でも
+# 必ず実行されるよう、モジュールのトップレベルで呼び出す。
+# Renderのディスクは再デプロイのたびにリセットされるため、
+# 起動のたびにスキーマ作成 + CSVからの再投入を行う。
+# ============================================
+create_database()
+initialize_database()
 
 
 # ============================================
@@ -219,9 +209,6 @@ def error(e):
 
 
 if __name__ == "__main__":
-
-    create_database()        #Create DB
-    initialize_database()    #Insert CSV to DB
 
     app.run(
         host="0.0.0.0",
