@@ -64,6 +64,7 @@ def generate_alerts(
         alerts.append(
             "⚠ SSD is 256GB or less. Consider upgarding."
         )
+        
 
     for app in software:
 
@@ -72,6 +73,7 @@ def generate_alerts(
             alerts.append(
                 f"⚠ {app['software_name']} is missing."
             )
+            
 
     for patch in patches:
 
@@ -85,7 +87,7 @@ def generate_alerts(
         if printer["installed"]==99:
             
             alerts.append(
-                f"⚠ Security Alert! Your department does not allow connection to  {printers['printer_name']} printer."
+                f"⚠ Security Alert! Your department does not allow connection to  {printer['printer_name']} printer."
             )
             
     for drive in network_drive:
