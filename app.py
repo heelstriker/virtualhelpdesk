@@ -1,11 +1,10 @@
-import os
 from flask import Flask, render_template, redirect
-import sqlite3
 
 from services.inventory_import import initialize_database
 from services.device_service import get_all_devices, get_device_by_hostname, get_device_software,get_device_hardware,get_device_printers, get_network_drives, get_patches
-from services.db_init import create_database, DB_PATH
-from services.dashboard_service import　get_dashboard_summary　get_risk_devices,　get_device_status_summary
+from services.db_init import create_database
+from services.db import get_db_connection
+from services.dashboard_service import get_dashboard_summary, get_risk_devices, get_device_status_summary
 from services.compliance_service import calculate_compliance_score, generate_alerts
 from services.inventory_service import get_inventory
 from services.alertboard_service import generate_alertboard
@@ -13,8 +12,7 @@ from services.patch_service import get_patch_progress,get_wave_progress, get_dep
 
 
 app = Flask(__name__)
-create_database()
-initialize_database()
+
 
 # ============================================
 # All Tables: DBの全テーブルをそのまま表示する機能で使用
@@ -41,12 +39,6 @@ TABLE_LABELS = {
 }
 
 
-def get_db_connection():
-    conn = sqlite3.connect(DB_PATH)
-    conn.row_factory = sqlite3.Row
-    return conn
-
-
 @app.route("/admin/import")
 def import_inventory():
 
@@ -57,7 +49,7 @@ def import_inventory():
 
 @app.route("/")
 def home():
-    return "Virtual Help Desk Running"
+    return redirect("/dashboard")
 
 
 @app.route("/dashboard")
@@ -74,7 +66,11 @@ def dashboard():
     patch_progress = get_patch_progress()
     wave_progress = get_wave_progress()
     dept_progress = get_department_progress()
-    device_status = get_device_status_summary()
+
+    device_status_rows = get_device_status_summary()
+    device_status_labels = [row["status"] for row in device_status_rows]
+    device_status_counts = [row["count"] for row in device_status_rows]
+
 
     return render_template(
         "dashboard.html",
@@ -86,7 +82,8 @@ def dashboard():
         patch_progress=patch_progress,
         wave_progress=wave_progress,
         dept_progress=dept_progress,
-        device_status=device_status
+        device_status_labels=device_status_labels,
+        device_status_counts=device_status_counts,
 
     )
 
@@ -193,15 +190,20 @@ def all_tables():
     )
 
 
-
 @app.errorhandler(500)
 def error(e):
-    return "Internal Server Error", 500
+    import traceback
+    traceback.print_exc()
+    return "DEBUG 500 ERROR - check terminal", 500
+
 
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
 
+    create_database()        #Create DB
+    initialize_database()    #Insert CSV to DB
 
-
+    app.run(
+        host="0.0.0.0",
+        port=5055
+    )

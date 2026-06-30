@@ -89,7 +89,7 @@
 
 .compliance-wrapper{
     display:grid;
-    grid-template-columns:200px 285px 500px;
+    grid-template-columns:200px 285px 380px 380px;
     gap:15px;
 }
 

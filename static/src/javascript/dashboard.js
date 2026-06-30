@@ -22,51 +22,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const waveCounts = JSON.parse(dataEl.dataset.waveCounts);
     const deptLabels = JSON.parse(dataEl.dataset.deptLabels);
     const deptCounts = JSON.parse(dataEl.dataset.deptCounts);
-    
-    const deviceStatus =  JSON.parase(dataEl.dataset.device_status);
-
-    const labels = deviceStatus.map(item => item.status);
-    const values = deviceStatus.map(item => item.count);
-
-    const ctx = document.getElementById('deviceStatusChart');
-
-    new Chart(ctx, {
-
-        type: 'pie',
-
-        data: {
-            labels: labels,
-            datasets: [{
-                data: values,
-                backgroundColor: [
-                    '#2ecc71',
-                    '#e74c3c',
-                    '#f1c40f'
-                ]
-            }]
-        },
-
-        options: {
-
-            responsive: true,
-
-            plugins: {
-                datalabels: {
-
-                formatter: (value, context) => {
-
-                const total = context.dataset.data.reduce((a,b)=>a+b,0);
-
-                return Math.round(value / total * 100) + "%";
-                      }
-                      }
-                legend: {
-                    position: 'bottom'
-                }
-            }
-        }
-    });
-    
+    const statusLabels = JSON.parse(dataEl.dataset.statusLabels);
+    const statusCounts = JSON.parse(dataEl.dataset.statusCounts);
 
     const centerTextPlugin = {
         id: 'centerText',
@@ -236,6 +193,51 @@ document.addEventListener('DOMContentLoaded', function () {
             },
             layout: { padding: { top: 15, bottom: 15, left: 10, right: 20 } },
             plugins: { legend: { display: false } }
+        }
+    });
+
+    // Device Status breakdown (Active / Inactive / Decommissioned, etc.)
+    // テーマカラー(ターコイズ系)+ オレンジ・赤を使い、件数が多いものから順に色を割り当てる
+    const statusColorPalette = [
+        '#0fb9b1', // turquoise
+        '#ff9f1c', // orange
+        '#e63946', // red
+        '#0a8f89', // turquoise dark
+        '#6b7280', // gray (fallback for extra categories)
+        '#cdf3f0'  // turquoise light (fallback)
+    ];
+
+    new Chart(document.getElementById('deviceStatusChart'), {
+        type: 'pie',
+        data: {
+            labels: statusLabels,
+            datasets: [{
+                data: statusCounts,
+                backgroundColor: statusLabels.map(function (_, i) {
+                    return statusColorPalette[i % statusColorPalette.length];
+                }),
+                borderWidth: 0
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            layout: { padding: { top: 15, bottom: 15, left: 10, right: 20 } },
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: { color: '#1f2933', padding: 16 }
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function (context) {
+                            const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                            const pct = total > 0 ? Math.round((context.parsed / total) * 100) : 0;
+                            return context.label + ': ' + context.parsed + ' (' + pct + '%)';
+                        }
+                    }
+                }
+            }
         }
     });
 

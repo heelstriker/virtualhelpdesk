@@ -121,10 +121,6 @@
 
 </div>
 
-<div class="compliance-card">
-    <h2>Device Status</h2>
-    <canvas id="deviceStatusChart"></canvas>
-</div>
 
 
 <h2>Device Compliance Overview</h2>
@@ -147,6 +143,11 @@
     <div class="breakdown-card">
         <h3>Risk Breakdown</h3>
         <canvas id="riskBreakdownChart"></canvas>
+    </div>
+
+    <div class="breakdown-card">
+        <h3>Device Status</h3>
+        <canvas id="deviceStatusChart"></canvas>
     </div>
 
 </div>
@@ -278,6 +279,8 @@
      data-wave-counts='{{ wave_progress.wave_percent|tojson }}'
      data-dept-labels='{{ dept_progress.trend_dept|tojson }}'
      data-dept-counts='{{ dept_progress.dept_percent|tojson }}'
+     data-status-labels='{{ device_status_labels|tojson }}'
+     data-status-counts='{{ device_status_counts|tojson }}'
      style="display:none;">
 </div>
 
