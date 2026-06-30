@@ -156,12 +156,11 @@ def device_detail(hostname):
         hardware,
         software,
         patch,
+        printers,
         network_drive
     )
 
-    print("test_device_detail")
-    print(device_detail)
-
+   
     return render_template(
         "device_detail.html",
         device=device,
@@ -170,7 +169,7 @@ def device_detail(hostname):
         printer = printer,
         network_drive = network_drive,
         patch = patch,
-
+        printers = printers,
         compliance_score = score,
         alerts= alerts
     )
