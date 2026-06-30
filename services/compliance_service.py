@@ -39,6 +39,7 @@ def generate_alerts(
     hardware,
     software,
     patches,
+    printers,
     network_drive
 ):
     
@@ -80,6 +81,10 @@ def generate_alerts(
                 f"⚠ {patch['patch']} is missing."
             )
 
+    for printer in printers:
+        if printer["installed"]==99:
+            alerts.append(
+                f"⚠ Security Alert! Your department does not allow connection to  {printers['printer_name']} printer."
 
     for drive in network_drive:
         if drive["drive_name"]==System Drive and drive["connected"]==0:
@@ -87,10 +92,7 @@ def generate_alerts(
                 f"⚠ {drive['network_drive']} is missing. Please re-connect."
             )
 
-        elif drive["connected"]==99:
-            alerts.append(
-                f"⚠ {drive['network_drive']} folder access denied!! Please contact your manager or IT department."
-            )
+    
 
     return alerts
 
