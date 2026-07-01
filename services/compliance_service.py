@@ -80,7 +80,7 @@ def generate_alerts(
         if patch["installed"] == 0:
 
             alerts.append(
-                f"⚠ {patch['patch']} is missing."
+                f"⚠ {patch['patch']} is required, but not installed."
             )
 
     for printer in printers:

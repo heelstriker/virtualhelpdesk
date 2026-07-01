@@ -1,54 +1,104 @@
 hostname,patch,description,installed,install_date,release_month,deployment_date,applicable,downloaded,deployment_window
-LAXITSPC001,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-05-20,NO,YES,Wave 1
-LAXITSPC002,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-05-20,NO,YES,Wave 1
-LAXITSPC003,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,1,2026-05-27,26-Jun,2026-05-20,YES,YES,Wave 1
-LAXITSPC004,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-05-20,NO,YES,Wave 1
-LAXITSPC005,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-05-20,NO,YES,Wave 1
-LAXITSPC006,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,1,2026-05-27,26-Jun,2026-05-20,YES,YES,Wave 1
-LAXITSPC007,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-05-20,NO,YES,Wave 1
-LAXITSPC008,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-05-20,NO,YES,Wave 1
-LAXITSPC009,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,0,,26-Jun,2026-05-20,YES,YES,Wave 1
-LAXITSPC010,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-05-20,NO,YES,Wave 1
-LAXITSPC001,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-05-21,26-May,2026-05-20,YES,YES,Wave 1
-LAXITSPC002,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-05-25,26-May,2026-05-20,YES,YES,Wave 1
-LAXITSPC003,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-05-22,26-May,2026-05-20,YES,YES,Wave 1
-LAXITSPC004,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-05-25,26-May,2026-05-20,YES,YES,Wave 1
-LAXITSPC005,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-05-22,26-May,2026-05-20,YES,YES,Wave 1
-LAXITSPC006,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-05-21,26-May,2026-05-20,YES,YES,Wave 1
-LAXITSPC007,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-05-29,26-May,2026-05-20,YES,YES,Wave 1
-LAXITSPC008,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-05-29,26-May,2026-05-20,YES,YES,Wave 1
-LAXITSPC009,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-05-26,26-May,2026-05-20,YES,YES,Wave 1
-LAXITSPC010,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-05-29,26-May,2026-05-20,YES,YES,Wave 1
-LAXITSPC001,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-15,26-Jul,2026-07-01,YES,YES,Wave 1
-LAXITSPC002,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-19,26-Jul,2026-07-01,YES,YES,Wave 1
-LAXITSPC003,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-19,26-Jul,2026-07-01,YES,YES,Wave 1
-LAXITSPC004,KB5064000,Otter Endpoint Security Monthly Update ,2,,26-Jul,2026-07-01,YES,YES,Wave 1
-LAXITSPC005,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-22,26-Jul,2026-07-01,YES,YES,Wave 1
-LAXITSPC006,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-23,26-Jul,2026-07-01,YES,NO,Wave 1
-LAXITSPC007,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-23,26-Jul,2026-07-01,YES,YES,Wave 1
-LAXITSPC008,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-28,26-Jul,2026-07-01,YES,YES,Wave 1
-LAXITSPC009,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-28,26-Jul,2026-07-01,YES,YES,Wave 1
-LAXITSPC010,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-28,26-Jul,2026-07-01,YES,YES,Wave 1
-LAXITSPC001,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-20,NO,YES,Wave 1
-LAXITSPC002,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-20,NO,YES,Wave 1
-LAXITSPC003,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-20,NO,YES,Wave 1
-LAXITSPC004,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-20,NO,YES,Wave 1
-LAXITSPC005,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-20,NO,YES,Wave 1
-LAXITSPC006,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-20,NO,YES,Wave 1
-LAXITSPC007,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-20,NO,YES,Wave 1
-LAXITSPC008,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-20,NO,YES,Wave 1
-LAXITSPC009,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-20,NO,YES,Wave 1
-LAXITSPC010,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-20,NO,YES,Wave 1
-LAXACTPC001,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-05-23,NO,YES,Wave 2
-LAXACTPC002,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-05-23,NO,YES,Wave 2
+LAXACTPC001,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-05-23,NO,YES,Wave 2
+LAXACTPC002,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,1,2026-05-29,26-May,2026-05-23,YES,YES,Wave 2
+LAXACTPC003,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-05-23,NO,YES,Wave 2
+LAXACTPC004,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-05-23,NO,YES,Wave 2
+LAXACTPC005,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-05-23,NO,YES,Wave 2
+LAXACTPC006,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-05-23,NO,YES,Wave 2
+LAXACTPC007,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-05-23,NO,YES,Wave 2
+LAXACTPC008,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-05-23,NO,YES,Wave 2
+LAXACTPC009,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-05-23,NO,YES,Wave 2
+LAXACTPC010,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-05-23,NO,YES,Wave 2
+LAXHRPC001,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-05-27,NO,YES,Wave 3
+LAXHRPC002,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-05-27,NO,YES,Wave 3
+LAXHRPC003,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-05-27,NO,YES,Wave 3
+LAXHRPC004,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-05-27,NO,YES,Wave 3
+LAXHRPC005,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-05-27,NO,YES,Wave 3
+LAXHRPC006,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-05-27,NO,YES,Wave 3
+LAXHRPC007,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-05-27,NO,YES,Wave 3
+LAXHRPC008,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-05-27,NO,YES,Wave 3
+LAXHRPC009,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-05-27,NO,YES,Wave 3
+LAXHRPC010,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-05-27,NO,YES,Wave 3
+LAXITSPC001,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-05-20,NO,YES,Wave 1
+LAXITSPC002,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-05-20,NO,YES,Wave 1
+LAXITSPC003,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-05-20,NO,YES,Wave 1
+LAXITSPC004,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-05-20,NO,YES,Wave 1
+LAXITSPC005,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-05-20,NO,YES,Wave 1
+LAXITSPC006,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-05-20,NO,YES,Wave 1
+LAXITSPC007,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-05-20,NO,YES,Wave 1
+LAXITSPC008,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-05-20,NO,YES,Wave 1
+LAXITSPC009,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-05-20,NO,YES,Wave 1
+LAXITSPC010,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-05-20,NO,YES,Wave 1
+LAXMKTPC001,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-06-01,NO,YES,Wave 4
+LAXMKTPC002,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-06-01,NO,YES,Wave 4
+LAXMKTPC003,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-06-01,NO,YES,Wave 4
+LAXMKTPC004,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-06-01,NO,YES,Wave 4
+LAXMKTPC005,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-06-01,NO,YES,Wave 4
+LAXMKTPC006,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-06-01,NO,YES,Wave 4
+LAXMKTPC007,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-06-01,NO,YES,Wave 4
+LAXMKTPC008,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-06-01,NO,YES,Wave 4
+LAXMKTPC009,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-06-01,NO,YES,Wave 4
+LAXMKTPC010,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-06-01,NO,YES,Wave 4
+LAXOPSPC001,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-06-01,NO,YES,Wave 4
+LAXOPSPC002,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-06-01,NO,YES,Wave 4
+LAXOPSPC003,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-06-01,NO,YES,Wave 4
+LAXOPSPC004,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-06-01,NO,YES,Wave 4
+LAXOPSPC005,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-06-01,NO,YES,Wave 4
+LAXOPSPC006,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-06-01,NO,YES,Wave 4
+LAXOPSPC007,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-06-01,NO,YES,Wave 4
+LAXOPSPC008,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-06-01,NO,YES,Wave 4
+LAXOPSPC009,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-06-01,NO,YES,Wave 4
+LAXOPSPC010,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,99,,26-May,2026-06-01,NO,YES,Wave 4
+LAXACTPC001,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,99,,26-Jun,2026-05-23,NO,YES,Wave 2
+LAXACTPC002,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,99,,26-Jun,2026-05-23,NO,YES,Wave 2
 LAXACTPC003,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,1,2026-05-29,26-Jun,2026-05-23,YES,YES,Wave 2
-LAXACTPC004,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-05-23,NO,YES,Wave 2
-LAXACTPC005,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-05-23,NO,YES,Wave 2
+LAXACTPC004,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,99,,26-Jun,2026-05-23,NO,YES,Wave 2
+LAXACTPC005,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,99,,26-Jun,2026-05-23,NO,YES,Wave 2
 LAXACTPC006,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,1,2026-05-30,26-Jun,2026-05-23,YES,YES,Wave 2
-LAXACTPC007,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-05-23,NO,YES,Wave 2
-LAXACTPC008,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-05-23,NO,YES,Wave 2
+LAXACTPC007,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,99,,26-Jun,2026-05-23,NO,YES,Wave 2
+LAXACTPC008,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,99,,26-Jun,2026-05-23,NO,YES,Wave 2
 LAXACTPC009,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,0,,26-Jun,2026-05-23,YES,YES,Wave 2
-LAXACTPC010,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-05-23,NO,YES,Wave 2
+LAXACTPC010,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,99,,26-Jun,2026-05-23,NO,YES,Wave 2
+LAXHRPC001,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,99,,26-Jun,2026-05-27,NO,YES,Wave 3
+LAXHRPC002,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,99,,26-Jun,2026-05-27,NO,YES,Wave 3
+LAXHRPC003,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,1,2026-05-28,26-Jun,2026-05-27,YES,YES,Wave 3
+LAXHRPC004,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,99,,26-Jun,2026-05-27,NO,YES,Wave 3
+LAXHRPC005,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,99,,26-Jun,2026-05-27,NO,YES,Wave 3
+LAXHRPC006,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,1,2026-05-28,26-Jun,2026-05-27,YES,YES,Wave 3
+LAXHRPC007,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,99,,26-Jun,2026-05-27,NO,YES,Wave 3
+LAXHRPC008,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,99,,26-Jun,2026-05-27,NO,YES,Wave 3
+LAXHRPC009,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,0,,26-Jun,2026-05-27,YES,YES,Wave 3
+LAXHRPC010,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,99,,26-Jun,2026-05-27,NO,YES,Wave 3
+LAXITSPC001,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,99,,26-Jun,2026-05-20,NO,YES,Wave 1
+LAXITSPC002,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,99,,26-Jun,2026-05-20,NO,YES,Wave 1
+LAXITSPC003,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,1,2026-05-27,26-Jun,2026-05-20,YES,YES,Wave 1
+LAXITSPC004,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,99,,26-Jun,2026-05-20,NO,YES,Wave 1
+LAXITSPC005,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,99,,26-Jun,2026-05-20,NO,YES,Wave 1
+LAXITSPC006,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,1,2026-05-27,26-Jun,2026-05-20,YES,YES,Wave 1
+LAXITSPC007,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,99,,26-Jun,2026-05-20,NO,YES,Wave 1
+LAXITSPC008,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,99,,26-Jun,2026-05-20,NO,YES,Wave 1
+LAXITSPC009,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,0,,26-Jun,2026-05-20,YES,YES,Wave 1
+LAXITSPC010,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,99,,26-Jun,2026-05-20,NO,YES,Wave 1
+LAXMKTPC001,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,99,,26-Jun,2026-06-01,NO,YES,Wave 4
+LAXMKTPC002,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,99,,26-Jun,2026-06-01,NO,YES,Wave 4
+LAXMKTPC003,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,1,2026-06-07,26-Jun,2026-06-01,YES,YES,Wave 4
+LAXMKTPC004,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,99,,26-Jun,2026-06-01,NO,YES,Wave 4
+LAXMKTPC005,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,99,,26-Jun,2026-06-01,NO,YES,Wave 4
+LAXMKTPC006,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,1,2026-06-11,26-Jun,2026-06-01,YES,YES,Wave 4
+LAXMKTPC007,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,99,,26-Jun,2026-06-01,NO,YES,Wave 4
+LAXMKTPC008,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,99,,26-Jun,2026-06-01,NO,YES,Wave 4
+LAXMKTPC009,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,0,,26-Jun,2026-06-01,YES,YES,Wave 4
+LAXMKTPC010,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,99,,26-Jun,2026-06-01,NO,YES,Wave 4
+LAXOPSPC001,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,99,,26-Jun,2026-06-01,NO,YES,Wave 4
+LAXOPSPC002,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,99,,26-Jun,2026-06-01,NO,YES,Wave 4
+LAXOPSPC003,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,1,2026-06-11,26-Jun,2026-06-01,YES,YES,Wave 4
+LAXOPSPC004,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,99,,26-Jun,2026-06-01,NO,YES,Wave 4
+LAXOPSPC005,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,99,,26-Jun,2026-06-01,NO,YES,Wave 4
+LAXOPSPC006,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,1,2026-06-07,26-Jun,2026-06-01,YES,YES,Wave 4
+LAXOPSPC007,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,99,,26-Jun,2026-06-01,NO,YES,Wave 4
+LAXOPSPC008,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,99,,26-Jun,2026-06-01,NO,YES,Wave 4
+LAXOPSPC009,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,0,,26-Jun,2026-06-01,YES,YES,Wave 4
+LAXOPSPC010,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,99,,26-Jun,2026-06-01,NO,YES,Wave 4
 LAXACTPC001,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-05-26,26-May,2026-05-23,YES,YES,Wave 2
 LAXACTPC002,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-05-26,26-May,2026-05-23,YES,YES,Wave 2
 LAXACTPC003,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-06-01,26-May,2026-05-23,YES,YES,Wave 2
@@ -59,36 +109,6 @@ LAXACTPC007,KB5062553,Corporate Security Rollup - Required for all managed endpo
 LAXACTPC008,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-06-02,26-May,2026-05-23,YES,YES,Wave 2
 LAXACTPC009,KB5062553,Corporate Security Rollup - Required for all managed endpoints,0,,26-May,2026-05-23,YES,NO,Wave 2
 LAXACTPC010,KB5062553,Corporate Security Rollup - Required for all managed endpoints,0,,26-May,2026-05-23,YES,NO,Wave 2
-LAXACTPC001,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-02,26-Jul,2026-07-01,YES,YES,Wave 2
-LAXACTPC002,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-01,26-Jul,2026-07-01,YES,YES,Wave 2
-LAXACTPC003,KB5064000,Otter Endpoint Security Monthly Update ,2,,26-Jul,2026-07-01,YES,YES,Wave 2
-LAXACTPC004,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-03,26-Jul,2026-07-01,YES,YES,Wave 2
-LAXACTPC005,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-03,26-Jul,2026-07-01,YES,YES,Wave 2
-LAXACTPC006,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-07,26-Jul,2026-07-01,YES,YES,Wave 2
-LAXACTPC007,KB5064000,Otter Endpoint Security Monthly Update ,2,,26-Jul,2026-07-01,YES,YES,Wave 2
-LAXACTPC008,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-07,26-Jul,2026-07-01,YES,YES,Wave 2
-LAXACTPC009,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-07,26-Jul,2026-07-01,YES,YES,Wave 2
-LAXACTPC010,KB5064000,Otter Endpoint Security Monthly Update ,2,,26-Jul,2026-07-01,YES,YES,Wave 2
-LAXACTPC001,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-23,NO,YES,Wave 2
-LAXACTPC002,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,1,2026-05-29,26-May,2026-05-23,YES,YES,Wave 2
-LAXACTPC003,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-23,NO,YES,Wave 2
-LAXACTPC004,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-23,NO,YES,Wave 2
-LAXACTPC005,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-23,NO,YES,Wave 2
-LAXACTPC006,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-23,NO,YES,Wave 2
-LAXACTPC007,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-23,NO,YES,Wave 2
-LAXACTPC008,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-23,NO,YES,Wave 2
-LAXACTPC009,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-23,NO,YES,Wave 2
-LAXACTPC010,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-23,NO,YES,Wave 2
-LAXHRPC001,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-05-27,NO,YES,Wave 3
-LAXHRPC002,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-05-27,NO,YES,Wave 3
-LAXHRPC003,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,1,2026-05-28,26-Jun,2026-05-27,YES,YES,Wave 3
-LAXHRPC004,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-05-27,NO,YES,Wave 3
-LAXHRPC005,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-05-27,NO,YES,Wave 3
-LAXHRPC006,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,1,2026-05-28,26-Jun,2026-05-27,YES,YES,Wave 3
-LAXHRPC007,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-05-27,NO,YES,Wave 3
-LAXHRPC008,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-05-27,NO,YES,Wave 3
-LAXHRPC009,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,0,,26-Jun,2026-05-27,YES,YES,Wave 3
-LAXHRPC010,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-05-27,NO,YES,Wave 3
 LAXHRPC001,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-06-02,26-May,2026-05-27,YES,YES,Wave 3
 LAXHRPC002,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-06-04,26-May,2026-05-27,YES,YES,Wave 3
 LAXHRPC003,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-05-29,26-May,2026-05-27,YES,YES,Wave 3
@@ -99,46 +119,16 @@ LAXHRPC007,KB5062553,Corporate Security Rollup - Required for all managed endpoi
 LAXHRPC008,KB5062553,Corporate Security Rollup - Required for all managed endpoints,0,,26-May,2026-05-27,YES,NO,Wave 3
 LAXHRPC009,KB5062553,Corporate Security Rollup - Required for all managed endpoints,0,,26-May,2026-05-27,YES,NO,Wave 3
 LAXHRPC010,KB5062553,Corporate Security Rollup - Required for all managed endpoints,0,,26-May,2026-05-27,YES,NO,Wave 3
-LAXHRPC001,KB5064000,Otter Endpoint Security Monthly Update ,2,,26-Jul,2026-07-01,YES,YES,Wave 3
-LAXHRPC002,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-10,26-Jul,2026-07-01,YES,YES,Wave 3
-LAXHRPC003,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-10,26-Jul,2026-07-01,YES,YES,Wave 3
-LAXHRPC004,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-10,26-Jul,2026-07-01,YES,YES,Wave 3
-LAXHRPC005,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-10,26-Jul,2026-07-01,YES,YES,Wave 3
-LAXHRPC006,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-10,26-Jul,2026-07-01,YES,YES,Wave 3
-LAXHRPC007,KB5064000,Otter Endpoint Security Monthly Update ,2,,26-Jul,2026-07-01,YES,YES,Wave 3
-LAXHRPC008,KB5064000,Otter Endpoint Security Monthly Update ,2,,26-Jul,2026-07-01,YES,YES,Wave 3
-LAXHRPC009,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-15,26-Jul,2026-07-01,YES,YES,Wave 3
-LAXHRPC010,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-15,26-Jul,2026-07-01,YES,YES,Wave 3
-LAXHRPC001,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-27,NO,YES,Wave 3
-LAXHRPC002,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-27,NO,YES,Wave 3
-LAXHRPC003,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-27,NO,YES,Wave 3
-LAXHRPC004,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-27,NO,YES,Wave 3
-LAXHRPC005,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-27,NO,YES,Wave 3
-LAXHRPC006,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-27,NO,YES,Wave 3
-LAXHRPC007,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-27,NO,YES,Wave 3
-LAXHRPC008,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-27,NO,YES,Wave 3
-LAXHRPC009,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-27,NO,YES,Wave 3
-LAXHRPC010,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-05-27,NO,YES,Wave 3
-LAXMKTPC001,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-06-01,NO,YES,Wave 4
-LAXMKTPC002,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-06-01,NO,YES,Wave 4
-LAXMKTPC003,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,1,2026-06-07,26-Jun,2026-06-01,YES,YES,Wave 4
-LAXMKTPC004,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-06-01,NO,YES,Wave 4
-LAXMKTPC005,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-06-01,NO,YES,Wave 4
-LAXMKTPC006,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,1,2026-06-11,26-Jun,2026-06-01,YES,YES,Wave 4
-LAXMKTPC007,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-06-01,NO,YES,Wave 4
-LAXMKTPC008,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-06-01,NO,YES,Wave 4
-LAXMKTPC009,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,0,,26-Jun,2026-06-01,YES,YES,Wave 4
-LAXMKTPC010,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-06-01,NO,YES,Wave 4
-LAXOPSPC001,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-06-01,NO,YES,Wave 4
-LAXOPSPC002,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-06-01,NO,YES,Wave 4
-LAXOPSPC003,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,1,2026-06-11,26-Jun,2026-06-01,YES,YES,Wave 4
-LAXOPSPC004,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-06-01,NO,YES,Wave 4
-LAXOPSPC005,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-06-01,NO,YES,Wave 4
-LAXOPSPC006,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,1,2026-06-07,26-Jun,2026-06-01,YES,YES,Wave 4
-LAXOPSPC007,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-06-01,NO,YES,Wave 4
-LAXOPSPC008,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-06-01,NO,YES,Wave 4
-LAXOPSPC009,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,0,,26-Jun,2026-06-01,YES,YES,Wave 4
-LAXOPSPC010,KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,2,,26-Jun,2026-06-01,NO,YES,Wave 4
+LAXITSPC001,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-05-21,26-May,2026-05-20,YES,YES,Wave 1
+LAXITSPC002,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-05-25,26-May,2026-05-20,YES,YES,Wave 1
+LAXITSPC003,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-05-22,26-May,2026-05-20,YES,YES,Wave 1
+LAXITSPC004,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-05-25,26-May,2026-05-20,YES,YES,Wave 1
+LAXITSPC005,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-05-22,26-May,2026-05-20,YES,YES,Wave 1
+LAXITSPC006,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-05-21,26-May,2026-05-20,YES,YES,Wave 1
+LAXITSPC007,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-05-29,26-May,2026-05-20,YES,YES,Wave 1
+LAXITSPC008,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-05-29,26-May,2026-05-20,YES,YES,Wave 1
+LAXITSPC009,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-05-26,26-May,2026-05-20,YES,YES,Wave 1
+LAXITSPC010,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-05-29,26-May,2026-05-20,YES,YES,Wave 1
 LAXMKTPC001,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-06-09,26-May,2026-06-01,YES,YES,Wave 4
 LAXMKTPC002,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-06-02,26-May,2026-06-01,YES,YES,Wave 4
 LAXMKTPC003,KB5062553,Corporate Security Rollup - Required for all managed endpoints,1,2026-06-06,26-May,2026-06-01,YES,YES,Wave 4
@@ -159,43 +149,53 @@ LAXOPSPC007,KB5062553,Corporate Security Rollup - Required for all managed endpo
 LAXOPSPC008,KB5062553,Corporate Security Rollup - Required for all managed endpoints,0,,26-May,2026-06-01,YES,NO,Wave 4
 LAXOPSPC009,KB5062553,Corporate Security Rollup - Required for all managed endpoints,0,,26-May,2026-06-01,YES,NO,Wave 4
 LAXOPSPC010,KB5062553,Corporate Security Rollup - Required for all managed endpoints,0,,26-May,2026-06-01,YES,NO,Wave 4
+LAXACTPC001,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-02,26-Jul,2026-07-01,YES,YES,Wave 2
+LAXACTPC002,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-01,26-Jul,2026-07-01,YES,YES,Wave 2
+LAXACTPC003,KB5064000,Otter Endpoint Security Monthly Update ,0,,26-Jul,2026-07-01,YES,YES,Wave 2
+LAXACTPC004,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-03,26-Jul,2026-07-01,YES,YES,Wave 2
+LAXACTPC005,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-03,26-Jul,2026-07-01,YES,YES,Wave 2
+LAXACTPC006,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-07,26-Jul,2026-07-01,YES,YES,Wave 2
+LAXACTPC007,KB5064000,Otter Endpoint Security Monthly Update ,0,,26-Jul,2026-07-01,YES,YES,Wave 2
+LAXACTPC008,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-07,26-Jul,2026-07-01,YES,YES,Wave 2
+LAXACTPC009,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-07,26-Jul,2026-07-01,YES,YES,Wave 2
+LAXACTPC010,KB5064000,Otter Endpoint Security Monthly Update ,0,,26-Jul,2026-07-01,YES,YES,Wave 2
+LAXHRPC001,KB5064000,Otter Endpoint Security Monthly Update ,0,,26-Jul,2026-07-01,YES,YES,Wave 3
+LAXHRPC002,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-10,26-Jul,2026-07-01,YES,YES,Wave 3
+LAXHRPC003,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-10,26-Jul,2026-07-01,YES,YES,Wave 3
+LAXHRPC004,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-10,26-Jul,2026-07-01,YES,YES,Wave 3
+LAXHRPC005,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-10,26-Jul,2026-07-01,YES,YES,Wave 3
+LAXHRPC006,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-10,26-Jul,2026-07-01,YES,YES,Wave 3
+LAXHRPC007,KB5064000,Otter Endpoint Security Monthly Update ,0,,26-Jul,2026-07-01,YES,YES,Wave 3
+LAXHRPC008,KB5064000,Otter Endpoint Security Monthly Update ,0,,26-Jul,2026-07-01,YES,YES,Wave 3
+LAXHRPC009,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-15,26-Jul,2026-07-01,YES,YES,Wave 3
+LAXHRPC010,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-15,26-Jul,2026-07-01,YES,YES,Wave 3
+LAXITSPC001,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-15,26-Jul,2026-07-01,YES,YES,Wave 1
+LAXITSPC002,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-19,26-Jul,2026-07-01,YES,YES,Wave 1
+LAXITSPC003,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-19,26-Jul,2026-07-01,YES,YES,Wave 1
+LAXITSPC004,KB5064000,Otter Endpoint Security Monthly Update ,0,,26-Jul,2026-07-01,YES,YES,Wave 1
+LAXITSPC005,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-22,26-Jul,2026-07-01,YES,YES,Wave 1
+LAXITSPC006,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-23,26-Jul,2026-07-01,YES,NO,Wave 1
+LAXITSPC007,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-23,26-Jul,2026-07-01,YES,YES,Wave 1
+LAXITSPC008,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-28,26-Jul,2026-07-01,YES,YES,Wave 1
+LAXITSPC009,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-28,26-Jul,2026-07-01,YES,YES,Wave 1
+LAXITSPC010,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-28,26-Jul,2026-07-01,YES,YES,Wave 1
 LAXMKTPC001,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-30,26-Jul,2026-07-01,YES,YES,Wave 4
-LAXMKTPC002,KB5064000,Otter Endpoint Security Monthly Update ,2,,26-Jul,2026-07-01,YES,YES,Wave 4
-LAXMKTPC003,KB5064000,Otter Endpoint Security Monthly Update ,2,,26-Jul,2026-07-01,YES,YES,Wave 4
+LAXMKTPC002,KB5064000,Otter Endpoint Security Monthly Update ,0,,26-Jul,2026-07-01,YES,YES,Wave 4
+LAXMKTPC003,KB5064000,Otter Endpoint Security Monthly Update ,0,,26-Jul,2026-07-01,YES,YES,Wave 4
 LAXMKTPC004,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-30,26-Jul,2026-07-01,YES,YES,Wave 4
 LAXMKTPC005,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-31,26-Jul,2026-07-01,YES,YES,Wave 4
 LAXMKTPC006,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-31,26-Jul,2026-07-01,YES,YES,Wave 4
 LAXMKTPC007,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-31,26-Jul,2026-07-01,YES,YES,Wave 4
 LAXMKTPC008,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-31,26-Jul,2026-07-01,YES,YES,Wave 4
-LAXMKTPC009,KB5064000,Otter Endpoint Security Monthly Update ,2,,26-Jul,2026-07-01,YES,YES,Wave 4
+LAXMKTPC009,KB5064000,Otter Endpoint Security Monthly Update ,0,,26-Jul,2026-07-01,YES,YES,Wave 4
 LAXMKTPC010,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-31,26-Jul,2026-07-01,YES,YES,Wave 4
 LAXOPSPC001,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-31,26-Jul,2026-07-01,YES,YES,Wave 4
 LAXOPSPC002,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-31,26-Jul,2026-07-01,YES,YES,Wave 4
-LAXOPSPC003,KB5064000,Otter Endpoint Security Monthly Update ,2,,26-Jul,2026-07-01,YES,YES,Wave 4
+LAXOPSPC003,KB5064000,Otter Endpoint Security Monthly Update ,0,,26-Jul,2026-07-01,YES,YES,Wave 4
 LAXOPSPC004,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-31,26-Jul,2026-07-01,YES,YES,Wave 4
 LAXOPSPC005,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-31,26-Jul,2026-07-01,YES,YES,Wave 4
 LAXOPSPC006,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-31,26-Jul,2026-07-01,YES,YES,Wave 4
 LAXOPSPC007,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-31,26-Jul,2026-07-01,YES,YES,Wave 4
-LAXOPSPC008,KB5064000,Otter Endpoint Security Monthly Update ,2,,26-Jul,2026-07-01,YES,YES,Wave 4
+LAXOPSPC008,KB5064000,Otter Endpoint Security Monthly Update ,0,,26-Jul,2026-07-01,YES,YES,Wave 4
 LAXOPSPC009,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-31,26-Jul,2026-07-01,YES,YES,Wave 4
 LAXOPSPC010,KB5064000,Otter Endpoint Security Monthly Update ,1,2026-07-31,26-Jul,,YES,YES,Wave 4
-LAXMKTPC001,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-06-01,NO,YES,Wave 4
-LAXMKTPC002,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-06-01,NO,YES,Wave 4
-LAXMKTPC003,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-06-01,NO,YES,Wave 4
-LAXMKTPC004,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-06-01,NO,YES,Wave 4
-LAXMKTPC005,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-06-01,NO,YES,Wave 4
-LAXMKTPC006,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-06-01,NO,YES,Wave 4
-LAXMKTPC007,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-06-01,NO,YES,Wave 4
-LAXMKTPC008,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-06-01,NO,YES,Wave 4
-LAXMKTPC009,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-06-01,NO,YES,Wave 4
-LAXMKTPC010,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-06-01,NO,YES,Wave 4
-LAXOPSPC001,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-06-01,NO,YES,Wave 4
-LAXOPSPC002,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-06-01,NO,YES,Wave 4
-LAXOPSPC003,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-06-01,NO,YES,Wave 4
-LAXOPSPC004,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-06-01,NO,YES,Wave 4
-LAXOPSPC005,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-06-01,NO,YES,Wave 4
-LAXOPSPC006,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-06-01,NO,YES,Wave 4
-LAXOPSPC007,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-06-01,NO,YES,Wave 4
-LAXOPSPC008,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-06-01,NO,YES,Wave 4
-LAXOPSPC009,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-06-01,NO,YES,Wave 4
-LAXOPSPC010,KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,2,,26-May,2026-06-01,NO,YES,Wave 4
