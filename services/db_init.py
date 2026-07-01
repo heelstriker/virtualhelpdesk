@@ -137,11 +137,53 @@ def create_database():
 	severity TEXT
     )
     """)
+
+
+    cursor.execute("DROP TABLE IF EXISTS software_catalog")
+    cursor.execute("""
+    Create TABLE IF NOT EXISTS software_catalog (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        software_name TEXT,
+        vendor TEXT,
+        category TEXT,
+	description TEXT,
+	required_device TEXT,
+	required TEXT,
+	current_version TEXT,
+	monthly_cost TEXT,
+	license_type TEXT,
+	install_risk TEXT,
+	support_status TEXT,
+	auto_update TEXT
+    )
+    """)
+
+   cursor.execute("DROP TABLE IF EXISTS printer_catalog")
+    cursor.execute("""
+    Create TABLE IF NOT EXISTS printer_catalog (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        printer_id TEXT,
+        hostname TEXT,
+        department TEXT,
+	manufacturer TEXT,
+	model TEXT,
+	printer_type TEXT,
+	ip_address TEXT,
+	status TEXT,
+	location TEXT,
+	cost_center TEXT
+    )
+    """)
+
+
+
     # for development purpose use drop for delete table: 
     # cursor.execute("DROP TABLE IF EXISTS hardware")
     # use ALTER TABLE for table configuration chagne after production
 
+
     conn.commit()
     conn.close()
+
 
     print("Database schema created")

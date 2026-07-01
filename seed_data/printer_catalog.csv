@@ -1,20 +1,16 @@
-﻿printer_id,hostname,department,manufacturer,model,printer_type,ip_address,status,location,cost_center
+printer_id,hostname,department,manufacturer,model,printer_type,ip_address,status,location,cost_center
 PRN001,LAXACTPRN01,Accounting,Canon,ImageRunner C3325,Color MFP,192.168.100.10,Online,LA Office,FIN-1001
 PRN002,LAXACTPRN02,Accounting,HP,LaserJet M404dn,Monochrome,192.168.100.11,Online,LA Office,FIN-1001
 PRN003,LAXACTPRN03,Accounting,Brother,HL-L6200DW,Backup Mono,192.168.100.12,Offline,LA Office,FIN-1001
-,,,,,,,,,
 PRN004,LAXITPRN01,IT,Canon,ImageRunner C5535,Color MFP,192.168.100.42,Online,LA Office,IT-2000
 PRN005,LAXITPRN02,IT,HP,LaserJet Enterprise M507,Monochrome,192.168.100.43,Online,LA Office,IT-2000
 PRN006,LAXITPRN03,IT,Brother,HL-L8360CDW,Backup Mono,192.168.100.44,Online,LA Office,IT-2000
-,,,,,,,,,
 PRN007,LAXHRPRN01,HR,Canon,ImageRunner C3530,Color MFP,192.168.100.74,Online,LA Office,HR-4001
 PRN008,LAXHRPRN02,HR,HP,LaserJet M406dn,Monochrome,192.168.100.75,Offline,LA Office,HR-4001
 PRN009,LAXHRPRN03,HR,Brother,HL-L5100DN,Backup Mono,192.168.100.76,Online,LA Office,HR-4001
-,,,,,,,,,
 PRN010,LAXMKTPRN01,Marketing,Canon,ImageRunner C3025,Color MFP,192.168.100.104,Online,LA Office,MKT-5001
 PRN011,LAXMKTPRN02,Marketing,HP,LaserJet M404n,Monochrome,192.168.100.105,Online,LA Office,MKT-5001
 PRN012,LAXMKTPRN03,Marketing,Brother,HL-L6200DW,Backup Mono,192.168.100.106,Online,LA Office,MKT-5001
-,,,,,,,,,
 PRN013,LAXOPSPRN01,Operations,Canon,ImageRunner C3320,Color MFP,192.168.100.134,Online,LA Office,OPS-3002
 PRN014,LAXOPSPRN02,Operations,HP,JetDirect M506dn,Monochrome,192.168.100.135,Offline,LA Office,OPS-3002
 PRN015,LAXOPSPRN03,Operations,Brother,HL-L8360CDW,Backup Mono,192.168.100.136,Online,LA Office,OPS-3002

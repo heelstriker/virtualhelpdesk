@@ -127,3 +127,27 @@ def get_patch_catalog(patch):
     conn.close()
 
     return patch_catalog
+
+def get_software_catalog(software_name):
+    conn = get_db_connection()
+
+    patch_catalog = conn.execute("""
+        SELECT * FROM software_catalog
+        WHERE software_name = ?
+    """, (software_name,)).fetchall()
+
+    conn.close()
+
+    return software_catalog
+
+def get_printer_catalog(hostname):
+    conn = get_db_connection()
+
+    patch_catalog = conn.execute("""
+        SELECT * FROM printer_catalog
+        WHERE hostname = ?
+    """, (hostname,)).fetchall()
+
+    conn.close()
+
+    return printer_catalog

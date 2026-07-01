@@ -374,3 +374,75 @@ def import_patch_catalog():
     conn.close()
 
     return len(rows)
+
+def import_software_catalog():
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    CSV_PATH = os.path.join(BASE_DIR, "..", "seed_data", "software_catalog.csv")
+
+    rows = import_csv(CSV_PATH)
+
+    cursor.execute("DELETE FROM software_catalog")
+
+    for row in rows:
+
+        cursor.execute("""
+        INSERT INTO software_catalog
+        (software_name, vendor, category, description, required_device, required, current_version, monthly_cost, license_type, install_risk, support_status, auto_update)
+        VALUES (?, ?, ?, ?, ?, ?, ? ,? ,? ,? ,? ,?)
+        """, (
+            row["software_name"],
+            row["vendor"],
+            row["category"],
+            row["description"],
+            row["required_device"],
+            row["required"],
+	    row["current_version"],
+	    row["monthly_cost"],
+	    row["license_type"],
+	    row["license_risk"],
+	    row["support_status"],
+	    row["auto_update"]
+        ))
+
+    conn.commit()
+    conn.close()
+
+def import_printer_catalog():
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    CSV_PATH = os.path.join(BASE_DIR, "..", "seed_data", "printer_catalog.csv")
+
+    rows = import_csv(CSV_PATH)
+
+    cursor.execute("DELETE FROM printer_catalog")
+
+    for row in rows:
+
+        cursor.execute("""
+        INSERT INTO printer_catalog
+        (printer_id, hostname, department, manufacturer, model, printer_type, ip_address, status, location, cost_center)
+        VALUES (?, ?, ?, ?, ?, ?, ? ,? ,? ,?)
+        """, (
+            row["printer_id"],
+            row["hostname"],
+            row["department"],
+            row["manufacturer"],
+            row["model"],
+            row["printer_type"],
+	    row["ip_address"],
+	    row["status"],
+	    row["location"],
+	    row["cost_center"]
+        ))
+
+    conn.commit()
+    conn.close()
+
+
+
+    return len(rows)

@@ -1,6 +1,16 @@
-﻿software_name,description,required_device_type,monthly_cost
-Google Chrome,Enterprise Web Browser,All,0
-Microsoft Teams,Collaboration Platform,All,8
-BananaVPN,Remote Access VPN Client,Laptop,12
-Canon Scan Utility,Canon MFP Scan Integration Tool,Canon Users,3
-Otter Endpoint Security,Endpoint Protection Platform,All,15
+software_name,vendor,category,description,required_device_type,required,current_version,monthly_cost,license_type,install_risk,support_status,auto_update
+Google Chrome,Google,Browser,Enterprise Web Browser,All,Yes,138.0,0,Free,Medium,Supported,Yes
+Microsoft Teams,Microsoft,Collaboration,Collaboration Platform,All,Yes,25170.205,8,Per User,Medium,Supported,Yes
+BananaVPN,Banana Networks,VPN,Remote Access VPN Client,Laptop,Yes,5.2,12,Per Device,Critical,Supported,No
+Canon Scan Utility,Canon,Utility,Canon MFP Scan Integration Tool,Canon Users,No,4.8,3,Per Device,Low,Supported,No
+Otter Endpoint Security,Otter Security,Security,Endpoint Protection Platform,All,Yes,11.6,15,Per Device,Critical,Supported,Yes
+Microsoft 365 Apps,Microsoft,Productivity,Microsoft Office Suite,All,Yes,2506,18,Per User,High,Supported,Yes
+Adobe Acrobat Reader,Adobe,Productivity,PDF Reader,All,Yes,25.001,0,Free,Low,Supported,Yes
+7-Zip,Igor Pavlov,Utility,File Compression Utility,All,No,24.09,0,Free,Low,Supported,No
+Notepad++,Don Ho,Developer,Advanced Text Editor,IT,No,8.8.2,0,Free,Low,Supported,No
+Visual Studio Code,Microsoft,Developer,Source Code Editor,IT,No,1.101,0,Free,Low,Supported,Yes
+PowerShell 7,Microsoft,Developer,Cross-platform Automation Shell,IT,No,7.5.2,0,Free,Medium,Supported,No
+Cisco Secure Client,Cisco,VPN,Corporate VPN Client,Laptop,Yes,5.1,10,Per Device,High,Retired,Yes
+Microsoft Defender for Endpoint,Microsoft,Security,Endpoint Detection and Response,All,Yes,2026.06,22,Per Device,Critical,Supported,Yes
+Java Runtime Environment,Oracle,Runtime,Java Runtime Environment,Finance,No,17.0.16,2,Per Device,Medium,Supported,No
+SAP GUI,SAP,Business,SAP ERP Client,Accounting,Yes,8.00,35,Per User,High,Supported,No
