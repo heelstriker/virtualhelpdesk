@@ -35,7 +35,7 @@ def create_database():
     )
     """)
     
-    cursor.execute("DROP TABLE IF EXISTS devices")
+    cursor.execute("DROP TABLE IF EXISTS software")
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS software (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
