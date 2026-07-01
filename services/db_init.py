@@ -114,7 +114,7 @@ def create_database():
 	status TEXT,
 	cpu TEXT,
 	memory_gb INTEGER,
-	storage_tb INTEGER,
+	storage_tb TEXT,
 	uptime_days INTEGER,
 	patch_status TEXT,
 	backup_status TEXT,
