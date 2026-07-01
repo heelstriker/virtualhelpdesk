@@ -113,6 +113,7 @@
         {% for stat in patch %}
         <tr>
             <td>{{ stat.patch }}</td>
+            <td>{{ stat.description }}</td>
             <td>
                 {% if stat.installed == 1 %}
                     <span class="ok">INSTALLED</span>
