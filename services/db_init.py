@@ -40,7 +40,8 @@ def create_database():
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         hostname TEXT,
         software_name TEXT,
-        installed INTEGER
+        installed INTEGER,
+	required TEXT
     )
     """)
 

@@ -138,12 +138,13 @@ def import_software():
 
         cursor.execute("""
         INSERT INTO software
-        (hostname, software_name, installed)
-        VALUES (?, ?, ?)
+        (hostname, software_name, installed, required)
+        VALUES (?, ?, ?, ?)
         """, (
             row["hostname"],
             row["software_name"],
-            row["installed"]
+            row["installed"],
+	    row["required"]
         ))
 
     conn.commit()

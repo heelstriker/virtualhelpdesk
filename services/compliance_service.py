@@ -62,7 +62,7 @@ def generate_alerts(
         )
     if int(hardware["disk_gb"]) < 256:
         alerts.append(
-            "⚠ SSD is 256GB or less. Consider upgarding."
+            "⚠ SSD is 256GB or less. Consider upgrading."
         )
         
 
