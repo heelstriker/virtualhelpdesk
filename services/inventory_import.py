@@ -47,7 +47,18 @@ def initialize_database():
     patches_count = import_patches()
     print(f"Imported {patches_count} Patches")
     
+
+    print("Importing Server Catalogs...")
+    server_catalog_count = import_server_catalog()
+    print(f"Imported {server_catalog_count} Server Catalogs")
     
+
+    print("Importing Patch Catalogs...")
+    patch_catalog_count = import_patch_catalog()
+    print(f"Imported {patch_catalog_count} Patch Catalogs")
+    
+
+
     print("Import Complete")
 
 
@@ -325,6 +336,38 @@ def import_server_catalog():
             row["last_checkin"],
             row["description"]
 
+        ))
+
+    conn.commit()
+    conn.close()
+
+    return len(rows)
+
+
+def import_patch_catalog():
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    CSV_PATH = os.path.join(BASE_DIR, "..", "seed_data", "patch_catalog.csv")
+
+    rows = import_csv(CSV_PATH)
+
+    cursor.execute("DELETE FROM patch_catalog")
+
+    for row in rows:
+
+        cursor.execute("""
+        INSERT INTO patch_catalog
+        (patch, description, target_os, required_software, release_month, severity)
+        VALUES (?, ?, ?, ?, ?, ?)
+        """, (
+            row["patch"],
+            row["description"],
+            row["target_os"],
+            row["required_software"],
+            row["release_month"],
+            row["severity"]
         ))
 
     conn.commit()

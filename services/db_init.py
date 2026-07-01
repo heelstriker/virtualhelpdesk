@@ -124,6 +124,19 @@ def create_database():
     )
     """)
 
+
+    cursor.execute("DROP TABLE IF EXISTS patch_catalog")
+    cursor.execute("""
+    Create TABLE IF NOT EXISTS patch_catalog (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        patch TEXT,
+        description TEXT,
+        target_os TEXT,
+	required_software TEXT,
+	release_month TEXT,
+	severity TEXT
+    )
+    """)
     # for development purpose use drop for delete table: 
     # cursor.execute("DROP TABLE IF EXISTS hardware")
     # use ALTER TABLE for table configuration chagne after production

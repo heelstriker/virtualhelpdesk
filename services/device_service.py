@@ -115,3 +115,15 @@ def get_server_catalog(hostname):
     conn.close()
 
     return server_catalog
+
+def get_patch_catalog(patch):
+    conn = get_db_connection()
+
+    patch_catalog = conn.execute("""
+        SELECT * FROM patch_catalog
+        WHERE patch = ?
+    """, (patch,)).fetchall()
+
+    conn.close()
+
+    return patch_catalog

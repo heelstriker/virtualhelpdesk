@@ -1,4 +1,4 @@
-﻿patch,description,target_os,required_software,release_month,sverity
+patch,description,target_os,required_software,release_month,severity
 KB5062553,Corporate Security Rollup - Required for all managed endpoints,ALL,none,26-May,High
 KB4089935,Windows 10 Security Update - Required for Windows 10 devices only,Windows10,Windows10,26-May,High
 KB5062199,Banana VPN Stability Update - Required for devices running Banana VPN,ALL,BananaVPN,26-Jun,High

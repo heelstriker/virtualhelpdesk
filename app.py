@@ -1,6 +1,6 @@
 from flask import Flask, render_template, redirect
 from services.inventory_import import initialize_database
-from services.device_service import get_all_devices, get_device_by_hostname, get_device_software,get_device_hardware,get_device_printers, get_network_drives, get_patches,get_server_catalog
+from services.device_service import get_all_devices, get_device_by_hostname, get_device_software,get_device_hardware,get_device_printers, get_network_drives, get_patches, get_server_catalog, get_patch_catalog
 from services.db_init import create_database
 from services.db import get_db_connection
 from services.dashboard_service import get_dashboard_summary, get_risk_devices, get_device_status_summary
@@ -36,7 +36,8 @@ ALL_TABLE_NAMES = [
     "printers",
     "network_drives",
     "patches",
-    "server_catalog"
+    "server_catalog",
+    "patch_catalog",
 ]
 
 # 画面表示用のラベル
@@ -48,6 +49,7 @@ TABLE_LABELS = {
     "network_drives": "Network Drives",
     "patches": "Patches",
     "server_catalog": "Server Catalog",
+    "patch_catalog": "Patch Catalog",
 }
 
 
