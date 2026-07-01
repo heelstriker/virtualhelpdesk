@@ -102,3 +102,16 @@ def get_patches(hostname):
     conn.close()
 
     return patches
+
+def get_server_catalog(hostname):
+
+    conn = get_db_connection()
+
+    server_catalog = conn.execute("""
+        SELECT * FROM server_catalog
+        WHERE hostname = ?
+    """, (hostname,)).fetchall()
+
+    conn.close()
+
+    return server_catalog

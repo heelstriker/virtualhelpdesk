@@ -289,3 +289,45 @@ def import_patches():
     conn.close()
 
     return len(rows)
+
+def import_server_catalog():
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    CSV_PATH = os.path.join(BASE_DIR, "..", "seed_data", "server_catalog.csv")
+
+    rows = import_csv(CSV_PATH)
+
+    cursor.execute("DELETE FROM server_catalog")
+
+    for row in rows:
+
+        cursor.execute("""
+        INSERT INTO server_catalog
+        (hostname, role, site, ip_address, operating_system, environment, status, cpu, memory_gb, storage_tb, uptime_days, patch_status, backup_status, monitoring, last_checkin, description)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """, (
+            row["hostname"],
+            row["role"],
+            row["site"],
+            row["ip_address"],
+            row["operating_system"],
+            row["environment"],
+            row["status"],
+            row["cpu"],
+            row["memory_gb"],
+            row["storage_tb"],
+	    row["uptime_days"],
+            row["patch_status"],
+	    row["backup_status"],
+            row["monitoring"],
+            row["last_checkin"],
+            row["description"]
+
+        ))
+
+    conn.commit()
+    conn.close()
+
+    return len(rows)

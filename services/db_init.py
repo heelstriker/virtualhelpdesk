@@ -101,6 +101,29 @@ def create_database():
     )
     """)
 
+    cursor.execute("DROP TABLE IF EXISTS server_catalog")
+    cursor.execute("""
+    Create TABLE IF NOT EXISTS server_catalog (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        hostname TEXT,
+        role TEXT,
+        site TEXT,
+	ip_address TEXT,
+	operating_system TEXT,
+	environment TEXT,
+	status TEXT,
+	cpu TEXT,
+	memory_gb INTEGER,
+	storage_tb INTEGER,
+	uptime_days INTEGER,
+	patch_status TEXT,
+	backup_status TEXT,
+	monitoring TEXT,
+	last_checkin TEXT,
+        description TEXT
+    )
+    """)
+
     # for development purpose use drop for delete table: 
     # cursor.execute("DROP TABLE IF EXISTS hardware")
     # use ALTER TABLE for table configuration chagne after production
