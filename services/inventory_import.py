@@ -58,6 +58,16 @@ def initialize_database():
     print(f"Imported {patch_catalog_count} Patch Catalogs")
     
 
+    print("Importing Software Catalogs...")
+    software_catalog_count = import_software_catalog()
+    print(f"Imported {software_catalog_count} Software Catalogs")
+    
+
+    print("Importing Printer Catalogs...")
+    printer_catalog_count = import_printer_catalog()
+    print(f"Imported {printer_catalog_count} Printer Catalogs")
+    
+
 
     print("Import Complete")
 
@@ -409,6 +419,8 @@ def import_software_catalog():
 
     conn.commit()
     conn.close()
+    return len(rows)
+
 
 def import_printer_catalog():
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -442,7 +454,4 @@ def import_printer_catalog():
 
     conn.commit()
     conn.close()
-
-
-
     return len(rows)
