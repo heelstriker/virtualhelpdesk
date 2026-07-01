@@ -147,7 +147,7 @@ def create_database():
         vendor TEXT,
         category TEXT,
 	description TEXT,
-	required_device TEXT,
+	required_device_type TEXT,
 	required TEXT,
 	current_version TEXT,
 	monthly_cost TEXT,

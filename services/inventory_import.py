@@ -400,25 +400,26 @@ def import_software_catalog():
 
         cursor.execute("""
         INSERT INTO software_catalog
-        (software_name, vendor, category, description, required_device, required, current_version, monthly_cost, license_type, install_risk, support_status, auto_update)
+        (software_name, vendor, category, description, required_device_type, required, current_version, monthly_cost, license_type, install_risk, support_status, auto_update)
         VALUES (?, ?, ?, ?, ?, ?, ? ,? ,? ,? ,? ,?)
         """, (
             row["software_name"],
             row["vendor"],
             row["category"],
             row["description"],
-            row["required_device"],
+            row["required_device_type"],
             row["required"],
 	    row["current_version"],
 	    row["monthly_cost"],
 	    row["license_type"],
-	    row["license_risk"],
+	    row["install_risk"],
 	    row["support_status"],
 	    row["auto_update"]
         ))
 
     conn.commit()
     conn.close()
+
     return len(rows)
 
 
@@ -454,4 +455,5 @@ def import_printer_catalog():
 
     conn.commit()
     conn.close()
+
     return len(rows)
