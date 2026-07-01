@@ -158,7 +158,7 @@ def create_database():
     )
     """)
 
-   cursor.execute("DROP TABLE IF EXISTS printer_catalog")
+    cursor.execute("DROP TABLE IF EXISTS printer_catalog")
     cursor.execute("""
     Create TABLE IF NOT EXISTS printer_catalog (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
