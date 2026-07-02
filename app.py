@@ -205,6 +205,10 @@ def all_tables():
         tables=tables,
     )
 
+@app.route("/erd")
+def erd():
+    return render_template("erd.html", active_page="erd")
+
 
 @app.errorhandler(500)
 def error(e):

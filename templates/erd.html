@@ -1,0 +1,235 @@
+{% extends "base.html" %}
+
+{% block title %}ER Diagram - VirtualHelpDesk{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='src/css/erd.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="erd-header">
+    <h1>Entity Relationship Diagram</h1>
+    <p>Database schema powering VirtualHelpDesk — 10 tables across transaction and catalog (master data) layers.</p>
+</div>
+
+<div class="erd-panel">
+
+    <div class="erd-legend">
+        <div class="erd-legend-item">
+            <div class="erd-legend-dot" style="background:#0a8f89;"></div>
+            Transaction tables
+        </div>
+        <div class="erd-legend-item">
+            <div class="erd-legend-dot" style="background:#ff9f1c;"></div>
+            Catalog tables (master data)
+        </div>
+        <div class="erd-legend-item">
+            <div class="erd-legend-line" style="background:#0a8f89;"></div>
+            Relationship (hostname key)
+        </div>
+        <div class="erd-legend-item">
+            <div class="erd-legend-line" style="background:#ff9f1c; border-top: 2px dashed #ff9f1c; height:0;"></div>
+            Catalog → Transaction
+        </div>
+    </div>
+
+    <div class="erd-svg-wrap">
+    <svg viewBox="0 0 900 1080" role="img" xmlns="http://www.w3.org/2000/svg">
+      <title>VirtualHelpDesk ER Diagram</title>
+      <desc>ER diagram showing 10 tables: transaction tables in teal, catalog (master data) tables in orange.</desc>
+      <defs>
+        <marker id="arr-teal" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M2 1L8 5L2 9" fill="none" stroke="#0a8f89" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+        <marker id="arr-orange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M2 1L8 5L2 9" fill="none" stroke="#ff9f1c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+      </defs>
+
+      <!-- ========== LEFT COLUMN ========== -->
+
+      <!-- hardware y=260 -->
+      <g>
+        <rect x="20" y="260" width="185" height="152" rx="8" fill="#e0f7f6" stroke="#0a8f89" stroke-width="1.5"/>
+        <rect x="20" y="260" width="185" height="28" rx="8" fill="#0a8f89"/>
+        <rect x="20" y="280" width="185" height="8" fill="#0a8f89"/>
+        <text x="112" y="279" text-anchor="middle" font-size="13" font-weight="600" fill="#fff" font-family="'Segoe UI',sans-serif">hardware</text>
+        <text x="32" y="305" font-size="11" fill="#0a8f89" font-family="'Segoe UI',sans-serif">PK  id</text>
+        <text x="32" y="321" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">FK  hostname</text>
+        <text x="32" y="337" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">      os</text>
+        <text x="32" y="353" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">      manufacturer</text>
+        <text x="32" y="369" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">      device_type</text>
+        <text x="32" y="385" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">      cpu / memory / disk</text>
+      </g>
+
+      <!-- software y=460 -->
+      <g>
+        <rect x="20" y="460" width="185" height="120" rx="8" fill="#e0f7f6" stroke="#0a8f89" stroke-width="1.5"/>
+        <rect x="20" y="460" width="185" height="28" rx="8" fill="#0a8f89"/>
+        <rect x="20" y="480" width="185" height="8" fill="#0a8f89"/>
+        <text x="112" y="479" text-anchor="middle" font-size="13" font-weight="600" fill="#fff" font-family="'Segoe UI',sans-serif">software</text>
+        <text x="32" y="505" font-size="11" fill="#0a8f89" font-family="'Segoe UI',sans-serif">PK  id</text>
+        <text x="32" y="521" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">FK  hostname</text>
+        <text x="32" y="537" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">FK  software_name</text>
+        <text x="32" y="553" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">      installed / required</text>
+      </g>
+
+      <!-- patches y=640 -->
+      <g>
+        <rect x="20" y="640" width="185" height="168" rx="8" fill="#e0f7f6" stroke="#0a8f89" stroke-width="1.5"/>
+        <rect x="20" y="640" width="185" height="28" rx="8" fill="#0a8f89"/>
+        <rect x="20" y="660" width="185" height="8" fill="#0a8f89"/>
+        <text x="112" y="659" text-anchor="middle" font-size="13" font-weight="600" fill="#fff" font-family="'Segoe UI',sans-serif">patches</text>
+        <text x="32" y="685" font-size="11" fill="#0a8f89" font-family="'Segoe UI',sans-serif">PK  id</text>
+        <text x="32" y="701" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">FK  hostname</text>
+        <text x="32" y="717" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">FK  patch</text>
+        <text x="32" y="733" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">      installed</text>
+        <text x="32" y="749" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">      install_date</text>
+        <text x="32" y="765" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">      deployment_date</text>
+        <text x="32" y="781" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">      downloaded ...</text>
+      </g>
+
+      <!-- ========== CENTER COLUMN ========== -->
+
+      <!-- devices y=30 -->
+      <g>
+        <rect x="345" y="30" width="210" height="196" rx="8" fill="#e0f7f6" stroke="#0a8f89" stroke-width="1.5"/>
+        <rect x="345" y="30" width="210" height="28" rx="8" fill="#0a8f89"/>
+        <rect x="345" y="50" width="210" height="8" fill="#0a8f89"/>
+        <text x="450" y="49" text-anchor="middle" font-size="13" font-weight="600" fill="#fff" font-family="'Segoe UI',sans-serif">devices</text>
+        <text x="357" y="75"  font-size="11" fill="#0a8f89" font-family="'Segoe UI',sans-serif">PK  id</text>
+        <text x="357" y="91"  font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">      hostname</text>
+        <text x="357" y="107" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">      owner</text>
+        <text x="357" y="123" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">      department</text>
+        <text x="357" y="139" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">      status</text>
+        <text x="357" y="155" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">      location / cost_center</text>
+        <text x="357" y="171" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">      serial_number</text>
+        <text x="357" y="187" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">      purchase_date ...</text>
+      </g>
+
+      <!-- software_catalog y=310 -->
+      <g>
+        <rect x="345" y="310" width="210" height="184" rx="8" fill="#fff3e0" stroke="#ff9f1c" stroke-width="1.5"/>
+        <rect x="345" y="310" width="210" height="28" rx="8" fill="#ff9f1c"/>
+        <rect x="345" y="330" width="210" height="8" fill="#ff9f1c"/>
+        <text x="450" y="329" text-anchor="middle" font-size="13" font-weight="600" fill="#fff" font-family="'Segoe UI',sans-serif">software_catalog</text>
+        <text x="357" y="355" font-size="11" fill="#b36b00" font-family="'Segoe UI',sans-serif">PK  id</text>
+        <text x="357" y="371" font-size="11" fill="#7a4a00" font-family="'Segoe UI',sans-serif">      software_name</text>
+        <text x="357" y="387" font-size="11" fill="#7a4a00" font-family="'Segoe UI',sans-serif">      vendor / category</text>
+        <text x="357" y="403" font-size="11" fill="#7a4a00" font-family="'Segoe UI',sans-serif">      required_device_type</text>
+        <text x="357" y="419" font-size="11" fill="#7a4a00" font-family="'Segoe UI',sans-serif">      license_type</text>
+        <text x="357" y="435" font-size="11" fill="#7a4a00" font-family="'Segoe UI',sans-serif">      install_risk</text>
+        <text x="357" y="451" font-size="11" fill="#7a4a00" font-family="'Segoe UI',sans-serif">      support_status ...</text>
+      </g>
+
+      <!-- patch_catalog y=544 -->
+      <g>
+        <rect x="345" y="544" width="210" height="136" rx="8" fill="#fff3e0" stroke="#ff9f1c" stroke-width="1.5"/>
+        <rect x="345" y="544" width="210" height="28" rx="8" fill="#ff9f1c"/>
+        <rect x="345" y="564" width="210" height="8" fill="#ff9f1c"/>
+        <text x="450" y="563" text-anchor="middle" font-size="13" font-weight="600" fill="#fff" font-family="'Segoe UI',sans-serif">patch_catalog</text>
+        <text x="357" y="589" font-size="11" fill="#b36b00" font-family="'Segoe UI',sans-serif">PK  id</text>
+        <text x="357" y="605" font-size="11" fill="#7a4a00" font-family="'Segoe UI',sans-serif">      patch</text>
+        <text x="357" y="621" font-size="11" fill="#7a4a00" font-family="'Segoe UI',sans-serif">      target_os / severity</text>
+        <text x="357" y="637" font-size="11" fill="#7a4a00" font-family="'Segoe UI',sans-serif">      required_software</text>
+        <text x="357" y="653" font-size="11" fill="#7a4a00" font-family="'Segoe UI',sans-serif">      release_month ...</text>
+      </g>
+
+      <!-- printer_catalog y=730 -->
+      <g>
+        <rect x="345" y="730" width="210" height="120" rx="8" fill="#fff3e0" stroke="#ff9f1c" stroke-width="1.5"/>
+        <rect x="345" y="730" width="210" height="28" rx="8" fill="#ff9f1c"/>
+        <rect x="345" y="750" width="210" height="8" fill="#ff9f1c"/>
+        <text x="450" y="749" text-anchor="middle" font-size="13" font-weight="600" fill="#fff" font-family="'Segoe UI',sans-serif">printer_catalog</text>
+        <text x="357" y="775" font-size="11" fill="#b36b00" font-family="'Segoe UI',sans-serif">PK  id / printer_id</text>
+        <text x="357" y="791" font-size="11" fill="#7a4a00" font-family="'Segoe UI',sans-serif">      hostname / department</text>
+        <text x="357" y="807" font-size="11" fill="#7a4a00" font-family="'Segoe UI',sans-serif">      location / cost_center ...</text>
+      </g>
+
+      <!-- ========== RIGHT COLUMN ========== -->
+
+      <!-- network_drives y=260 -->
+      <g>
+        <rect x="695" y="260" width="185" height="136" rx="8" fill="#e0f7f6" stroke="#0a8f89" stroke-width="1.5"/>
+        <rect x="695" y="260" width="185" height="28" rx="8" fill="#0a8f89"/>
+        <rect x="695" y="280" width="185" height="8" fill="#0a8f89"/>
+        <text x="787" y="279" text-anchor="middle" font-size="13" font-weight="600" fill="#fff" font-family="'Segoe UI',sans-serif">network_drives</text>
+        <text x="707" y="305" font-size="11" fill="#0a8f89" font-family="'Segoe UI',sans-serif">PK  id</text>
+        <text x="707" y="321" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">FK  hostname</text>
+        <text x="707" y="337" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">      network_drive</text>
+        <text x="707" y="353" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">      connected</text>
+        <text x="707" y="369" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">      drive_name / status</text>
+      </g>
+
+      <!-- printers y=450 -->
+      <g>
+        <rect x="695" y="450" width="185" height="120" rx="8" fill="#e0f7f6" stroke="#0a8f89" stroke-width="1.5"/>
+        <rect x="695" y="450" width="185" height="28" rx="8" fill="#0a8f89"/>
+        <rect x="695" y="470" width="185" height="8" fill="#0a8f89"/>
+        <text x="787" y="469" text-anchor="middle" font-size="13" font-weight="600" fill="#fff" font-family="'Segoe UI',sans-serif">printers</text>
+        <text x="707" y="495" font-size="11" fill="#0a8f89" font-family="'Segoe UI',sans-serif">PK  id</text>
+        <text x="707" y="511" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">FK  hostname</text>
+        <text x="707" y="527" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">FK  printer_name</text>
+        <text x="707" y="543" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">      installed / driver_name</text>
+      </g>
+
+      <!-- server_catalog y=630 -->
+      <g>
+        <rect x="695" y="630" width="185" height="184" rx="8" fill="#e0f7f6" stroke="#0a8f89" stroke-width="1.5"/>
+        <rect x="695" y="630" width="185" height="28" rx="8" fill="#0a8f89"/>
+        <rect x="695" y="650" width="185" height="8" fill="#0a8f89"/>
+        <text x="787" y="649" text-anchor="middle" font-size="13" font-weight="600" fill="#fff" font-family="'Segoe UI',sans-serif">server_catalog</text>
+        <text x="707" y="675" font-size="11" fill="#0a8f89" font-family="'Segoe UI',sans-serif">PK  id</text>
+        <text x="707" y="691" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">FK  hostname</text>
+        <text x="707" y="707" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">      role / site</text>
+        <text x="707" y="723" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">      environment</text>
+        <text x="707" y="739" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">      patch_status</text>
+        <text x="707" y="755" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">      backup_status</text>
+        <text x="707" y="771" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">      uptime_days ...</text>
+      </g>
+
+      <!-- ========== RELATIONSHIP LINES ========== -->
+
+      <!-- devices -> hardware  1:1  "has" -->
+      <line x1="345" y1="110" x2="205" y2="305" stroke="#0a8f89" stroke-width="1.5" marker-end="url(#arr-teal)"/>
+      <text font-size="10" fill="#0a8f89" font-family="'Segoe UI',sans-serif" text-anchor="middle" transform="translate(268,196) rotate(-32)">has (1:1)</text>
+
+      <!-- devices -> software  1:N  "runs" -->
+      <line x1="345" y1="148" x2="205" y2="500" stroke="#0a8f89" stroke-width="1.5" marker-end="url(#arr-teal)"/>
+      <text font-size="10" fill="#0a8f89" font-family="'Segoe UI',sans-serif" text-anchor="middle" transform="translate(260,330) rotate(-55)">runs (1:N)</text>
+
+      <!-- devices -> patches  1:N  "receives" -->
+      <line x1="345" y1="175" x2="205" y2="680" stroke="#0a8f89" stroke-width="1.5" marker-end="url(#arr-teal)"/>
+      <text font-size="10" fill="#0a8f89" font-family="'Segoe UI',sans-serif" text-anchor="middle" transform="translate(248,444) rotate(-68)">receives (1:N)</text>
+
+      <!-- devices -> network_drives  1:N  "mounts" -->
+      <line x1="555" y1="110" x2="695" y2="305" stroke="#0a8f89" stroke-width="1.5" marker-end="url(#arr-teal)"/>
+      <text font-size="10" fill="#0a8f89" font-family="'Segoe UI',sans-serif" text-anchor="middle" transform="translate(633,196) rotate(32)">mounts (1:N)</text>
+
+      <!-- devices -> printers  1:N  "connects to" -->
+      <line x1="555" y1="148" x2="695" y2="490" stroke="#0a8f89" stroke-width="1.5" marker-end="url(#arr-teal)"/>
+      <text font-size="10" fill="#0a8f89" font-family="'Segoe UI',sans-serif" text-anchor="middle" transform="translate(642,330) rotate(55)">connects to (1:N)</text>
+
+      <!-- server_catalog -> devices  1:N  "hosts" (arrow points to devices) -->
+      <line x1="695" y1="700" x2="555" y2="175" stroke="#0a8f89" stroke-width="1.5" stroke-dasharray="6 3" marker-end="url(#arr-teal)"/>
+      <text font-size="10" fill="#0a8f89" font-family="'Segoe UI',sans-serif" text-anchor="middle" transform="translate(645,444) rotate(-68)">hosts (1:N)</text>
+
+      <!-- software_catalog -> software  1:N  "defines" -->
+      <line x1="345" y1="402" x2="205" y2="510" stroke="#ff9f1c" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arr-orange)"/>
+      <text font-size="10" fill="#cc7a00" font-family="'Segoe UI',sans-serif" text-anchor="middle" transform="translate(264,448) rotate(-40)">defines (1:N)</text>
+
+      <!-- patch_catalog -> patches  1:N  "defines" -->
+      <line x1="345" y1="615" x2="205" y2="700" stroke="#ff9f1c" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arr-orange)"/>
+      <text font-size="10" fill="#cc7a00" font-family="'Segoe UI',sans-serif" text-anchor="middle" transform="translate(264,650) rotate(-35)">defines (1:N)</text>
+
+      <!-- printer_catalog -> printers  1:N  "defines" -->
+      <line x1="555" y1="790" x2="695" y2="510" stroke="#ff9f1c" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arr-orange)"/>
+      <text font-size="10" fill="#cc7a00" font-family="'Segoe UI',sans-serif" text-anchor="middle" transform="translate(637,658) rotate(-62)">defines (1:N)</text>
+
+    </svg>
+    </div>
+
+</div>
+
+{% endblock %}

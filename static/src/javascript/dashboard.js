@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
     new Chart(document.getElementById('complianceChart'), {
         type: 'doughnut',
         data: {
-            labels: ['Compliant %', 'At Risk %'],
+            labels: ['Compliant', 'At Risk'],
             datasets: [{
                 data: [compliancePercent, riskPercent],
                 backgroundColor: ['#0fb9b1', '#e63946'],

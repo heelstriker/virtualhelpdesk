@@ -1,0 +1,65 @@
+/* ============================================
+   ERD Page - page specific styles
+   ============================================ */
+
+.erd-header{
+    margin-bottom: 8px;
+}
+
+.erd-header p{
+    color: var(--text-soft);
+    margin-top: 4px;
+}
+
+.erd-panel{
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 5px 20px rgba(15,185,177,.08);
+}
+
+.erd-legend{
+    display: flex;
+    gap: 24px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.erd-legend-item{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--text-soft);
+}
+
+.erd-legend-dot{
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    flex-shrink: 0;
+}
+
+.erd-legend-line{
+    width: 28px;
+    height: 2px;
+    flex-shrink: 0;
+}
+
+.erd-svg-wrap{
+    width: 100%;
+    overflow-x: auto;
+}
+
+.erd-svg-wrap svg{
+    min-width: 860px;
+    width: 100%;
+    display: block;
+}
+
+@media (max-width: 768px){
+    .erd-legend{
+        gap: 14px;
+    }
+}
