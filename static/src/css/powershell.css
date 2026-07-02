@@ -7,29 +7,30 @@
     max-width:1400px;
     margin:30px auto;
     padding:30px;
-    background:#222;
+    background:#0f2a29;
     border-radius:16px;
-    color:#eee;
-    box-shadow:0 6px 18px rgba(0,0,0,.35);
+    color:#e6fffb;
+    border:1px solid var(--turquoise-dark);
+    box-shadow:0 8px 24px rgba(0,0,0,.35);
 }
 
 .powershell-library h2{
     margin-bottom:8px;
     font-size:32px;
-    color:#ffffff;
+    color:var(--turquoise);
 }
 
 .powershell-library p{
     margin-bottom:30px;
-    color:#bbbbbb;
+    color:var(--turquoise-light);
     font-size:15px;
 }
 
 .powershell-library h3{
     margin-top:40px;
     margin-bottom:15px;
-    color:#7fd3ff;
-    border-left:5px solid #4aa8ff;
+    color:var(--turquoise);
+    border-left:5px solid var(--turquoise);
     padding-left:12px;
     font-size:22px;
 }
@@ -43,12 +44,12 @@
     width:100%;
     border-collapse:collapse;
     margin-bottom:35px;
-    overflow:hidden;
     border-radius:12px;
+    overflow:hidden;
 }
 
 .ps-table thead{
-    background:#2f80ed;
+    background:var(--turquoise-dark);
 }
 
 .ps-table thead th{
@@ -60,37 +61,82 @@
 }
 
 .ps-table tbody tr{
-    border-bottom:1px solid #333;
+    background:#0f2a29;
+    border-bottom:1px solid rgba(15,185,177,.15);
     transition:.2s;
 }
 
 .ps-table tbody tr:nth-child(even){
-    background:#2b2b2b;
+    background:#143634;
 }
 
 .ps-table tbody tr:hover{
-    background:#343434;
+    background:#1b4745;
 }
 
 .ps-table td{
     padding:13px 15px;
     font-size:14px;
-    color:#dddddd;
+    color:#e6fffb;
     vertical-align:top;
 }
 
 
 /* ==========================================
-   Code Style
+   PowerShell Command Style
 ========================================== */
 
 .ps-table code{
-    background:#111;
-    color:#7CFC00;
-    padding:4px 8px;
+
+    background:#081918;
+    color:var(--turquoise-light);
+
+    padding:5px 10px;
+
     border-radius:6px;
-    font-family:Consolas, monospace;
+
+    border:1px solid rgba(15,185,177,.25);
+
+    font-family:Consolas, "Courier New", monospace;
+
     font-size:13px;
+}
+
+
+/* ==========================================
+   Interactive Command Button
+========================================== */
+
+.ps-command{
+
+    background:#081918;
+
+    color:var(--turquoise-light);
+
+    border:1px solid var(--turquoise-dark);
+
+    border-radius:8px;
+
+    padding:8px 14px;
+
+    font-family:Consolas, "Courier New", monospace;
+
+    cursor:pointer;
+
+    transition:all .2s ease;
+
+}
+
+.ps-command:hover{
+
+    background:var(--turquoise);
+
+    color:#06211f;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 0 10px rgba(15,185,177,.35);
+
 }
 
 
@@ -101,21 +147,31 @@
 @media(max-width:900px){
 
     .powershell-library{
-        padding:15px;
+
+        padding:18px;
+
     }
 
     .powershell-library h2{
+
         font-size:26px;
+
     }
 
     .powershell-library h3{
+
         font-size:20px;
+
     }
 
     .ps-table{
+
         display:block;
+
         overflow-x:auto;
+
         white-space:nowrap;
+
     }
 
 }
