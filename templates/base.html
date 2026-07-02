@@ -21,6 +21,7 @@
             <a href="{{ url_for('dashboard') }}" class="{{ 'active' if active_page == 'dashboard' else '' }}">Dashboard</a>
             <a href="{{ url_for('all_tables') }}" class="{{ 'active' if active_page == 'all_tables' else '' }}">All Tables</a>
             <a href="{{ url_for('erd') }}" class="{{ 'active' if active_page == 'erd' else '' }}">ERD</a>
+            <a href="{{ url_for('powershell') }}" class="{{ 'active' if active_page == 'powershell' else '' }}">PowerShell Lab</a>
         </div>
 
         <button class="navbar-toggle" id="navbarToggle" aria-label="Toggle menu">
@@ -35,6 +36,7 @@
         <a href="{{ url_for('dashboard') }}" class="{{ 'active' if active_page == 'dashboard' else '' }}">Dashboard</a>
         <a href="{{ url_for('all_tables') }}" class="{{ 'active' if active_page == 'all_tables' else '' }}">All Tables</a>
         <a href="{{ url_for('erd') }}" class="{{ 'active' if active_page == 'erd' else '' }}">ERD</a>
+        <a href="{{ url_for('powershell') }}" class="{{ 'active' if active_page == 'powershell' else '' }}">PowerShell Lab</a>
     </div>
 
     <main>

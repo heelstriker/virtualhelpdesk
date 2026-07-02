@@ -1,0 +1,143 @@
+/* ==========================================
+   PowerShell Command Library
+========================================== */
+
+.powershell-library{
+    width:100%;
+    max-width:1400px;
+    margin:30px auto;
+    padding:30px;
+    background:#222;
+    border-radius:16px;
+    color:#eee;
+    box-shadow:0 6px 18px rgba(0,0,0,.35);
+}
+
+.powershell-library h2{
+    margin-bottom:8px;
+    font-size:32px;
+    color:#ffffff;
+}
+
+.powershell-library p{
+    margin-bottom:30px;
+    color:#bbbbbb;
+    font-size:15px;
+}
+
+.powershell-library h3{
+    margin-top:40px;
+    margin-bottom:15px;
+    color:#7fd3ff;
+    border-left:5px solid #4aa8ff;
+    padding-left:12px;
+    font-size:22px;
+}
+
+
+/* ==========================================
+   Tables
+========================================== */
+
+.ps-table{
+    width:100%;
+    border-collapse:collapse;
+    margin-bottom:35px;
+    overflow:hidden;
+    border-radius:12px;
+}
+
+.ps-table thead{
+    background:#2f80ed;
+}
+
+.ps-table thead th{
+    padding:14px;
+    text-align:left;
+    color:white;
+    font-size:15px;
+    font-weight:600;
+}
+
+.ps-table tbody tr{
+    border-bottom:1px solid #333;
+    transition:.2s;
+}
+
+.ps-table tbody tr:nth-child(even){
+    background:#2b2b2b;
+}
+
+.ps-table tbody tr:hover{
+    background:#343434;
+}
+
+.ps-table td{
+    padding:13px 15px;
+    font-size:14px;
+    color:#dddddd;
+    vertical-align:top;
+}
+
+
+/* ==========================================
+   Code Style
+========================================== */
+
+.ps-table code{
+    background:#111;
+    color:#7CFC00;
+    padding:4px 8px;
+    border-radius:6px;
+    font-family:Consolas, monospace;
+    font-size:13px;
+}
+
+
+/* ==========================================
+   Responsive
+========================================== */
+
+@media(max-width:900px){
+
+    .powershell-library{
+        padding:15px;
+    }
+
+    .powershell-library h2{
+        font-size:26px;
+    }
+
+    .powershell-library h3{
+        font-size:20px;
+    }
+
+    .ps-table{
+        display:block;
+        overflow-x:auto;
+        white-space:nowrap;
+    }
+
+}
+
+/* ==========================================
+   PS Command 
+========================================== */
+
+.ps-command{
+    background:#111;
+    color:#7CFC00;
+    border:1px solid #555;
+    border-radius:8px;
+    padding:8px 14px;
+    font-family:Consolas, monospace;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.ps-command:hover{
+    background:#2f80ed;
+    color:#fff;
+    border-color:#2f80ed;
+    transform:translateY(-2px);
+}

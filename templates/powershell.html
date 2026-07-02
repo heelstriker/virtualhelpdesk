@@ -1,0 +1,284 @@
+{% extends "base.html" %}
+
+{% block title %}PowerShell Command Library - VirtualHelpDesk{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='src/css/powershell.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="powershell-library">
+
+    <h2>PowerShell Command Library</h2>
+    <p>Frequently used Windows PowerShell commands for IT Help Desk and Desktop Support.</p>
+
+    <!-- Inventory -->
+    <h3>🖥️ System Inventory</h3>
+    <table class="ps-table">
+        <thead>
+            <tr>
+                <th>Command</th>
+                <th>Purpose</th>
+                <th>Virtual Help Desk Simulation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>Get-ComputerInfo</code></td>
+                <td>Display computer hardware and OS information.</td>
+                <td>Show device information from the Devices table.</td>
+            </tr>
+            <tr>
+                <td><code>Get-WmiObject</code></td>
+                <td>Retrieve Windows system information using WMI.</td>
+                <td>Display BIOS, CPU, RAM, and manufacturer details.</td>
+            </tr>
+            <tr>
+                <td><code>Get-Process</code></td>
+                <td>List running processes.</td>
+                <td>Display simulated running applications.</td>
+            </tr>
+            <tr>
+                <td><code>Get-Service</code></td>
+                <td>Display Windows services.</td>
+                <td>Show service status and simulate stopped services.</td>
+            </tr>
+            <tr>
+                <td><code>Get-HotFix</code></td>
+                <td>Display installed Windows Updates.</td>
+                <td>Read installed patches from Patch table.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Network -->
+    <h3>🌐 Network Diagnostics</h3>
+    <table class="ps-table">
+        <thead>
+            <tr>
+                <th>Command</th>
+                <th>Purpose</th>
+                <th>Virtual Help Desk Simulation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>Test-Connection</code></td>
+                <td>Ping a remote host.</td>
+                <td>Verify whether servers are online.</td>
+            </tr>
+            <tr>
+                <td><code>ipconfig</code></td>
+                <td>Display IP configuration.</td>
+                <td>Show device IP, subnet, gateway, and DNS.</td>
+            </tr>
+            <tr>
+                <td><code>Resolve-DnsName</code></td>
+                <td>Resolve DNS records.</td>
+                <td>Verify hostname resolution.</td>
+            </tr>
+            <tr>
+                <td><code>nslookup</code></td>
+                <td>Query DNS server.</td>
+                <td>Display DNS lookup results.</td>
+            </tr>
+            <tr>
+                <td><code>Get-NetAdapter</code></td>
+                <td>Display network adapters.</td>
+                <td>Show adapter status and simulate cable unplugged.</td>
+            </tr>
+            <tr>
+                <td><code>arp -a</code></td>
+                <td>Display ARP cache.</td>
+                <td>View neighboring devices on the subnet.</td>
+            </tr>
+            <tr>
+                <td><code>route print</code></td>
+                <td>Display routing table.</td>
+                <td>View simulated routing information.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Storage -->
+    <h3>💾 Storage & File Shares</h3>
+    <table class="ps-table">
+        <thead>
+            <tr>
+                <th>Command</th>
+                <th>Purpose</th>
+                <th>Virtual Help Desk Simulation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>Get-PSDrive</code></td>
+                <td>Display mapped drives.</td>
+                <td>Read Network Drives table.</td>
+            </tr>
+            <tr>
+                <td><code>Get-SmbMapping</code></td>
+                <td>Display SMB mapped drives.</td>
+                <td>Show mapped network drives and connection status.</td>
+            </tr>
+            <tr>
+                <td><code>Get-SmbShare</code></td>
+                <td>Display shared folders.</td>
+                <td>Show shared folders hosted on servers.</td>
+            </tr>
+            <tr>
+                <td><code>Get-Volume</code></td>
+                <td>Display disk volumes.</td>
+                <td>View storage utilization.</td>
+            </tr>
+            <tr>
+                <td><code>Get-Disk</code></td>
+                <td>Display physical disks.</td>
+                <td>View installed storage devices.</td>
+            </tr>
+            <tr>
+                <td><code>Get-Partition</code></td>
+                <td>Display disk partitions.</td>
+                <td>Show logical partition information.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Printers -->
+    <h3>🖨️ Printer Management</h3>
+    <table class="ps-table">
+        <thead>
+            <tr>
+                <th>Command</th>
+                <th>Purpose</th>
+                <th>Virtual Help Desk Simulation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>Get-Printer</code></td>
+                <td>Display installed printers.</td>
+                <td>Read Printers table.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Software -->
+    <h3>📦 Software Management</h3>
+    <table class="ps-table">
+        <thead>
+            <tr>
+                <th>Command</th>
+                <th>Purpose</th>
+                <th>Virtual Help Desk Simulation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>Get-Package</code></td>
+                <td>Display installed software.</td>
+                <td>Read Software table.</td>
+            </tr>
+            <tr>
+                <td><code>Get-AppxPackage</code></td>
+                <td>Display installed Microsoft Store apps.</td>
+                <td>Show Windows App packages.</td>
+            </tr>
+            <tr>
+                <td><code>winget list</code></td>
+                <td>Display installed applications.</td>
+                <td>View installed software inventory.</td>
+            </tr>
+            <tr>
+                <td><code>winget search</code></td>
+                <td>Search available software.</td>
+                <td>Search Software Catalog.</td>
+            </tr>
+            <tr>
+                <td><code>winget install</code></td>
+                <td>Install applications.</td>
+                <td>Simulate software deployment.</td>
+            </tr>
+            <tr>
+                <td><code>winget upgrade</code></td>
+                <td>Upgrade installed applications.</td>
+                <td>Simulate software updates.</td>
+            </tr>
+            <tr>
+                <td><code>winget uninstall</code></td>
+                <td>Remove installed applications.</td>
+                <td>Simulate software removal.</td>
+            </tr>
+            <tr>
+                <td><code>Start-Process msiexec.exe</code></td>
+                <td>Install MSI packages silently.</td>
+                <td>Deploy enterprise MSI packages.</td>
+            </tr>
+            <tr>
+                <td><code>Start-Process setup.exe</code></td>
+                <td>Run EXE installers silently.</td>
+                <td>Deploy legacy software.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Event Logs -->
+    <h3>📋 Event Logs</h3>
+    <table class="ps-table">
+        <thead>
+            <tr>
+                <th>Command</th>
+                <th>Purpose</th>
+                <th>Virtual Help Desk Simulation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>Get-EventLog</code></td>
+                <td>Display Windows Event Logs.</td>
+                <td>View simulated system events.</td>
+            </tr>
+            <tr>
+                <td><code>Get-WinEvent</code></td>
+                <td>Display advanced Event Logs.</td>
+                <td>Investigate simulated incidents.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- User & Groups -->
+    <h3>👤 User Management</h3>
+    <table class="ps-table">
+        <thead>
+            <tr>
+                <th>Command</th>
+                <th>Purpose</th>
+                <th>Virtual Help Desk Simulation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>Get-LocalUser</code></td>
+                <td>Display local user accounts.</td>
+                <td>Show users assigned to devices.</td>
+            </tr>
+            <tr>
+                <td><code>Get-LocalGroup</code></td>
+                <td>Display local groups.</td>
+                <td>View administrator and security groups.</td>
+            </tr>
+            <tr>
+                <td><code>Get-LocalGroupMember</code></td>
+                <td>Display group members.</td>
+                <td>View user memberships.</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+
+
+
+{% endblock %}

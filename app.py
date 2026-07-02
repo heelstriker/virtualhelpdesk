@@ -204,6 +204,9 @@ def all_tables():
         active_page="all_tables",
         tables=tables,
     )
+@app.route("/powershell")
+def erd():
+    return render_template("powershell.html", active_page="powershell")
 
 @app.route("/erd")
 def erd():
