@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}Field Notes - VirtualHelpDesk{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='src/css/field_notes.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="fn-header">
+    <h1>Field Notes</h1>
+    <p>
+        Observations drawn from common enterprise IT patterns encountered over 17 years of support operations.
+        The following scenarios are composites intended for educational and illustrative purposes.
+        Any resemblance to specific organizations or individuals is coincidental.
+    </p>
+</div>
+
+<!-- ===== SECTION 1: ENDPOINT & CLIENT ISSUES ===== -->
+<div class="fn-section">
+    <div class="fn-section-label teal">Endpoint &amp; Client Issues</div>
+
+    <div class="fn-card">
+        <div class="fn-icon">🖥️</div>
+        <div class="fn-body">
+            <div class="fn-title">Coming soon</div>
+            <div class="fn-desc fn-placeholder">This section will cover common endpoint and client-side issues.</div>
+        </div>
+    </div>
+
+</div>
+
+<!-- ===== SECTION 2: NETWORK OUTAGES ===== -->
+<div class="fn-section">
+    <div class="fn-section-label orange">Network Outages — Root Causes</div>
+
+    <div class="fn-card">
+        <div class="fn-icon">🌐</div>
+        <div class="fn-body">
+            <div class="fn-title">Coming soon</div>
+            <div class="fn-desc fn-placeholder">This section will cover network outage root cause analysis.</div>
+        </div>
+    </div>
+
+</div>
+
+<!-- ===== SECTION 3: SECURITY & ACCESS CONTROL ===== -->
+<div class="fn-section">
+    <div class="fn-section-label red">Security &amp; Access Control</div>
+
+    <div class="fn-card">
+        <div class="fn-icon">🔐</div>
+        <div class="fn-body">
+            <div class="fn-title">Coming soon</div>
+            <div class="fn-desc fn-placeholder">This section will cover access control and security observations.</div>
+        </div>
+    </div>
+
+</div>
+
+<div class="fn-footer">
+    VirtualHelpDesk — Built on 17 years of enterprise IT operations experience.
+</div>
+
+{% endblock %}

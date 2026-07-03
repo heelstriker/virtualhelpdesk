@@ -212,6 +212,9 @@ def powershell():
 def erd():
     return render_template("erd.html", active_page="erd")
 
+@app.route("/field_notes")
+def field_notes():
+    return render_template("field_notes.html", active_page="field_notes")
 
 @app.errorhandler(500)
 def error(e):

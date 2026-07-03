@@ -10,10 +10,197 @@
 
 <div class="erd-header">
     <h1>Entity Relationship Diagram</h1>
-    <p>Database schema powering VirtualHelpDesk — 10 tables across transaction and catalog (master data) layers.</p>
+    <p>
+        VirtualHelpDesk is built on a SQLite database consisting of <strong>10 tables</strong> divided into two layers.
+        <strong>Transaction tables</strong> hold live operational data generated as devices are managed, patched, and monitored across Banana Corporation.
+        <strong>Catalog tables</strong> act as master data — they define what software, patches, and printers exist in the environment
+        and serve as the reference source that transaction records are validated against.
+        All transaction tables are linked through a shared <code>hostname</code> key,
+        keeping every endpoint's data traceable back to a single device identity.
+    </p>
 </div>
 
+<!-- ===== SECTION 1: Chen notation relationship list ===== -->
+<div class="erd-panel" style="margin-bottom:24px;">
+
+    <h2 style="margin-top:0; font-size:16px; color:var(--text-soft); font-weight:600;">Relationships (Chen notation)</h2>
+
+    <div class="erd-legend" style="margin-bottom:16px;">
+        <div class="erd-legend-item">
+            <div class="erd-legend-dot" style="background:#0a8f89;"></div>
+            Transaction tables
+        </div>
+        <div class="erd-legend-item">
+            <div class="erd-legend-dot" style="background:#ff9f1c;"></div>
+            Catalog tables (master data)
+        </div>
+        <div class="erd-legend-item" style="font-size:12px; color:var(--text-soft);">
+            □ = Entity &nbsp;◇ = Relationship &nbsp;1/N = Cardinality
+        </div>
+    </div>
+
+    <div class="erd-svg-wrap">
+    <svg width="100%" viewBox="0 0 900 490" role="img" xmlns="http://www.w3.org/2000/svg">
+      <title>VirtualHelpDesk — Chen notation relationships</title>
+      <desc>Nine entity-relationship diagrams in Chen notation, one per row, showing cardinality between tables.</desc>
+
+      <!-- column x positions:
+           entity1: x=20  w=148  (right edge 168)
+           line + card1: 168..222
+           diamond center: 260
+           line + cardN: 298..372
+           entity2: x=372 w=148  (right edge 520)
+           comment: x=540
+      -->
+
+      <!-- ROW 1: devices —1— has —1— hardware -->
+      <g>
+        <rect x="20" y="14" width="148" height="32" fill="#e0f7f6" stroke="#0a8f89" stroke-width="2"/>
+        <text x="94" y="30" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" fill="#0a8f89" font-family="'Segoe UI',sans-serif">devices</text>
+        <line x1="168" y1="30" x2="222" y2="30" stroke="#0a8f89" stroke-width="1.5"/>
+        <text x="196" y="24" text-anchor="middle" font-size="11" font-weight="600" fill="#0a8f89" font-family="'Segoe UI',sans-serif">1</text>
+        <polygon points="222,30 260,14 298,30 260,46" fill="#f5f7f8" stroke="#0a8f89" stroke-width="1.5"/>
+        <text x="260" y="30" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#0a8f89" font-family="'Segoe UI',sans-serif">has</text>
+        <line x1="298" y1="30" x2="372" y2="30" stroke="#0a8f89" stroke-width="1.5"/>
+        <text x="336" y="24" text-anchor="middle" font-size="11" font-weight="600" fill="#0a8f89" font-family="'Segoe UI',sans-serif">1</text>
+        <rect x="372" y="14" width="148" height="32" fill="#e0f7f6" stroke="#0a8f89" stroke-width="2"/>
+        <text x="446" y="30" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" fill="#0a8f89" font-family="'Segoe UI',sans-serif">hardware</text>
+        <text x="540" y="30" dominant-baseline="central" font-size="11" fill="#6b7280" font-family="'Segoe UI',sans-serif">Each device has exactly one hardware profile.</text>
+      </g>
+
+      <!-- ROW 2: devices —1— runs —N— software -->
+      <g>
+        <rect x="20" y="64" width="148" height="32" fill="#e0f7f6" stroke="#0a8f89" stroke-width="2"/>
+        <text x="94" y="80" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" fill="#0a8f89" font-family="'Segoe UI',sans-serif">devices</text>
+        <line x1="168" y1="80" x2="222" y2="80" stroke="#0a8f89" stroke-width="1.5"/>
+        <text x="196" y="74" text-anchor="middle" font-size="11" font-weight="600" fill="#0a8f89" font-family="'Segoe UI',sans-serif">1</text>
+        <polygon points="222,80 260,64 298,80 260,96" fill="#f5f7f8" stroke="#0a8f89" stroke-width="1.5"/>
+        <text x="260" y="80" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#0a8f89" font-family="'Segoe UI',sans-serif">runs</text>
+        <line x1="298" y1="80" x2="372" y2="80" stroke="#0a8f89" stroke-width="1.5"/>
+        <text x="336" y="74" text-anchor="middle" font-size="11" font-weight="600" fill="#0a8f89" font-family="'Segoe UI',sans-serif">N</text>
+        <rect x="372" y="64" width="148" height="32" fill="#e0f7f6" stroke="#0a8f89" stroke-width="2"/>
+        <text x="446" y="80" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" fill="#0a8f89" font-family="'Segoe UI',sans-serif">software</text>
+        <text x="540" y="80" dominant-baseline="central" font-size="11" fill="#6b7280" font-family="'Segoe UI',sans-serif">One device runs multiple software titles.</text>
+      </g>
+
+      <!-- ROW 3: devices —1— receives —N— patches -->
+      <g>
+        <rect x="20" y="114" width="148" height="32" fill="#e0f7f6" stroke="#0a8f89" stroke-width="2"/>
+        <text x="94" y="130" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" fill="#0a8f89" font-family="'Segoe UI',sans-serif">devices</text>
+        <line x1="168" y1="130" x2="222" y2="130" stroke="#0a8f89" stroke-width="1.5"/>
+        <text x="196" y="124" text-anchor="middle" font-size="11" font-weight="600" fill="#0a8f89" font-family="'Segoe UI',sans-serif">1</text>
+        <polygon points="222,130 260,114 298,130 260,146" fill="#f5f7f8" stroke="#0a8f89" stroke-width="1.5"/>
+        <text x="260" y="130" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#0a8f89" font-family="'Segoe UI',sans-serif">receives</text>
+        <line x1="298" y1="130" x2="372" y2="130" stroke="#0a8f89" stroke-width="1.5"/>
+        <text x="336" y="124" text-anchor="middle" font-size="11" font-weight="600" fill="#0a8f89" font-family="'Segoe UI',sans-serif">N</text>
+        <rect x="372" y="114" width="148" height="32" fill="#e0f7f6" stroke="#0a8f89" stroke-width="2"/>
+        <text x="446" y="130" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" fill="#0a8f89" font-family="'Segoe UI',sans-serif">patches</text>
+        <text x="540" y="130" dominant-baseline="central" font-size="11" fill="#6b7280" font-family="'Segoe UI',sans-serif">One device tracks multiple patch deployments.</text>
+      </g>
+
+      <!-- ROW 4: devices —1— mounts —N— network_drives -->
+      <g>
+        <rect x="20" y="164" width="148" height="32" fill="#e0f7f6" stroke="#0a8f89" stroke-width="2"/>
+        <text x="94" y="180" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" fill="#0a8f89" font-family="'Segoe UI',sans-serif">devices</text>
+        <line x1="168" y1="180" x2="222" y2="180" stroke="#0a8f89" stroke-width="1.5"/>
+        <text x="196" y="174" text-anchor="middle" font-size="11" font-weight="600" fill="#0a8f89" font-family="'Segoe UI',sans-serif">1</text>
+        <polygon points="222,180 260,164 298,180 260,196" fill="#f5f7f8" stroke="#0a8f89" stroke-width="1.5"/>
+        <text x="260" y="180" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#0a8f89" font-family="'Segoe UI',sans-serif">mounts</text>
+        <line x1="298" y1="180" x2="372" y2="180" stroke="#0a8f89" stroke-width="1.5"/>
+        <text x="336" y="174" text-anchor="middle" font-size="11" font-weight="600" fill="#0a8f89" font-family="'Segoe UI',sans-serif">N</text>
+        <rect x="372" y="164" width="148" height="32" fill="#e0f7f6" stroke="#0a8f89" stroke-width="2"/>
+        <text x="446" y="180" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" fill="#0a8f89" font-family="'Segoe UI',sans-serif">network_drives</text>
+        <text x="540" y="180" dominant-baseline="central" font-size="11" fill="#6b7280" font-family="'Segoe UI',sans-serif">One device can mount multiple network drives.</text>
+      </g>
+
+      <!-- ROW 5: devices —1— connects to —N— printers -->
+      <g>
+        <rect x="20" y="214" width="148" height="32" fill="#e0f7f6" stroke="#0a8f89" stroke-width="2"/>
+        <text x="94" y="230" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" fill="#0a8f89" font-family="'Segoe UI',sans-serif">devices</text>
+        <line x1="168" y1="230" x2="222" y2="230" stroke="#0a8f89" stroke-width="1.5"/>
+        <text x="196" y="224" text-anchor="middle" font-size="11" font-weight="600" fill="#0a8f89" font-family="'Segoe UI',sans-serif">1</text>
+        <polygon points="222,230 260,214 298,230 260,246" fill="#f5f7f8" stroke="#0a8f89" stroke-width="1.5"/>
+        <text x="260" y="230" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#0a8f89" font-family="'Segoe UI',sans-serif">connects to</text>
+        <line x1="298" y1="230" x2="372" y2="230" stroke="#0a8f89" stroke-width="1.5"/>
+        <text x="336" y="224" text-anchor="middle" font-size="11" font-weight="600" fill="#0a8f89" font-family="'Segoe UI',sans-serif">N</text>
+        <rect x="372" y="214" width="148" height="32" fill="#e0f7f6" stroke="#0a8f89" stroke-width="2"/>
+        <text x="446" y="230" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" fill="#0a8f89" font-family="'Segoe UI',sans-serif">printers</text>
+        <text x="540" y="230" dominant-baseline="central" font-size="11" fill="#6b7280" font-family="'Segoe UI',sans-serif">Printer access is assigned per device; cross-dept access raises an alert.</text>
+      </g>
+
+      <!-- ROW 6: server_catalog —1— hosts —N— devices -->
+      <g>
+        <rect x="20" y="264" width="180" height="32" fill="#e0f7f6" stroke="#0a8f89" stroke-width="2"/>
+        <text x="110" y="280" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" fill="#0a8f89" font-family="'Segoe UI',sans-serif">server_catalog</text>
+        <line x1="200" y1="280" x2="240" y2="280" stroke="#0a8f89" stroke-width="1.5"/>
+        <text x="222" y="274" text-anchor="middle" font-size="11" font-weight="600" fill="#0a8f89" font-family="'Segoe UI',sans-serif">1</text>
+        <polygon points="240,280 278,264 316,280 278,296" fill="#f5f7f8" stroke="#0a8f89" stroke-width="1.5"/>
+        <text x="278" y="280" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#0a8f89" font-family="'Segoe UI',sans-serif">hosts</text>
+        <line x1="316" y1="280" x2="372" y2="280" stroke="#0a8f89" stroke-width="1.5"/>
+        <text x="346" y="274" text-anchor="middle" font-size="11" font-weight="600" fill="#0a8f89" font-family="'Segoe UI',sans-serif">N</text>
+        <rect x="372" y="264" width="148" height="32" fill="#e0f7f6" stroke="#0a8f89" stroke-width="2"/>
+        <text x="446" y="280" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" fill="#0a8f89" font-family="'Segoe UI',sans-serif">devices</text>
+        <text x="540" y="280" dominant-baseline="central" font-size="11" fill="#6b7280" font-family="'Segoe UI',sans-serif">One server (e.g. LAX file server) hosts multiple client PCs.</text>
+      </g>
+
+      <!-- divider -->
+      <line x1="20" y1="316" x2="890" y2="316" stroke="#e2e8ea" stroke-width="1" stroke-dasharray="4 4"/>
+      <text x="450" y="330" text-anchor="middle" font-size="11" fill="#6b7280" font-family="'Segoe UI',sans-serif">catalog → transaction</text>
+
+      <!-- ROW 7: software_catalog —1— defines —N— software -->
+      <g>
+        <rect x="20" y="342" width="180" height="32" fill="#fff3e0" stroke="#ff9f1c" stroke-width="2"/>
+        <text x="110" y="358" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" fill="#ff9f1c" font-family="'Segoe UI',sans-serif">software_catalog</text>
+        <line x1="200" y1="358" x2="240" y2="358" stroke="#ff9f1c" stroke-width="1.5"/>
+        <text x="222" y="352" text-anchor="middle" font-size="11" font-weight="600" fill="#ff9f1c" font-family="'Segoe UI',sans-serif">1</text>
+        <polygon points="240,358 278,342 316,358 278,374" fill="#fff3e0" stroke="#ff9f1c" stroke-width="1.5"/>
+        <text x="278" y="358" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#ff9f1c" font-family="'Segoe UI',sans-serif">defines</text>
+        <line x1="316" y1="358" x2="372" y2="358" stroke="#ff9f1c" stroke-width="1.5"/>
+        <text x="346" y="352" text-anchor="middle" font-size="11" font-weight="600" fill="#ff9f1c" font-family="'Segoe UI',sans-serif">N</text>
+        <rect x="372" y="342" width="148" height="32" fill="#e0f7f6" stroke="#0a8f89" stroke-width="2"/>
+        <text x="446" y="358" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" fill="#0a8f89" font-family="'Segoe UI',sans-serif">software</text>
+        <text x="540" y="358" dominant-baseline="central" font-size="11" fill="#6b7280" font-family="'Segoe UI',sans-serif">Master list of approved software; installation status recorded per device.</text>
+      </g>
+
+      <!-- ROW 8: patch_catalog —1— defines —N— patches -->
+      <g>
+        <rect x="20" y="400" width="180" height="32" fill="#fff3e0" stroke="#ff9f1c" stroke-width="2"/>
+        <text x="110" y="416" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" fill="#ff9f1c" font-family="'Segoe UI',sans-serif">patch_catalog</text>
+        <line x1="200" y1="416" x2="240" y2="416" stroke="#ff9f1c" stroke-width="1.5"/>
+        <text x="222" y="410" text-anchor="middle" font-size="11" font-weight="600" fill="#ff9f1c" font-family="'Segoe UI',sans-serif">1</text>
+        <polygon points="240,416 278,400 316,416 278,432" fill="#fff3e0" stroke="#ff9f1c" stroke-width="1.5"/>
+        <text x="278" y="416" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#ff9f1c" font-family="'Segoe UI',sans-serif">defines</text>
+        <line x1="316" y1="416" x2="372" y2="416" stroke="#ff9f1c" stroke-width="1.5"/>
+        <text x="346" y="410" text-anchor="middle" font-size="11" font-weight="600" fill="#ff9f1c" font-family="'Segoe UI',sans-serif">N</text>
+        <rect x="372" y="400" width="148" height="32" fill="#e0f7f6" stroke="#0a8f89" stroke-width="2"/>
+        <text x="446" y="416" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" fill="#0a8f89" font-family="'Segoe UI',sans-serif">patches</text>
+        <text x="540" y="416" dominant-baseline="central" font-size="11" fill="#6b7280" font-family="'Segoe UI',sans-serif">Patch metadata (severity, target OS) drives compliance tracking per device.</text>
+      </g>
+
+      <!-- ROW 9: printer_catalog —1— defines —N— printers -->
+      <g>
+        <rect x="20" y="450" width="180" height="32" fill="#fff3e0" stroke="#ff9f1c" stroke-width="2"/>
+        <text x="110" y="466" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" fill="#ff9f1c" font-family="'Segoe UI',sans-serif">printer_catalog</text>
+        <line x1="200" y1="466" x2="240" y2="466" stroke="#ff9f1c" stroke-width="1.5"/>
+        <text x="222" y="460" text-anchor="middle" font-size="11" font-weight="600" fill="#ff9f1c" font-family="'Segoe UI',sans-serif">1</text>
+        <polygon points="240,466 278,450 316,466 278,482" fill="#fff3e0" stroke="#ff9f1c" stroke-width="1.5"/>
+        <text x="278" y="466" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#ff9f1c" font-family="'Segoe UI',sans-serif">defines</text>
+        <line x1="316" y1="466" x2="372" y2="466" stroke="#ff9f1c" stroke-width="1.5"/>
+        <text x="346" y="460" text-anchor="middle" font-size="11" font-weight="600" fill="#ff9f1c" font-family="'Segoe UI',sans-serif">N</text>
+        <rect x="372" y="450" width="148" height="32" fill="#e0f7f6" stroke="#0a8f89" stroke-width="2"/>
+        <text x="446" y="466" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" fill="#0a8f89" font-family="'Segoe UI',sans-serif">printers</text>
+        <text x="540" y="466" dominant-baseline="central" font-size="11" fill="#6b7280" font-family="'Segoe UI',sans-serif">Physical printers registered in catalog; per-device access enforced by department.</text>
+      </g>
+
+    </svg>
+    </div>
+
+</div>
+
+<!-- ===== SECTION 2: Color-coded ER Diagram ===== -->
 <div class="erd-panel">
+
+    <h2 style="margin-top:0; font-size:16px; color:var(--text-soft); font-weight:600;">Full schema diagram</h2>
 
     <div class="erd-legend">
         <div class="erd-legend-item">
@@ -47,9 +234,7 @@
         </marker>
       </defs>
 
-      <!-- ========== LEFT COLUMN ========== -->
-
-      <!-- hardware y=260 -->
+      <!-- LEFT COLUMN -->
       <g>
         <rect x="20" y="260" width="185" height="152" rx="8" fill="#e0f7f6" stroke="#0a8f89" stroke-width="1.5"/>
         <rect x="20" y="260" width="185" height="28" rx="8" fill="#0a8f89"/>
@@ -62,8 +247,6 @@
         <text x="32" y="369" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">      device_type</text>
         <text x="32" y="385" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">      cpu / memory / disk</text>
       </g>
-
-      <!-- software y=460 -->
       <g>
         <rect x="20" y="460" width="185" height="120" rx="8" fill="#e0f7f6" stroke="#0a8f89" stroke-width="1.5"/>
         <rect x="20" y="460" width="185" height="28" rx="8" fill="#0a8f89"/>
@@ -74,8 +257,6 @@
         <text x="32" y="537" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">FK  software_name</text>
         <text x="32" y="553" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">      installed / required</text>
       </g>
-
-      <!-- patches y=640 -->
       <g>
         <rect x="20" y="640" width="185" height="168" rx="8" fill="#e0f7f6" stroke="#0a8f89" stroke-width="1.5"/>
         <rect x="20" y="640" width="185" height="28" rx="8" fill="#0a8f89"/>
@@ -90,9 +271,7 @@
         <text x="32" y="781" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">      downloaded ...</text>
       </g>
 
-      <!-- ========== CENTER COLUMN ========== -->
-
-      <!-- devices y=30 -->
+      <!-- CENTER COLUMN -->
       <g>
         <rect x="345" y="30" width="210" height="196" rx="8" fill="#e0f7f6" stroke="#0a8f89" stroke-width="1.5"/>
         <rect x="345" y="30" width="210" height="28" rx="8" fill="#0a8f89"/>
@@ -107,8 +286,6 @@
         <text x="357" y="171" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">      serial_number</text>
         <text x="357" y="187" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">      purchase_date ...</text>
       </g>
-
-      <!-- software_catalog y=310 -->
       <g>
         <rect x="345" y="310" width="210" height="184" rx="8" fill="#fff3e0" stroke="#ff9f1c" stroke-width="1.5"/>
         <rect x="345" y="310" width="210" height="28" rx="8" fill="#ff9f1c"/>
@@ -122,8 +299,6 @@
         <text x="357" y="435" font-size="11" fill="#7a4a00" font-family="'Segoe UI',sans-serif">      install_risk</text>
         <text x="357" y="451" font-size="11" fill="#7a4a00" font-family="'Segoe UI',sans-serif">      support_status ...</text>
       </g>
-
-      <!-- patch_catalog y=544 -->
       <g>
         <rect x="345" y="544" width="210" height="136" rx="8" fill="#fff3e0" stroke="#ff9f1c" stroke-width="1.5"/>
         <rect x="345" y="544" width="210" height="28" rx="8" fill="#ff9f1c"/>
@@ -135,8 +310,6 @@
         <text x="357" y="637" font-size="11" fill="#7a4a00" font-family="'Segoe UI',sans-serif">      required_software</text>
         <text x="357" y="653" font-size="11" fill="#7a4a00" font-family="'Segoe UI',sans-serif">      release_month ...</text>
       </g>
-
-      <!-- printer_catalog y=730 -->
       <g>
         <rect x="345" y="730" width="210" height="120" rx="8" fill="#fff3e0" stroke="#ff9f1c" stroke-width="1.5"/>
         <rect x="345" y="730" width="210" height="28" rx="8" fill="#ff9f1c"/>
@@ -147,9 +320,7 @@
         <text x="357" y="807" font-size="11" fill="#7a4a00" font-family="'Segoe UI',sans-serif">      location / cost_center ...</text>
       </g>
 
-      <!-- ========== RIGHT COLUMN ========== -->
-
-      <!-- network_drives y=260 -->
+      <!-- RIGHT COLUMN -->
       <g>
         <rect x="695" y="260" width="185" height="136" rx="8" fill="#e0f7f6" stroke="#0a8f89" stroke-width="1.5"/>
         <rect x="695" y="260" width="185" height="28" rx="8" fill="#0a8f89"/>
@@ -161,8 +332,6 @@
         <text x="707" y="353" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">      connected</text>
         <text x="707" y="369" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">      drive_name / status</text>
       </g>
-
-      <!-- printers y=450 -->
       <g>
         <rect x="695" y="450" width="185" height="120" rx="8" fill="#e0f7f6" stroke="#0a8f89" stroke-width="1.5"/>
         <rect x="695" y="450" width="185" height="28" rx="8" fill="#0a8f89"/>
@@ -173,8 +342,6 @@
         <text x="707" y="527" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">FK  printer_name</text>
         <text x="707" y="543" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">      installed / driver_name</text>
       </g>
-
-      <!-- server_catalog y=630 -->
       <g>
         <rect x="695" y="630" width="185" height="184" rx="8" fill="#e0f7f6" stroke="#0a8f89" stroke-width="1.5"/>
         <rect x="695" y="630" width="185" height="28" rx="8" fill="#0a8f89"/>
@@ -189,41 +356,23 @@
         <text x="707" y="771" font-size="11" fill="#086660" font-family="'Segoe UI',sans-serif">      uptime_days ...</text>
       </g>
 
-      <!-- ========== RELATIONSHIP LINES ========== -->
-
-      <!-- devices -> hardware  1:1  "has" -->
+      <!-- RELATIONSHIP LINES -->
       <line x1="345" y1="110" x2="205" y2="305" stroke="#0a8f89" stroke-width="1.5" marker-end="url(#arr-teal)"/>
       <text font-size="10" fill="#0a8f89" font-family="'Segoe UI',sans-serif" text-anchor="middle" transform="translate(268,196) rotate(-32)">has (1:1)</text>
-
-      <!-- devices -> software  1:N  "runs" -->
       <line x1="345" y1="148" x2="205" y2="500" stroke="#0a8f89" stroke-width="1.5" marker-end="url(#arr-teal)"/>
       <text font-size="10" fill="#0a8f89" font-family="'Segoe UI',sans-serif" text-anchor="middle" transform="translate(260,330) rotate(-55)">runs (1:N)</text>
-
-      <!-- devices -> patches  1:N  "receives" -->
       <line x1="345" y1="175" x2="205" y2="680" stroke="#0a8f89" stroke-width="1.5" marker-end="url(#arr-teal)"/>
       <text font-size="10" fill="#0a8f89" font-family="'Segoe UI',sans-serif" text-anchor="middle" transform="translate(248,444) rotate(-68)">receives (1:N)</text>
-
-      <!-- devices -> network_drives  1:N  "mounts" -->
       <line x1="555" y1="110" x2="695" y2="305" stroke="#0a8f89" stroke-width="1.5" marker-end="url(#arr-teal)"/>
       <text font-size="10" fill="#0a8f89" font-family="'Segoe UI',sans-serif" text-anchor="middle" transform="translate(633,196) rotate(32)">mounts (1:N)</text>
-
-      <!-- devices -> printers  1:N  "connects to" -->
       <line x1="555" y1="148" x2="695" y2="490" stroke="#0a8f89" stroke-width="1.5" marker-end="url(#arr-teal)"/>
       <text font-size="10" fill="#0a8f89" font-family="'Segoe UI',sans-serif" text-anchor="middle" transform="translate(642,330) rotate(55)">connects to (1:N)</text>
-
-      <!-- server_catalog -> devices  1:N  "hosts" (arrow points to devices) -->
       <line x1="695" y1="700" x2="555" y2="175" stroke="#0a8f89" stroke-width="1.5" stroke-dasharray="6 3" marker-end="url(#arr-teal)"/>
       <text font-size="10" fill="#0a8f89" font-family="'Segoe UI',sans-serif" text-anchor="middle" transform="translate(645,444) rotate(-68)">hosts (1:N)</text>
-
-      <!-- software_catalog -> software  1:N  "defines" -->
       <line x1="345" y1="402" x2="205" y2="510" stroke="#ff9f1c" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arr-orange)"/>
       <text font-size="10" fill="#cc7a00" font-family="'Segoe UI',sans-serif" text-anchor="middle" transform="translate(264,448) rotate(-40)">defines (1:N)</text>
-
-      <!-- patch_catalog -> patches  1:N  "defines" -->
       <line x1="345" y1="615" x2="205" y2="700" stroke="#ff9f1c" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arr-orange)"/>
       <text font-size="10" fill="#cc7a00" font-family="'Segoe UI',sans-serif" text-anchor="middle" transform="translate(264,650) rotate(-35)">defines (1:N)</text>
-
-      <!-- printer_catalog -> printers  1:N  "defines" -->
       <line x1="555" y1="790" x2="695" y2="510" stroke="#ff9f1c" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arr-orange)"/>
       <text font-size="10" fill="#cc7a00" font-family="'Segoe UI',sans-serif" text-anchor="middle" transform="translate(637,658) rotate(-62)">defines (1:N)</text>
 

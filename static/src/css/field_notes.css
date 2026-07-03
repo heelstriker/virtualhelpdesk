@@ -1,0 +1,116 @@
+/* ============================================
+   Field Notes - page specific styles
+   ============================================ */
+
+.fn-header{
+    margin-bottom: 28px;
+}
+
+.fn-header p{
+    color: var(--text-soft);
+    max-width: 720px;
+    line-height: 1.7;
+}
+
+.fn-section{
+    margin-bottom: 32px;
+}
+
+.fn-section-label{
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 16px;
+}
+
+.fn-section-label.teal{
+    background: var(--turquoise-light);
+    color: var(--turquoise-dark);
+}
+
+.fn-section-label.orange{
+    background: #fff3e0;
+    color: #b36b00;
+}
+
+.fn-section-label.red{
+    background: #fdecee;
+    color: #b52533;
+}
+
+.fn-card{
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 22px 24px;
+    margin-bottom: 14px;
+    box-shadow: 0 3px 12px rgba(15,185,177,.06);
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+}
+
+.fn-icon{
+    font-size: 28px;
+    line-height: 1;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.fn-body{
+    flex: 1;
+}
+
+.fn-title{
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 8px;
+}
+
+.fn-desc{
+    font-size: 14px;
+    color: var(--text-soft);
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+.fn-lesson{
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--turquoise-dark);
+    border-left: 3px solid var(--turquoise);
+    padding-left: 10px;
+}
+
+.fn-footer{
+    margin-top: 36px;
+    padding: 20px 24px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    font-size: 14px;
+    color: var(--text-soft);
+    font-style: italic;
+    text-align: center;
+}
+
+.fn-placeholder{
+    color: var(--border);
+    font-style: italic;
+}
+
+@media (max-width: 768px){
+    .fn-card{
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .fn-icon{
+        font-size: 24px;
+    }
+}
