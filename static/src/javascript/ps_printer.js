@@ -1,27 +1,31 @@
-async function runCommand(command){
+function runCommand(command){
+
+    let output = "";
 
     if(command==="printer"){
 
-        const response=await fetch("/api/printers");
+        output=`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
 
-        const printers=await response.json();
+PS C:\\Users\\Administrator> Get-Printer
 
-        let output=
-`PS C:\\Users\\Administrator> Get-Printer
+Name                Status      Driver
+-----------------------------------------------------
+Canon-ACC01         Online      Canon UFR II
+HP-HR01             Online      HP Universal
+Epson-MKT01         Offline     Epson ESC/P
 
-`;
-
-        output+="Name                Status\n";
-        output+="-----------------------------------\n";
-
-        printers.forEach(p=>{
-
-            output+=`${p.printer_name.padEnd(20)}${p.status}\n`;
-
-        });
-
-        document.getElementById("terminal-output").textContent=output;
-
+PS C:\\Users\\Administrator>`;
     }
+
+    document.getElementById("terminalOutput").textContent = output;
+
+    document.getElementById("terminalPopup").style.display = "flex";
+
+}
+
+function closeTerminal(){
+
+    document.getElementById("terminalPopup").style.display = "none";
 
 }
