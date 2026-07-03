@@ -227,6 +227,21 @@ def error(e):
     return "DEBUG 500 ERROR - check terminal", 500
 
 
+@app.route("/api/printers")
+def api_printers():
+
+    conn=get_db_connection()
+
+    printers=conn.execute("""
+
+    SELECT printer_name,status,driver
+
+    FROM printers
+
+    """).fetchall()
+
+    return jsonify([dict(x) for x in printers])
+
 
 if __name__ == "__main__":
 

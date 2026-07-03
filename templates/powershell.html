@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block content %}
-
+    
 <div class="powershell-library">
 
     <h2>PowerShell Command Library</h2>
@@ -157,7 +157,7 @@
         </thead>
         <tbody>
             <tr>
-                <td><code><button class="ps-command">Get-Printer</button></code></td>
+                <td><button onclick="runCommand('printer')">Get-Printer</button></td>
                 <td>Display installed printers.</td>
                 <td>Read Printers table.</td>
             </tr>
@@ -279,6 +279,34 @@
 </div>
 
 
+<div id="terminalPopup" class="terminal-popup">
+
+    <div class="terminal-window">
+
+        <div class="terminal-header">
+
+            Windows PowerShell
+
+            <span class="close-btn"
+                  onclick="closeTerminal()">
+
+                ✕
+
+            </span>
+
+        </div>
+
+<pre id="terminalOutput">
+
+PS C:\>
+
+</pre>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='src/javascript/ps_printer.js') }}"></script>
 
 
 {% endblock %}
