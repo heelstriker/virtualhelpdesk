@@ -1,0 +1,9 @@
+drive_letter,drive_name,unc_path,server,department,permission,criticality,total_devices,capacity_gb,used_gb,backup,status
+A:,Accounting Shared,\\NYCSERVER01\Accounting Shared,NYCSERVER01,Accounting,Read-Write,Critical,12,500,320,Daily,Online
+G:,General,\\LAXSERVER01\General,LAXSERVER01,All Departments,Read-Only,Medium,48,1000,650,Daily,Online
+H:,HR Shared,\\LAXSERVER01\HR_Shared,LAXSERVER01,HR,Read-Write,High,8,300,180,Daily,Online
+I:,IT Shared,\\LAXSERVER01\IT_Shared,LAXSERVER01,IT,Read-Write,Critical,5,800,250,Daily,Online
+M:,Marketing Shared,\\LAXSERVER01\Marketing_Shared,LAXSERVER01,Marketing,Read-Write,Medium,10,400,220,Daily,Online
+O:,Operation Shared,\\LAXSERVER01\Operation_Shared,LAXSERVER01,Operations,Read-Write,High,15,900,540,Daily,Online
+S:,Sales Shared,\\NYCSERVER01\Sales_Shared,NYCSERVER01,Sales,Read-Write,High,14,600,355,Daily,Online
+Z:,System Drive,\\LAXSERVER01\System,LAXSERVER01,IT,Administrators Only,Critical,2,1200,810,Daily,Online

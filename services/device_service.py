@@ -151,3 +151,15 @@ def get_printer_catalog(hostname):
     conn.close()
 
     return printer_catalog
+
+def get_network_drive_catalog(drive_name):
+    conn = get_db_connection()
+
+    network_drive_catalog = conn.execute("""
+        SELECT * FROM network_drive_catalog
+        WHERE drive_name = ?
+    """, (drive_name,)).fetchall()
+
+    conn.close()
+
+    return network_drive_catalog

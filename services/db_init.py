@@ -175,6 +175,24 @@ def create_database():
     )
     """)
 
+    cursor.execute("DROP TABLE IF EXISTS network_drive_catalog")
+    cursor.execute("""
+    Create TABLE IF NOT EXISTS network_drive_catalog (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        drive_letter TEXT,
+        drive_name TEXT,
+        unc_path TEXT,
+	    server TEXT,
+	    department TEXT,
+	    permission TEXT,
+	    criticality TEXT,
+	    capacity_gb TEXT,
+	    used_gb TEXT,
+	    backup TEXT,
+	    status TEXT
+    )
+    """)
+
 
 
     # for development purpose use drop for delete table: 

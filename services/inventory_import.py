@@ -66,6 +66,10 @@ def initialize_database():
     print("Importing Printer Catalogs...")
     printer_catalog_count = import_printer_catalog()
     print(f"Imported {printer_catalog_count} Printer Catalogs")
+
+    print("Importing Printer Catalogs...")
+    network_drive_catalog_count = import_netowrk_drive_catalog()
+    print(f"Imported {network_drive_catalog_count} Network Drive Catalogs")
     
 
 
@@ -451,6 +455,43 @@ def import_printer_catalog():
 	    row["status"],
 	    row["location"],
 	    row["cost_center"]
+        ))
+
+    conn.commit()
+    conn.close()
+
+    return len(rows)
+    
+    
+def import_printer_catalog():
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    CSV_PATH = os.path.join(BASE_DIR, "..", "seed_data", "network_drive_catalog.csv")
+
+    rows = import_csv(CSV_PATH)
+
+    cursor.execute("DELETE FROM network_drive_catalog")
+
+    for row in rows:
+
+        cursor.execute("""
+        INSERT INTO network_drive_catalog
+        (drive_letter,drive_name, unc_path,server,department,permission,criticality,capacity_gb,used_gb,backup,status)
+        VALUES (?, ?, ?, ?, ?, ?, ? ,? ,? ,?, ?)
+        """, (
+            row["driver_letter"],
+            row["drive_name"],
+            row["unc_path"],
+            row["server"],
+            row["department"],
+            row["permission"],
+            row["criticality"],
+            row["capacity_gb"],
+            row["used_gb"],
+            row["backup"],
+            row["status"]
         ))
 
     conn.commit()
