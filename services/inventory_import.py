@@ -68,7 +68,7 @@ def initialize_database():
     print(f"Imported {printer_catalog_count} Printer Catalogs")
 
     print("Importing Printer Catalogs...")
-    network_drive_catalog_count = import_netowrk_drive_catalog()
+    network_drive_catalog_count = import_network_drive_catalog()
     print(f"Imported {network_drive_catalog_count} Network Drive Catalogs")
     
 
