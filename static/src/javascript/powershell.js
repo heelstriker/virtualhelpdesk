@@ -29,7 +29,7 @@ Canon-ACC01         Online      Canon UFR II
 HP-HR01             Online      HP Universal
 Epson-MKT01         Offline     Epson ESC/P
 
-PS C:\\Users\\Administrator>`,
+PS C:\\Users\\Administrator>█`,
     
     
 service:
@@ -46,7 +46,7 @@ Running W32Time Windows Time
 Running LanmanWorkstation Workstation
 Stopped Fax Fax Service
 
-PS C:\\Users\\Administrator>`,
+PS C:\\Users\\Administrator>█`,
     
     
 psdrive:
@@ -62,7 +62,7 @@ C    118      220      FileSystem   C:\\
 A    85       415      FileSystem   \\\\NYCSERVER01\\Accounting
 H    42       258      FileSystem   \\\\LAXSERVER01\\HR_Shared
 
-PS C:\\Users\\Administrator>`
+PS C:\\Users\\Administrator>█`
         
 };
 
