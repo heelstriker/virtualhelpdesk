@@ -52,9 +52,9 @@ TABLE_LABELS = {
     "software_catalog":"Software Catalog",
     "printer_catalog":"Printer Catalog",
     "printers": "Printers (Transaction)",
-    "network_drives": "Network Drives(Transaction)",  
-    "patches": "Patches(Transaction)",
-    "software": "Software(Transaction)",
+    "network_drives": "Network Drives (Transaction)",  
+    "patches": "Patches (Transaction)",
+    "software": "Software (Transaction)",
     
 }
 
