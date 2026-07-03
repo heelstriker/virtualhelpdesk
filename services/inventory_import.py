@@ -481,7 +481,7 @@ def import_printer_catalog():
         (drive_letter,drive_name, unc_path,server,department,permission,criticality,capacity_gb,used_gb,backup,status)
         VALUES (?, ?, ?, ?, ?, ?, ? ,? ,? ,?, ?)
         """, (
-            row["driver_letter"],
+            row["drive_letter"],
             row["drive_name"],
             row["unc_path"],
             row["server"],

@@ -182,14 +182,14 @@ def create_database():
         drive_letter TEXT,
         drive_name TEXT,
         unc_path TEXT,
-	    server TEXT,
-	    department TEXT,
-	    permission TEXT,
-	    criticality TEXT,
-	    capacity_gb TEXT,
-	    used_gb TEXT,
-	    backup TEXT,
-	    status TEXT
+	server TEXT,
+	department TEXT,
+	permission TEXT,
+	criticality TEXT,
+	capacity_gb TEXT,
+	used_gb TEXT,
+	backup TEXT,
+	status TEXT
     )
     """)
 
