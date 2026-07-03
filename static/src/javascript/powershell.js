@@ -7,13 +7,15 @@ function runCommand(command){
 
 function showTerminal(output){
 
+    output += "\n\n" + prompt;
+    
     document.getElementById("terminalOutput").textContent = output;
 
     document.getElementById("terminalPopup").style.display = "flex";
 
 }
 
-const prompt = "PS C:\\Users\\Administrator>▋";
+const prompt = "PS C:\\Users\\Administrator>";
 
 
 
@@ -31,7 +33,7 @@ Name                Status      Driver
 Canon-ACC01         Online      Canon UFR II
 HP-HR01             Online      HP Universal
 Epson-MKT01         Offline     Epson ESC/P
-',
+`,
     
 service:
 
@@ -67,7 +69,6 @@ H    42       258      FileSystem   \\\\LAXSERVER01\\HR_Shared
                                
 };
 
-output +=prompt;
 
 
 
