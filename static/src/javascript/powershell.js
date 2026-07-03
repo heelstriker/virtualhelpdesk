@@ -59,8 +59,8 @@ PS C:\\Users\\Administrator> Get-PSDrive
 Name Used(GB) Free(GB) Provider     Root
 ---------------------------------------------------------
 C    118      220      FileSystem   C:\\
-A    85       415      FileSystem   \\\NYCSERVER01\\Accounting
-H    42       258      FileSystem   \\\LAXSERVER01\\HR_Shared
+A    85       415      FileSystem   \\\\NYCSERVER01\\Accounting
+H    42       258      FileSystem   \\\\LAXSERVER01\\HR_Shared
 
 PS C:\\Users\\Administrator>`
         
