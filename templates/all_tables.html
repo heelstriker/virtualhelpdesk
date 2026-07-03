@@ -17,17 +17,19 @@
       (db_init.py の create_database() で作られた10テーブルに対応):
 
         tables = {
-            "devices":        {"label": "Devices",       "rows": [...] },
-            "software":       {"label": "Software",      "rows": [...] },
-            "hardware":       {"label": "Hardware",      "rows": [...] },
-            "printers":       {"label": "Printers",      "rows": [...] },
-            "network_drives": {"label": "Network Drives","rows": [...] },
-            "patches":        {"label": "Patches",       "rows": [...] },
+            "devices":        {"label": "Devices Catalog",       "rows": [...] },
+            "hardware":       {"label": "Hardware Catalog",      "rows": [...] },
             "server_catalog": {"label": "Server Catalog", "rows": [...] },
             "patch_catalog": {"label": "Patch Catalog", "rows": [...] },
             "software_catalog": {"label": "Software Catalog", "rows": [...] },
             "printer_catalog": {"label": "Printer Catalog", "rows": [...] },
-        }
+             
+            "printers":       {"label": "Printers (Transaction)",      "rows": [...] },
+            "network_drives": {"label": "Network Drives (Transaction)","rows": [...] },
+            "patches":        {"label": "Patches (Transaction)",       "rows": [...] },
+            "software":       {"label": "Software (Transaction)",      "rows": [...] },
+          
+          }
 
     - 各 rows は SELECT * FROM <table> の結果(辞書のリスト)。
       1つ目の行のキーをそのままテーブルヘッダーとして使うので、
