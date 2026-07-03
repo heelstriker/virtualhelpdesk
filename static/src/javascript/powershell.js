@@ -52,3 +52,37 @@ function closeTerminal(){
 
 }
 
+
+
+function serviceCommand(){
+
+    let output = "";
+
+    
+        output=`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> Get-Service
+
+Status Name DisplayName
+---------------------------------------------------------
+Running Spooler Print Spooler
+Running W32Time Windows Time
+Running LanmanWorkstation Workstation
+Stopped Fax Fax Service
+
+PS C:\\Users\\Administrator>`;
+    
+    
+
+    document.getElementById("terminalOutput").textContent = output;
+
+    document.getElementById("terminalPopup").style.display = "flex";
+
+}
+
+function closeTerminal(){
+
+    document.getElementById("terminalPopup").style.display = "none";
+
+}
