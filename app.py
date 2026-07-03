@@ -220,13 +220,6 @@ def erd():
 def field_notes():
     return render_template("field_notes.html", active_page="field_notes")
 
-@app.errorhandler(500)
-def error(e):
-    import traceback
-    traceback.print_exc()
-    return "DEBUG 500 ERROR - check terminal", 500
-
-
 @app.route("/api/printers")
 def api_printers():
 
@@ -241,6 +234,16 @@ def api_printers():
     """).fetchall()
 
     return jsonify([dict(x) for x in printers])
+
+
+
+@app.errorhandler(500)
+def error(e):
+    import traceback
+    traceback.print_exc()
+    return "DEBUG 500 ERROR - check terminal", 500
+
+
 
 
 if __name__ == "__main__":

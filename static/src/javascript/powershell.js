@@ -1,9 +1,30 @@
+
 function runCommand(command){
+
+    switch(command){
+
+        case "printer":
+            printerCommand();
+            break;
+
+        case "service":
+            serviceCommand();
+            break;
+
+        case "process":
+            processCommand();
+            break;
+    }
+
+}
+
+
+
+function printerCommand(){
 
     let output = "";
 
-    if(command==="printer"){
-
+    
         output=`Windows PowerShell
 Copyright (C) Microsoft Corporation. All rights reserved.
 
@@ -16,7 +37,8 @@ HP-HR01             Online      HP Universal
 Epson-MKT01         Offline     Epson ESC/P
 
 PS C:\\Users\\Administrator>`;
-    }
+    
+    
 
     document.getElementById("terminalOutput").textContent = output;
 
@@ -29,3 +51,4 @@ function closeTerminal(){
     document.getElementById("terminalPopup").style.display = "none";
 
 }
+
