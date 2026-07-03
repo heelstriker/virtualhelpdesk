@@ -11,7 +11,7 @@
 <div class="erd-header">
     <h1>Entity Relationship Diagram</h1>
     <p>
-        VirtualHelpDesk is built on a SQLite database consisting of <strong>10 tables</strong> divided into two layers.
+        VirtualHelpDesk is built on a SQLite database consisting of <strong>11 tables</strong> divided into two layers.
         <strong>Transaction tables</strong> hold live operational data generated as devices are managed, patched, and monitored across Banana Corporation.
         <strong>Catalog tables</strong> act as master data — they define what software, patches, and printers exist in the environment
         and serve as the reference source that transaction records are validated against.
@@ -40,9 +40,9 @@
     </div>
 
     <div class="erd-svg-wrap">
-    <svg width="100%" viewBox="0 0 900 490" role="img" xmlns="http://www.w3.org/2000/svg">
+    <svg width="100%" viewBox="0 0 900 540" role="img" xmlns="http://www.w3.org/2000/svg">
       <title>VirtualHelpDesk — Chen notation relationships</title>
-      <desc>Nine entity-relationship diagrams in Chen notation, one per row, showing cardinality between tables.</desc>
+      <desc>Ten entity-relationship diagrams in Chen notation, one per row, showing cardinality between tables.</desc>
 
       <!-- column x positions:
            entity1: x=20  w=148  (right edge 168)
@@ -192,6 +192,21 @@
         <text x="540" y="466" dominant-baseline="central" font-size="11" fill="#6b7280" font-family="'Segoe UI',sans-serif">Physical printers registered in catalog; per-device access enforced by department.</text>
       </g>
 
+      <!-- ROW 10: network_drive_catalog —1— defines —N— network_drives -->
+      <g>
+        <rect x="20" y="500" width="180" height="32" fill="#fff3e0" stroke="#ff9f1c" stroke-width="2"/>
+        <text x="110" y="516" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" fill="#ff9f1c" font-family="'Segoe UI',sans-serif">network_drive_catalog</text>
+        <line x1="200" y1="516" x2="240" y2="516" stroke="#ff9f1c" stroke-width="1.5"/>
+        <text x="222" y="510" text-anchor="middle" font-size="11" font-weight="600" fill="#ff9f1c" font-family="'Segoe UI',sans-serif">1</text>
+        <polygon points="240,516 278,500 316,516 278,532" fill="#fff3e0" stroke="#ff9f1c" stroke-width="1.5"/>
+        <text x="278" y="516" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#ff9f1c" font-family="'Segoe UI',sans-serif">defines</text>
+        <line x1="316" y1="516" x2="372" y2="516" stroke="#ff9f1c" stroke-width="1.5"/>
+        <text x="346" y="510" text-anchor="middle" font-size="11" font-weight="600" fill="#ff9f1c" font-family="'Segoe UI',sans-serif">N</text>
+        <rect x="372" y="500" width="148" height="32" fill="#e0f7f6" stroke="#0a8f89" stroke-width="2"/>
+        <text x="446" y="516" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="600" fill="#0a8f89" font-family="'Segoe UI',sans-serif">network_drives</text>
+        <text x="540" y="516" dominant-baseline="central" font-size="11" fill="#6b7280" font-family="'Segoe UI',sans-serif">Master registry of shared drives; access scope enforced per department and server.</text>
+      </g>
+
     </svg>
     </div>
 
@@ -222,7 +237,7 @@
     </div>
 
     <div class="erd-svg-wrap">
-    <svg viewBox="0 0 900 1080" role="img" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 900 1200" role="img" xmlns="http://www.w3.org/2000/svg">
       <title>VirtualHelpDesk ER Diagram</title>
       <desc>ER diagram showing 10 tables: transaction tables in teal, catalog (master data) tables in orange.</desc>
       <defs>
@@ -320,6 +335,20 @@
         <text x="357" y="807" font-size="11" fill="#7a4a00" font-family="'Segoe UI',sans-serif">      location / cost_center ...</text>
       </g>
 
+      <!-- network_drive_catalog y=900 -->
+      <g>
+        <rect x="345" y="900" width="210" height="152" rx="8" fill="#fff3e0" stroke="#ff9f1c" stroke-width="1.5"/>
+        <rect x="345" y="900" width="210" height="28" rx="8" fill="#ff9f1c"/>
+        <rect x="345" y="920" width="210" height="8" fill="#ff9f1c"/>
+        <text x="450" y="919" text-anchor="middle" font-size="13" font-weight="600" fill="#fff" font-family="'Segoe UI',sans-serif">network_drive_catalog</text>
+        <text x="357" y="945" font-size="11" fill="#b36b00" font-family="'Segoe UI',sans-serif">PK  id</text>
+        <text x="357" y="961" font-size="11" fill="#7a4a00" font-family="'Segoe UI',sans-serif">      drive_letter / drive_name</text>
+        <text x="357" y="977" font-size="11" fill="#7a4a00" font-family="'Segoe UI',sans-serif">      unc_path / server</text>
+        <text x="357" y="993" font-size="11" fill="#7a4a00" font-family="'Segoe UI',sans-serif">      department / permission</text>
+        <text x="357" y="1009" font-size="11" fill="#7a4a00" font-family="'Segoe UI',sans-serif">      criticality</text>
+        <text x="357" y="1025" font-size="11" fill="#7a4a00" font-family="'Segoe UI',sans-serif">      capacity_gb / used_gb ...</text>
+      </g>
+
       <!-- RIGHT COLUMN -->
       <g>
         <rect x="695" y="260" width="185" height="136" rx="8" fill="#e0f7f6" stroke="#0a8f89" stroke-width="1.5"/>
@@ -375,6 +404,10 @@
       <text font-size="10" fill="#cc7a00" font-family="'Segoe UI',sans-serif" text-anchor="middle" transform="translate(264,650) rotate(-35)">defines (1:N)</text>
       <line x1="555" y1="790" x2="695" y2="510" stroke="#ff9f1c" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arr-orange)"/>
       <text font-size="10" fill="#cc7a00" font-family="'Segoe UI',sans-serif" text-anchor="middle" transform="translate(637,658) rotate(-62)">defines (1:N)</text>
+
+      <!-- network_drive_catalog -> network_drives -->
+      <line x1="450" y1="900" x2="787" y2="396" stroke="#ff9f1c" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arr-orange)"/>
+      <text font-size="10" fill="#cc7a00" font-family="'Segoe UI',sans-serif" text-anchor="middle" transform="translate(636,642) rotate(-58)">defines (1:N)</text>
 
     </svg>
     </div>
