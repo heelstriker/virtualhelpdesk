@@ -292,21 +292,12 @@
 
 .terminal-cursor{
 
-    display:inline-block;
-
-    width:8px;
-
-    height:18px;
-
+    width:9px;
+    height:2px;
     background:#7CFC00;
 
-    margin-left:2px;
-
-    animation:blink 1s steps(1) infinite;
-
-    vertical-align:bottom;
-
 }
+
 
 @keyframes blink{
 

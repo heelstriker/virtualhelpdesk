@@ -7,9 +7,9 @@ function runCommand(command){
 
 function showTerminal(output){
 
-    output += "\n\n" + prompt;
-    
-    document.getElementById("terminalOutput").textContent = output;
+    output += "\n\nPS C:\\Users\\Administrator> <span class='terminal-cursor'></span>";
+
+    document.getElementById("terminalOutput").innerHTML = output;
 
     document.getElementById("terminalPopup").style.display = "flex";
 
