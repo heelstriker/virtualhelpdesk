@@ -463,7 +463,7 @@ def import_printer_catalog():
     return len(rows)
     
     
-def import_printer_catalog():
+def import_network_drive_catalog():
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     conn = get_db_connection()
     cursor = conn.cursor()
