@@ -31,29 +31,31 @@ initialize_database()
 # db_init.py の create_database() で作成しているテーブル名と一致させること
 ALL_TABLE_NAMES = [
     "devices",
-    "software",
     "hardware",
-    "printers",
-    "network_drives",
-    "patches",
     "server_catalog",
     "patch_catalog",
     "software_catalog",
     "printer_catalog",
+    "printers",
+    "network_drives",
+    "patches",
+    "software",
+    
 ]
 
 # 画面表示用のラベル
 TABLE_LABELS = {
-    "devices": "Devices",
-    "software": "Software",
-    "hardware": "Hardware",
-    "printers": "Printers",
-    "network_drives": "Network Drives",
-    "patches": "Patches",
+    "devices": "Devices Catalog",
+    "hardware": "Hardware Catalog",
     "server_catalog": "Server Catalog",
     "patch_catalog": "Patch Catalog",
     "software_catalog":"Software Catalog",
     "printer_catalog":"Printer Catalog",
+    "printers": "Printers (Transaction)",
+    "network_drives": "Network Drives(Transaction)",  
+    "patches": "Patches(Transaction)",
+    "software": "Software(Transaction)",
+    
 }
 
 
