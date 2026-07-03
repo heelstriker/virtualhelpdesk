@@ -22,9 +22,8 @@
             <a href="{{ url_for('all_tables') }}" class="{{ 'active' if active_page == 'all_tables' else '' }}">All Tables</a>
             <a href="{{ url_for('erd') }}" class="{{ 'active' if active_page == 'erd' else '' }}">ERD</a>
             <a href="{{ url_for('powershell') }}" class="{{ 'active' if active_page == 'powershell' else '' }}">PowerShell Lab</a>
+            <a href="{{ url_for('field_notes') }}" class="{{ 'active' if active_page == 'field_notes' else '' }}">Field Notes</a>
         </div>
-        <a href="{{ url_for('field_notes') }}" class="{{ 'active' if active_page == 'field_notes' else '' }}">Field Notes</a>
-
         <button class="navbar-toggle" id="navbarToggle" aria-label="Toggle menu">
             <span></span>
             <span></span>
