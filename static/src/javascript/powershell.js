@@ -32,9 +32,6 @@ Canon-ACC01         Online      Canon UFR II
 HP-HR01             Online      HP Universal
 Epson-MKT01         Offline     Epson ESC/P
 ',
- 
-output +=prompt;
-       
     
 service:
 
@@ -51,8 +48,6 @@ Running LanmanWorkstation Workstation
 Stopped Fax Fax Service
 
 `,
-
-output +=prompt;
         
     
 psdrive:
@@ -69,11 +64,11 @@ A    85       415      FileSystem   \\\\NYCSERVER01\\Accounting
 H    42       258      FileSystem   \\\\LAXSERVER01\\HR_Shared
 
 `
-output +=prompt;
-
-                
+ 
+                               
 };
 
+output +=prompt;
 
 
 
