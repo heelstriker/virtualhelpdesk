@@ -153,8 +153,8 @@
             </tr>
             <tr>
                 <td><code><button onclick="runCommand('acl')">Get-ACL</button></code></td>
-                <td>Display access permission.</td>
-                <td>Show access contorl list information.</td>                
+                <td>Display NTFS and shared folder access permissions. (Access Control List)</td>
+                <td>Inspect access permissions for shared folders and troubleshoot permission-related issues.</td>                
             </tr>
         </tbody>
     </table>
@@ -205,7 +205,7 @@
                 <td>View installed software inventory.</td>
             </tr>
             <tr>
-                <td><code>winget search</code></td>
+                <td><code><button onclick="runCommand('wingetsearch')">winget search</button></code></td>
                 <td>Search available software.</td>
                 <td>Search Software Catalog.</td>
             </tr>
@@ -215,22 +215,22 @@
                 <td>Simulate software deployment.</td>
             </tr>
             <tr>
-                <td><code>winget upgrade</code></td>
+                <td><code><button onclick="runCommand('wingetupgrade')">winget upgrade</button></code></td>
                 <td>Upgrade installed applications.</td>
                 <td>Simulate software updates.</td>
             </tr>
             <tr>
-                <td><code>winget uninstall</code></td>
+                <td><code><button onclick="runCommand('wingetuninstall')">winget uninstall</button></code></td>
                 <td>Remove installed applications.</td>
                 <td>Simulate software removal.</td>
             </tr>
             <tr>
-                <td><code>Start-Process msiexec.exe</code></td>
+                <td><code><button onclick="runCommand('msiexec')">Start-Process msiexec.exe</button></code></td>
                 <td>Install MSI packages silently.</td>
                 <td>Deploy enterprise MSI packages.</td>
             </tr>
             <tr>
-                <td><code>Start-Process setup.exe</code></td>
+                <td><code><button onclick="runCommand('setupexe')">Start-Process setup.exe</button></code></td>
                 <td>Run EXE installers silently.</td>
                 <td>Deploy legacy software.</td>
             </tr>
@@ -249,12 +249,12 @@
         </thead>
         <tbody>
             <tr>
-                <td><code>Get-EventLog</code></td>
+                <td><code><button onclick="runCommand('eventlog')">Get-EventLog</button></code></td>
                 <td>Display Windows Event Logs.</td>
                 <td>View simulated system events.</td>
             </tr>
             <tr>
-                <td><code>Get-WinEvent</code></td>
+                <td><code><button onclick="runCommand('winevent')">Get-WinEvent</button></code></td>
                 <td>Display advanced Event Logs.</td>
                 <td>Investigate simulated incidents.</td>
             </tr>
@@ -273,17 +273,17 @@
         </thead>
         <tbody>
             <tr>
-                <td><code>Get-LocalUser</code></td>
+                <td><code><button onclick="runCommand('localuser')">Get-LocalUser</button></code></td>
                 <td>Display local user accounts.</td>
                 <td>Show users assigned to devices.</td>
             </tr>
             <tr>
-                <td><code>Get-LocalGroup</code></td>
+                <td><code><button onclick="runCommand('localgroup')">Get-LocalGroup</button></code></td>
                 <td>Display local groups.</td>
                 <td>View administrator and security groups.</td>
             </tr>
             <tr>
-                <td><code>Get-LocalGroupMember</code></td>
+                <td><code><button onclick="runCommand('localgroupmember')">Get-LocalGroupMember</button></code></td>
                 <td>Display group members.</td>
                 <td>View user memberships.</td>
             </tr>

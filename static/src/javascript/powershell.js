@@ -383,9 +383,10 @@ BANANACORP\Domain Admins
 
 Access
 ------------------------------------------------
-HR Team Allow FullControl
-IT Administrators Allow FullControl
-Everyone Deny Write
+HR Team             Allow   FullControl
+IT Administrators   Allow   FullControl
+Accounting Team     Deny    Read
+Everyone            Deny    Write
 `,
 
 package:
@@ -419,7 +420,169 @@ Microsoft.WindowsTerminal 1.22.10352
 Microsoft.Paint 11.2502.1         
 `,
                                                                                                                                                                                                                                                                                 
-                                                                                                                                                                                                                              
+
+
+wingetsearch:
+
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> winget search chrome
+
+Name                         Id                         Version
+----------------------------------------------------------------------
+Google Chrome                Google.Chrome             137.0.7151
+Google Chrome Beta           Google.Chrome.Beta        138.0.7200
+Google Chrome Dev            Google.Chrome.Dev         139.0.7215
+`,
+
+
+wingetupgrade:
+
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> winget upgrade
+
+Name                     Id                      Version     Available
+---------------------------------------------------------------------------
+Google Chrome            Google.Chrome          137.0       138.0
+Notepad++                Notepad++.Notepad++   8.8.0       8.8.1
+7-Zip                    7zip.7zip             24.08       24.09
+`,
+
+
+wingetuninstall:
+
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> winget uninstall "Google Chrome"
+
+Found Google Chrome
+
+Uninstalling...
+█████████████████████████████ 100%
+
+Successfully uninstalled Google Chrome.
+`,
+
+
+msiexec:
+
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> Start-Process msiexec.exe -ArgumentList "/i ChromeEnterprise.msi"
+
+Launching Windows Installer...
+
+Installing Google Chrome Enterprise...
+
+Installation completed successfully.
+
+`,
+
+
+setupexe:
+
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> Start-Process .\\setup.exe
+
+Launching installer...
+
+BananaVPN Client Setup
+
+Installation completed successfully.
+
+`,
+
+eventlog:
+
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> Get-EventLog -LogName System -Newest 5
+
+Time                 EntryType    Source              EventID
+---------------------------------------------------------------------
+07/04/2026 09:15     Information  Service Control     7036
+07/04/2026 09:13     Warning      DNS Client          1014
+07/04/2026 09:10     Error        Disk               7
+07/04/2026 09:08     Information  EventLog           6005
+07/04/2026 09:01     Information  Kernel-General     12
+
+`,
+
+winevent:
+
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> Get-WinEvent -LogName Security -MaxEvents 5
+
+TimeCreated           Id    Level      Message
+---------------------------------------------------------------------------
+07/04/2026 09:12      4624  Information Successful logon
+07/04/2026 09:11      4672  Information Special privileges assigned
+07/04/2026 09:05      4625  Warning     Failed logon
+07/04/2026 08:57      4634  Information Logoff
+07/04/2026 08:42      4624  Information Successful logon
+
+`,
+
+localuser:
+
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> Get-LocalUser
+
+Name                 Enabled Description
+--------------------------------------------------------------
+Administrator        True    Built-in administrator
+Helpdesk             True    IT Support Account
+Training             False   Training Account
+Guest                False   Built-in guest account
+
+`,
+
+localgroup:
+
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> Get-LocalGroup
+
+Name
+---------------------------------------
+Administrators
+Backup Operators
+Power Users
+Remote Desktop Users
+Users
+
+`,
+
+groupmember:
+
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> Get-LocalGroupMember Administrators
+
+Name                           PrincipalSource
+---------------------------------------------------------
+Administrator                  Local
+BANANACORP\\IT_Admins           Active Directory
+BANANACORP\\Helpdesk            Active Directory
+
+`,
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                            
                                                                                    
 };
 
