@@ -285,9 +285,144 @@ d----- 06/30/2026 Invoices
 -a---- 07/02/2026 08:21 153284 Budget2026.xlsx
 -a---- 06/28/2026 15:40 82213 AP_Report.pdf
 `,
+
                                      
+arp-a:
+`
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\Users\Administrator> arp -a
+
+Interface: 192.168.100.21 --- 0x6
+
+Internet Address Physical Address Type
+---------------------------------------------------------
+192.168.100.1 00-15-5d-01-10-01 Dynamic
+192.168.100.10 00-15-5d-01-10-10 Dynamic
+192.168.100.20 00-15-5d-01-10-20 Dynamic
+192.168.100.50 00-15-5d-01-10-50 Dynamic
+`,
+
+routeprint:
+
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\Users\Administrator> route print
+
+===========================================================================
+Interface List
+11...00 15 5d 01 10 21......Intel(R) Ethernet I219-LM
+===========================================================================
+
+IPv4 Route Table
+
+Network Destination Netmask Gateway
+----------------------------------------------------------
+0.0.0.0 0.0.0.0 192.168.100.1
+127.0.0.0 255.0.0.0 On-link
+192.168.100.0 255.255.255.224 On-link
+`,
+                                                                                                                                                    
+smbshare:
+
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\Users\Administrator> Get-SmbShare
+
+Name Path Description
+---------------------------------------------------------------------------
+Accounting D:\Shares\Accounting Accounting Shared Folder
+General D:\Shares\General General Documents
+HR_Shared D:\Shares\HR Human Resources
+IT_Shared D:\Shares\IT IT Department
+Marketing_Shared D:\Shares\Marketing Marketing Files
+Operation_Shared D:\Shares\Operations Operations
+System D:\System System Files
+`,
+
+disk:
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\Users\Administrator> Get-Disk
+
+Number Friendly   Name          Size   Partition Style
+------------------------------------------------------------
+0      Samsung    SSD 990 Pro   1 TB   GPT
+1      WD Blue    HDD           2 TB   GPT
+`,
+
+
+partition:
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\Users\Administrator> Get-Partition
+
+DiskPath DriveLetter Size
+-----------------------------------------
+Disk 0   C           500 GB
+Disk 0   D           500 GB
+Disk 1   E           2 TB
+`,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+
+acl:
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\Users\Administrator> Get-Acl "\\LAXSERVER01\HR_Shared"
+
+Path Owner
+------------------------------------------------
+Microsoft.PowerShell.Core\FileSystem::\\LAXSERVER01\HR_Shared
+BANANACORP\Domain Admins
+
+Access
+------------------------------------------------
+HR Team Allow FullControl
+IT Administrators Allow FullControl
+Everyone Deny Write
+`,
+
+package:
+`
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\Users\Administrator> Get-Package
+
+Name                      Version       Provider
+-------------------------------------------------------------
+Google Chrome             137.0.7151    Programs
+Microsoft Teams           25153.1002    Programs
+Adobe Acrobat Reader      25.001        Programs
+7-Zip                     24.09         Programs
+Notepad++                 8.8.1         Programs
+`,
+           
+appxpackage:
+`
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\Users\Administrator> Get-AppxPackage
+
+Name Version
+-------------------------------------------------------------
+Microsoft.WindowsCalculator 11.2503.0
+Microsoft.WindowsStore 22505.1401
+Microsoft.WindowsTerminal 1.22.10352
+Microsoft.Paint 11.2502.1         
+`,
+                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                              
                                                                                    
 };
+
+
 
 
 function closeTerminal(){

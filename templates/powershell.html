@@ -97,12 +97,12 @@
                 <td>Show adapter status and simulate cable unplugged.</td>
             </tr>
             <tr>
-                <td><code>arp -a</code></td>
+                <td><code><button onclick="runCommand('arp-a')">arp-a</button></code></td>
                 <td>Display ARP cache.</td>
                 <td>View neighboring devices on the subnet.</td>
             </tr>
             <tr>
-                <td><code>route print</code></td>
+                <td><code><button onclick="runCommand('routeprint')">route print</button></code></td>
                 <td>Display routing table.</td>
                 <td>View simulated routing information.</td>
             </tr>
@@ -132,7 +132,7 @@
                 <td>Show mapped network drives and connection status.</td>
             </tr>
             <tr>
-                <td><code>Get-SmbShare</code></td>
+                <td><code><button onclick="runCommand('smbshare')">Get-SmbShare</button></code></td>
                 <td>Display shared folders.</td>
                 <td>Show shared folders hosted on servers.</td>
             </tr>
@@ -142,14 +142,19 @@
                 <td>View storage utilization.</td>
             </tr>
             <tr>
-                <td><code>Get-Disk</code></td>
+                <td><code><button onclick="runCommand('disk')">Get-disk</button></code></td>
                 <td>Display physical disks.</td>
                 <td>View installed storage devices.</td>
             </tr>
             <tr>
-                <td><code>Get-Partition</code></td>
+                <td><code><button onclick="runCommand('partition')">Get-Partition</button></code></td>
                 <td>Display disk partitions.</td>
-                <td>Show logical partition information.</td>
+                <td>Show logical partition information.</td>                
+            </tr>
+            <tr>
+                <td><code><button onclick="runCommand('acl')">Get-ACL</button></code></td>
+                <td>Display access permission.</td>
+                <td>Show access contorl list information.</td>                
             </tr>
         </tbody>
     </table>
@@ -185,12 +190,12 @@
         </thead>
         <tbody>
             <tr>
-                <td><code>Get-Package</code></td>
+                <td><code><button onclick="runCommand('package')">Get-Package</button></code></td>
                 <td>Display installed software.</td>
                 <td>Read Software table.</td>
             </tr>
             <tr>
-                <td><code>Get-AppxPackage</code></td>
+                <td><code><button onclick="runCommand('appxpackage')">Get-AppxPackage</button></code></td>
                 <td>Display installed Microsoft Store apps.</td>
                 <td>Show Windows App packages.</td>
             </tr>
