@@ -285,9 +285,8 @@ d----- 06/30/2026 Invoices
 -a---- 07/02/2026 08:21 153284 Budget2026.xlsx
 -a---- 06/28/2026 15:40 82213 AP_Report.pdf
 `,
-
-                                     
-arp-a:
+                                    
+arpa:
 `
 Windows PowerShell
 Copyright (C) Microsoft Corporation. All rights reserved.
@@ -305,8 +304,8 @@ Internet Address Physical Address Type
 `,
 
 routeprint:
-
-`Windows PowerShell
+`
+Windows PowerShell
 Copyright (C) Microsoft Corporation. All rights reserved.
 
 PS C:\Users\Administrator> route print
@@ -326,8 +325,8 @@ Network Destination Netmask Gateway
 `,
                                                                                                                                                     
 smbshare:
-
-`Windows PowerShell
+`
+Windows PowerShell
 Copyright (C) Microsoft Corporation. All rights reserved.
 
 PS C:\Users\Administrator> Get-SmbShare
@@ -344,7 +343,8 @@ System D:\System System Files
 `,
 
 disk:
-`Windows PowerShell
+`
+Windows PowerShell
 Copyright (C) Microsoft Corporation. All rights reserved.
 
 PS C:\Users\Administrator> Get-Disk
@@ -355,9 +355,9 @@ Number Friendly   Name          Size   Partition Style
 1      WD Blue    HDD           2 TB   GPT
 `,
 
-
 partition:
-`Windows PowerShell
+`
+Windows PowerShell
 Copyright (C) Microsoft Corporation. All rights reserved.
 
 PS C:\Users\Administrator> Get-Partition
@@ -370,7 +370,8 @@ Disk 1   E           2 TB
 `,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
 
 acl:
-`Windows PowerShell
+`
+Windows PowerShell
 Copyright (C) Microsoft Corporation. All rights reserved.
 
 PS C:\Users\Administrator> Get-Acl "\\LAXSERVER01\HR_Shared"
