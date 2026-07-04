@@ -48,7 +48,6 @@ Running Spooler Print Spooler
 Running W32Time Windows Time
 Running LanmanWorkstation Workstation
 Stopped Fax Fax Service
-
 `,
         
     
@@ -67,7 +66,6 @@ H    42       258      FileSystem   \\\\LAXSERVER01\\HR_Shared
 `,
  
                              
-
 testconnection:
 
 `Windows PowerShell
@@ -177,7 +175,6 @@ Address: 192.168.100.2
 
 Name:    LAXSERVER01
 Address: 192.168.100.10
-
 `,    
  
       
@@ -190,8 +187,7 @@ PS C:\Users\Administrator> Resolve-DnsName LAXSERVER01
 
 Name Type TTL Section IPAddress
 -------------------------------------------------------
-LAXSERVER01 A 600 Answer 192.168.100.10`
-
+LAXSERVER01 A 600 Answer 192.168.100.10
 `,
 
 wmiobject:
@@ -205,7 +201,6 @@ Manufacturer : Dell Inc.
 Model        : OptiPlex 7420
 TotalMemory  : 34359738368
 UserName     : BANANACORP\Administrator
-
 `,
 
 
@@ -220,7 +215,6 @@ DriveLetter FileSystem SizeRemaining Size
 ---------------------------------------------------------
 C           NTFS       220 GB        338 GB
 D           NTFS       450 GB        500 GB
-
 `,
         
 wingetlist:
@@ -253,7 +247,6 @@ Downloading...
 Installing...
 
 Successfully installed Google Chrome.
-
 `,
 
 smbmapping:
@@ -293,11 +286,8 @@ d----- 06/30/2026 Invoices
 -a---- 06/28/2026 15:40 82213 AP_Report.pdf
 `,
                                      
-                                        
-            
-                                    
+                                                                                   
 };
-
 
 
 function closeTerminal(){
