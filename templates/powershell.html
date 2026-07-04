@@ -25,17 +25,18 @@
         </thead>
         <tbody>
             <tr>
-                <td><code>Get-ComputerInfo</code></td>
+                <td><code><button onclick="runCommand('computerinfo')">Get-ComputerInfo</button></code></td>
                 <td>Display computer hardware and OS information.</td>
                 <td>Show device information from the Devices table.</td>
             </tr>
+            
             <tr>
-                <td><code>Get-WmiObject</code></td>
+                <td><code><button onclick="runCommand('wmiobject')">Get-WmiObject</button></code></td>
                 <td>Retrieve Windows system information using WMI.</td>
                 <td>Display BIOS, CPU, RAM, and manufacturer details.</td>
             </tr>
             <tr>
-                <td><code>Get-Process</code></td>
+                <td><code><button onclick="runCommand('process')">Get-Process</button></code></td>
                 <td>List running processes.</td>
                 <td>Display simulated running applications.</td>
             </tr>
@@ -52,6 +53,7 @@
         </tbody>
     </table>
 
+   
     <!-- Network -->
     <h3>🌐 Network Diagnostics</h3>
     <table class="ps-table">
@@ -63,28 +65,34 @@
             </tr>
         </thead>
         <tbody>
+              <tr>
+              <td><code><button onclick="runCommand('childitem')">Get-ChildItem</button></code></td>             
+                <td>Lists files and folders in a directory or network share.</td>
+                <td>Browse local folders and mapped network drives.</td>    
+            </tr>
+
             <tr>
                 <td><code><button onclick="runCommand('testconnection')">Test-Connection</button></code></td>             
                 <td>Ping a remote host.</td>
                 <td>Verify whether servers are online.</td>
             </tr>
             <tr>
-                <td><code>ipconfig</code></td>
+                <td><code><button onclick="runCommand('ipconfig')">ipconfig</button></code></td>
                 <td>Display IP configuration.</td>
                 <td>Show device IP, subnet, gateway, and DNS.</td>
             </tr>
             <tr>
-                <td><code>Resolve-DnsName</code></td>
+                <td><code><button onclick="runCommand('resolvednsname')">Resolve-DnsName</button></code></td>
                 <td>Resolve DNS records.</td>
                 <td>Verify hostname resolution.</td>
             </tr>
             <tr>
-                <td><code>nslookup</code></td>
+                <td><code><button onclick="runCommand('nslookup')">nslookup</button></code></td>
                 <td>Query DNS server.</td>
                 <td>Display DNS lookup results.</td>
             </tr>
             <tr>
-                <td><code>Get-NetAdapter</code></td>
+                <<td><code><button onclick="runCommand('netadapter')">Get-NetworkAdapter</button></code></td>
                 <td>Display network adapters.</td>
                 <td>Show adapter status and simulate cable unplugged.</td>
             </tr>
@@ -98,6 +106,7 @@
                 <td>Display routing table.</td>
                 <td>View simulated routing information.</td>
             </tr>
+            
         </tbody>
     </table>
 
@@ -118,7 +127,7 @@
                 <td>Read Network Drives table.</td>
             </tr>
             <tr>
-                <td><code>Get-SmbMapping</code></td>
+                <td><code><button onclick="runCommand('smbmapping')">Get-SmbMapping</button></code></td>
                 <td>Display SMB mapped drives.</td>
                 <td>Show mapped network drives and connection status.</td>
             </tr>
@@ -128,7 +137,7 @@
                 <td>Show shared folders hosted on servers.</td>
             </tr>
             <tr>
-                <td><code>Get-Volume</code></td>
+                <td><code><button onclick="runCommand('volume')">Get-Volume</button></code></td>
                 <td>Display disk volumes.</td>
                 <td>View storage utilization.</td>
             </tr>
@@ -186,7 +195,7 @@
                 <td>Show Windows App packages.</td>
             </tr>
             <tr>
-                <td><code>winget list</code></td>
+                <td><code><button onclick="runCommand('wingetlist')">winget list</button></code></td>
                 <td>Display installed applications.</td>
                 <td>View installed software inventory.</td>
             </tr>
@@ -196,7 +205,7 @@
                 <td>Search Software Catalog.</td>
             </tr>
             <tr>
-                <td><code>winget install</code></td>
+                <td><code><button onclick="runCommand('wingetinstall')">winget install</button></code></td>
                 <td>Install applications.</td>
                 <td>Simulate software deployment.</td>
             </tr>
