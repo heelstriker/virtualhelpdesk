@@ -292,16 +292,22 @@
 
 .terminal-cursor{
 
-    width:9px;
-    height:2px;
-    background:#7CFC00;
+    display:inline-block;
+    width:8px;
+    height:18px;
+    background:#ffffff;
+
+    animation:blink 1s infinite;
 
 }
 
-
 @keyframes blink{
 
-    50%{
+    0%,50%{
+        opacity:1;
+    }
+
+    51%,100%{
         opacity:0;
     }
 
