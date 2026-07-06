@@ -6,7 +6,7 @@ function runCommand(command){
 }
 
 
-const prompt = "PS C:\\Users\\Administrator>";
+const prompt = "PS C:\\Users\\Administrator>_";
 
 
 function showTerminal(output){
