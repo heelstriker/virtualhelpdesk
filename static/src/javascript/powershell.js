@@ -11,10 +11,11 @@ const prompt = "PS C:\\Users\\Administrator>";
 
 function showTerminal(output){
 
-    output += "\n\n + prompt <span class='terminal-cursor'></span>";
+    output += `
+    
+    ${prompt}<span class='terminal-cursor'></span>`;
 
     document.getElementById("terminalOutput").innerHTML = output;
-
     document.getElementById("terminalPopup").style.display = "flex";
 
 }
