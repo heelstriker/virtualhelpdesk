@@ -5,17 +5,19 @@ function runCommand(command){
 
 }
 
+
+const prompt = "PS C:\\Users\\Administrator>";
+
+
 function showTerminal(output){
 
-    output += "\n\nPS C:\\Users\\Administrator> <span class='terminal-cursor'></span>";
+    output += "\n\n + prompt <span class='terminal-cursor'></span>";
 
     document.getElementById("terminalOutput").innerHTML = output;
 
     document.getElementById("terminalPopup").style.display = "flex";
 
 }
-
-const prompt = "PS C:\\Users\\Administrator>";
 
 
 
