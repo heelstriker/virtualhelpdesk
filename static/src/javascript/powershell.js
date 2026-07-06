@@ -102,7 +102,7 @@ computerinfo:
 `Windows PowerShell
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-PS C:\Users\Administrator> Get-ComputerInfo
+PS C:\\Users\\Administrator> Get-ComputerInfo
 
 CsName                 : LAXACTPC001
 WindowsProductName     : Windows 11 Enterprise
@@ -119,7 +119,7 @@ netadapter:
 Windows PowerShell
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-PS C:\Users\Administrator> Get-NetAdapter
+PS C:\\Users\\Administrator> Get-NetAdapter
 
 Name           InterfaceDescription            Status     LinkSpeed
 -----------------------------------------------------------------------
@@ -133,7 +133,7 @@ process:
 Windows PowerShell
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-PS C:\Users\Administrator> Get-Process
+PS C:\\Users\\Administrator> Get-Process
 
 Handles NPM(K) PM(M) CPU(s) ProcessName
 ---------------------------------------------------------
@@ -141,8 +141,6 @@ Handles NPM(K) PM(M) CPU(s) ProcessName
 512     48     320   56.72 chrome
 215     18      95    2.15 Teams
 148     10      60    0.81 OneDrive
-
-PS C:\Users\Administrator>
 `,
 
 
@@ -151,7 +149,7 @@ ipconfig:
 Windows PowerShell
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-PS C:\Users\Administrator> ipconfig
+PS C:\\Users\\Administrator> ipconfig
 
 Windows IP Configuration
 
@@ -168,7 +166,7 @@ nslookup:
 Windows PowerShell
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-PS C:\Users\Administrator> nslookup LAXSERVER01
+PS C:\UC:\\Users\\Administratorsers\Administrator> nslookup LAXSERVER01
 
 Server:  dns.bananacorp.local
 Address: 192.168.100.2
@@ -183,7 +181,7 @@ resolvednsname:
 Windows PowerShell
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-PS C:\Users\Administrator> Resolve-DnsName LAXSERVER01
+PS C:\\Users\\Administrator> Resolve-DnsName LAXSERVER01
 
 Name Type TTL Section IPAddress
 -------------------------------------------------------
@@ -195,7 +193,7 @@ wmiobject:
 Windows PowerShell
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-PS C:\Users\Administrator> Get-WmiObject Win32_ComputerSystem
+PS C:\\Users\\Administrator> Get-WmiObject Win32_ComputerSystem
 
 Manufacturer : Dell Inc.
 Model        : OptiPlex 7420
@@ -209,7 +207,7 @@ volume:
 Windows PowerShell
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-PS C:\Users\Administrator> Get-Volume
+PS C:\\Users\\Administrator> Get-Volume
 
 DriveLetter FileSystem SizeRemaining Size
 ---------------------------------------------------------
@@ -222,7 +220,7 @@ wingetlist:
 Windows PowerShell
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-PS C:\Users\Administrator> winget list
+PS C:\\Users\\Administrator> winget list
 
 Name                     Version
 ---------------------------------------------------------
@@ -238,7 +236,7 @@ wingetinstall:
 Windows PowerShell
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-PS C:\Users\Administrator> winget install "Google Chrome"
+PS C:\\Users\\Administrator> winget install "Google Chrome"
 
 Found Google Chrome [Google.Chrome]
 Downloading...
@@ -254,7 +252,7 @@ smbmapping:
 Windows PowerShell
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-PS C:\Users\Administrator> Get-SmbMapping
+PS C:\\Users\\Administrator> Get-SmbMapping
 
 LocalPath RemotePath                          Status
 ---------------------------------------------------------------
@@ -273,7 +271,7 @@ childitem:
 Windows PowerShell
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-PS C:\Users\Administrator> Get-ChildItem A:\
+PS C:\\Users\\Administrator> Get-ChildItem A:\\
 
 Directory: A:\
 
@@ -291,7 +289,7 @@ arpa:
 Windows PowerShell
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-PS C:\Users\Administrator> arp -a
+PS C:\\Users\\Administrator> arp -a
 
 Interface: 192.168.100.21 --- 0x6
 
@@ -308,7 +306,7 @@ routeprint:
 Windows PowerShell
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-PS C:\Users\Administrator> route print
+PS C:\\Users\\Administrator> route print
 
 ===========================================================================
 Interface List
@@ -329,7 +327,7 @@ smbshare:
 Windows PowerShell
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-PS C:\Users\Administrator> Get-SmbShare
+PS C:\\Users\\Administrator> Get-SmbShare
 
 Name Path Description
 ---------------------------------------------------------------------------
@@ -347,7 +345,7 @@ disk:
 Windows PowerShell
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-PS C:\Users\Administrator> Get-Disk
+PS C:\\Users\\Administrator> Get-Disk
 
 Number Friendly   Name          Size   Partition Style
 ------------------------------------------------------------
@@ -360,7 +358,7 @@ partition:
 Windows PowerShell
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-PS C:\Users\Administrator> Get-Partition
+PS C:\\Users\\Administrator> Get-Partition
 
 DiskPath DriveLetter Size
 -----------------------------------------
@@ -374,7 +372,7 @@ acl:
 Windows PowerShell
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-PS C:\Users\Administrator> Get-Acl "\\LAXSERVER01\HR_Shared"
+PS C:\\Users\\Administrator> Get-Acl "\\LAXSERVER01\HR_Shared"
 
 Path Owner
 ------------------------------------------------
@@ -394,7 +392,7 @@ package:
 Windows PowerShell
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-PS C:\Users\Administrator> Get-Package
+PS C:\\Users\\Administrator> Get-Package
 
 Name                      Version       Provider
 -------------------------------------------------------------
@@ -410,7 +408,7 @@ appxpackage:
 Windows PowerShell
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-PS C:\Users\Administrator> Get-AppxPackage
+PS C:\\Users\\Administrator> Get-AppxPackage
 
 Name Version
 -------------------------------------------------------------
@@ -546,7 +544,6 @@ Administrator        True    Built-in administrator
 Helpdesk             True    IT Support Account
 Training             False   Training Account
 Guest                False   Built-in guest account
-
 `,
 
 localgroup:
@@ -563,7 +560,6 @@ Backup Operators
 Power Users
 Remote Desktop Users
 Users
-
 `,
 
 groupmember:
@@ -578,7 +574,6 @@ Name                           PrincipalSource
 Administrator                  Local
 BANANACORP\\IT_Admins           Active Directory
 BANANACORP\\Helpdesk            Active Directory
-
 `,
 
                                                                                                                                                                                                                                                                                                                                                                                                                                                             
