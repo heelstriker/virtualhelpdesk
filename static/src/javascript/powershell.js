@@ -13,7 +13,7 @@ function showTerminal(output){
 
     output += `
     
-    ${prompt}<span class='terminal-cursor'></span>`;
+    <span class='terminal-cursor'>${prompt}</span>`;
 
     document.getElementById("terminalOutput").innerHTML = output;
     document.getElementById("terminalPopup").style.display = "flex";
