@@ -2,80 +2,182 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>VirtualHelpDesk - PowerShell Command Reference</title>
+<title>VirtualHelpDesk - PowerShell Field Reference</title>
 <style>
+  :root {
+    --teal: #2b7a78;
+    --teal-dark: #1e5957;
+    --teal-light: #e8f6f5;
+    --orange: #e8823c;
+    --red: #e5484d;
+    --ink: #1f2d2d;
+    --paper: #ffffff;
+    --panel: #f7f9f9;
+    --border: #dfe6e6;
+  }
+
+  * { box-sizing: border-box; }
+
   body {
-    font-family: 'Segoe UI', sans-serif;
-    background: #f5f5f5;
-    color: #222;
-    padding: 24px;
+    margin: 0;
+    font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", sans-serif;
+    background: var(--panel);
+    color: var(--ink);
   }
-  h1 {
-    color: #2b7a78;
-  }
-  .cmd-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 8px;
-    max-width: 1100px;
-  }
-  .cmd-btn {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-left: 4px solid #2b7a78;
-    padding: 8px 10px;
-    font-size: 13px;
-    text-align: left;
-    cursor: pointer;
-    border-radius: 4px;
-  }
-  .cmd-btn:hover {
-    background: #e8f6f5;
-  }
-  #terminalPopup {
-    display: none;
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.6);
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-  }
-  #terminalWindow {
-    background: #0c0c0c;
-    color: #e6e6e6;
-    width: min(760px, 90vw);
-    max-height: 80vh;
-    overflow-y: auto;
-    border-radius: 8px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-  }
-  #terminalTitleBar {
-    background: #1f1f1f;
-    padding: 8px 12px;
+
+  header {
+    background: var(--paper);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 28px;
     display: flex;
-    justify-content: space-between;
+    align-items: baseline;
+    gap: 14px;
+  }
+
+  header h1 {
+    font-size: 18px;
+    margin: 0;
+    color: var(--teal-dark);
+    letter-spacing: 0.2px;
+  }
+
+  header .badge {
+    font-size: 11px;
+    color: var(--teal);
+    background: var(--teal-light);
+    border: 1px solid var(--teal);
+    border-radius: 999px;
+    padding: 2px 10px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+  }
+
+  header p {
+    margin: 0;
+    font-size: 12.5px;
+    color: #5c6a6a;
+  }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    min-height: calc(100vh - 62px);
+  }
+
+  /* --- Sidebar --- */
+  nav.sidebar {
+    background: var(--paper);
+    border-right: 1px solid var(--border);
+    padding: 18px 10px;
+    overflow-y: auto;
+  }
+
+  .category-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: #8a9797;
+    padding: 14px 12px 6px;
+    font-weight: 700;
+  }
+
+  .cmd-item {
+    display: flex;
     align-items: center;
-    border-radius: 8px 8px 0 0;
-    font-size: 12px;
-    color: #ccc;
-  }
-  #closeBtn {
-    cursor: pointer;
-    background: #e5484d;
-    color: white;
+    gap: 8px;
+    width: 100%;
+    text-align: left;
+    background: none;
     border: none;
-    border-radius: 3px;
-    padding: 2px 8px;
-    font-size: 12px;
-  }
-  #terminalOutput {
-    font-family: 'Cascadia Code', 'Consolas', monospace;
+    border-radius: 6px;
+    padding: 7px 12px;
     font-size: 13px;
-    white-space: pre-wrap;
-    padding: 14px 16px;
-    line-height: 1.4;
+    color: var(--ink);
+    cursor: pointer;
+    font-family: 'Consolas', 'Cascadia Code', monospace;
   }
+
+  .cmd-item:hover {
+    background: var(--teal-light);
+  }
+
+  .cmd-item.active {
+    background: var(--teal);
+    color: white;
+  }
+
+  .cmd-item .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--orange);
+    flex-shrink: 0;
+  }
+
+  .cmd-item.active .dot {
+    background: white;
+  }
+
+  .cmd-item:not(.has-note) .dot {
+    background: #cfd8d8;
+  }
+
+  /* --- Main content --- */
+  main {
+    padding: 26px 32px;
+    max-width: 880px;
+  }
+
+  .empty-state {
+    color: #8a9797;
+    font-size: 14px;
+    margin-top: 60px;
+  }
+
+  .terminal-card {
+    background: #0c0c0c;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  }
+
+  .terminal-titlebar {
+    background: #1f1f1f;
+    padding: 9px 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #999;
+  }
+
+  .terminal-titlebar .traffic {
+    display: flex;
+    gap: 6px;
+  }
+
+  .traffic span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .traffic .r { background: #e5484d; }
+  .traffic .y { background: #f2c94c; }
+  .traffic .g { background: #27ae60; }
+
+  #terminalOutput {
+    font-family: 'Consolas', 'Cascadia Code', monospace;
+    font-size: 13px;
+    color: #e6e6e6;
+    white-space: pre-wrap;
+    padding: 16px 18px;
+    line-height: 1.45;
+    max-height: 340px;
+    overflow-y: auto;
+  }
+
   .terminal-cursor {
     display: inline-block;
     width: 8px;
@@ -84,46 +186,143 @@
     animation: blink 1s step-start infinite;
     vertical-align: middle;
   }
-  @keyframes blink {
-    50% { opacity: 0; }
+
+  @keyframes blink { 50% { opacity: 0; } }
+
+  /* --- Field note (signature element) --- */
+  .fieldnote-wrap {
+    margin-top: 22px;
+    position: relative;
+    animation: rise 0.25s ease-out;
+  }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .fieldnote {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--orange);
+    border-radius: 6px;
+    padding: 20px 24px 22px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+
+  .fieldnote-tag {
+    position: absolute;
+    top: -11px;
+    left: 20px;
+    background: var(--orange);
+    color: white;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 3px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+
+  .fieldnote h3 {
+    margin: 4px 0 14px;
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  .fn-row {
+    display: grid;
+    grid-template-columns: 88px 1fr;
+    gap: 4px 14px;
+    font-size: 13px;
+    margin-bottom: 10px;
+    line-height: 1.55;
+  }
+
+  .fn-row .fn-label {
+    color: var(--teal-dark);
+    font-weight: 700;
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    padding-top: 1px;
+  }
+
+  .fn-row .fn-value {
+    color: #333;
+  }
+
+  .fn-point {
+    margin-top: 14px;
+    background: var(--teal-light);
+    border-radius: 5px;
+    padding: 10px 14px;
+    font-size: 13px;
+    color: var(--teal-dark);
+  }
+
+  .fn-point strong { color: var(--ink); }
+
+  .fieldnote-empty {
+    margin-top: 22px;
+    border: 1px dashed var(--border);
+    border-radius: 6px;
+    padding: 16px 20px;
+    font-size: 13px;
+    color: #9aa5a5;
+    background: #fbfcfc;
+  }
+
+  .cmd-title {
+    font-family: 'Consolas', 'Cascadia Code', monospace;
+    font-size: 20px;
+    color: var(--ink);
+    margin: 0 0 4px;
+  }
+
+  .cmd-sub {
+    font-size: 12.5px;
+    color: #8a9797;
+    margin: 0 0 16px;
   }
 </style>
 </head>
 <body>
 
-<h1>PowerShell Command Reference</h1>
-<p>クリックすると実行結果のターミナル出力を表示します。</p>
+<header>
+  <h1>PowerShell Field Reference</h1>
+  <span class="badge">Banana Corporation IT Ops</span>
+  <p>コマンドを選ぶと、実行結果と現場での使用エピソードが表示されます</p>
+</header>
 
-<div class="cmd-grid" id="cmdGrid"></div>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
 
-<div id="terminalPopup">
-  <div id="terminalWindow">
-    <div id="terminalTitleBar">
-      <span>Windows PowerShell</span>
-      <button id="closeBtn" onclick="closeTerminal()">✕ Close</button>
+  <main>
+    <div id="emptyState" class="empty-state">
+      ← 左のリストからコマンドを選んでください
     </div>
-    <div id="terminalOutput"></div>
-  </div>
+
+    <div id="content" style="display:none;">
+      <h2 class="cmd-title" id="cmdTitle"></h2>
+      <p class="cmd-sub" id="cmdSub"></p>
+
+      <div class="terminal-card">
+        <div class="terminal-titlebar">
+          <span class="traffic"><span class="r"></span><span class="y"></span><span class="g"></span></span>
+          <span>Windows PowerShell</span>
+        </div>
+        <div id="terminalOutput"></div>
+      </div>
+
+      <div id="fieldnoteArea"></div>
+    </div>
+  </main>
 </div>
 
 <script>
 
-function runCommand(command){
-    showTerminal(commands[command]);
-}
-
-const prompt = "PS C:\\Users\\Administrator>";
-
-function showTerminal(output){
-    output += "\n" + prompt + "<span class='terminal-cursor'></span>";
-    document.getElementById("terminalOutput").innerHTML = output;
-    document.getElementById("terminalPopup").style.display = "flex";
-}
-
-function closeTerminal(){
-    document.getElementById("terminalPopup").style.display = "none";
-}
-
+/* ---------- 1. Terminal output data (35 commands) ---------- */
 const commands = {
 
 printer:
@@ -631,7 +830,17 @@ BANANACORP\\Helpdesk            Active Directory
 
 };
 
-// Build the button grid dynamically for this demo page
+/* ---------- 2. Categories & display labels ---------- */
+const categories = [
+  { label: "ネットワーク診断", items: ["testconnection","ipconfig","netadapter","nslookup","resolvednsname","arpa","routeprint"] },
+  { label: "ファイル共有", items: ["psdrive","smbmapping","smbshare","childitem","acl"] },
+  { label: "システム情報", items: ["computerinfo","wmiobject","volume","disk","partition","process","hotfix"] },
+  { label: "ソフトウェア管理", items: ["wingetlist","wingetsearch","wingetinstall","wingetupgrade","wingetuninstall","package","appxpackage","msiexec","setupexe"] },
+  { label: "サービス / プリンタ", items: ["printer","service"] },
+  { label: "ログ / 監査", items: ["eventlog","winevent"] },
+  { label: "ユーザー管理", items: ["localuser","localgroup","groupmember"] },
+];
+
 const labels = {
   printer: "Get-Printer", service: "Get-Service", psdrive: "Get-PSDrive",
   testconnection: "Test-Connection", hotfix: "Get-HotFix", computerinfo: "Get-ComputerInfo",
@@ -647,14 +856,88 @@ const labels = {
   localgroup: "Get-LocalGroup", groupmember: "Get-LocalGroupMember"
 };
 
-const grid = document.getElementById("cmdGrid");
-Object.keys(commands).forEach(key => {
-  const btn = document.createElement("button");
-  btn.className = "cmd-btn";
-  btn.textContent = labels[key] || key;
-  btn.onclick = () => runCommand(key);
-  grid.appendChild(btn);
+/* ---------- 3. Field notes (episodes) ----------
+   Add more entries here as you write them.
+   Structure: situation / background / action / point
+*/
+const episodes = {
+
+  routeprint: {
+    situation: "日本オフィス勤務者が、米国政府関連サイトにアクセスできない",
+    background: "通常、日本オフィスは社内Proxy経由で米国本社ネットワークを抜けてインターネットに出る構成。だが一部の政府系サイトは米国内IPからの直接アクセスしか許可しない仕様だった",
+    action: "PCをDual NIC構成にし、通常トラフィックは社内Proxy経由のまま、特定の宛先だけ米国側の直接インターネット回線を通るようスタティックルートを追加。route printで現在の経路テーブルを確認してから、route add [宛先] mask [マスク] [ゲートウェイ] -p で永続ルートを設定した",
+    point: "既存のデフォルトゲートウェイより優先されるよう、明示的な宛先ルートを切ることでOS側のルーティング判断を制御するのがポイント。ルートのメトリック競合で意図通りに切り替わらないケースもあるため、追加後は必ずtracertで実際の経路を確認する"
+  },
+
+  testconnection: {
+    situation: "「ネットに繋がらない」という問い合わせで駆けつけたら、実はLAN内の一部だけ生きていた",
+    background: "ユーザーの申告は「インターネットが使えない」だったが、Pingを打つ相手を意識せずに死活確認すると、原因の層を誤って切り分けてしまう",
+    action: "まずデフォルトゲートウェイ(LAN側インターフェース)にPing→応答あり。次にISP側のWANルーターにPing→応答なし。この時点でLAN内のL2/L3は生きているが、WAN側で切れていると判断し、ISP側かWANルーター故障の切り分けに移行した",
+    point: "「Pingが通る/通らない」だけで終わらせず、どの機材のどのインターフェースに向けて打っているかを常に意識するのが肝心。tracertと組み合わせて、どのホップで止まるかまで見て初めて、原因箇所を特定できる"
+  },
+
+  // 他のコマンドのエピソードはここに追加していく
+  // 例: nslookup: { situation: "...", background: "...", action: "...", point: "..." },
+
+};
+
+/* ---------- 4. Rendering ---------- */
+const sidebar = document.getElementById("sidebar");
+
+categories.forEach(cat => {
+  const label = document.createElement("div");
+  label.className = "category-label";
+  label.textContent = cat.label;
+  sidebar.appendChild(label);
+
+  cat.items.forEach(key => {
+    const btn = document.createElement("button");
+    btn.className = "cmd-item" + (episodes[key] ? " has-note" : "");
+    btn.dataset.key = key;
+    btn.innerHTML = `<span class="dot"></span>${labels[key] || key}`;
+    btn.onclick = () => selectCommand(key);
+    sidebar.appendChild(btn);
+  });
 });
+
+const prompt = "PS C:\\Users\\Administrator>";
+
+function selectCommand(key){
+  document.querySelectorAll(".cmd-item").forEach(el => el.classList.remove("active"));
+  document.querySelector(`.cmd-item[data-key="${key}"]`).classList.add("active");
+
+  document.getElementById("emptyState").style.display = "none";
+  document.getElementById("content").style.display = "block";
+
+  document.getElementById("cmdTitle").textContent = labels[key] || key;
+  document.getElementById("cmdSub").textContent = episodes[key]
+    ? "現場エピソードあり"
+    : "実行結果のみ";
+
+  let output = commands[key];
+  output += "\n" + prompt + "<span class='terminal-cursor'></span>";
+  document.getElementById("terminalOutput").innerHTML = output;
+
+  const area = document.getElementById("fieldnoteArea");
+  const ep = episodes[key];
+
+  if (ep) {
+    area.innerHTML = `
+      <div class="fieldnote-wrap">
+        <div class="fieldnote">
+          <span class="fieldnote-tag">Field Note</span>
+          <h3>現場ではこう使った</h3>
+          <div class="fn-row"><div class="fn-label">状況</div><div class="fn-value">${ep.situation}</div></div>
+          <div class="fn-row"><div class="fn-label">背景</div><div class="fn-value">${ep.background}</div></div>
+          <div class="fn-row"><div class="fn-label">対応</div><div class="fn-value">${ep.action}</div></div>
+          <div class="fn-point"><strong>ポイント：</strong>${ep.point}</div>
+        </div>
+      </div>
+    `;
+  } else {
+    area.innerHTML = `<div class="fieldnote-empty">このコマンドの現場エピソードは準備中です。</div>`;
+  }
+}
 
 </script>
 </body>
