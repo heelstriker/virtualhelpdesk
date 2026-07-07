@@ -75,21 +75,19 @@
 
 .alert-wrapper{
     display:grid;
-    grid-template-columns:240px 560px;
+    grid-template-columns:1fr 2.3fr;
     gap:20px;
-    justify-content:start;
 }
 
 .patchtrend-wrapper{
     display:grid;
-    grid-template-columns:400px 400px;
+    grid-template-columns:1fr 1fr;
     gap:20px;
-    justify-content:start;
 }
 
 .compliance-wrapper{
     display:grid;
-    grid-template-columns:200px 285px 380px 380px;
+    grid-template-columns:1fr 1.4fr 1.9fr 1.9fr;
     gap:15px;
 }
 
@@ -131,8 +129,7 @@
 }
 
 .chart-fixed-width{
-    width:1000px;
-    max-width:100%;
+    width:100%;
 }
 
 .breakdown-card canvas,

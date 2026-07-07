@@ -37,6 +37,11 @@ main{
     padding:30px;
 }
 
+.container{
+    max-width:1200px;
+    margin:0 auto;
+}
+
 a{
     color:var(--turquoise-dark);
     text-decoration:none;
