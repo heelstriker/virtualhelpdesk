@@ -1,316 +1,661 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>VirtualHelpDesk - PowerShell Command Reference</title>
+<style>
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f5f5f5;
+    color: #222;
+    padding: 24px;
+  }
+  h1 {
+    color: #2b7a78;
+  }
+  .cmd-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 8px;
+    max-width: 1100px;
+  }
+  .cmd-btn {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-left: 4px solid #2b7a78;
+    padding: 8px 10px;
+    font-size: 13px;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  .cmd-btn:hover {
+    background: #e8f6f5;
+  }
+  #terminalPopup {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.6);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  #terminalWindow {
+    background: #0c0c0c;
+    color: #e6e6e6;
+    width: min(760px, 90vw);
+    max-height: 80vh;
+    overflow-y: auto;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  }
+  #terminalTitleBar {
+    background: #1f1f1f;
+    padding: 8px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px 8px 0 0;
+    font-size: 12px;
+    color: #ccc;
+  }
+  #closeBtn {
+    cursor: pointer;
+    background: #e5484d;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 2px 8px;
+    font-size: 12px;
+  }
+  #terminalOutput {
+    font-family: 'Cascadia Code', 'Consolas', monospace;
+    font-size: 13px;
+    white-space: pre-wrap;
+    padding: 14px 16px;
+    line-height: 1.4;
+  }
+  .terminal-cursor {
+    display: inline-block;
+    width: 8px;
+    height: 14px;
+    background: #e6e6e6;
+    animation: blink 1s step-start infinite;
+    vertical-align: middle;
+  }
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+</style>
+</head>
+<body>
 
-{% block title %}PowerShell Command Library - VirtualHelpDesk{% endblock %}
+<h1>PowerShell Command Reference</h1>
+<p>クリックすると実行結果のターミナル出力を表示します。</p>
 
-{% block extra_css %}
-<link rel="stylesheet" href="{{ url_for('static', filename='src/css/powershell.css') }}">
-{% endblock %}
+<div class="cmd-grid" id="cmdGrid"></div>
 
-{% block content %}
-    
-<div class="powershell-library">
-
-    <h2>PowerShell Command Library</h2>
-    <p>Frequently used Windows PowerShell commands for IT Help Desk and Desktop Support.</p>
-
-    <!-- Inventory -->
-    <h3>🖥️ System Inventory</h3>
-    <table class="ps-table">
-        <thead>
-            <tr>
-                <th>Command</th>
-                <th>Purpose</th>
-                <th>Virtual Help Desk Simulation</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><code><button onclick="runCommand('computerinfo')">Get-ComputerInfo</button></code></td>
-                <td>Display computer hardware and OS information.</td>
-                <td>Show device information from the Devices table.</td>
-            </tr>
-            
-            <tr>
-                <td><code><button onclick="runCommand('wmiobject')">Get-WmiObject</button></code></td>
-                <td>Retrieve Windows system information using WMI.</td>
-                <td>Display BIOS, CPU, RAM, and manufacturer details.</td>
-            </tr>
-            <tr>
-                <td><code><button onclick="runCommand('process')">Get-Process</button></code></td>
-                <td>List running processes.</td>
-                <td>Display simulated running applications.</td>
-            </tr>
-            <tr>
-                <td><code><button onclick="runCommand('service')">Get-Service</button></code></td>
-                <td>Display Windows services.</td>
-                <td>Show service status and simulate stopped services.</td>
-            </tr>
-            <tr>
-                <td><code><button onclick="runCommand('hotfix')">Get-HotFix</button></code></td>
-                <td>Display installed Windows Updates.</td>
-                <td>Read installed patches from Patch table.</td>
-            </tr>
-        </tbody>
-    </table>
-
-   
-    <!-- Network -->
-    <h3>🌐 Network Diagnostics</h3>
-    <table class="ps-table">
-        <thead>
-            <tr>
-                <th>Command</th>
-                <th>Purpose</th>
-                <th>Virtual Help Desk Simulation</th>
-            </tr>
-        </thead>
-        <tbody>
-              <tr>
-              <td><code><button onclick="runCommand('childitem')">Get-ChildItem</button></code></td>             
-                <td>Lists files and folders in a directory or network share.</td>
-                <td>Browse local folders and mapped network drives.</td>    
-            </tr>
-
-            <tr>
-                <td><code><button onclick="runCommand('testconnection')">Test-Connection</button></code></td>             
-                <td>Ping a remote host.</td>
-                <td>Verify whether servers are online.</td>
-            </tr>
-            <tr>
-                <td><code><button onclick="runCommand('ipconfig')">ipconfig</button></code></td>
-                <td>Display IP configuration.</td>
-                <td>Show device IP, subnet, gateway, and DNS.</td>
-            </tr>
-            <tr>
-                <td><code><button onclick="runCommand('resolvednsname')">Resolve-DnsName</button></code></td>
-                <td>Resolve DNS records.</td>
-                <td>Verify hostname resolution.</td>
-            </tr>
-            <tr>
-                <td><code><button onclick="runCommand('nslookup')">nslookup</button></code></td>
-                <td>Query DNS server.</td>
-                <td>Display DNS lookup results.</td>
-            </tr>
-            <tr>
-                <td><code><button onclick="runCommand('netadapter')">Get-NetworkAdapter</button></code></td>
-                <td>Display network adapters.</td>
-                <td>Show adapter status and simulate cable unplugged.</td>
-            </tr>
-            <tr>
-                <td><code><button onclick="runCommand('arpa')">arp-a</button></code></td>
-                <td>Display ARP cache.</td>
-                <td>View neighboring devices on the subnet.</td>
-            </tr>
-            <tr>
-                <td><code><button onclick="runCommand('routeprint')">route print</button></code></td>
-                <td>Display routing table.</td>
-                <td>View simulated routing information.</td>
-            </tr>
-            
-        </tbody>
-    </table>
-
-    <!-- Storage -->
-    <h3>💾 Storage & File Shares</h3>
-    <table class="ps-table">
-        <thead>
-            <tr>
-                <th>Command</th>
-                <th>Purpose</th>
-                <th>Virtual Help Desk Simulation</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><code><button onclick="runCommand('psdrive')">Get-PSDrive</button></code></td>
-                <td>Display mapped drives.</td>
-                <td>Read Network Drives table.</td>
-            </tr>
-            <tr>
-                <td><code><button onclick="runCommand('smbmapping')">Get-SmbMapping</button></code></td>
-                <td>Display SMB mapped drives.</td>
-                <td>Show mapped network drives and connection status.</td>
-            </tr>
-            <tr>
-                <td><code><button onclick="runCommand('smbshare')">Get-SmbShare</button></code></td>
-                <td>Display shared folders.</td>
-                <td>Show shared folders hosted on servers.</td>
-            </tr>
-            <tr>
-                <td><code><button onclick="runCommand('volume')">Get-Volume</button></code></td>
-                <td>Display disk volumes.</td>
-                <td>View storage utilization.</td>
-            </tr>
-            <tr>
-                <td><code><button onclick="runCommand('disk')">Get-disk</button></code></td>
-                <td>Display physical disks.</td>
-                <td>View installed storage devices.</td>
-            </tr>
-            <tr>
-                <td><code><button onclick="runCommand('partition')">Get-Partition</button></code></td>
-                <td>Display disk partitions.</td>
-                <td>Show logical partition information.</td>                
-            </tr>
-            <tr>
-                <td><code><button onclick="runCommand('acl')">Get-ACL</button></code></td>
-                <td>Display NTFS and shared folder access permissions. (Access Control List)</td>
-                <td>Inspect access permissions for shared folders and troubleshoot permission-related issues.</td>                
-            </tr>
-        </tbody>
-    </table>
-
-    <!-- Printers -->
-    <h3>🖨️ Printer Management</h3>
-    <table class="ps-table">
-        <thead>
-            <tr>
-                <th>Command</th>
-                <th>Purpose</th>
-                <th>Virtual Help Desk Simulation</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><code><button onclick="runCommand('printer')">Get-Printer</button></code></td>
-                <td>Display installed printers.</td>
-                <td>Read Printers table.</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <!-- Software -->
-    <h3>📦 Software Management</h3>
-    <table class="ps-table">
-        <thead>
-            <tr>
-                <th>Command</th>
-                <th>Purpose</th>
-                <th>Virtual Help Desk Simulation</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><code><button onclick="runCommand('package')">Get-Package</button></code></td>
-                <td>Display installed software.</td>
-                <td>Read Software table.</td>
-            </tr>
-            <tr>
-                <td><code><button onclick="runCommand('appxpackage')">Get-AppxPackage</button></code></td>
-                <td>Display installed Microsoft Store apps.</td>
-                <td>Show Windows App packages.</td>
-            </tr>
-            <tr>
-                <td><code><button onclick="runCommand('wingetlist')">winget list</button></code></td>
-                <td>Display installed applications.</td>
-                <td>View installed software inventory.</td>
-            </tr>
-            <tr>
-                <td><code><button onclick="runCommand('wingetsearch')">winget search</button></code></td>
-                <td>Search available software.</td>
-                <td>Search Software Catalog.</td>
-            </tr>
-            <tr>
-                <td><code><button onclick="runCommand('wingetinstall')">winget install</button></code></td>
-                <td>Install applications.</td>
-                <td>Simulate software deployment.</td>
-            </tr>
-            <tr>
-                <td><code><button onclick="runCommand('wingetupgrade')">winget upgrade</button></code></td>
-                <td>Upgrade installed applications.</td>
-                <td>Simulate software updates.</td>
-            </tr>
-            <tr>
-                <td><code><button onclick="runCommand('wingetuninstall')">winget uninstall</button></code></td>
-                <td>Remove installed applications.</td>
-                <td>Simulate software removal.</td>
-            </tr>
-            <tr>
-                <td><code><button onclick="runCommand('msiexec')">Start-Process msiexec.exe</button></code></td>
-                <td>Install MSI packages silently.</td>
-                <td>Deploy enterprise MSI packages.</td>
-            </tr>
-            <tr>
-                <td><code><button onclick="runCommand('setupexe')">Start-Process setup.exe</button></code></td>
-                <td>Run EXE installers silently.</td>
-                <td>Deploy legacy software.</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <!-- Event Logs -->
-    <h3>📋 Event Logs</h3>
-    <table class="ps-table">
-        <thead>
-            <tr>
-                <th>Command</th>
-                <th>Purpose</th>
-                <th>Virtual Help Desk Simulation</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><code><button onclick="runCommand('eventlog')">Get-EventLog</button></code></td>
-                <td>Display Windows Event Logs.</td>
-                <td>View simulated system events.</td>
-            </tr>
-            <tr>
-                <td><code><button onclick="runCommand('winevent')">Get-WinEvent</button></code></td>
-                <td>Display advanced Event Logs.</td>
-                <td>Investigate simulated incidents.</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <!-- User & Groups -->
-    <h3>👤 User Management</h3>
-    <table class="ps-table">
-        <thead>
-            <tr>
-                <th>Command</th>
-                <th>Purpose</th>
-                <th>Virtual Help Desk Simulation</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><code><button onclick="runCommand('localuser')">Get-LocalUser</button></code></td>
-                <td>Display local user accounts.</td>
-                <td>Show users assigned to devices.</td>
-            </tr>
-            <tr>
-                <td><code><button onclick="runCommand('localgroup')">Get-LocalGroup</button></code></td>
-                <td>Display local groups.</td>
-                <td>View administrator and security groups.</td>
-            </tr>
-            <tr>
-                <td><code><button onclick="runCommand('groupmember')">Get-LocalGroupMember</button></code></td>
-                <td>Display group members.</td>
-                <td>View user memberships.</td>
-            </tr>
-        </tbody>
-    </table>
-
+<div id="terminalPopup">
+  <div id="terminalWindow">
+    <div id="terminalTitleBar">
+      <span>Windows PowerShell</span>
+      <button id="closeBtn" onclick="closeTerminal()">✕ Close</button>
+    </div>
+    <div id="terminalOutput"></div>
+  </div>
 </div>
 
-<div id="terminalPopup" class="terminal-popup">
+<script>
 
-    <div class="terminal-window">
+function runCommand(command){
+    showTerminal(commands[command]);
+}
 
-        <div class="terminal-header">
+const prompt = "PS C:\\Users\\Administrator>";
 
-            Windows PowerShell
+function showTerminal(output){
+    output += "\n" + prompt + "<span class='terminal-cursor'></span>";
+    document.getElementById("terminalOutput").innerHTML = output;
+    document.getElementById("terminalPopup").style.display = "flex";
+}
 
-            <span class="close-btn"
-                  onclick="closeTerminal()">
-                ✕
-            </span>
-        </div>
-<div class="terminal-body">
-<pre id="terminalOutput"></pre>
-</div>
-</div>
-</div>
-<script src="{{ url_for('static', filename='src/javascript/powershell.js') }}"></script>
+function closeTerminal(){
+    document.getElementById("terminalPopup").style.display = "none";
+}
 
+const commands = {
 
-{% endblock %}
+printer:
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> Get-Printer
+
+Name                Status      Driver
+-----------------------------------------------------
+Canon-ACC01         Online      Canon UFR II
+HP-HR01             Online      HP Universal
+Epson-MKT01         Offline     Epson ESC/P
+`,
+
+service:
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> Get-Service
+
+Status Name DisplayName
+---------------------------------------------------------
+Running Spooler Print Spooler
+Running W32Time Windows Time
+Running LanmanWorkstation Workstation
+Stopped Fax Fax Service
+`,
+
+psdrive:
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> Get-PSDrive
+
+Name Used(GB) Free(GB) Provider     Root
+---------------------------------------------------------
+C    118      220      FileSystem   C:\\
+A    85       415      FileSystem   \\\\NYCSERVER01\\Accounting
+H    42       258      FileSystem   \\\\LAXSERVER01\\HR_Shared
+`,
+
+testconnection:
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> Test-Connection LAXSERVER01
+
+Source        Destination      IPV4Address       Bytes    Time(ms)
+-----------------------------------------------------------------------
+LAXACTPC001   LAXSERVER01      192.168.100.10    32       1
+LAXACTPC001   LAXSERVER01      192.168.100.10    32       1
+LAXACTPC001   LAXSERVER01      192.168.100.10    32       2
+LAXACTPC001   LAXSERVER01      192.168.100.10    32       1
+`,
+
+hotfix:
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> Get-HotFix
+
+Source Description HotFixID InstalledOn
+---------------------------------------------------------------
+LAXACTPC001 Update KB5062553 07/02/2026
+LAXACTPC001 Security Update KB5061007 06/12/2026
+LAXACTPC001 Update KB5059806 05/18/2026
+LAXACTPC001 Update KB5056579 04/09/2026
+`,
+
+computerinfo:
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> Get-ComputerInfo
+
+CsName                 : LAXACTPC001
+WindowsProductName     : Windows 11 Enterprise
+WindowsVersion         : 24H2
+OsArchitecture         : 64-bit
+CsManufacturer         : Dell Inc.
+CsModel                : OptiPlex 7420
+CsProcessors           : Intel(R) Core(TM) i7-13700
+CsTotalPhysicalMemory  : 32 GB
+`,
+
+netadapter:
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> Get-NetAdapter
+
+Name           InterfaceDescription            Status     LinkSpeed
+-----------------------------------------------------------------------
+Ethernet       Intel(R) Ethernet I219-LM       Up         1 Gbps
+Wi-Fi          Intel(R) Wi-Fi 6 AX201          Disconnected 0 Mbps
+`,
+
+process:
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> Get-Process
+
+Handles NPM(K) PM(M) CPU(s) ProcessName
+---------------------------------------------------------
+340     25     180   10.23 explorer
+512     48     320   56.72 chrome
+215     18      95    2.15 Teams
+148     10      60    0.81 OneDrive
+`,
+
+ipconfig:
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> ipconfig
+
+Windows IP Configuration
+
+Ethernet adapter Ethernet
+
+IPv4 Address . . . . . . : 192.168.100.21
+Subnet Mask . . . . . . : 255.255.255.224
+Default Gateway . . . . : 192.168.100.1
+DNS Servers . . . . . . : 192.168.100.2
+`,
+
+nslookup:
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> nslookup LAXSERVER01
+
+Server:  dns.bananacorp.local
+Address: 192.168.100.2
+
+Name:    LAXSERVER01
+Address: 192.168.100.10
+`,
+
+resolvednsname:
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> Resolve-DnsName LAXSERVER01
+
+Name Type TTL Section IPAddress
+-------------------------------------------------------
+LAXSERVER01 A 600 Answer 192.168.100.10
+`,
+
+wmiobject:
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> Get-WmiObject Win32_ComputerSystem
+
+Manufacturer : Dell Inc.
+Model        : OptiPlex 7420
+TotalMemory  : 34359738368
+UserName     : BANANACORP\\Administrator
+`,
+
+volume:
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> Get-Volume
+
+DriveLetter FileSystem SizeRemaining Size
+---------------------------------------------------------
+C           NTFS       220 GB        338 GB
+D           NTFS       450 GB        500 GB
+`,
+
+wingetlist:
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> winget list
+
+Name                     Version
+---------------------------------------------------------
+Google Chrome            137.0.7151
+Microsoft Teams          25153.1002
+Adobe Acrobat Reader     25.001
+7-Zip                    24.09
+Notepad++                8.8.1
+`,
+
+wingetinstall:
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> winget install "Google Chrome"
+
+Found Google Chrome [Google.Chrome]
+Downloading...
+██████████████████████████████ 100%
+
+Installing...
+
+Successfully installed Google Chrome.
+`,
+
+smbmapping:
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> Get-SmbMapping
+
+LocalPath RemotePath                          Status
+---------------------------------------------------------------
+A:        \\\\NYCSERVER01\\Accounting Shared     OK
+G:        \\\\LAXSERVER01\\General               OK
+H:        \\\\LAXSERVER01\\HR_Shared             OK
+I:        \\\\LAXSERVER01\\IT_Shared             OK
+M:        \\\\LAXSERVER01\\Marketing_Shared      OK
+O:        \\\\LAXSERVER01\\Operation_Shared      Disconnected
+S:        \\\\NYCSERVER01\\Sales_Shared          OK
+Z:        \\\\LAXSERVER01\\System                OK
+`,
+
+childitem:
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> Get-ChildItem A:\\
+
+Directory: A:\\
+
+Mode LastWriteTime Length Name
+---------------------------------------------------------
+d----- 07/01/2026 Reports
+d----- 06/18/2026 Payroll
+d----- 06/30/2026 Invoices
+-a---- 07/02/2026 08:21 153284 Budget2026.xlsx
+-a---- 06/28/2026 15:40 82213 AP_Report.pdf
+`,
+
+arpa:
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> arp -a
+
+Interface: 192.168.100.21 --- 0x6
+
+Internet Address Physical Address Type
+---------------------------------------------------------
+192.168.100.1 00-15-5d-01-10-01 Dynamic
+192.168.100.10 00-15-5d-01-10-10 Dynamic
+192.168.100.20 00-15-5d-01-10-20 Dynamic
+192.168.100.50 00-15-5d-01-10-50 Dynamic
+`,
+
+routeprint:
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> route print
+
+===========================================================================
+Interface List
+11...00 15 5d 01 10 21......Intel(R) Ethernet I219-LM
+===========================================================================
+
+IPv4 Route Table
+
+Network Destination Netmask Gateway
+----------------------------------------------------------
+0.0.0.0 0.0.0.0 192.168.100.1
+127.0.0.0 255.0.0.0 On-link
+192.168.100.0 255.255.255.224 On-link
+`,
+
+smbshare:
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> Get-SmbShare
+
+Name Path Description
+---------------------------------------------------------------------------
+Accounting D:\\Shares\\Accounting Accounting Shared Folder
+General D:\\Shares\\General General Documents
+HR_Shared D:\\Shares\\HR Human Resources
+IT_Shared D:\\Shares\\IT IT Department
+Marketing_Shared D:\\Shares\\Marketing Marketing Files
+Operation_Shared D:\\Shares\\Operations Operations
+System D:\\System System Files
+`,
+
+disk:
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> Get-Disk
+
+Number Friendly   Name          Size   Partition Style
+------------------------------------------------------------
+0      Samsung    SSD 990 Pro   1 TB   GPT
+1      WD Blue    HDD           2 TB   GPT
+`,
+
+partition:
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> Get-Partition
+
+DiskPath DriveLetter Size
+-----------------------------------------
+Disk 0   C           500 GB
+Disk 0   D           500 GB
+Disk 1   E           2 TB
+`,
+
+acl:
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> Get-Acl "\\\\LAXSERVER01\\HR_Shared"
+
+Path Owner
+------------------------------------------------
+Microsoft.PowerShell.Core\\FileSystem::\\\\LAXSERVER01\\HR_Shared
+BANANACORP\\Domain Admins
+
+Access
+------------------------------------------------
+HR Team             Allow   FullControl
+IT Administrators   Allow   FullControl
+Accounting Team     Deny    Read
+Everyone            Deny    Write
+`,
+
+package:
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> Get-Package
+
+Name                      Version       Provider
+-------------------------------------------------------------
+Google Chrome             137.0.7151    Programs
+Microsoft Teams           25153.1002    Programs
+Adobe Acrobat Reader      25.001        Programs
+7-Zip                     24.09         Programs
+Notepad++                 8.8.1         Programs
+`,
+
+appxpackage:
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> Get-AppxPackage
+
+Name Version
+-------------------------------------------------------------
+Microsoft.WindowsCalculator 11.2503.0
+Microsoft.WindowsStore 22505.1401
+Microsoft.WindowsTerminal 1.22.10352
+Microsoft.Paint 11.2502.1
+`,
+
+wingetsearch:
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> winget search chrome
+
+Name                         Id                         Version
+----------------------------------------------------------------------
+Google Chrome                Google.Chrome             137.0.7151
+Google Chrome Beta           Google.Chrome.Beta        138.0.7200
+Google Chrome Dev            Google.Chrome.Dev         139.0.7215
+`,
+
+wingetupgrade:
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> winget upgrade
+
+Name                     Id                      Version     Available
+---------------------------------------------------------------------------
+Google Chrome            Google.Chrome          137.0       138.0
+Notepad++                Notepad++.Notepad++   8.8.0       8.8.1
+7-Zip                    7zip.7zip             24.08       24.09
+`,
+
+wingetuninstall:
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> winget uninstall "Google Chrome"
+
+Found Google Chrome
+
+Uninstalling...
+█████████████████████████████ 100%
+
+Successfully uninstalled Google Chrome.
+`,
+
+msiexec:
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> Start-Process msiexec.exe -ArgumentList "/i ChromeEnterprise.msi"
+
+Launching Windows Installer...
+
+Installing Google Chrome Enterprise...
+
+Installation completed successfully.
+`,
+
+setupexe:
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> Start-Process .\\setup.exe
+
+Launching installer...
+
+BananaVPN Client Setup
+
+Installation completed successfully.
+`,
+
+eventlog:
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> Get-EventLog -LogName System -Newest 5
+
+Time                 EntryType    Source              EventID
+---------------------------------------------------------------------
+07/04/2026 09:15     Information  Service Control     7036
+07/04/2026 09:13     Warning      DNS Client          1014
+07/04/2026 09:10     Error        Disk               7
+07/04/2026 09:08     Information  EventLog           6005
+07/04/2026 09:01     Information  Kernel-General     12
+`,
+
+winevent:
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> Get-WinEvent -LogName Security -MaxEvents 5
+
+TimeCreated           Id    Level      Message
+---------------------------------------------------------------------------
+07/04/2026 09:12      4624  Information Successful logon
+07/04/2026 09:11      4672  Information Special privileges assigned
+07/04/2026 09:05      4625  Warning     Failed logon
+07/04/2026 08:57      4634  Information Logoff
+07/04/2026 08:42      4624  Information Successful logon
+`,
+
+localuser:
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> Get-LocalUser
+
+Name                 Enabled Description
+--------------------------------------------------------------
+Administrator        True    Built-in administrator
+Helpdesk             True    IT Support Account
+Training             False   Training Account
+Guest                False   Built-in guest account
+`,
+
+localgroup:
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> Get-LocalGroup
+
+Name
+---------------------------------------
+Administrators
+Backup Operators
+Power Users
+Remote Desktop Users
+Users
+`,
+
+groupmember:
+`Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\\Users\\Administrator> Get-LocalGroupMember Administrators
+
+Name                           PrincipalSource
+---------------------------------------------------------
+Administrator                  Local
+BANANACORP\\IT_Admins           Active Directory
+BANANACORP\\Helpdesk            Active Directory
+`,
+
+};
+
+// Build the button grid dynamically for this demo page
+const labels = {
+  printer: "Get-Printer", service: "Get-Service", psdrive: "Get-PSDrive",
+  testconnection: "Test-Connection", hotfix: "Get-HotFix", computerinfo: "Get-ComputerInfo",
+  netadapter: "Get-NetAdapter", process: "Get-Process", ipconfig: "ipconfig",
+  nslookup: "nslookup", resolvednsname: "Resolve-DnsName", wmiobject: "Get-WmiObject",
+  volume: "Get-Volume", wingetlist: "winget list", wingetinstall: "winget install",
+  smbmapping: "Get-SmbMapping", childitem: "Get-ChildItem", arpa: "arp -a",
+  routeprint: "route print", smbshare: "Get-SmbShare", disk: "Get-Disk",
+  partition: "Get-Partition", acl: "Get-Acl", package: "Get-Package",
+  appxpackage: "Get-AppxPackage", wingetsearch: "winget search", wingetupgrade: "winget upgrade",
+  wingetuninstall: "winget uninstall", msiexec: "msiexec", setupexe: "setup.exe",
+  eventlog: "Get-EventLog", winevent: "Get-WinEvent", localuser: "Get-LocalUser",
+  localgroup: "Get-LocalGroup", groupmember: "Get-LocalGroupMember"
+};
+
+const grid = document.getElementById("cmdGrid");
+Object.keys(commands).forEach(key => {
+  const btn = document.createElement("button");
+  btn.className = "cmd-btn";
+  btn.textContent = labels[key] || key;
+  btn.onclick = () => runCommand(key);
+  grid.appendChild(btn);
+});
+
+</script>
+</body>
+</html>
