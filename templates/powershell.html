@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>VirtualHelpDesk - PowerShell Field Reference</title>
+<title>VirtualHelpDesk - PowerShell Field Reference (EN)</title>
 <style>
   :root {
     --teal: #2b7a78;
@@ -292,7 +292,7 @@
 <header>
   <h1>PowerShell Field Reference</h1>
   <span class="badge">Banana Corporation IT Ops</span>
-  <p>コマンドを選ぶと、実行結果と現場での使用エピソードが表示されます</p>
+  <p>Select a command to see its output and a real-world field note</p>
 </header>
 
 <div class="layout">
@@ -300,7 +300,7 @@
 
   <main>
     <div id="emptyState" class="empty-state">
-      ← 左のリストからコマンドを選んでください
+      ← Choose a command from the list on the left
     </div>
 
     <div id="content" style="display:none;">
@@ -832,13 +832,13 @@ BANANACORP\\Helpdesk            Active Directory
 
 /* ---------- 2. Categories & display labels ---------- */
 const categories = [
-  { label: "ネットワーク診断", items: ["testconnection","ipconfig","netadapter","nslookup","resolvednsname","arpa","routeprint"] },
-  { label: "ファイル共有", items: ["psdrive","smbmapping","smbshare","childitem","acl"] },
-  { label: "システム情報", items: ["computerinfo","wmiobject","volume","disk","partition","process","hotfix"] },
-  { label: "ソフトウェア管理", items: ["wingetlist","wingetsearch","wingetinstall","wingetupgrade","wingetuninstall","package","appxpackage","msiexec","setupexe"] },
-  { label: "サービス / プリンタ", items: ["printer","service"] },
-  { label: "ログ / 監査", items: ["eventlog","winevent"] },
-  { label: "ユーザー管理", items: ["localuser","localgroup","groupmember"] },
+  { label: "Network Diagnostics", items: ["testconnection","ipconfig","netadapter","nslookup","resolvednsname","arpa","routeprint"] },
+  { label: "File Shares", items: ["psdrive","smbmapping","smbshare","childitem","acl"] },
+  { label: "System Info", items: ["computerinfo","wmiobject","volume","disk","partition","process","hotfix"] },
+  { label: "Software Management", items: ["wingetlist","wingetsearch","wingetinstall","wingetupgrade","wingetuninstall","package","appxpackage","msiexec","setupexe"] },
+  { label: "Services / Printers", items: ["printer","service"] },
+  { label: "Logs / Auditing", items: ["eventlog","winevent"] },
+  { label: "User Management", items: ["localuser","localgroup","groupmember"] },
 ];
 
 const labels = {
@@ -863,21 +863,21 @@ const labels = {
 const episodes = {
 
   routeprint: {
-    situation: "日本オフィス勤務者が、米国政府関連サイトにアクセスできない",
-    background: "通常、日本オフィスは社内Proxy経由で米国本社ネットワークを抜けてインターネットに出る構成。だが一部の政府系サイトは米国内IPからの直接アクセスしか許可しない仕様だった",
-    action: "PCをDual NIC構成にし、通常トラフィックは社内Proxy経由のまま、特定の宛先だけ米国側の直接インターネット回線を通るようスタティックルートを追加。route printで現在の経路テーブルを確認してから、route add [宛先] mask [マスク] [ゲートウェイ] -p で永続ルートを設定した",
-    point: "既存のデフォルトゲートウェイより優先されるよう、明示的な宛先ルートを切ることでOS側のルーティング判断を制御するのがポイント。ルートのメトリック競合で意図通りに切り替わらないケースもあるため、追加後は必ずtracertで実際の経路を確認する"
+    situation: "A user in the Japan office couldn't reach a U.S. government website",
+    background: "The Japan office normally routes out to the internet through a corporate proxy in the U.S. headquarters network. But some government sites only allow direct access from U.S.-based IPs, blocking anything arriving through the proxy",
+    action: "Set the PC up as dual-NIC: regular traffic kept going through the corporate proxy as usual, while traffic to that specific destination was routed over the direct U.S. internet connection instead. Checked the existing routing table with route print, then added a persistent static route with route add [destination] mask [mask] [gateway] -p",
+    point: "The key is that an explicit destination route takes priority over the existing default gateway, letting you control the OS's routing decision for just that traffic. Route metric conflicts can sometimes prevent the switch from taking effect as intended, so always verify the actual path with tracert after adding the route"
   },
 
   testconnection: {
-    situation: "「ネットに繋がらない」という問い合わせで駆けつけたら、実はLAN内の一部だけ生きていた",
-    background: "ユーザーの申告は「インターネットが使えない」だったが、Pingを打つ相手を意識せずに死活確認すると、原因の層を誤って切り分けてしまう",
-    action: "まずデフォルトゲートウェイ(LAN側インターフェース)にPing→応答あり。次にISP側のWANルーターにPing→応答なし。この時点でLAN内のL2/L3は生きているが、WAN側で切れていると判断し、ISP側かWANルーター故障の切り分けに移行した",
-    point: "「Pingが通る/通らない」だけで終わらせず、どの機材のどのインターフェースに向けて打っているかを常に意識するのが肝心。tracertと組み合わせて、どのホップで止まるかまで見て初めて、原因箇所を特定できる"
+    situation: "Responded to a \"can't connect to the internet\" ticket, and it turned out part of the LAN was actually still alive",
+    background: "The user's report was simply \"internet doesn't work,\" but if you ping without being deliberate about which interface you're targeting, you can misdiagnose which layer is actually broken",
+    action: "First pinged the default gateway (LAN-side interface) — got a response. Then pinged the ISP-side WAN router — no response. At that point it was clear L2/L3 on the LAN was fine, but something was down on the WAN side, so the investigation shifted to the ISP or the WAN router itself",
+    point: "Don't stop at \"ping works / doesn't work\" — always be conscious of which device and which interface you're actually targeting. Combine this with tracert to see exactly which hop the traffic stops at before you can pin down the real point of failure"
   },
 
-  // 他のコマンドのエピソードはここに追加していく
-  // 例: nslookup: { situation: "...", background: "...", action: "...", point: "..." },
+  // Add more command episodes here as you write them
+  // Example: nslookup: { situation: "...", background: "...", action: "...", point: "..." },
 
 };
 
@@ -911,8 +911,8 @@ function selectCommand(key){
 
   document.getElementById("cmdTitle").textContent = labels[key] || key;
   document.getElementById("cmdSub").textContent = episodes[key]
-    ? "現場エピソードあり"
-    : "実行結果のみ";
+    ? "Field note available"
+    : "Output only";
 
   let output = commands[key];
   output += "\n" + prompt + "<span class='terminal-cursor'></span>";
@@ -926,16 +926,16 @@ function selectCommand(key){
       <div class="fieldnote-wrap">
         <div class="fieldnote">
           <span class="fieldnote-tag">Field Note</span>
-          <h3>現場ではこう使った</h3>
-          <div class="fn-row"><div class="fn-label">状況</div><div class="fn-value">${ep.situation}</div></div>
-          <div class="fn-row"><div class="fn-label">背景</div><div class="fn-value">${ep.background}</div></div>
-          <div class="fn-row"><div class="fn-label">対応</div><div class="fn-value">${ep.action}</div></div>
-          <div class="fn-point"><strong>ポイント：</strong>${ep.point}</div>
+          <h3>How this was used in the field</h3>
+          <div class="fn-row"><div class="fn-label">Situation</div><div class="fn-value">${ep.situation}</div></div>
+          <div class="fn-row"><div class="fn-label">Background</div><div class="fn-value">${ep.background}</div></div>
+          <div class="fn-row"><div class="fn-label">Action</div><div class="fn-value">${ep.action}</div></div>
+          <div class="fn-point"><strong>Key point:</strong> ${ep.point}</div>
         </div>
       </div>
     `;
   } else {
-    area.innerHTML = `<div class="fieldnote-empty">このコマンドの現場エピソードは準備中です。</div>`;
+    area.innerHTML = `<div class="fieldnote-empty">A field note for this command hasn't been written yet.</div>`;
   }
 }
 
