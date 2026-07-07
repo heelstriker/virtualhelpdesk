@@ -38,8 +38,51 @@
     <div class="fn-card">
         <div class="fn-icon">🌐</div>
         <div class="fn-body">
-            <div class="fn-title">Coming soon</div>
-            <div class="fn-desc fn-placeholder">This section will cover network outage root cause analysis.</div>
+            <div class="fn-title">Automated Network Health Monitoring with PowerShell</div>
+            <div class="fn-desc">
+                <p>
+                    Before this automation existed, checking network device health meant
+                    manually pinging each device one by one while cross-referencing a
+                    network diagram — slow, repetitive, and easy to make mistakes on
+                    (skipped devices, missed timeouts) during a long shift.
+                </p>
+                <p>
+                    I built a PowerShell-based monitoring script that pings every
+                    registered device (<code>-n 10 -w 4000</code>) in sequence, then loops
+                    continuously. If <strong>5 consecutive pings time out</strong>, the
+                    script flags it as a network incident, writes a timestamped entry to
+                    a log file, and turns the terminal background red as a visual alert.
+                </p>
+                <pre class="fn-code"><code>function Test-TimedOut {
+    param([string[]]$pingOutput)
+    $timedOutCount = ($pingOutput | Select-String `
+        -Pattern "Timed Out|Request timed out").Count
+    return $timedOutCount
+}
+
+if ($timedOutCount -ge $failThreshold) {
+    Write-IncidentLog -target $target
+    $Host.UI.RawUI.BackgroundColor = "Red"
+}</code></pre>
+                <p>
+                    The log file is <strong>overwritten</strong> on each incident rather
+                    than appended, so checking it the next morning immediately shows the
+                    timestamp of the most recent outage — no need to scroll through a
+                    growing log to figure out whether an issue is still ongoing.
+                </p>
+                <p>
+                    I also built per-site launcher tools so a single click could sweep
+                    every device at a site, or target just one — for example, monitoring
+                    only the LAN-side interface of a backup modem.
+                </p>
+                <p class="fn-lesson">
+                    Even though network infrastructure was formally owned by an external
+                    network provider, this tool let our team detect — and confirm
+                    recovery from — outages just as fast, and sometimes faster. It also
+                    cut down on human error from the old manual-ping workflow, like
+                    accidentally skipping a device during a check.
+                </p>
+            </div>
         </div>
     </div>
 
