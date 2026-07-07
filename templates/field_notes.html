@@ -24,8 +24,30 @@
     <div class="fn-card">
         <div class="fn-icon">🖥️</div>
         <div class="fn-body">
-            <div class="fn-title">Coming soon</div>
-            <div class="fn-desc fn-placeholder">This section will cover common endpoint and client-side issues.</div>
+            <div class="fn-title">Preventing Display Sleep on an Unattended Dashboard</div>
+            <div class="fn-desc">
+                <p>
+                    <strong>Business Need:</strong> The contact center displayed real-time
+                    call statistics on a large screen 24/7.
+                </p>
+                <p>
+                    <strong>Challenge:</strong> Windows power settings alone were not
+                    sufficient to keep the display active indefinitely.
+                </p>
+                <p>
+                    <strong>Solution:</strong> I created a lightweight PowerShell script
+                    that simulated a Shift key press every 30 seconds, keeping the system
+                    from ever entering an idle state.
+                </p>
+                <p>
+                    <strong>Outcome:</strong> The dashboard remained visible throughout
+                    unattended shifts without requiring third-party software or manual
+                    intervention.
+                </p>
+                <p class="fn-lesson">
+                    Sometimes the simplest automation provides the greatest operational value.
+                </p>
+            </div>
         </div>
     </div>
 
@@ -86,6 +108,51 @@ if ($timedOutCount -ge $failThreshold) {
         </div>
     </div>
 
+    <div class="fn-card">
+        <div class="fn-icon">🌐</div>
+        <div class="fn-body">
+            <div class="fn-title">Isolating a Client-Side Root Cause Behind a Suspected Server Outage</div>
+            <div class="fn-desc">
+                <p>
+                    <strong>Situation:</strong> We started receiving reports from field
+                    locations across North America that a mission-critical business web
+                    application was unavailable. Because the reports came from multiple
+                    locations at once, it initially looked like a server-side outage.
+                </p>
+                <p>
+                    <strong>Task:</strong> My responsibility was to identify the root
+                    cause as quickly as possible, since the application was
+                    operationally critical.
+                </p>
+                <p>
+                    <strong>Action:</strong> Instead of assuming the server was down, I
+                    noticed that a small number of PCs were still functioning normally —
+                    which suggested the problem might be client-side rather than
+                    server-side. I built a test PC from an older system image and
+                    confirmed the application worked correctly on it. I then installed
+                    recent security patches one at a time until the issue reappeared,
+                    which isolated the problem to a specific NetBIOS over TCP/IP
+                    security patch. Reviewing the patch documentation confirmed it was
+                    intended for servers but had been mistakenly deployed to client PCs.
+                </p>
+                <p>
+                    <strong>Result:</strong> I shared the findings with our engineering
+                    team, who halted further deployment, instructed users not to reboot
+                    unaffected PCs, and distributed a corrected package. Because the
+                    root cause was identified quickly, the broader support organization
+                    was able to recover the service much faster than an unexplained
+                    outage would normally allow. I later received recognition from the
+                    engineering team for the investigation.
+                </p>
+                <p class="fn-lesson">
+                    A symptom reported from many locations at once doesn't automatically
+                    mean the root cause is server-side — ruling out the client is often
+                    the faster path to the real answer.
+                </p>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <!-- ===== SECTION 3: SECURITY & ACCESS CONTROL ===== -->
@@ -95,8 +162,53 @@ if ($timedOutCount -ge $failThreshold) {
     <div class="fn-card">
         <div class="fn-icon">🔐</div>
         <div class="fn-body">
-            <div class="fn-title">Coming soon</div>
-            <div class="fn-desc fn-placeholder">This section will cover access control and security observations.</div>
+            <div class="fn-title">PowerShell Execution Policy Handling</div>
+            <div class="fn-desc">
+                <p>
+                    <strong>Challenge:</strong> While developing VirtualHelpDesk, I
+                    needed to launch PowerShell automation scripts from a batch file.
+                    Windows initially blocked the script with an error indicating that
+                    running scripts was disabled on the system. This happens because the
+                    default PowerShell Execution Policy prevents <code>.ps1</code> files
+                    from running.
+                </p>
+                <p>
+                    <strong>Investigation:</strong> I checked the current policy with
+                    <code>Get-ExecutionPolicy</code>, which confirmed the system was
+                    configured to restrict script execution — a common Windows default.
+                </p>
+                <p>
+                    <strong>Initial Solution:</strong> For development purposes, I
+                    temporarily enabled script execution for my user profile, which
+                    resolved the issue and let the batch file launch the script.
+                </p>
+                <p>
+                    <strong>Improving the Design:</strong> That approach wasn't suitable
+                    for automation, since changing the execution policy can require user
+                    confirmation and isn't ideal for enterprise environments. I
+                    redesigned the launcher to use a process-scoped policy override
+                    instead:
+                </p>
+                <pre class="fn-code"><code>powershell.exe -ExecutionPolicy Bypass -File Start.ps1</code></pre>
+                <p>
+                    This approach applies only to the current PowerShell process,
+                    doesn't permanently modify the user's execution policy, and lets the
+                    automation run without interactive prompts — better for
+                    demonstrations and automated workflows.
+                </p>
+                <p>
+                    <strong>Enterprise Considerations:</strong> In a production
+                    environment, I wouldn't rely on permanently changing execution
+                    policies on individual machines. Organizations typically manage this
+                    through Group Policy, code-signing certificates for trusted scripts,
+                    or process-level overrides scoped to specific deployment tools.
+                </p>
+                <p class="fn-lesson">
+                    This helped me understand the balance between automation, security,
+                    and usability — and why process-level execution is often preferred
+                    for portable automation projects like VirtualHelpDesk.
+                </p>
+            </div>
         </div>
     </div>
 
