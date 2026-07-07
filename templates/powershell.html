@@ -862,6 +862,34 @@ const labels = {
 */
 const episodes = {
 
+  acl: {
+    situation: "Wanted to check permissions on a share like HR_Shared, but Get-Acl only returns the ACL for the single path you point it at — it doesn't walk subfolders, and it says nothing about a nested folder that's actually published as its own separate SMB share with different permissions",
+    background: "For anything beyond a glance, the real breakdown — permissions folder by folder, inheritance, scope of application — had to come from the file server itself, exported per-folder from there rather than reconstructed from a PowerShell one-liner. In practice, checking a share's permissions with something like Get-Acl was more of a first-line, help-desk-tier sanity check — enough to see \"does this folder have some access control on it at all,\" not enough to confirm the actual state of who can do what",
+    action: "For real management, the more reliable approach was maintaining, for each share, the user group with access alongside the exact list of user IDs in that group — kept as a single managed pair, jointly maintained with the folder's business owner rather than derived after the fact from a command. Share folders often fall under audit or compliance requirements, so this had to be treated as something strict and deliberately managed, not something to infer casually from a quick PowerShell check",
+    point: "Given all that, Get-Acl on its own is a fairly weak tool for this job, and in practice it didn't get used often. One more thing worth flagging: \"ACL\" is a heavily overloaded term — on network equipment it usually refers to something completely different, like traffic prioritization rules on a load balancer or a whitelist on a spam firewall, not file permissions at all. Worth keeping straight so it doesn't get confused with the PC/file-server meaning"
+  },
+
+  nslookup: {
+    situation: "A ticket comes in that an internal site won't display. Step one was figuring out whether the server itself was actually down",
+    background: "If you remember the naming scheme (NYC for New York, LAX for Los Angeles, etc.), a quick nslookup NYCSERVER01 confirms name resolution instantly without opening the asset inventory. It also worked as the first move for separating \"server down\" from \"something wrong on the PC\" when an internal site failed to display",
+    action: "If nslookup successfully resolved the target hostname and got a normal response from the internal DNS server, that confirmed the server itself was alive. From there, the investigation shifted away from \"host down\" and toward the client PC's configuration. Common culprits turned out to be: .NET Framework not installed, causing part of the page to silently fail to render; a JRE load error; a misconfigured ActiveX setting under Internet Options; or the hostname simply missing from the intranet zone's trusted sites list, causing content to be blocked",
+    point: "The key is not jumping straight to \"server outage\" just because someone reports a site won't display. If nslookup confirms name resolution and the server response are both fine, the problem sits in the PC's local environment instead. Legacy internal systems in particular tend to depend on older technology like .NET Framework or ActiveX, so this kind of issue showed up most often right after a PC refresh or a fresh reinstall"
+  },
+
+  smbmapping: {
+    situation: "A ticket comes in: \"I can't reach the share drive over VPN from outside the office.\" Get-SmbMapping shows the status as \"Disconnected,\" and the user assumes something is broken",
+    background: "As security policy tightened in stages, connecting to internal server file shares from outside the office over VPN moved to being disallowed by default. During the pandemic, a few specific directories were allowed as a temporary exception over VPN, but that was never meant to be a permanent arrangement",
+    action: "Checked the status with Get-SmbMapping. If the disconnected share was one that policy didn't permit over an external route, explained to the user that this wasn't a malfunction — it was the system working as intended. Since access from outside was heading toward being fully blocked as security kept tightening, the guidance was: come into the office and connect from the internal network if you need that resource",
+    point: "There was more to this policy than just security. Users needed to come into the office at least once every three months anyway, to get Windows license renewals and group policy updates from the on-site KMS server — something an internet connection alone couldn't substitute for. Separately, the mapped drive configuration itself was never removed regardless of whether it was actually connected at the moment, because removing it would stop the server-side connection-history inventory catalog from updating. And operationally: when only a subfolder was permitted, map directly to that subfolder rather than the parent folder, and always confirm hidden shares were configured with a trailing $ in the name"
+  },
+
+  printer: {
+    situation: "During a PC refresh, needed to carry over every printer setting from the old machine to the new one without missing anything",
+    background: "Opening Devices & Printers in Control Panel every time to eyeball and note down the settings was tedious, so tried pulling a complete record via PowerShell instead",
+    action: "Used Get-Printer to grab Name, DriverName, and PortName, then joined that with Get-PrinterPort on PortName to pull PrinterHostAddress — the actual IP address. Also checked which one was the default printer via the Default property from Get-CimInstance Win32_Printer, since missing that could mean print jobs silently going to the wrong printer after the switch",
+    point: "A record only becomes usable once you have the driver name, port name, IP address, and default setting all together. But PowerShell output alone left some doubt about naming inconsistencies or missed entries, so the final step was always cross-checking against the actual Control Panel UI, or against MS-DOS-era commands like wmic printer list config. Knowing the newer tool matters, but so does not over-trusting it and pairing it with the older, more reliable method"
+  },
+
   routeprint: {
     situation: "A user in the Japan office couldn't reach a U.S. government website",
     background: "The Japan office normally routes out to the internet through a corporate proxy in the U.S. headquarters network. But some government sites only allow direct access from U.S.-based IPs, blocking anything arriving through the proxy",
@@ -877,7 +905,7 @@ const episodes = {
   },
 
   // Add more command episodes here as you write them
-  // Example: nslookup: { situation: "...", background: "...", action: "...", point: "..." },
+  // Example: resolvednsname: { situation: "...", background: "...", action: "...", point: "..." },
 
 };
 
