@@ -93,6 +93,12 @@ def dashboard():
     device_status_labels = [row["status"] for row in device_status_rows]
     device_status_counts = [row["count"] for row in device_status_rows]
 
+    score = calculate_compliance_score(
+    software,
+    patch,
+    printer,
+    network_drive
+    )
 
     return render_template(
         "dashboard.html",
@@ -106,7 +112,7 @@ def dashboard():
         dept_progress=dept_progress,
         device_status_labels=device_status_labels,
         device_status_counts=device_status_counts,
-
+        compliance_score = score
     )
 
 
