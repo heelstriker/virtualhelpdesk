@@ -26,7 +26,7 @@ def calculate_compliance_score(
 
     for drive in network_drive:
 
-        if drive["drive_name"]='System Drive' and drive["connected"] == 0:
+        if drive["drive_name"]=='System Drive' and drive["connected"] == 0:
             score -= 5
 
 
