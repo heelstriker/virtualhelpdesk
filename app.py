@@ -93,14 +93,7 @@ def dashboard():
     device_status_labels = [row["status"] for row in device_status_rows]
     device_status_counts = [row["count"] for row in device_status_rows]
 
-    
-    score = calculate_compliance_score(
-        software,
-        patch,
-        printer,
-        network_drive
-    )
-
+  
     return render_template(
         "dashboard.html",
         active_page="dashboard",
@@ -113,7 +106,6 @@ def dashboard():
         dept_progress=dept_progress,
         device_status_labels=device_status_labels,
         device_status_counts=device_status_counts,
-        compliance_score = score
     )
 
 
@@ -242,6 +234,12 @@ def api_printers():
 
     return jsonify([dict(x) for x in printers])
 
+@app.route("/cmd_reference")
+def cmd_reference():
+    return render_template(
+        "cmd_reference.html",
+        active_page="cmd_reference",
+    )
 
 
 @app.errorhandler(500)

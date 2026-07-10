@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+
+{% block title %}CMD Reference | VirtualHelpDesk{% endblock %}
+
+{% block extra_css %}
+<style>
+  .cmd-container {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+  }
+
+  .cmd-header {
+    margin-bottom: 2rem;
+  }
+
+  .cmd-header h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+  }
+
+  .cmd-header p {
+    font-size: 0.9rem;
+    opacity: 0.6;
+  }
+
+  .cmd-table-wrapper {
+    overflow-x: auto;
+    border-radius: 8px;
+    border: 1px solid var(--border-color, #e2e8f0);
+  }
+
+  .cmd-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+  }
+
+  .cmd-table thead {
+    background-color: var(--table-header-bg, #f8fafc);
+  }
+
+  .cmd-table th {
+    padding: 0.85rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.7;
+    border-bottom: 1px solid var(--border-color, #e2e8f0);
+  }
+
+  .cmd-table td {
+    padding: 0.85rem 1rem;
+    vertical-align: top;
+    border-bottom: 1px solid var(--border-color, #e2e8f0);
+    line-height: 1.5;
+  }
+
+  .cmd-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .cmd-table tbody tr:hover {
+    background-color: var(--row-hover-bg, #f8fafc);
+  }
+
+  .cmd-badge {
+    display: inline-block;
+    font-family: monospace;
+    font-size: 0.82rem;
+    background-color: var(--badge-bg, #1e293b);
+    color: var(--badge-color, #e2e8f0);
+    padding: 0.2rem 0.55rem;
+    border-radius: 4px;
+    white-space: pre-wrap;
+    line-height: 1.6;
+  }
+
+  .cmd-example {
+    font-style: italic;
+    opacity: 0.65;
+    font-size: 0.82rem;
+    margin-top: 0.2rem;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="cmd-container">
+
+  <div class="cmd-header">
+    <h1>CMD Reference</h1>
+    <p>Common Windows command-line tools used in desktop support and IT troubleshooting.</p>
+  </div>
+
+  <div class="cmd-table-wrapper">
+    <table class="cmd-table">
+      <thead>
+        <tr>
+          <th style="width: 18%;">Command</th>
+          <th style="width: 32%;">Real-world Example</th>
+          <th style="width: 50%;">Why would I use this?</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        {% set commands = [
+          ("sfc /scannow", "Windows system files may be corrupted after an unexpected shutdown.", "Run this to repair corrupted system files after unexpected OS errors, slowness, or crashes."),
+          ("ipconfig /release\nipconfig /renew", "DHCP address needs to be renewed.", "Use this to release the current IP address so you can renew it to restore or refresh network connectivity."),
+          ("ipconfig /flushdns", "DNS cache may contain outdated records.", "Use this to clear the DNS cache when having difficulty connecting to specific websites or servers."),
+          ("net use", "Verify mapped network drives.", "Use this to view, connect, or configure mapped network drives on the PC."),
+          ("net user", "Check local user accounts.", "Use this to list, create, or modify local user accounts on the PC."),
+          ("gpupdate /force", "Apply Group Policy changes immediately.", "Use this to force-apply the latest Group Policies during troubleshooting for site access or VPN connection issues."),
+          ("systeminfo", "Collect system information before troubleshooting.", "Use this to collect OS details, system uptime, and hardware specifications before taking a backup or troubleshooting."),
+          ("hostname", "Verify asset identity.", "Use this to quickly find the computer name (hostname) of the PC."),
+          ("whoami", "Confirm current security context.", "Use this to quickly find the logged-in user account name and their privilege context."),
+          ("nslookup", "Verify DNS resolution.", "Use this to find the IP address associated with a domain name or to check if a specific DNS server is resolving correctly."),
+          ("ping", "Basic connectivity check.", "Use this to check network connectivity and response speed to a local device or an internet server."),
+          ("tracert", "Identify where packets stop.", "Use this to trace the network route to a destination and see where connection packets are being dropped or delayed."),
+          ("pathping", "Advanced network latency and loss analysis.", "Use this to combine ping and tracert features, pinpointing which routers or hops are causing packet loss."),
+          ("netstat", "Monitor active network connections.", "Use this to find active network connections, open ports, and listening activities on the PC."),
+          ("nbtstat", "Check NetBIOS over TCP/IP statistics.", "Use this to view NetBIOS name tables and statistics to confirm if NetBIOS over TCP/IP is functioning and resolving names."),
+          ("arp -a", "To check the physical address of connected network devices.", "Use this to view the local ARP cache and map IP addresses to physical MAC addresses on the local network."),
+        ] %}
+
+        {% for cmd, example, reason in commands %}
+        <tr>
+          <td><span class="cmd-badge">{{ cmd }}</span></td>
+          <td>
+            {{ example }}
+          </td>
+          <td>{{ reason }}</td>
+        </tr>
+        {% endfor %}
+
+      </tbody>
+    </table>
+  </div>
+
+</div>
+{% endblock %}
