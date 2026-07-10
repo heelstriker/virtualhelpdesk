@@ -140,5 +140,44 @@
     </table>
   </div>
 
+  <!-- Windows Hidden Shortcuts -->
+  <div class="cmd-header" style="margin-top: 3rem;">
+    <h1>Windows Hidden Shortcuts</h1>
+    <p>Run these commands via <strong>Win + R</strong> or the Start menu search bar to jump directly to system tools.</p>
+  </div>
+
+  <div class="cmd-table-wrapper">
+    <table class="cmd-table">
+      <thead>
+        <tr>
+          <th style="width: 25%;">Command</th>
+          <th style="width: 75%;">Opens</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        {% set shortcuts = [
+          ("sysdm.cpl",     "System Properties"),
+          ("services.msc",  "Services"),
+          ("appwiz.cpl",    "Programs and Features"),
+          ("compmgmt.msc",  "Computer Management"),
+          ("devmgmt.msc",   "Device Manager"),
+          ("diskmgmt.msc",  "Disk Management"),
+          ("eventvwr.msc",  "Event Viewer"),
+          ("lusrmgr.msc",   "Local Users and Groups"),
+          ("ncpa.cpl",      "Network Connections"),
+        ] %}
+
+        {% for cmd, opens in shortcuts %}
+        <tr>
+          <td><span class="cmd-badge">{{ cmd }}</span></td>
+          <td>{{ opens }}</td>
+        </tr>
+        {% endfor %}
+
+      </tbody>
+    </table>
+  </div>
+
 </div>
 {% endblock %}
