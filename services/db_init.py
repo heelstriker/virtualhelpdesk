@@ -123,7 +123,9 @@ def create_database():
         backup_status TEXT,
         monitoring TEXT,
         last_checkin TEXT,
-        description TEXT
+        description TEXT,
+        switch_id TEXT,
+        switch_port TEXT
     )
     """)
 

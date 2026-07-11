@@ -341,25 +341,26 @@ def import_server_catalog():
 
         cursor.execute("""
         INSERT INTO server_catalog
-        (hostname, role, site, ip_address, operating_system, environment, status, cpu, memory_gb, storage_tb, uptime_days, patch_status, backup_status, monitoring, last_checkin, description)
+        (hostname, role, site, ip_address, operating_system, environment, status, cpu, memory_gb, storage_tb, uptime_days, patch_status, backup_status, monitoring, last_checkin, description, switch_id, switch_port)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """, (
-            row["hostname"],
-            row["role"],
-            row["site"],
-            row["ip_address"],
-            row["operating_system"],
-            row["environment"],
-            row["status"],
-            row["cpu"],
-            row["memory_gb"],
-            row["storage_tb"],
-	    row["uptime_days"],
-            row["patch_status"],
-	    row["backup_status"],
-            row["monitoring"],
-            row["last_checkin"],
-            row["description"]
+        row["hostname"],
+        row["role"],
+        row["site"],
+        row["ip_address"],
+        row["operating_system"],
+        row["environment"],
+        row["status"],
+        row["cpu"],
+        row["memory_gb"],
+        row["storage_tb"],
+        row["uptime_days"],
+        row["patch_status"],
+        row["backup_status"],
+        row["monitoring"],
+        row["last_checkin"],
+        row["switch_id"],
+        row["switch_port"]
 
         ))
 

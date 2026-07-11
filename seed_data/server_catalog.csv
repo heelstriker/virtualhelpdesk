@@ -1,3 +1,3 @@
-hostname,role,site,ip_address,operating_system,environment,status,cpu,memory_gb,storage_tb,uptime_days,patch_status,backup_status,monitoring,last_checkin,description
-NYCSERVER01,File Server,New York,10.20.1.10,Windows Server 2022,Production,Online,8 vCPU,32,4.0,67,Current,Successful,Healthy,2026-06-29 08:55,Accounting and Sales File Server
-LAXSERVER01,File Server,Los Angeles,10.10.1.10,Windows Server 2022,Production,Online,16 vCPU,64,8.0,142,Current,Successful,Healthy,2026-06-29 09:01,Corporate Shared Storage
+hostname,role,site,ip_address,operating_system,environment,status,cpu,memory_gb,storage_tb,uptime_days,patch_status,backup_status,monitoring,last_checkin,description,switch_id,switch_port
+NYCSERVER01,File Server,New York,10.226.200.20,Windows Server 2022,Production,Online,8 vCPU,32,4,67,Current,Successful,Healthy,6/29/2026 8:55,Accounting and Sales File Server,NYCCORE-L3-01,GE0/24
+LAXSERVER01,File Server,Los Angeles,10.226.100.20,Windows Server 2022,Production,Online,16 vCPU,64,8,142,Current,Successful,Healthy,6/29/2026 9:01,Corporate Shared Storage,LAXCORE-L3-01,GE0/24
