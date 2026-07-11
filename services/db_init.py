@@ -30,7 +30,10 @@ def create_database():
 
         purchase_date TEXT,
         warranty_expiration TEXT,
-        retirement_date TEXT
+        retirement_date TEXT,
+
+        switch_id TEXT,
+        switch_port TEXT
                    
     )
     """)

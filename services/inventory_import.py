@@ -116,8 +116,8 @@ def import_devices():
       
         cursor.execute("""
         INSERT INTO devices
-        (hostname, owner, department, ip_address, subnet, gateway, status, last_seen, location, cost_center, asset_tag, monthly_cost, serial_number, purchase_date, warranty_expiration, retirement_date)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        (hostname, owner, department, ip_address, subnet, gateway, status, last_seen, location, cost_center, asset_tag, monthly_cost, serial_number, purchase_date, warranty_expiration, retirement_date, switch_id, switch_port)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """, (
             row["hostname"],
             row["owner"],
@@ -139,8 +139,11 @@ def import_devices():
             
             row["purchase_date"],
             row["warranty_expiration"],
-            row["retirement_date"]
-                        
+            row["retirement_date"],
+
+            row["switch_id"],
+            row["switch_port"]
+                       
             ))
 
     conn.commit()
