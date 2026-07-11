@@ -169,7 +169,7 @@ def import_software():
             row["hostname"],
             row["software_name"],
             row["installed"],
-	    row["required"]
+	        row["required"]
         ))
 
     conn.commit()
@@ -529,13 +529,13 @@ def import_switch_catalog():
             row["subnet_mask"],
             row["default_gateway"],
             row["dns_server"],
-	    row["mac_address"],
-	    row["firmware"],
-	    row["serial_number"],
-	    row["location"],
-	    row["rack"],
-	    row["status"],
-	    row["last_seen"]
+            row["mac_address"],
+            row["firmware"],
+            row["serial_number"],
+            row["location"],
+            row["rack"],
+            row["status"],
+            row["last_seen"]
         ))
 
     conn.commit()
@@ -573,7 +573,7 @@ def import_network_topology():
             row["latency_ms"],
             row["utilization_pct"],
             row["packet_loss_pct"],
-	    row["alarm"],
+            row["alarm"]
         ))
 
     conn.commit()

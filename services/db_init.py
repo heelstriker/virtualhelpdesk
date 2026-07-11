@@ -42,7 +42,7 @@ def create_database():
         hostname TEXT,
         software_name TEXT,
         installed INTEGER,
-　　　　　required TEXT
+        required TEXT
     )
     """)
 
