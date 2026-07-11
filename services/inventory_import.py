@@ -70,6 +70,14 @@ def initialize_database():
     print("Importing Printer Catalogs...")
     network_drive_catalog_count = import_network_drive_catalog()
     print(f"Imported {network_drive_catalog_count} Network Drive Catalogs")
+
+    print("Importing Switch Catalogs...")
+    switch_catalog_count = import_switch_catalog()
+    print(f"Imported {switch_catalog_count} Switch Catalogs")
+
+    print("Importing Network Topology...")
+    network_topology_count = import_network_topology_catalog()
+    print(f"Imported {network_topology_count} Network Topology")
     
 
 
