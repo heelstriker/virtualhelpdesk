@@ -76,7 +76,7 @@ def initialize_database():
     print(f"Imported {switch_catalog_count} Switch Catalogs")
 
     print("Importing Network Topology...")
-    network_topology_count = import_network_topology_catalog()
+    network_topology_count = import_network_topology()
     print(f"Imported {network_topology_count} Network Topology")
     
 
