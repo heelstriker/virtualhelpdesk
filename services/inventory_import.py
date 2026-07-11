@@ -515,9 +515,10 @@ def import_switch_catalog():
 
         cursor.execute("""
         INSERT INTO switch_catalog
-        (device_id, device_type, model, vendor, management_ip, lan_ip, wan_ip, wan_gateway, subnet_mask, default_gateway, dns_server, mac_address, firmware, serial_number, location, rack, status, last_seen)
+        (device_id,device_type,model,vendor,management_ip,lan_ip,wan_ip,wan_gateway,subnet_mask,default_gateway,dns_server,mac_address,firmware,serial_number,location,rack,status,last_seen)
         VALUES (?, ?, ?, ?, ?, ?, ? ,? ,? ,?, ?, ?, ?, ?, ?, ?, ? ,?)
         """, (
+       
             row["device_id"],
             row["device_type"],
             row["model"],
@@ -536,6 +537,7 @@ def import_switch_catalog():
             row["rack"],
             row["status"],
             row["last_seen"]
+       
         ))
 
     conn.commit()
@@ -560,7 +562,7 @@ def import_network_topology():
         cursor.execute("""
         INSERT INTO network_topology
         (source_device, source_interface, destination_device, destination_interface, link_type, status, notes, bandwidth, latency_ms, utilization_pct, packet_loss_pct, alarm)
-        VALUES (?, ?, ?, ?, ?, ?, ? ,? ,? ,?, ?, ?)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """, (
             row["source_device"],
             row["source_interface"],
