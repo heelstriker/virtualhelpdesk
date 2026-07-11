@@ -42,7 +42,7 @@ def create_database():
         hostname TEXT,
         software_name TEXT,
         installed INTEGER,
-	required TEXT
+　　　　　required TEXT
     )
     """)
 
@@ -108,18 +108,18 @@ def create_database():
         hostname TEXT,
         role TEXT,
         site TEXT,
-	ip_address TEXT,
-	operating_system TEXT,
-	environment TEXT,
-	status TEXT,
-	cpu TEXT,
-	memory_gb INTEGER,
-	storage_tb TEXT,
-	uptime_days INTEGER,
-	patch_status TEXT,
-	backup_status TEXT,
-	monitoring TEXT,
-	last_checkin TEXT,
+        ip_address TEXT,
+        operating_system TEXT,
+        environment TEXT,
+        status TEXT,
+        cpu TEXT,
+        memory_gb INTEGER,
+        storage_tb TEXT,
+        uptime_days INTEGER,
+        patch_status TEXT,
+        backup_status TEXT,
+        monitoring TEXT,
+        last_checkin TEXT,
         description TEXT
     )
     """)
@@ -198,23 +198,23 @@ def create_database():
     Create TABLE IF NOT EXISTS switch_catalog (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         device_id TEXT,
-	device_type TEXT,
-	model TEXT,
-	vendor TEXT,
-	management_ip TEXT,
-	lan_ip TEXT,
-	wan_ip TEXT,
-	wan_gateway TEXT,
-	subnet_mask TEXT,
-	default_gateway TEXT,
-	dns_server TEXT,
-	mac_address TEXT,
-	firmware TEXT,
-	serial_number TEXT,
-	location TEXT,
-	rack TEXT,
-	status TEXT,
-	last_seen TEXT,
+        device_type TEXT,
+        model TEXT,
+        vendor TEXT,
+        management_ip TEXT,
+        lan_ip TEXT,
+        wan_ip TEXT,
+        wan_gateway TEXT,
+        subnet_mask TEXT,
+        default_gateway TEXT,
+        dns_server TEXT,
+        mac_address TEXT,
+        firmware TEXT,
+        serial_number TEXT,
+        location TEXT,
+        rack TEXT,
+        status TEXT,
+        last_seen TEXT
     )
     """)
 
@@ -222,24 +222,21 @@ def create_database():
     cursor.execute("DROP TABLE IF EXISTS network_topology")
     cursor.execute("""
     Create TABLE IF NOT EXISTS network_topology (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-	source_device TEXT,
-	source_interface TEXT,
-	destination_device TEXT,
-	destination_interface TEXT,
-	link_type TEXT,
-	status TEXT,
-	notes TEXT,
-	bandwidth TEXT,
-	latency_ms TEXT,
-	utilization_pct TEXT,
-	packet_loss_pct TEXT,
-	alarm TEXT,
-
+       id INTEGER PRIMARY KEY AUTOINCREMENT,
+　　　　source_device TEXT,
+　　　　source_interface TEXT,
+　　　　destination_device TEXT,
+　　　　destination_interface TEXT,
+　　　　link_type TEXT,
+　　　　status TEXT,
+　　　　notes TEXT,
+　　　　bandwidth TEXT,
+　　　　latency_ms TEXT,
+　　　　utilization_pct TEXT,
+　　　　packet_loss_pct TEXT,
+　　　　alarm TEXT
     )
     """)
-
-
 
 
     # for development purpose use drop for delete table: 
