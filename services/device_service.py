@@ -163,3 +163,28 @@ def get_network_drive_catalog(drive_name):
     conn.close()
 
     return network_drive_catalog
+    
+
+def get_switch_catalog(device_id):
+    conn = get_db_connection()
+
+    switch_catalog = conn.execute("""
+        SELECT * FROM switch_catalog
+        WHERE device_id = ?
+    """, (device_id,)).fetchall()
+
+    conn.close()
+
+    return switch_catalog
+    
+def get_network_topology(source_device):
+    conn = get_db_connection()
+
+    network_topology = conn.execute("""
+        SELECT * FROM network_topology
+        WHERE source_device = ?
+    """, (source_device,)).fetchall()
+
+    conn.close()
+
+    return network_topology

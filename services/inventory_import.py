@@ -498,3 +498,85 @@ def import_network_drive_catalog():
     conn.close()
 
     return len(rows)
+
+    
+def import_switch_catalog():
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    CSV_PATH = os.path.join(BASE_DIR, "..", "seed_data", "switch_catalog.csv")
+
+    rows = import_csv(CSV_PATH)
+
+    cursor.execute("DELETE FROM switch_catalog")
+
+    for row in rows:
+
+        cursor.execute("""
+        INSERT INTO switch_catalog
+        (device_id, device_type, model, vendor, management_ip, lan_ip, wan_ip, wan_gateway, subnet_mask, default_gateway, dns_server, mac_address, firmware, serial_number, location, rack, status, last_seen)
+        VALUES (?, ?, ?, ?, ?, ?, ? ,? ,? ,?, ?, ?, ?, ?, ?, ?, ? ,?)
+        """, (
+            row["device_id"],
+            row["device_type"],
+            row["model"],
+            row["vendor"],
+            row["management_ip"],
+            row["lan_ip"],
+            row["wan_ip"],
+            row["wan_gateway"],
+            row["subnet_mask"],
+            row["default_gateway"],
+            row["dns_server"],
+	    row["mac_address"],
+	    row["firmware"],
+	    row["serial_number"],
+	    row["location"],
+	    row["rack"],
+	    row["status"],
+	    row["last_seen"]
+        ))
+
+    conn.commit()
+    conn.close()
+
+    return len(rows)
+
+
+def import_network_topology():
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    CSV_PATH = os.path.join(BASE_DIR, "..", "seed_data", "network_topology.csv")
+
+    rows = import_csv(CSV_PATH)
+
+    cursor.execute("DELETE FROM network_topology")
+
+    for row in rows:
+
+        cursor.execute("""
+        INSERT INTO network_topology
+        (source_device, source_interface, destination_device, destination_interface, link_type, status, notes, bandwidth, latency_ms, utilization_pct, packet_loss_pct, alarm)
+        VALUES (?, ?, ?, ?, ?, ?, ? ,? ,? ,?, ?, ?)
+        """, (
+            row["source_device"],
+            row["source_interface"],
+            row["destination_device"],
+            row["destination_interface"],
+            row["link_type"],
+            row["status"],
+            row["notes"],
+            row["bandwidth"],
+            row["latency_ms"],
+            row["utilization_pct"],
+            row["packet_loss_pct"],
+	    row["alarm"],
+        ))
+
+    conn.commit()
+    conn.close()
+
+    return len(rows)

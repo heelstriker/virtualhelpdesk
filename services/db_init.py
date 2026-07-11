@@ -193,6 +193,53 @@ def create_database():
     )
     """)
 
+    cursor.execute("DROP TABLE IF EXISTS switch_catalog")
+    cursor.execute("""
+    Create TABLE IF NOT EXISTS switch_catalog (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        device_id TEXT,
+	device_type TEXT,
+	model TEXT,
+	vendor TEXT,
+	management_ip TEXT,
+	lan_ip TEXT,
+	wan_ip TEXT,
+	wan_gateway TEXT,
+	subnet_mask TEXT,
+	default_gateway TEXT,
+	dns_server TEXT,
+	mac_address TEXT,
+	firmware TEXT,
+	serial_number TEXT,
+	location TEXT,
+	rack TEXT,
+	status TEXT,
+	last_seen TEXT,
+    )
+    """)
+
+
+    cursor.execute("DROP TABLE IF EXISTS network_topology")
+    cursor.execute("""
+    Create TABLE IF NOT EXISTS network_topology (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+	source_device TEXT,
+	source_interface TEXT,
+	destination_device TEXT,
+	destination_interface TEXT,
+	link_type TEXT,
+	status TEXT,
+	notes TEXT,
+	bandwidth TEXT,
+	latency_ms TEXT,
+	utilization_pct TEXT,
+	packet_loss_pct TEXT,
+	alarm TEXT,
+
+    )
+    """)
+
+
 
 
     # for development purpose use drop for delete table: 

@@ -1,0 +1,13 @@
+id,switch_id,port,connected_type,connected_device,vlan,speed,duplex,status
+1,SW-CORE-01,GE0/1,Server,LAX-FS01,10,1Gbps,Full,Up
+2,SW-CORE-01,GE0/2,Switch,SW-HR-01,30,1Gbps,Full,Up
+3,SW-CORE-01,GE0/3,Switch,SW-IT-01,20,1Gbps,Full,Up
+4,SW-CORE-01,GE0/4,Router,LAX-RTR01,99,1Gbps,Full,Up
+5,SW-HR-01,GE0/1,PC,HR-PC001,30,1Gbps,Full,Up
+6,SW-HR-01,GE0/2,PC,HR-PC002,30,1Gbps,Full,Up
+7,SW-HR-01,GE0/3,Printer,HR-PRN01,30,1Gbps,Full,Up
+8,SW-HR-01,GE0/4,Switch,HR-UNMANAGED-01,30,1Gbps,Full,Up
+9,SW-IT-01,GE0/1,PC,IT-PC001,20,1Gbps,Full,Up
+10,SW-IT-01,GE0/2,Server,LAX-APP01,20,1Gbps,Full,Up
+11,SW-MKT-01,GE0/1,PC,MKT-PC001,40,1Gbps,Full,Up
+12,SW-NYC-CORE,GE0/1,Server,NYC-FS01,110,1Gbps,Full,Up
