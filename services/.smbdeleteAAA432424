@@ -459,10 +459,10 @@ def import_printer_catalog():
             row["manufacturer"],
             row["model"],
             row["printer_type"],
-	        row["ip_address"],
-	        row["status"],
-	        row["location"],
-	        row["cost_center"]
+	    row["ip_address"],
+	    row["status"],
+	    row["location"],
+	    row["cost_center"]
         ))
 
     conn.commit()
