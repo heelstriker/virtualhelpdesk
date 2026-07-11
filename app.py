@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template, redirect, jsonify, request
 from services.inventory_import import initialize_database
 from services.device_service import get_all_devices, get_device_by_hostname, get_device_software,get_device_hardware,get_device_printers, get_network_drives, get_patches, get_server_catalog, get_patch_catalog, get_software_catalog, get_printer_catalog,get_network_drive_catalog,get_switch_catalog,get_network_topology
 from services.db_init import create_database
@@ -8,6 +8,12 @@ from services.compliance_service import calculate_compliance_score, generate_ale
 from services.inventory_service import get_inventory
 from services.alertboard_service import generate_alertboard
 from services.patch_service import get_patch_progress,get_wave_progress, get_department_progress
+from services.network_topology_service import (
+    get_network_topology_graph,
+    set_device_override,
+    set_link_override,
+    reset_overrides,
+)
 
 
 
@@ -238,6 +244,31 @@ def api_printers():
     """).fetchall()
 
     return jsonify([dict(x) for x in printers])
+
+@app.route("/api/network/topology")
+def api_network_topology():
+    return jsonify(get_network_topology_graph())
+
+
+@app.route("/api/network/device/<device_id>/status", methods=["POST"])
+def api_network_device_status(device_id):
+    status = (request.get_json(silent=True) or {}).get("status", "Online")
+    set_device_override(device_id, status)
+    return jsonify({"ok": True, "device_id": device_id, "status": status})
+
+
+@app.route("/api/network/link/<path:link_id>/status", methods=["POST"])
+def api_network_link_status(link_id):
+    status = (request.get_json(silent=True) or {}).get("status", "up")
+    set_link_override(link_id, status)
+    return jsonify({"ok": True, "link_id": link_id, "status": status})
+
+
+@app.route("/api/network/reset", methods=["POST"])
+def api_network_reset():
+    reset_overrides()
+    return jsonify({"ok": True})
+
 
 @app.route("/cmd_reference")
 def cmd_reference():
