@@ -11,10 +11,11 @@
         ... rest of existing dashboard widgets ...
       {% endblock %}
 
-  Requires (added via app/app_py_additions.py):
-    - static/src/css/network-diagram.css        (matches this project's static/src/css convention)
-    - static/src/javascript/network-diagram.js   (matches this project's static/src/javascript convention)
-    - static/src/javascript/network-live-sync.js (refreshes Alerts/Device Status/Risk table without reload)
+  Requires:
+    - static/src/css/network-diagram.css          (matches this project's static/src/css convention)
+    - static/src/javascript/network-diagram.js      (rendering + interactions)
+    - static/src/javascript/network-live-sync.js    (refreshes Alerts/Device Status/Risk table without reload)
+    - static/src/javascript/network-diagram-init.js (boots the widget — kept external on purpose, see file header)
     - GET  /api/network/topology            -> {nodes, edges, drives}   (api_network_topology)
     - POST /api/network/device/<id>/status  -> persist online/offline   (api_network_device_status)
     - POST /api/network/link/<id>/status    -> persist severed/up       (api_network_link_status)
@@ -29,32 +30,4 @@
 
 <script src="{{ url_for('static', filename='src/javascript/network-diagram.js') }}"></script>
 <script src="{{ url_for('static', filename='src/javascript/network-live-sync.js') }}"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const diagram = NetworkDiagram.init(document.getElementById("nd-root"), {
-      // Persist simulated toggles back to the server. The server-side
-      // cascade (services/network_topology_service.py) then writes
-      // through to the real `devices` table, and refreshDashboardLive()
-      // pulls the updated Alerts / Device Status / Risk table in place —
-      // no page reload needed.
-      onNodeToggle: function (deviceId, newStatus) {
-        fetch(`/api/network/device/${deviceId}/status`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ status: newStatus }),
-        })
-          .then(() => window.refreshDashboardLive && window.refreshDashboardLive())
-          .catch(() => {});
-      },
-      onLinkToggle: function (linkId, newStatus) {
-        fetch(`/api/network/link/${linkId}/status`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ status: newStatus }),
-        })
-          .then(() => window.refreshDashboardLive && window.refreshDashboardLive())
-          .catch(() => {});
-      },
-    });
-  });
-</script>
+<script src="{{ url_for('static', filename='src/javascript/network-diagram-init.js') }}"></script>
