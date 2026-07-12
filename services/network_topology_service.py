@@ -2,22 +2,23 @@
 services/network_topology_service.py
 
 Builds the {nodes, edges, drives} graph payload for the Dashboard's
-Network Topology widget, reusing the existing catalog getters from
-services/device_service.py instead of touching the DB directly.
+Network Topology widget.
+
+NOTE: This queries the DB directly via get_db_connection() + raw SQL
+(SELECT * FROM <table>), the same pattern already used in app.py's
+/api/printers and /all_tables routes. We deliberately do NOT call
+services/device_service.py's get_switch_catalog() / get_all_devices()
+/ etc., since several of those turned out to be single-record lookups
+(e.g. get_switch_catalog(device_id)) rather than "get all rows"
+getters, and guessing signatures kept breaking. Raw SQL against the
+known table/column names (same ones used to build all_tables.html)
+is more robust.
 
 Also owns the tiny `network_override` table used to persist the
 widget's "simulate this device/link as down" toggles, kept separate
 from the real inventory tables so double-clicking around the diagram
 can never corrupt actual switch_catalog / network_topology rows.
 """
-from services.device_service import (
-    get_all_devices,
-    get_server_catalog,
-    get_printer_catalog,
-    get_network_drive_catalog,
-    get_switch_catalog,
-    get_network_topology,
-)
 from services.db import get_db_connection
 
 TYPE_MAP = {
@@ -58,6 +59,10 @@ def _norm(name):
     return n
 
 
+def _rows(conn, sql):
+    return [dict(r) for r in conn.execute(sql).fetchall()]
+
+
 def _ensure_override_table(conn):
     conn.execute("""
         CREATE TABLE IF NOT EXISTS network_override (
@@ -71,17 +76,14 @@ def _ensure_override_table(conn):
     conn.commit()
 
 
-def _get_overrides():
-    conn = get_db_connection()
+def _get_overrides(conn):
     _ensure_override_table(conn)
     node_overrides, edge_overrides = {}, {}
-    for r in conn.execute("SELECT entity_type, entity_id, status FROM network_override"):
-        r = dict(r)
+    for r in _rows(conn, "SELECT entity_type, entity_id, status FROM network_override"):
         if r["entity_type"] == "node":
             node_overrides[r["entity_id"]] = r["status"]
         else:
             edge_overrides[r["entity_id"]] = r["status"]
-    conn.close()
     return node_overrides, edge_overrides
 
 
@@ -125,17 +127,17 @@ def reset_overrides():
 
 
 def get_network_topology_graph():
-    node_overrides, edge_overrides = _get_overrides()
+    conn = get_db_connection()
+    node_overrides, edge_overrides = _get_overrides(conn)
     nodes = {}
     edges = []
 
     # --- infra devices (routers, core/access switches, MPLS cloud) ---
-    for row in get_switch_catalog():
-        r = dict(row)
-        nid = _norm(r["device_id"])
+    for r in _rows(conn, "SELECT * FROM switch_catalog"):
+        nid = _norm(r.get("device_id"))
         nodes[nid] = {
             "id": nid,
-            "type": TYPE_MAP.get(r["device_type"], "device"),
+            "type": TYPE_MAP.get(r.get("device_type"), "device"),
             "label": nid,
             "model": r.get("model"),
             "vendor": r.get("vendor"),
@@ -143,20 +145,19 @@ def get_network_topology_graph():
             "lan_ip": r.get("lan_ip"),
             "location": r.get("location"),
             "rack": r.get("rack"),
-            "status": node_overrides.get(nid, r.get("status", "Online")),
+            "status": node_overrides.get(nid, r.get("status") or "Online"),
             "firmware": r.get("firmware"),
             "serial": r.get("serial_number"),
         }
 
     # --- file servers (+ uplink edge into their switch) ---
-    for row in get_server_catalog():
-        r = dict(row)
-        nid = _norm(r["hostname"])
+    for r in _rows(conn, "SELECT * FROM server_catalog"):
+        nid = _norm(r.get("hostname"))
         site = "NYC" if r.get("site") == "New York" else "LAX"
         nodes[nid] = {
             "id": nid, "type": "file_server", "label": nid, "role": r.get("role"),
             "ip": r.get("ip_address"), "os": r.get("operating_system"),
-            "status": node_overrides.get(nid, r.get("status", "Online")), "site": site,
+            "status": node_overrides.get(nid, r.get("status") or "Online"), "site": site,
             "cpu": r.get("cpu"), "memory_gb": r.get("memory_gb"), "storage_tb": r.get("storage_tb"),
             "description": r.get("description"),
         }
@@ -171,16 +172,15 @@ def get_network_topology_graph():
 
     # --- PC groups, aggregated per (department, location) ---
     dept_switch, dept_site, dept_status_lists = {}, {}, {}
-    for row in get_all_devices():
-        r = dict(row)
-        key = (r["department"], r["location"])
+    for r in _rows(conn, "SELECT * FROM devices"):
+        key = (r.get("department"), r.get("location"))
         dept_switch[key] = _norm(r.get("switch_id"))
-        dept_site[r["department"]] = r["location"]
-        dept_status_lists.setdefault(key, []).append(r.get("status", "Online"))
+        dept_site[r.get("department")] = r.get("location")
+        dept_status_lists.setdefault(key, []).append(r.get("status") or "Online")
 
     for (dept, loc), statuses in dept_status_lists.items():
         site = "NYC" if loc == "New York" else "LAX"
-        gid = f"{site}-{dept.upper()}-PCS"
+        gid = f"{site}-{(dept or '').upper()}-PCS"
         online = sum(1 for s in statuses if s == "Online")
         default_status = "Online" if online == len(statuses) else ("Offline" if online == 0 else "Degraded")
         nodes[gid] = {
@@ -199,16 +199,15 @@ def get_network_topology_graph():
 
     # --- printer groups, aggregated per department ---
     pr_status_lists = {}
-    for row in get_printer_catalog():
-        r = dict(row)
-        pr_status_lists.setdefault(r["department"], []).append(r.get("status", "Online"))
+    for r in _rows(conn, "SELECT * FROM printer_catalog"):
+        pr_status_lists.setdefault(r.get("department"), []).append(r.get("status") or "Online")
 
     for dept, statuses in pr_status_lists.items():
         loc = dept_site.get(dept)
         if not loc:
             continue
         site = "NYC" if loc == "New York" else "LAX"
-        gid = f"{site}-{dept.upper()}-PRINTERS"
+        gid = f"{site}-{(dept or '').upper()}-PRINTERS"
         online = sum(1 for s in statuses if s == "Online")
         default_status = "Online" if online == len(statuses) else ("Offline" if online == 0 else "Degraded")
         nodes[gid] = {
@@ -226,22 +225,22 @@ def get_network_topology_graph():
             })
 
     # --- backbone / MPLS links straight from network_topology table ---
-    for row in get_network_topology():
-        r = dict(row)
-        src, dst = _norm(r["source_device"]), _norm(r["destination_device"])
+    for r in _rows(conn, "SELECT * FROM network_topology"):
+        src, dst = _norm(r.get("source_device")), _norm(r.get("destination_device"))
         eid = f"{src}__{dst}"
         edges.append({
             "id": eid, "source": src, "target": dst, "type": r.get("link_type"),
-            "status": edge_overrides.get(eid, r.get("status", "Up")),
+            "status": edge_overrides.get(eid, r.get("status") or "Up"),
             "bandwidth": r.get("bandwidth"), "latency_ms": r.get("latency_ms"),
             "utilization_pct": r.get("utilization_pct"), "packet_loss_pct": r.get("packet_loss_pct"),
             "alarm": r.get("alarm"), "label": r.get("notes"),
         })
 
+    drives = _rows(conn, "SELECT * FROM network_drive_catalog")
+    conn.close()
+
     for nid, n in nodes.items():
         x, y = POSITIONS.get(nid, (900, 700))
         n["x"], n["y"] = x, y
-
-    drives = [dict(r) for r in get_network_drive_catalog()]
 
     return {"nodes": list(nodes.values()), "edges": edges, "drives": drives}
