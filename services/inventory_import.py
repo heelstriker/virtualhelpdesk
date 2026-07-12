@@ -342,7 +342,7 @@ def import_server_catalog():
         cursor.execute("""
         INSERT INTO server_catalog
         (hostname, role, site, ip_address, operating_system, environment, status, cpu, memory_gb, storage_tb, uptime_days, patch_status, backup_status, monitoring, last_checkin, description, switch_id, switch_port)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """, (
         row["hostname"],
         row["role"],
@@ -359,6 +359,7 @@ def import_server_catalog():
         row["backup_status"],
         row["monitoring"],
         row["last_checkin"],
+        row["description"],
         row["switch_id"],
         row["switch_port"]
 
