@@ -111,9 +111,31 @@
     async build() {
       this.data = this.opts.data || await this.fetchData();
       this.index();
+      this.hydrateOverridesFromServer();
       this.render();
       this.wireInteractions();
       this.recompute();
+    }
+
+    // The GET /api/network/topology response already merges any saved
+    // network_override rows into each node's/edge's "status" field
+    // (see network_topology_service.py). On first load we need to copy
+    // that back into this.overrides so the client-side reachability
+    // engine (which drives node/edge CSS classes and the footer share
+    // panel) starts from the persisted DB state instead of assuming
+    // everything is healthy. Without this, a refresh looks like the
+    // toggle "reverted" even though it's still saved server-side.
+    hydrateOverridesFromServer() {
+      this.data.nodes.forEach((n) => {
+        if ((n.status || "").toLowerCase() === "offline") {
+          this.overrides.nodes[n.id] = "Offline";
+        }
+      });
+      this.data.edges.forEach((e) => {
+        if ((e.status || "").toLowerCase() === "severed") {
+          this.overrides.edges[e.id] = "severed";
+        }
+      });
     }
 
     async fetchData() {
