@@ -28,7 +28,7 @@
     <div class="alert-card">
         <h3>Active Alerts</h3>
 
-        <div class="value orange blink">
+        <div class="value orange blink" id="active-alerts-value">
             {{ summary.alert_count }}
         </div>
     </div>
@@ -36,11 +36,13 @@
 
     <div class="alertboard">
         <h2>Active Alert Breakdown</h2>
+        <div id="alertboard-notices">
         {% for msg in alertboard %}
         <div class="notice">
             ⚠ {{ msg }}
         </div>
         {% endfor %}
+        </div>
     </div>
 
 </div>
@@ -54,7 +56,7 @@
     <div class="managed-card">
         <h3>Managed Devices</h3>
 
-        <div class="value">
+        <div class="value" id="managed-devices-value">
             {{ summary.total_devices }}
         </div>
     </div>
@@ -114,6 +116,7 @@
             <th>Status</th>
         </tr>
 
+        <tbody id="risk-devices-body">
         {% for device in risks %}
         <tr>
             <td>
@@ -127,6 +130,7 @@
             </td>
         </tr>
         {% endfor %}
+        </tbody>
     </table>
 </div>
 

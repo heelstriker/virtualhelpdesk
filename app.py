@@ -270,6 +270,25 @@ def api_network_reset():
     return jsonify({"ok": True})
 
 
+@app.route("/api/dashboard/summary")
+def api_dashboard_summary():
+    """Same data the /dashboard route renders server-side on page load,
+    exposed as JSON so the Network Topology widget can trigger a live
+    refresh of Active Alerts / Risk Devices / Device Status right after
+    a toggle — no page reload needed."""
+    summary = get_dashboard_summary()
+    alertboard = generate_alertboard(summary)
+    risks = get_risk_devices()
+    device_status_rows = get_device_status_summary()
+    return jsonify({
+        "summary": summary,
+        "alertboard": alertboard,
+        "risks": [dict(r) for r in risks],
+        "device_status_labels": [row["status"] for row in device_status_rows],
+        "device_status_counts": [row["count"] for row in device_status_rows],
+    })
+
+
 @app.route("/cmd_reference")
 def cmd_reference():
     return render_template(
