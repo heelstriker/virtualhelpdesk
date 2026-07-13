@@ -188,12 +188,20 @@
           <div class="nd-tooltip"></div>
           <div class="nd-reset-toast">Simulation mode active — devices/links were toggled manually.<button data-act="sim-reset">Reset to live state</button></div>
         </div>
-        <div class="nd-footer"></div>
+        <div class="nd-footer-section">
+          <div class="nd-footer-title">Device Monitoring — Servers / Routers / Switches / Printers</div>
+          <div class="nd-footer nd-device-board"></div>
+        </div>
+        <div class="nd-footer-section">
+          <div class="nd-footer-title">Network Drive Access</div>
+          <div class="nd-footer nd-drive-board"></div>
+        </div>
       `;
 
       this.svg = this.root.querySelector("svg.nd-svg");
       this.tooltipEl = this.root.querySelector(".nd-tooltip");
-      this.footerEl = this.root.querySelector(".nd-footer");
+      this.footerEl = this.root.querySelector(".nd-drive-board");
+      this.deviceBoardEl = this.root.querySelector(".nd-device-board");
       this.canvasWrap = this.root.querySelector(".nd-canvas-wrap");
       this.toast = this.root.querySelector(".nd-reset-toast");
 
@@ -209,6 +217,7 @@
       this.data.nodes.forEach((n) => this.renderNode(n));
 
       this.renderFooter();
+      this.renderDeviceBoard();
     }
 
     edgePath(e) {
@@ -312,6 +321,61 @@
       this.footerEl.innerHTML = cards.join("");
     }
 
+    // Cards for every switch/router/server/printer(/PC) node — the
+    // "is this thing alive" board the Network Drive cards were modeled
+    // after, just covering all monitored equipment instead of only the
+    // file servers behind a share path.
+    deviceBoardLabel(n) {
+      const kind = {
+        cloud: "MPLS Backbone",
+        router: "Router",
+        core_switch: "Core L3 Switch",
+        access_switch: "Access Switch",
+        file_server: "File Server",
+        printer_group: "Printers",
+        pc_group: "Workstations",
+      }[n.type] || "Device";
+      return kind;
+    }
+
+    deviceBoardDetail(n) {
+      if (n.type === "file_server") return n.ip || n.role || "";
+      if (n.type === "router" || n.type === "core_switch" || n.type === "access_switch" || n.type === "cloud") {
+        return n.lan_ip && n.lan_ip !== "-" ? n.lan_ip : n.mgmt_ip || "";
+      }
+      if (n.type === "pc_group" || n.type === "printer_group") {
+        return `${n.online_count ?? "?"} / ${n.count} online`;
+      }
+      return "";
+    }
+
+    renderDeviceBoard() {
+      if (!this.deviceBoardEl) return;
+      const order = { cloud: 0, router: 1, core_switch: 2, access_switch: 3, file_server: 4, printer_group: 5, pc_group: 6 };
+      const sorted = [...this.data.nodes].sort((a, b) => {
+        const byType = (order[a.type] ?? 9) - (order[b.type] ?? 9);
+        if (byType !== 0) return byType;
+        return (a.site || "").localeCompare(b.site || "") || a.id.localeCompare(b.id);
+      });
+
+      const cards = sorted.map((n) => {
+        const st = this.isManuallyOffline(n.id) ? "offline" : !this.isReachable(n.id) ? "unreachable" : statusClass(n.status);
+        const statusText = { online: "ONLINE", degraded: "DEGRADED", offline: "OFFLINE", unreachable: "UNREACHABLE" }[st];
+        const dotClass = st === "online" ? "online" : st === "degraded" ? "warn" : "crit";
+        const detail = this.deviceBoardDetail(n);
+        return `
+          <div class="nd-share-card ${st === "online" ? "" : "down"}" data-device="${n.id}">
+            <div class="nd-share-name">${n.label || n.id}</div>
+            <div class="nd-share-path">${this.deviceBoardLabel(n)}${detail ? " · " + detail : ""}</div>
+            <div class="nd-share-status ${st === "online" ? "up" : "down"}">
+              <i class="nd-dot ${dotClass}"></i>
+              ${statusText}
+            </div>
+          </div>`;
+      });
+      this.deviceBoardEl.innerHTML = cards.join("");
+    }
+
     // ---------- reachability / cascading state ----------
     isManuallyOffline(id) {
       return this.overrides.nodes[id] === "Offline";
@@ -375,6 +439,7 @@
       });
 
       this.renderFooter();
+      this.renderDeviceBoard();
       this.updateToast();
     }
 
