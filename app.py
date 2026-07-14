@@ -230,6 +230,10 @@ def erd():
 def field_notes():
     return render_template("field_notes.html", active_page="field_notes")
 
+@app.route("/case_studies")
+def case_studies():
+    return render_template("case_studies.html", active_page="case_studies")
+
 @app.route("/api/printers")
 def api_printers():
 

@@ -1,0 +1,552 @@
+{% extends "base.html" %}
+
+{% block title %}Case Studies - VirtualHelpDesk{% endblock %}
+
+{% block extra_css %}
+<style>
+    /* Page-specific styles for Case Studies.
+       Reuses theme.css variables (--turquoise, --orange, --red, --text, --border, etc.)
+       so this page stays visually consistent if the theme palette changes. */
+
+    .cs-header{
+        margin-bottom:20px;
+    }
+
+    .cs-eyebrow{
+        font-size:11px;
+        text-transform:uppercase;
+        letter-spacing:0.6px;
+        color:var(--turquoise-dark);
+        font-weight:700;
+        margin-bottom:6px;
+    }
+
+    .cs-header h1{
+        font-size:24px;
+        margin:0 0 10px;
+        color:var(--text);
+    }
+
+    .cs-meta{
+        display:flex;
+        gap:18px;
+        flex-wrap:wrap;
+        font-size:13px;
+        color:var(--text-soft);
+    }
+
+    .cs-meta strong{
+        color:var(--text);
+    }
+
+    .cs-section-title{
+        font-size:14px;
+        text-transform:uppercase;
+        letter-spacing:0.5px;
+        color:var(--turquoise-dark);
+        margin:0 0 18px;
+        padding-bottom:10px;
+        border-bottom:2px solid var(--turquoise-light);
+    }
+
+    .cs-note p{
+        font-size:14.5px;
+        line-height:1.75;
+        color:var(--text);
+        margin:0 0 14px;
+    }
+
+    .cs-note h3{
+        font-size:15.5px;
+        color:var(--text);
+        margin:22px 0 8px;
+    }
+
+    .cs-note h3:first-of-type{ margin-top:4px; }
+
+    .cs-note ul{
+        margin:8px 0 14px;
+        padding-left:22px;
+    }
+
+    .cs-note li{
+        font-size:14px;
+        line-height:1.65;
+        color:var(--text);
+        margin-bottom:4px;
+    }
+
+    .cs-pullquote{
+        border-left:4px solid var(--orange);
+        background:var(--panel-alt);
+        padding:14px 18px;
+        font-size:14.5px;
+        font-style:italic;
+        color:var(--text);
+        margin:20px 0;
+        border-radius:4px;
+    }
+
+    /* Milestone tracks */
+    .cs-track{ margin-bottom:22px; }
+    .cs-track:last-child{ margin-bottom:0; }
+
+    .cs-track-title{
+        display:inline-block;
+        font-size:12.5px;
+        font-weight:700;
+        color:#ffffff;
+        background:var(--turquoise-dark);
+        padding:5px 12px;
+        border-radius:20px;
+        margin-bottom:10px;
+    }
+
+    .cs-track.billing .cs-track-title{ background:var(--orange); }
+    .cs-track.engineering .cs-track-title{ background:var(--turquoise); }
+
+    .cs-milestone-list{
+        list-style:none;
+        margin:0;
+        padding:0;
+    }
+
+    .cs-milestone-list li{
+        display:flex;
+        gap:10px;
+        align-items:flex-start;
+        font-size:13.5px;
+        line-height:1.55;
+        color:var(--text);
+        padding:6px 0;
+        border-bottom:1px dashed var(--border);
+    }
+
+    .cs-milestone-list li:last-child{ border-bottom:none; }
+
+    .cs-milestone-list .cs-check{
+        flex-shrink:0;
+        width:16px;
+        height:16px;
+        border-radius:4px;
+        border:1.5px solid var(--turquoise);
+        margin-top:2px;
+    }
+
+    /* Gantt chart */
+    .cs-gantt-note{
+        font-size:13px;
+        color:var(--text-soft);
+        margin:-6px 0 16px;
+    }
+
+    .cs-gantt-wrap{
+        overflow-x:auto;
+        border:1px solid var(--border);
+        border-radius:10px;
+    }
+
+    .cs-gantt-wrap svg{
+        display:block;
+        min-width:1100px;
+    }
+
+    /* Card grid for future case studies */
+    .cs-card-grid{
+        display:grid;
+        grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));
+        gap:16px;
+        margin-bottom:25px;
+    }
+
+    .cs-card{
+        background:var(--panel);
+        border:1px solid var(--border);
+        border-radius:16px;
+        padding:20px;
+        box-shadow:0 5px 20px rgba(15,185,177,.08);
+        text-decoration:none;
+        display:block;
+    }
+
+    .cs-card h4{
+        margin:0 0 6px;
+        color:var(--text);
+        font-size:15px;
+    }
+
+    .cs-card p{
+        margin:0;
+        font-size:13px;
+        color:var(--text-soft);
+        line-height:1.5;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <div class="panel cs-header">
+        <div class="cs-eyebrow">VirtualHelpDesk Field Notes &middot; Case Study</div>
+        <h1>Coordinating a Three-Way PC Replacement Without Disrupting Business</h1>
+        <div class="cs-meta">
+            <span>SR Ticket: <strong>INC0031234</strong></span>
+            <span>Client: <strong>Banana Company, Inc.</strong></span>
+            <span>Project Owner: <strong>George Smith</strong></span>
+            <span>Timeline: <strong>Jul 20 &ndash; Aug 11, 2026</strong></span>
+        </div>
+    </div>
+
+    <div class="panel cs-note">
+        <div class="cs-section-title">The Note</div>
+
+        <p>Replacing a single computer is usually straightforward. Coordinating three different computers, multiple users, leasing deadlines, data migration, procurement, and business operations &mdash; all at the same time &mdash; is an entirely different challenge.</p>
+        <p>One project I frequently managed involved what I called a Three-Way PC Replacement. Unlike a standard PC refresh, every device depended on another device being available at exactly the right time.</p>
+
+        <h3>The Scenario</h3>
+        <p><strong>User A (New Employee)</strong><br>
+        A new employee was scheduled to start at the beginning of the month. A brand-new leased laptop (PC1) had already arrived at the office. However, rather than assigning the new device directly to the new hire, management decided to reallocate assets more efficiently.</p>
+        <p>The new employee would instead receive PC3, a shared office computer that had been repurposed and reimaged specifically for them. Because the shared PC was still used daily by office staff, it could not be removed until the morning of the employee's first day. That left only a few hours to:</p>
+        <ul>
+            <li>Back up all remaining shared data</li>
+            <li>Reimage the computer</li>
+            <li>Configure corporate applications</li>
+            <li>Restore required data</li>
+            <li>Deliver the computer before the afternoon</li>
+        </ul>
+
+        <p><strong>User B (Department Manager)</strong><br>
+        The department manager wanted to replace their existing computer (PC2) with the brand-new leased PC (PC1). Although the new computer had already been delivered, the migration had to wait until the manager had enough availability for data transfer and application testing.</p>
+        <p>Timing was important. The old leased PC needed to be retired before the lease billing period ended to avoid unnecessary monthly charges.</p>
+
+        <p><strong>Shared Department PC</strong><br>
+        The department also maintained a common-use computer for employees who needed access to a specialized application. Recently, that application had migrated to a web-based SaaS platform. Since employees could now access the application from their own computers, the department decided to eliminate the shared PC to reduce monthly leasing costs and improve security.</p>
+        <p>Before retiring the machine:</p>
+        <ul>
+            <li>Department data had to be backed up to the shared file server</li>
+            <li>Required files needed to be preserved</li>
+            <li>The computer had to remain available until the morning of the new employee's first day</li>
+        </ul>
+
+        <h3>The Challenge</h3>
+        <p>Although only three computers were involved, the project required careful scheduling. Each task depended on another task finishing first:</p>
+        <ul>
+            <li>Shared PC data had to be backed up before reimaging</li>
+            <li>The new employee's computer had to be ready before the afternoon of Day 1</li>
+            <li>The manager's migration had to occur before lease expiration</li>
+            <li>The retired computer had to complete the organization's decommissioning process</li>
+            <li>Procurement needed confirmation that lease assets had been returned on time</li>
+            <li>Management required progress updates throughout the project</li>
+        </ul>
+        <div class="cs-pullquote">A delay at any step could affect multiple users, create additional leasing costs, or postpone a new employee's onboarding.</div>
+
+        <h3>What I Learned</h3>
+        <p>Many people think desktop support is simply replacing computers. In reality, enterprise PC refresh projects involve coordinating multiple teams, including:</p>
+        <ul>
+            <li>Office Administration</li>
+            <li>Procurement</li>
+            <li>IT Support</li>
+            <li>Department Managers</li>
+            <li>End Users</li>
+            <li>Asset Management</li>
+        </ul>
+        <p>Success depends not only on technical skills but also on planning, communication, scheduling, and understanding the entire asset lifecycle. One missed deadline can lead to unnecessary leasing charges, delayed onboarding, or business disruption.</p>
+        <div class="cs-pullquote">Good IT support is not just fixing computers &mdash; it is making sure the right computer reaches the right person at exactly the right time.</div>
+    </div>
+
+    <div class="panel">
+        <div class="cs-section-title">Milestones &amp; Task Breakdown</div>
+
+        <div class="cs-track">
+            <div class="cs-track-title">Service Desk / Service Request Management</div>
+            <ul class="cs-milestone-list">
+                <li><span class="cs-check"></span>Receive the customer's PC replacement request. Create a Service Request (SR) ticket.</li>
+                <li><span class="cs-check"></span>Coordinate the replacement schedule with the customer, procurement team, and engineering team.</li>
+                <li><span class="cs-check"></span>Assign the SR ticket to the Engineering team.</li>
+                <li><span class="cs-check"></span>Monitor task progress and communicate updates to stakeholders.</li>
+                <li><span class="cs-check"></span>Confirm completion of engineering tasks.</li>
+                <li><span class="cs-check"></span>Coordinate with Procurement regarding billing and asset status.</li>
+                <li><span class="cs-check"></span>Arrange e-waste pickup for the retired PC.</li>
+                <li><span class="cs-check"></span>Obtain customer confirmation.</li>
+                <li><span class="cs-check"></span>Close the SR ticket.</li>
+            </ul>
+        </div>
+
+        <div class="cs-track billing">
+            <div class="cs-track-title">Billing &amp; Procurement</div>
+            <ul class="cs-milestone-list">
+                <li><span class="cs-check"></span>Review and acknowledge the customer's replacement request in the SR ticket.</li>
+                <li><span class="cs-check"></span>Schedule the PC replacement with the customer and IT team.</li>
+                <li><span class="cs-check"></span>Stop lease billing for PC2 upon retirement.</li>
+                <li><span class="cs-check"></span>Start lease billing for PC1 upon deployment.</li>
+                <li><span class="cs-check"></span>Update asset records to reflect the new ownership of PC1 and PC3.</li>
+                <li><span class="cs-check"></span>Process all procurement-related tasks as Business-as-Usual (BAU) activities.</li>
+                <li><span class="cs-check"></span>Perform a final billing verification.</li>
+                <li><span class="cs-check"></span>Notify the customer that all asset and billing activities have been completed.</li>
+            </ul>
+        </div>
+
+        <div class="cs-track engineering">
+            <div class="cs-track-title">Engineering Tasks</div>
+            <ul class="cs-milestone-list">
+                <li><span class="cs-check"></span>Accept the assigned Service Request.</li>
+                <li><span class="cs-check"></span>Prepare and image PC1.</li>
+                <li><span class="cs-check"></span>Perform the initial configuration and corporate software installation.</li>
+                <li><span class="cs-check"></span>Record all work performed in the SR ticket.</li>
+                <li><span class="cs-check"></span>Back up data from PC2 with User B.</li>
+                <li><span class="cs-check"></span>Restore User B's data onto PC1.</li>
+                <li><span class="cs-check"></span>Configure User B's user profile and deploy PC1.</li>
+                <li><span class="cs-check"></span>Back up department data from PC3.</li>
+                <li><span class="cs-check"></span>Reimage PC3.</li>
+                <li><span class="cs-check"></span>Configure User A's account and required applications.</li>
+                <li><span class="cs-check"></span>Restore necessary data.</li>
+                <li><span class="cs-check"></span>Deploy PC3 to User A on the start date.</li>
+                <li><span class="cs-check"></span>Securely wipe PC2.</li>
+                <li><span class="cs-check"></span>Remove the storage device if required by company policy.</li>
+                <li><span class="cs-check"></span>Process PC2 through the decommissioning and e-waste procedure.</li>
+                <li><span class="cs-check"></span>Update the SR ticket with all completed work.</li>
+                <li><span class="cs-check"></span>Return the completed ticket to the Service Desk for final closure.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="panel">
+        <div class="cs-section-title">Project Timeline</div>
+        <p class="cs-gantt-note">Generated from the working Gantt chart used to track this SR. Bar shade shows progress at time of tracking; diamonds mark milestones.</p>
+        <div class="cs-gantt-wrap">
+<svg viewBox="0 0 1275 877" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, Segoe UI, sans-serif">
+<rect x="0" y="0" width="1275" height="877" fill="#ffffff"/>
+<rect x="503" y="0" width="27" height="837" fill="#f5f7f8"/>
+<rect x="530" y="0" width="27" height="837" fill="#f5f7f8"/>
+<rect x="692" y="0" width="27" height="837" fill="#f5f7f8"/>
+<rect x="719" y="0" width="27" height="837" fill="#f5f7f8"/>
+<rect x="881" y="0" width="27" height="837" fill="#f5f7f8"/>
+<rect x="908" y="0" width="27" height="837" fill="#f5f7f8"/>
+<rect x="1070" y="0" width="27" height="837" fill="#f5f7f8"/>
+<rect x="1097" y="0" width="27" height="837" fill="#f5f7f8"/>
+<rect x="476" y="0" width="405" height="20" fill="#cdf3f0"/>
+<text x="678.5" y="14" font-size="11" font-weight="700" fill="#0a8f89" text-anchor="middle">July 2026</text>
+<rect x="881" y="0" width="378" height="20" fill="#cdf3f0"/>
+<text x="1070.0" y="14" font-size="11" font-weight="700" fill="#0a8f89" text-anchor="middle">August 2026</text>
+<text x="489.5" y="32" font-size="9" fill="#6b7280" text-anchor="middle">F</text>
+<text x="489.5" y="43" font-size="10" fill="#1f2933" text-anchor="middle">17</text>
+<text x="516.5" y="32" font-size="9" fill="#6b7280" text-anchor="middle">S</text>
+<text x="516.5" y="43" font-size="10" fill="#1f2933" text-anchor="middle">18</text>
+<text x="543.5" y="32" font-size="9" fill="#6b7280" text-anchor="middle">S</text>
+<text x="543.5" y="43" font-size="10" fill="#1f2933" text-anchor="middle">19</text>
+<text x="570.5" y="32" font-size="9" fill="#6b7280" text-anchor="middle">M</text>
+<text x="570.5" y="43" font-size="10" fill="#1f2933" text-anchor="middle">20</text>
+<text x="597.5" y="32" font-size="9" fill="#6b7280" text-anchor="middle">T</text>
+<text x="597.5" y="43" font-size="10" fill="#1f2933" text-anchor="middle">21</text>
+<text x="624.5" y="32" font-size="9" fill="#6b7280" text-anchor="middle">W</text>
+<text x="624.5" y="43" font-size="10" fill="#1f2933" text-anchor="middle">22</text>
+<text x="651.5" y="32" font-size="9" fill="#6b7280" text-anchor="middle">T</text>
+<text x="651.5" y="43" font-size="10" fill="#1f2933" text-anchor="middle">23</text>
+<text x="678.5" y="32" font-size="9" fill="#6b7280" text-anchor="middle">F</text>
+<text x="678.5" y="43" font-size="10" fill="#1f2933" text-anchor="middle">24</text>
+<text x="705.5" y="32" font-size="9" fill="#6b7280" text-anchor="middle">S</text>
+<text x="705.5" y="43" font-size="10" fill="#1f2933" text-anchor="middle">25</text>
+<text x="732.5" y="32" font-size="9" fill="#6b7280" text-anchor="middle">S</text>
+<text x="732.5" y="43" font-size="10" fill="#1f2933" text-anchor="middle">26</text>
+<text x="759.5" y="32" font-size="9" fill="#6b7280" text-anchor="middle">M</text>
+<text x="759.5" y="43" font-size="10" fill="#1f2933" text-anchor="middle">27</text>
+<text x="786.5" y="32" font-size="9" fill="#6b7280" text-anchor="middle">T</text>
+<text x="786.5" y="43" font-size="10" fill="#1f2933" text-anchor="middle">28</text>
+<text x="813.5" y="32" font-size="9" fill="#6b7280" text-anchor="middle">W</text>
+<text x="813.5" y="43" font-size="10" fill="#1f2933" text-anchor="middle">29</text>
+<text x="840.5" y="32" font-size="9" fill="#6b7280" text-anchor="middle">T</text>
+<text x="840.5" y="43" font-size="10" fill="#1f2933" text-anchor="middle">30</text>
+<text x="867.5" y="32" font-size="9" fill="#6b7280" text-anchor="middle">F</text>
+<text x="867.5" y="43" font-size="10" fill="#1f2933" text-anchor="middle">31</text>
+<text x="894.5" y="32" font-size="9" fill="#6b7280" text-anchor="middle">S</text>
+<text x="894.5" y="43" font-size="10" fill="#1f2933" text-anchor="middle">1</text>
+<text x="921.5" y="32" font-size="9" fill="#6b7280" text-anchor="middle">S</text>
+<text x="921.5" y="43" font-size="10" fill="#1f2933" text-anchor="middle">2</text>
+<text x="948.5" y="32" font-size="9" fill="#6b7280" text-anchor="middle">M</text>
+<text x="948.5" y="43" font-size="10" fill="#1f2933" text-anchor="middle">3</text>
+<text x="975.5" y="32" font-size="9" fill="#6b7280" text-anchor="middle">T</text>
+<text x="975.5" y="43" font-size="10" fill="#1f2933" text-anchor="middle">4</text>
+<text x="1002.5" y="32" font-size="9" fill="#6b7280" text-anchor="middle">W</text>
+<text x="1002.5" y="43" font-size="10" fill="#1f2933" text-anchor="middle">5</text>
+<text x="1029.5" y="32" font-size="9" fill="#6b7280" text-anchor="middle">T</text>
+<text x="1029.5" y="43" font-size="10" fill="#1f2933" text-anchor="middle">6</text>
+<text x="1056.5" y="32" font-size="9" fill="#6b7280" text-anchor="middle">F</text>
+<text x="1056.5" y="43" font-size="10" fill="#1f2933" text-anchor="middle">7</text>
+<text x="1083.5" y="32" font-size="9" fill="#6b7280" text-anchor="middle">S</text>
+<text x="1083.5" y="43" font-size="10" fill="#1f2933" text-anchor="middle">8</text>
+<text x="1110.5" y="32" font-size="9" fill="#6b7280" text-anchor="middle">S</text>
+<text x="1110.5" y="43" font-size="10" fill="#1f2933" text-anchor="middle">9</text>
+<text x="1137.5" y="32" font-size="9" fill="#6b7280" text-anchor="middle">M</text>
+<text x="1137.5" y="43" font-size="10" fill="#1f2933" text-anchor="middle">10</text>
+<text x="1164.5" y="32" font-size="9" fill="#6b7280" text-anchor="middle">T</text>
+<text x="1164.5" y="43" font-size="10" fill="#1f2933" text-anchor="middle">11</text>
+<text x="1191.5" y="32" font-size="9" fill="#6b7280" text-anchor="middle">W</text>
+<text x="1191.5" y="43" font-size="10" fill="#1f2933" text-anchor="middle">12</text>
+<text x="1218.5" y="32" font-size="9" fill="#6b7280" text-anchor="middle">T</text>
+<text x="1218.5" y="43" font-size="10" fill="#1f2933" text-anchor="middle">13</text>
+<text x="1245.5" y="32" font-size="9" fill="#6b7280" text-anchor="middle">F</text>
+<text x="1245.5" y="43" font-size="10" fill="#1f2933" text-anchor="middle">14</text>
+<line x1="0" y1="46" x2="1275" y2="46" stroke="#e2e8ea" stroke-width="1"/>
+<line x1="476" y1="46" x2="476" y2="837" stroke="#edf1f2" stroke-width="1"/>
+<line x1="503" y1="46" x2="503" y2="837" stroke="#edf1f2" stroke-width="1"/>
+<line x1="530" y1="46" x2="530" y2="837" stroke="#edf1f2" stroke-width="1"/>
+<line x1="557" y1="46" x2="557" y2="837" stroke="#edf1f2" stroke-width="1"/>
+<line x1="584" y1="46" x2="584" y2="837" stroke="#edf1f2" stroke-width="1"/>
+<line x1="611" y1="46" x2="611" y2="837" stroke="#edf1f2" stroke-width="1"/>
+<line x1="638" y1="46" x2="638" y2="837" stroke="#edf1f2" stroke-width="1"/>
+<line x1="665" y1="46" x2="665" y2="837" stroke="#edf1f2" stroke-width="1"/>
+<line x1="692" y1="46" x2="692" y2="837" stroke="#edf1f2" stroke-width="1"/>
+<line x1="719" y1="46" x2="719" y2="837" stroke="#edf1f2" stroke-width="1"/>
+<line x1="746" y1="46" x2="746" y2="837" stroke="#edf1f2" stroke-width="1"/>
+<line x1="773" y1="46" x2="773" y2="837" stroke="#edf1f2" stroke-width="1"/>
+<line x1="800" y1="46" x2="800" y2="837" stroke="#edf1f2" stroke-width="1"/>
+<line x1="827" y1="46" x2="827" y2="837" stroke="#edf1f2" stroke-width="1"/>
+<line x1="854" y1="46" x2="854" y2="837" stroke="#edf1f2" stroke-width="1"/>
+<line x1="881" y1="46" x2="881" y2="837" stroke="#edf1f2" stroke-width="1"/>
+<line x1="908" y1="46" x2="908" y2="837" stroke="#edf1f2" stroke-width="1"/>
+<line x1="935" y1="46" x2="935" y2="837" stroke="#edf1f2" stroke-width="1"/>
+<line x1="962" y1="46" x2="962" y2="837" stroke="#edf1f2" stroke-width="1"/>
+<line x1="989" y1="46" x2="989" y2="837" stroke="#edf1f2" stroke-width="1"/>
+<line x1="1016" y1="46" x2="1016" y2="837" stroke="#edf1f2" stroke-width="1"/>
+<line x1="1043" y1="46" x2="1043" y2="837" stroke="#edf1f2" stroke-width="1"/>
+<line x1="1070" y1="46" x2="1070" y2="837" stroke="#edf1f2" stroke-width="1"/>
+<line x1="1097" y1="46" x2="1097" y2="837" stroke="#edf1f2" stroke-width="1"/>
+<line x1="1124" y1="46" x2="1124" y2="837" stroke="#edf1f2" stroke-width="1"/>
+<line x1="1151" y1="46" x2="1151" y2="837" stroke="#edf1f2" stroke-width="1"/>
+<line x1="1178" y1="46" x2="1178" y2="837" stroke="#edf1f2" stroke-width="1"/>
+<line x1="1205" y1="46" x2="1205" y2="837" stroke="#edf1f2" stroke-width="1"/>
+<line x1="1232" y1="46" x2="1232" y2="837" stroke="#edf1f2" stroke-width="1"/>
+<line x1="1259" y1="46" x2="1259" y2="837" stroke="#edf1f2" stroke-width="1"/>
+<rect x="0" y="46" width="1275" height="26" fill="#0a8f89"/>
+<text x="16" y="63.0" font-size="11.5" font-weight="700" fill="#ffffff">Service Desk / Service Request Management</text>
+<rect x="0" y="72" width="1275" height="25" fill="#ffffff"/>
+<text x="16" y="88.5" font-size="10" fill="#1f2933">Receive the customer's PC replacement request. Create a Service Request (SR...</text>
+<polygon points="570.5,77.5 577.5,84.5 570.5,91.5 563.5,84.5" fill="#ff9f1c" stroke="#ffffff" stroke-width="1"/>
+<rect x="0" y="97" width="1275" height="25" fill="#ffffff"/>
+<text x="16" y="113.5" font-size="10" fill="#1f2933">Coordinate the replacement schedule with the customer, procurement team, an...</text>
+<rect x="557" y="102" width="81" height="15" rx="4" fill="#cdf3f0"/>
+<rect x="557" y="102" width="81" height="15" rx="4" fill="#0a8f89" opacity="0.55"/>
+<rect x="0" y="122" width="1275" height="25" fill="#ffffff"/>
+<text x="16" y="138.5" font-size="10" fill="#1f2933">Assign the SR ticket to the Engineering team.</text>
+<rect x="557" y="127" width="405" height="15" rx="4" fill="#cdf3f0"/>
+<rect x="557" y="127" width="202.5" height="15" rx="4" fill="#0fb9b1"/>
+<rect x="0" y="147" width="1275" height="25" fill="#ffffff"/>
+<text x="16" y="163.5" font-size="10" fill="#1f2933">Monitor task progress and communicate updates to stakeholders.</text>
+<rect x="557" y="152" width="486" height="15" rx="4" fill="#cdf3f0"/>
+<rect x="557" y="152" width="486" height="15" rx="4" fill="#0a8f89" opacity="0.55"/>
+<rect x="0" y="172" width="1275" height="25" fill="#ffffff"/>
+<text x="16" y="188.5" font-size="10" fill="#1f2933">Confirm completion of engineering tasks.</text>
+<rect x="935" y="177" width="54" height="15" rx="4" fill="#ffe7c2"/>
+<rect x="935" y="177" width="5.4" height="15" rx="4" fill="#ff9f1c"/>
+<rect x="0" y="197" width="1275" height="25" fill="#ffffff"/>
+<text x="16" y="213.5" font-size="10" fill="#1f2933">Coordinate with Procurement regarding billing and asset status.</text>
+<rect x="557" y="202" width="486" height="15" rx="4" fill="#ffe7c2"/>
+<rect x="557" y="202" width="486" height="15" rx="4" fill="#ff9f1c" opacity="0.55"/>
+<rect x="0" y="222" width="1275" height="25" fill="#ffffff"/>
+<text x="16" y="238.5" font-size="10" fill="#1f2933">Arrange e-waste pickup for the retired PC2.</text>
+<rect x="935" y="227" width="189" height="15" rx="4" fill="#cdf3f0"/>
+<rect x="935" y="227" width="189" height="15" rx="4" fill="#0fb9b1" opacity="0.55"/>
+<rect x="0" y="247" width="1275" height="25" fill="#ffffff"/>
+<text x="16" y="263.5" font-size="10" fill="#1f2933">Obtain customer confirmation.</text>
+<rect x="962" y="252" width="108" height="15" rx="4" fill="#cdf3f0"/>
+<rect x="962" y="252" width="108" height="15" rx="4" fill="#0fb9b1" opacity="0.55"/>
+<rect x="0" y="272" width="1275" height="25" fill="#ffffff"/>
+<text x="16" y="288.5" font-size="10" fill="#1f2933">Close the SR ticket with customer agreement and no further inquiry.</text>
+<polygon points="1164.5,277.5 1171.5,284.5 1164.5,291.5 1157.5,284.5" fill="#ff9f1c" stroke="#ffffff" stroke-width="1"/>
+<rect x="0" y="297" width="1275" height="26" fill="#0a8f89"/>
+<text x="16" y="314.0" font-size="11.5" font-weight="700" fill="#ffffff">Billing &amp; Procurement</text>
+<rect x="0" y="323" width="1275" height="25" fill="#ffffff"/>
+<text x="16" y="339.5" font-size="10" fill="#1f2933">Review and acknowledge the customer's replacement request in the SR ticket.</text>
+<rect x="557" y="328" width="27" height="15" rx="4" fill="#fbd6da"/>
+<rect x="557" y="328" width="16.2" height="15" rx="4" fill="#e63946"/>
+<rect x="0" y="348" width="1275" height="25" fill="#ffffff"/>
+<text x="16" y="364.5" font-size="10" fill="#1f2933">Schedule the PC replacement with the customer and IT team.</text>
+<rect x="584" y="353" width="486" height="15" rx="4" fill="#cdf3f0"/>
+<rect x="584" y="353" width="243.0" height="15" rx="4" fill="#0a8f89"/>
+<rect x="0" y="373" width="1275" height="25" fill="#ffffff"/>
+<text x="16" y="389.5" font-size="10" fill="#1f2933">Stop lease billing for PC2 upon retirement. Target date: 7/31/2026.</text>
+<polygon points="867.5,378.5 874.5,385.5 867.5,392.5 860.5,385.5" fill="#ff9f1c" stroke="#ffffff" stroke-width="1"/>
+<rect x="0" y="398" width="1275" height="25" fill="#ffffff"/>
+<text x="16" y="414.5" font-size="10" fill="#1f2933">Start lease billing for PC1 upon deployment. Target date: 8/1/2026.</text>
+<polygon points="948.5,403.5 955.5,410.5 948.5,417.5 941.5,410.5" fill="#ff9f1c" stroke="#ffffff" stroke-width="1"/>
+<rect x="0" y="423" width="1275" height="25" fill="#ffffff"/>
+<text x="16" y="439.5" font-size="10" fill="#1f2933">Update asset records to reflect the new ownership of PC1 and PC3.</text>
+<rect x="962" y="428" width="27" height="15" rx="4" fill="#fbd6da"/>
+<rect x="962" y="428" width="27" height="15" rx="4" fill="#e63946" opacity="0.55"/>
+<rect x="0" y="448" width="1275" height="25" fill="#ffffff"/>
+<text x="16" y="464.5" font-size="10" fill="#1f2933">Process all procurement-related tasks as Business-as-Usual (BAU) activities.</text>
+<rect x="935" y="453" width="54" height="15" rx="4" fill="#cdf3f0"/>
+<rect x="935" y="453" width="17.82" height="15" rx="4" fill="#0fb9b1"/>
+<rect x="0" y="473" width="1275" height="25" fill="#ffffff"/>
+<text x="16" y="489.5" font-size="10" fill="#1f2933">Perform a final billing verification.</text>
+<rect x="962" y="478" width="54" height="15" rx="4" fill="#fbd6da"/>
+<rect x="962" y="478" width="17.82" height="15" rx="4" fill="#e63946"/>
+<rect x="0" y="498" width="1275" height="25" fill="#ffffff"/>
+<text x="16" y="514.5" font-size="10" fill="#1f2933">Notify the customer that all asset and billing activities have been completed.</text>
+<rect x="962" y="503" width="54" height="15" rx="4" fill="#fbd6da"/>
+<rect x="962" y="503" width="17.82" height="15" rx="4" fill="#e63946"/>
+<rect x="0" y="523" width="1275" height="26" fill="#0a8f89"/>
+<text x="16" y="540.0" font-size="11.5" font-weight="700" fill="#ffffff">Engineering Tasks</text>
+<rect x="0" y="549" width="1275" height="25" fill="#ffffff"/>
+<text x="16" y="565.5" font-size="10" fill="#1f2933">Accept the assigned Service Request.</text>
+<rect x="584" y="554" width="486" height="15" rx="4" fill="#cdf3f0"/>
+<rect x="584" y="554" width="486" height="15" rx="4" fill="#0a8f89" opacity="0.55"/>
+<rect x="0" y="574" width="1275" height="25" fill="#ffffff"/>
+<text x="16" y="590.5" font-size="10" fill="#1f2933">PC1: Prepare and image. Record all work performed in the SR ticket.</text>
+<rect x="638" y="579" width="54" height="15" rx="4" fill="#ffe7c2"/>
+<rect x="638" y="579" width="54" height="15" rx="4" fill="#ff9f1c" opacity="0.55"/>
+<rect x="0" y="599" width="1275" height="25" fill="#ffffff"/>
+<text x="16" y="615.5" font-size="10" fill="#1f2933">PC1: Perform initial configuration and corporate software installation. Rec...</text>
+<rect x="638" y="604" width="54" height="15" rx="4" fill="#cdf3f0"/>
+<rect x="638" y="604" width="54" height="15" rx="4" fill="#0a8f89" opacity="0.55"/>
+<rect x="0" y="624" width="1275" height="25" fill="#ffffff"/>
+<text x="16" y="640.5" font-size="10" fill="#1f2933">PC2: Back up data from PC2 with User B to the file server on the scheduled ...</text>
+<rect x="692" y="629" width="81" height="15" rx="4" fill="#fbd6da"/>
+<rect x="692" y="629" width="81" height="15" rx="4" fill="#e63946" opacity="0.55"/>
+<rect x="0" y="649" width="1275" height="25" fill="#ffffff"/>
+<text x="16" y="665.5" font-size="10" fill="#1f2933">PC1: Restore User B's data onto PC1 from the file server. Configure User B'...</text>
+<rect x="692" y="654" width="135" height="15" rx="4" fill="#ffe7c2"/>
+<rect x="692" y="654" width="135" height="15" rx="4" fill="#ff9f1c" opacity="0.55"/>
+<rect x="0" y="674" width="1275" height="25" fill="#ffffff"/>
+<text x="16" y="690.5" font-size="10" fill="#1f2933">PC3: Back up department data from PC3 to the file server. Record all work p...</text>
+<rect x="827" y="679" width="54" height="15" rx="4" fill="#cdf3f0"/>
+<rect x="827" y="679" width="54" height="15" rx="4" fill="#0fb9b1" opacity="0.55"/>
+<rect x="0" y="699" width="1275" height="25" fill="#ffffff"/>
+<text x="16" y="715.5" font-size="10" fill="#1f2933">PC3: Reimage PC3 and configure User A's account and required applications.</text>
+<rect x="854" y="704" width="27" height="15" rx="4" fill="#ffe7c2"/>
+<rect x="854" y="704" width="27" height="15" rx="4" fill="#ff9f1c" opacity="0.55"/>
+<rect x="0" y="724" width="1275" height="25" fill="#ffffff"/>
+<text x="16" y="740.5" font-size="10" fill="#1f2933">PC3: Deploy PC3 to User A on the start date.</text>
+<rect x="935" y="729" width="54" height="15" rx="4" fill="#cdf3f0"/>
+<rect x="935" y="729" width="54" height="15" rx="4" fill="#0fb9b1" opacity="0.55"/>
+<rect x="0" y="749" width="1275" height="25" fill="#ffffff"/>
+<text x="16" y="765.5" font-size="10" fill="#1f2933">PC2: Securely wipe PC2 and remove the storage to prepare for e-waste.</text>
+<rect x="935" y="754" width="54" height="15" rx="4" fill="#cdf3f0"/>
+<rect x="935" y="754" width="54" height="15" rx="4" fill="#0a8f89" opacity="0.55"/>
+<rect x="0" y="774" width="1275" height="25" fill="#ffffff"/>
+<text x="16" y="790.5" font-size="10" fill="#1f2933">PC2: Process PC2 through the decommissioning and e-waste procedure.</text>
+<rect x="935" y="779" width="189" height="15" rx="4" fill="#cdf3f0"/>
+<rect x="935" y="779" width="189" height="15" rx="4" fill="#0fb9b1" opacity="0.55"/>
+<rect x="0" y="799" width="1275" height="25" fill="#ffffff"/>
+<text x="16" y="815.5" font-size="10" fill="#1f2933">Transfer the resolved SR ticket back to Service Desk for final closure.</text>
+<polygon points="1137.5,804.5 1144.5,811.5 1137.5,818.5 1130.5,811.5" fill="#ff9f1c" stroke="#ffffff" stroke-width="1"/>
+<line x1="476" y1="46" x2="476" y2="837" stroke="#e2e8ea" stroke-width="1.5"/>
+<rect x="16" y="841" width="14" height="14" rx="3" fill="#0a8f89"/>
+<text x="35" y="852" font-size="10.5" fill="#1f2933">On Track</text>
+<rect x="106.6" y="841" width="14" height="14" rx="3" fill="#0fb9b1"/>
+<text x="125.6" y="852" font-size="10.5" fill="#1f2933">Low Risk</text>
+<rect x="197.2" y="841" width="14" height="14" rx="3" fill="#ff9f1c"/>
+<text x="216.2" y="852" font-size="10.5" fill="#1f2933">Med Risk</text>
+<rect x="287.79999999999995" y="841" width="14" height="14" rx="3" fill="#e63946"/>
+<text x="306.79999999999995" y="852" font-size="10.5" fill="#1f2933">High Risk</text>
+<rect x="384.59999999999997" y="841" width="14" height="14" rx="3" fill="#ff9f1c"/>
+<text x="403.59999999999997" y="852" font-size="10.5" fill="#1f2933">Milestone</text>
+<rect x="481.4" y="841" width="14" height="14" rx="3" fill="#6b7280"/>
+<text x="500.4" y="852" font-size="10.5" fill="#1f2933">Unassigned</text>
+</svg>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
