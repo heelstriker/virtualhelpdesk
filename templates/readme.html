@@ -4,6 +4,58 @@
 
 {% block extra_css %}
 <link rel="stylesheet" href="{{ url_for('static', filename='src/css/readme.css') }}">
+<style>
+    /* Page directory grid — scoped to this page only.
+       Reuses theme.css variables so it stays in sync with the rest of the site. */
+
+    .page-grid{
+        display:grid;
+        grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));
+        gap:16px;
+        margin:18px 0 6px;
+    }
+
+    .page-card{
+        display:block;
+        background:var(--panel);
+        border:1px solid var(--border);
+        border-radius:16px;
+        padding:20px;
+        box-shadow:0 5px 20px rgba(15,185,177,.08);
+        text-decoration:none;
+        transition:transform .15s ease, box-shadow .15s ease;
+    }
+
+    .page-card:hover{
+        transform:translateY(-2px);
+        box-shadow:0 8px 24px rgba(15,185,177,.14);
+    }
+
+    .page-card .page-card-title{
+        display:flex;
+        align-items:center;
+        gap:8px;
+        font-size:15.5px;
+        font-weight:700;
+        color:var(--text);
+        margin-bottom:8px;
+    }
+
+    .page-card p{
+        font-size:13.5px;
+        line-height:1.6;
+        color:var(--text-soft);
+        margin:0;
+    }
+
+    .page-card .page-card-arrow{
+        display:inline-block;
+        margin-top:10px;
+        font-size:12.5px;
+        font-weight:700;
+        color:var(--turquoise-dark);
+    }
+</style>
 {% endblock %}
 
 {% block content %}
@@ -14,14 +66,81 @@
 </div>
 
 <div class="panel">
-    <h2>🚀 What This Project Is</h2>
+    <h2>🧭 About This Project</h2>
     <p>
-        VirtualHelpDesk simulates a real-world enterprise IT environment where IT teams manage endpoints,
-        monitor compliance, handle incidents, and enforce change control across an organization.
+        VirtualHelpDesk is built on top of <span class="highlight">17 years of hands-on IT operations experience</span> —
+        not just years spent in on-premises environments, but years spent keeping <span class="highlight">mission-critical
+        systems</span> running for organizations that couldn't afford downtime: patch windows with hard deadlines, endpoint
+        fleets under audit, and incidents where the fix had to work the first time.
     </p>
     <p>
-        Built to demonstrate <span class="highlight">enterprise IT operations thinking</span>, not just application development.
+        This isn't a tutorial exercise. It's an attempt to reconstruct, page by page, the kind of environment that
+        experience lives in — a live operations dashboard, a real CMDB-style data model, the PowerShell commands
+        actually used in the field, and the project coordination that a PC refresh or infrastructure change requires
+        beyond just running a script.
     </p>
+    <p>
+        As the project has grown past a single dashboard, this page now works as a map — a short summary of what
+        each part covers and why it's here.
+    </p>
+</div>
+
+<div class="panel">
+    <h2>🗂 Explore the Project</h2>
+    <div class="page-grid">
+
+        <a href="{{ url_for('dashboard') }}" class="page-card">
+            <div class="page-card-title">📊 Dashboard</div>
+            <p>A live-style Operations Center: real-time endpoint compliance, patch trends, and a risk breakdown
+            across 50 simulated devices — the view an IT team actually watches day to day.</p>
+            <span class="page-card-arrow">View Dashboard →</span>
+        </a>
+
+        <a href="{{ url_for('all_tables') }}" class="page-card">
+            <div class="page-card-title">🗃 All Tables</div>
+            <p>The raw CMDB underneath the dashboard: every catalog and transaction table, browsable directly,
+            the way you'd query a real asset database.</p>
+            <span class="page-card-arrow">View All Tables →</span>
+        </a>
+
+        <a href="{{ url_for('erd') }}" class="page-card">
+            <div class="page-card-title">🧬 ERD</div>
+            <p>The entity-relationship diagram behind the schema — how devices, patches, printers, and network
+            drives actually relate to one another.</p>
+            <span class="page-card-arrow">View ERD →</span>
+        </a>
+
+        <a href="{{ url_for('powershell') }}" class="page-card">
+            <div class="page-card-title">💻 PowerShell Lab</div>
+            <p>An interactive terminal simulating 35 real PowerShell commands used for troubleshooting, inventory,
+            and endpoint management.</p>
+            <span class="page-card-arrow">Open PowerShell Lab →</span>
+        </a>
+
+        <a href="{{ url_for('cmd_reference') }}" class="page-card">
+            <div class="page-card-title">⌨️ CMD Reference</div>
+            <p>A companion reference for classic MS-DOS / CMD commands that are still in daily use across legacy
+            and hybrid environments.</p>
+            <span class="page-card-arrow">View CMD Reference →</span>
+        </a>
+
+        <a href="{{ url_for('field_notes') }}" class="page-card">
+            <div class="page-card-title">📋 Field Notes</div>
+            <p>The PowerShell Lab paired with something a command reference alone can't show: what actually
+            happened in the field when each command got used — misrouted traffic, VPN policy, printer migrations,
+            and more.</p>
+            <span class="page-card-arrow">Read Field Notes →</span>
+        </a>
+
+        <a href="{{ url_for('case_studies') }}" class="page-card">
+            <div class="page-card-title">🗓 Case Studies</div>
+            <p>Full project write-ups — like coordinating a three-way PC replacement across three users, a lease
+            deadline, and four teams — that show the planning and communication side of IT support, not just the
+            technical fix.</p>
+            <span class="page-card-arrow">Read Case Studies →</span>
+        </a>
+
+    </div>
 </div>
 
 <div class="grid">
@@ -49,30 +168,6 @@
 </div>
 
 <div class="panel">
-    <h2>📊 Key Features</h2>
-    <ul>
-        <li>Real-time endpoint inventory & compliance dashboard</li>
-        <li>Risk detection engine (misconfigurations, patch failures, printer issues)</li>
-        <li>Department-based resource segmentation</li>
-        <li>Patch lifecycle simulation (download → install → reboot tracking)</li>
-        <li>Aggregated compliance scoring across all endpoints</li>
-    </ul>
-</div>
-
-<div class="panel">
-    <h2>⚠ Risk Intelligence Layer</h2>
-    <p>
-        The system detects operational risks such as:
-    </p>
-    <ul>
-        <li>Pending or failed patch installations</li>
-        <li>Reboot-required endpoints affecting compliance</li>
-        <li>Storage-related deployment failures</li>
-        <li>Cross-department misconfigured printer access</li>
-    </ul>
-</div>
-
-<div class="panel">
     <h2>🛠 Tech Stack</h2>
     <span class="tag">Python (Flask)</span>
     <span class="tag">SQLite</span>
@@ -83,17 +178,8 @@
     <span class="tag">Render Deployment</span>
 </div>
 
-<div class="panel">
-    <h2>🎯 Why This Matters</h2>
-    <p>
-        This project demonstrates the ability to design and implement systems that reflect
-        <span class="highlight">real enterprise IT operations</span>, including infrastructure modeling,
-        operational workflows, and compliance-driven endpoint management.
-    </p>
-</div>
-
 <div class="footer">
-    VirtualHelpDesk — Designed as an IT operations simulation and portfolio project.
+    VirtualHelpDesk — 17 years of mission-critical IT operations experience, rebuilt as a working simulation and portfolio project.
 </div>
 
 {% endblock %}
