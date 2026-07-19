@@ -51,6 +51,106 @@
         </div>
     </div>
 
+    <div class="fn-card">
+        <div class="fn-icon">💾</div>
+        <div class="fn-body">
+            <div class="fn-title">When the C: Drive Looks Empty but Is Actually Full</div>
+            <div class="fn-desc">
+                <p>
+                    One of the more confusing support cases I encountered involved laptops
+                    that became painfully slow over time. Users reported a small Windows
+                    warning near the taskbar saying the C: drive was almost full — easy to
+                    dismiss, and many did, until the machine became too slow for normal
+                    work.
+                </p>
+                <p>
+                    <strong>The Environment:</strong> Our corporate Windows images were
+                    intentionally configured to reduce the risk of accidental system
+                    changes. Users could technically reach <code>C:</code> by typing the
+                    path manually, but Explorer was set up so they primarily saw their own
+                    profile under <code>C:\Users\&lt;username&gt;</code>, which discouraged
+                    browsing into folders like Program Files, Windows, or ProgramData. Some
+                    generations of the image went further, keeping Windows on C: and user
+                    data on a dedicated D: partition.
+                </p>
+                <p>
+                    <strong>The Investigation:</strong> One laptop arrived at 99% disk
+                    utilization. The obvious suspect — the user's Documents or Downloads —
+                    turned out to hold less than 1 GB; the employee had already deleted
+                    files trying to fix it themselves. Digging deeper, the real culprit was
+                    hidden inside <code>C:\ProgramData</code>: years of accumulated
+                    antivirus scan logs. Normally the security software cleaned these up
+                    once the machine reconnected to the internal network, but laptops that
+                    stayed off-site for long stretches just kept collecting logs until the
+                    drive was nearly full.
+                </p>
+                <p>
+                    <strong>Why It Was Hard to Diagnose:</strong> Users couldn't easily see
+                    hidden system folders, their personal files barely took up any space,
+                    remote support tools gave limited visibility over the public Internet,
+                    and the "low disk space" warning never said where the space had
+                    actually gone. The visible symptom and the real cause pointed in
+                    completely different directions.
+                </p>
+                <p class="fn-lesson">
+                    If Windows reports the system drive is full but the user's profile
+                    barely holds any data, don't assume the user is responsible. Hidden
+                    system folders like ProgramData can quietly consume tens of gigabytes
+                    without anyone noticing.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="fn-card">
+        <div class="fn-icon">📶</div>
+        <div class="fn-body">
+            <div class="fn-title">When Only the Company Laptop Won't Connect to Wi-Fi</div>
+            <div class="fn-desc">
+                <p>
+                    One support case taught me an important lesson: just because a problem
+                    looks like it's outside your support boundary doesn't mean the root
+                    cause is.
+                </p>
+                <p>
+                    <strong>The Situation:</strong> As remote work became more common, our
+                    company issued laptops that connected securely to corporate resources
+                    over VPN — but only after meeting strict conditions: up-to-date
+                    antivirus definitions, current intrusion detection/prevention
+                    signatures, required Windows updates, and corporate security policy
+                    compliance. Then a new kind of ticket started showing up: "My company
+                    laptop won't connect to my home Wi-Fi." Every other device in the house
+                    — personal laptops, phones, tablets, smart TVs — connected fine. Only
+                    the company laptop failed.
+                </p>
+                <p>
+                    <strong>Looking Beyond the Obvious:</strong> It would have been easy to
+                    say "contact your ISP" and close the ticket. But after asking a few
+                    more questions, a pattern emerged: almost every affected user had
+                    recently upgraded their home Internet service or replaced their
+                    router. The timing wasn't a coincidence — many providers had started
+                    shipping Wi-Fi 6 and Wi-Fi 6E routers, while the company laptops were
+                    still running older wireless drivers that didn't fully support the
+                    newer standards.
+                </p>
+                <p>
+                    <strong>The Real Cause:</strong> The hardware itself was compatible;
+                    what was missing was the wireless driver. Because standard users
+                    weren't permitted to install device drivers, the update needed
+                    administrator privileges. Once the driver was updated, the laptops
+                    connected to the new routers with no other changes needed. The issue
+                    was never the user's Internet service — it was the company's managed
+                    endpoint.
+                </p>
+                <p class="fn-lesson">
+                    Good technical support isn't about proving where responsibility ends.
+                    It's about asking enough questions to discover where the real problem
+                    begins.
+                </p>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <!-- ===== SECTION 2: NETWORK OUTAGES ===== -->
