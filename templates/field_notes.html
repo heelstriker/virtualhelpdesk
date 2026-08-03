@@ -307,51 +307,6 @@ if ($timedOutCount -ge $failThreshold) {
     </div>
 
     <div class="fn-card">
-        <div class="fn-icon">🌐</div>
-        <div class="fn-body">
-            <div class="fn-title">Isolating a Client-Side Root Cause Behind a Suspected Server Outage</div>
-            <div class="fn-desc">
-                <p>
-                    <strong>Situation:</strong> We started receiving reports from field
-                    locations across North America that a mission-critical business web
-                    application was unavailable. Because the reports came from multiple
-                    locations at once, it initially looked like a server-side outage.
-                </p>
-                <p>
-                    <strong>Task:</strong> My responsibility was to identify the root
-                    cause as quickly as possible, since the application was
-                    operationally critical.
-                </p>
-                <p>
-                    <strong>Action:</strong> Instead of assuming the server was down, I
-                    noticed that a small number of PCs were still functioning normally —
-                    which suggested the problem might be client-side rather than
-                    server-side. I built a test PC from an older system image and
-                    confirmed the application worked correctly on it. I then installed
-                    recent security patches one at a time until the issue reappeared,
-                    which isolated the problem to a specific NetBIOS over TCP/IP
-                    security patch. Reviewing the patch documentation confirmed it was
-                    intended for servers but had been mistakenly deployed to client PCs.
-                </p>
-                <p>
-                    <strong>Result:</strong> I shared the findings with our engineering
-                    team, who halted further deployment, instructed users not to reboot
-                    unaffected PCs, and distributed a corrected package. Because the
-                    root cause was identified quickly, the broader support organization
-                    was able to recover the service much faster than an unexplained
-                    outage would normally allow. I later received recognition from the
-                    engineering team for the investigation.
-                </p>
-                <p class="fn-lesson">
-                    A symptom reported from many locations at once doesn't automatically
-                    mean the root cause is server-side — ruling out the client is often
-                    the faster path to the real answer.
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <div class="fn-card">
         <div class="fn-icon">📄</div>
         <div class="fn-body">
             <div class="fn-title">The Hidden Power of the Windows Hosts File</div>

@@ -187,7 +187,15 @@
 {% block content %}
 <div class="container">
 
-    <div class="panel cs-header">
+    <div class="panel">
+        <div class="cs-section-title">Case Studies</div>
+        <ul style="margin:0;padding-left:20px;font-size:14px;line-height:1.9;">
+            <li><a href="#three-way-pc-replacement">Coordinating a Three-Way PC Replacement Without Disrupting Business</a></li>
+            <li><a href="#hypothesis-driven-troubleshooting">Hypothesis-Driven Troubleshooting: Isolating a Client-Side Root Cause Behind a Suspected Server Outage</a></li>
+        </ul>
+    </div>
+
+    <div class="panel cs-header" id="three-way-pc-replacement">
         <div class="cs-eyebrow">VirtualHelpDesk Field Notes &middot; Case Study</div>
         <h1>Coordinating a Three-Way PC Replacement Without Disrupting Business</h1>
         <div class="cs-meta">
@@ -546,6 +554,73 @@
 <text x="500.4" y="852" font-size="10.5" fill="#1f2933">Unassigned</text>
 </svg>
         </div>
+    </div>
+
+    <div class="panel cs-header" id="hypothesis-driven-troubleshooting" style="margin-top:36px;">
+        <div class="cs-eyebrow">VirtualHelpDesk Field Notes &middot; Case Study</div>
+        <h1>Hypothesis-Driven Troubleshooting: Isolating a Client-Side Root Cause Behind a Suspected Server Outage</h1>
+        <div class="cs-meta">
+            <span>Application: <strong>Pilot Flight Briefing System</strong></span>
+            <span>Scope: <strong>Airports across North America</strong></span>
+            <span>Role: <strong>Lead Investigator</strong></span>
+            <span>Outcome: <strong>Root cause isolated &amp; corrected package distributed</strong></span>
+        </div>
+    </div>
+
+    <div class="panel cs-note">
+        <p>
+            Not every outage that looks server-side actually is one. This case is a good
+            example of hypothesis-driven troubleshooting: instead of accepting the first
+            explanation a symptom suggests, form a testable hypothesis, then design a
+            controlled way to prove or disprove it &mdash; rather than escalating on
+            assumption alone.
+        </p>
+
+        <h3>Situation</h3>
+        <p>
+            We started receiving reports from airports across North America that a
+            critical web application used for pilot flight briefings was unavailable.
+            Because the reports came from multiple locations at once, it initially
+            looked like a server-side outage.
+        </p>
+
+        <h3>Task</h3>
+        <p>
+            My responsibility was to identify the root cause as quickly as possible,
+            since the application was operationally critical &mdash; pilots depend on it
+            for pre-flight briefings.
+        </p>
+
+        <h3>Action</h3>
+        <p>
+            Instead of assuming the server was down, I noticed that a small number of
+            PCs were still functioning normally. That observation was the hypothesis
+            trigger: if the server were actually down, <em>every</em> client should have
+            failed the same way. A partial failure pattern pointed at the client side
+            instead.
+        </p>
+        <p>
+            To test that hypothesis, I built a test PC from an older system image and
+            confirmed the application worked correctly on it. Then I systematically
+            installed recent security patches one at a time until the issue reappeared
+            &mdash; turning a vague "something changed" into a controlled, repeatable
+            test. This isolated the problem to a specific NetBIOS over TCP/IP security
+            patch. Reviewing the patch documentation confirmed it was intended for
+            servers but had been mistakenly deployed to client PCs.
+        </p>
+
+        <h3>Result</h3>
+        <p>
+            I immediately shared the findings with our IT team in Tokyo. They stopped
+            further deployment, instructed users not to reboot unaffected PCs (since a
+            reboot would apply the bad patch), and distributed a corrected package.
+            Because the root cause was identified quickly, the global support team was
+            able to recover the service much faster than an unexplained outage would
+            normally allow. I later received a thank-you email from the Tokyo
+            engineering team recognizing the investigation.
+        </p>
+
+        <div class="cs-pullquote">A symptom reported from many locations at once doesn't automatically mean the root cause is server-side &mdash; ruling out the client is often the faster path to the real answer.</div>
     </div>
 
 </div>
