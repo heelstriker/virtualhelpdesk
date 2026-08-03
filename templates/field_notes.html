@@ -151,6 +151,104 @@
         </div>
     </div>
 
+    <div class="fn-card">
+        <div class="fn-icon">🖨️</div>
+        <div class="fn-body">
+            <div class="fn-title">Clearing a Stuck Windows Print Queue</div>
+            <div class="fn-desc">
+                <p>
+                    A common desktop support issue occurs when a print job becomes stuck
+                    in the Windows print queue. Users may be unable to cancel the job, and
+                    every new document waits behind it. Restarting the printer alone often
+                    doesn't fix this, because the queued files live on the computer or
+                    print server, not on the printer itself.
+                </p>
+                <p>
+                    <strong>Print Spooler File Location:</strong> Windows temporarily
+                    stores print jobs in:
+                </p>
+                <pre class="fn-code"><code>C:\Windows\System32\spool\PRINTERS</code></pre>
+                <p>
+                    The folder may contain <code>.SPL</code> (print spool files) and
+                    <code>.SHD</code> (print job information files). These normally
+                    disappear once a job finishes printing. When a job gets corrupted or
+                    the spooler stops responding, though, they can stay behind and block
+                    the queue.
+                </p>
+                <p>
+                    <strong>Standard Recovery Procedure:</strong> First, try cancelling
+                    the job from the print queue itself. If it won't clear, the spooler
+                    needs to be cleared manually:
+                </p>
+                <p>
+                    <strong>1. Stop the Print Spooler service</strong> — from an
+                    administrator Command Prompt or PowerShell:
+                </p>
+                <pre class="fn-code"><code>net stop spooler</code></pre>
+                <p>
+                    The service has to be stopped before deleting the spool files, since
+                    Windows otherwise keeps them locked.
+                </p>
+                <p>
+                    <strong>2. Delete the queued print files</strong> — clear the contents
+                    of the folder above without deleting the <code>PRINTERS</code> folder
+                    itself:
+                </p>
+                <pre class="fn-code"><code>del /Q /F C:\Windows\System32\spool\PRINTERS\*.*</code></pre>
+                <p>
+                    <strong>3. Restart the Print Spooler service:</strong>
+                </p>
+                <pre class="fn-code"><code>net start spooler</code></pre>
+                <p>
+                    Then reopen the printer queue and submit a small test page.
+                </p>
+                <p>
+                    <strong>PowerShell Method:</strong> the same recovery, scripted:
+                </p>
+                <pre class="fn-code"><code>Stop-Service -Name Spooler -Force
+
+Remove-Item `
+  -Path "$env:SystemRoot\System32\spool\PRINTERS\*" `
+  -Force `
+  -ErrorAction SilentlyContinue
+
+Start-Service -Name Spooler</code></pre>
+                <p>
+                    Administrative privileges are required either way.
+                </p>
+                <p>
+                    <strong>What to Check If the Queue Sticks Again:</strong> Clearing the
+                    queue resolves the immediate symptom, but repeated failures often
+                    point to something else — a corrupted document, an outdated or
+                    incorrect printer driver, a printer that's offline or unreachable, a
+                    failed connection to the print server, insufficient permissions, a
+                    damaged spooler component, or a printer using the wrong TCP/IP port.
+                    If only one document causes the issue, recreate or convert the file
+                    before printing it again. If every document gets stuck, investigate
+                    the driver, port, printer status, and network connection instead.
+                </p>
+                <p>
+                    <strong>Lessons Learned:</strong> a stuck print queue can look like a
+                    printer hardware problem, but the blockage can exist entirely inside
+                    Windows. The basic troubleshooting sequence is always the same:
+                </p>
+                <pre class="fn-code"><code>Stop Spooler
+      &darr;
+Delete Queue Files
+      &darr;
+Start Spooler
+      &darr;
+Print Test Page</code></pre>
+                <p class="fn-lesson">
+                    When a print job can't be cancelled, stop the Print Spooler service
+                    before deleting the files in
+                    <code>C:\Windows\System32\spool\PRINTERS</code>. Otherwise, the files
+                    may stay locked and the queue will stay stuck.
+                </p>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <!-- ===== SECTION 2: NETWORK OUTAGES ===== -->
@@ -248,6 +346,58 @@ if ($timedOutCount -ge $failThreshold) {
                     A symptom reported from many locations at once doesn't automatically
                     mean the root cause is server-side — ruling out the client is often
                     the faster path to the real answer.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="fn-card">
+        <div class="fn-icon">📄</div>
+        <div class="fn-body">
+            <div class="fn-title">The Hidden Power of the Windows Hosts File</div>
+            <div class="fn-desc">
+                <p>
+                    Most Windows users never notice it, yet one small text file can
+                    completely change where a computer connects on the network. That file
+                    is called <code>hosts</code>, and its default location is:
+                </p>
+                <pre class="fn-code"><code>C:\Windows\System32\drivers\etc\hosts</code></pre>
+                <p>
+                    <strong>What It Does:</strong> Normally, when you type a server name
+                    such as <code>fileserver.company.local</code>, Windows asks the
+                    organization's DNS server for the corresponding IP address. But if an
+                    entry exists in the local hosts file, Windows skips DNS entirely and
+                    uses the locally defined address instead:
+                </p>
+                <pre class="fn-code"><code>10.20.15.25    fileserver.company.local</code></pre>
+                <p>
+                    Regardless of what DNS says, that computer will always connect to
+                    10.20.15.25.
+                </p>
+                <p>
+                    <strong>Why We Used It:</strong> In our environment, the hosts file
+                    occasionally became a useful deployment tool — directing specific
+                    departments to a different application server, testing a new server
+                    before updating enterprise DNS, routing selected users to a local
+                    server during migration projects, or verifying new systems while
+                    production users continued using the existing one. Instead of
+                    changing DNS for the entire company, we could redirect only a handful
+                    of computers, which reduced risk during staged deployments and let us
+                    validate new infrastructure before a company-wide rollout.
+                </p>
+                <p>
+                    <strong>Things to Remember:</strong> The hosts file is powerful
+                    because it overrides DNS — which also means incorrect entries can be
+                    difficult to troubleshoot. If one computer behaves differently from
+                    every other computer on the network, checking the hosts file should
+                    always be part of the investigation. Because the file lives inside the
+                    Windows system directory, standard users can't normally modify it,
+                    which helps prevent unauthorized redirection of network traffic.
+                </p>
+                <p class="fn-lesson">
+                    If only one computer reaches a different server while every other
+                    computer behaves normally, don't forget to check the local hosts file
+                    before blaming DNS.
                 </p>
             </div>
         </div>
