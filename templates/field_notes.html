@@ -4,6 +4,118 @@
 
 {% block extra_css %}
 <link rel="stylesheet" href="{{ url_for('static', filename='src/css/field_notes.css') }}">
+<style>
+    /* Heelstrike Lab Notes — scoped to this page only.
+       A visually distinct sub-series within Field Notes for home-lab /
+       Intune / Entra ID learning notes, kept separate from the
+       17-years-of-enterprise-experience notes above. */
+
+    .hs-section{
+        margin-top:48px;
+        border-top:2px dashed var(--border);
+        padding-top:36px;
+    }
+
+    .hs-header{
+        display:flex;
+        align-items:center;
+        gap:14px;
+        margin-bottom:8px;
+    }
+
+    .hs-badge{
+        display:inline-flex;
+        align-items:center;
+        gap:6px;
+        background:#eef1fb;
+        color:#4a55c7;
+        border:1px solid #c9cff2;
+        font-size:12px;
+        font-weight:700;
+        letter-spacing:0.4px;
+        padding:5px 12px;
+        border-radius:20px;
+    }
+
+    .hs-header h2{
+        margin:0;
+        font-size:19px;
+        color:var(--text);
+    }
+
+    .hs-intro{
+        font-size:13.5px;
+        color:var(--text-soft);
+        line-height:1.6;
+        margin:0 0 22px;
+        max-width:760px;
+    }
+
+    .hs-card{
+        display:flex;
+        gap:18px;
+        background:var(--panel);
+        border:1px solid var(--border);
+        border-left:4px solid #4a55c7;
+        border-radius:14px;
+        padding:22px 24px;
+        margin-bottom:18px;
+        box-shadow:0 5px 20px rgba(74,85,199,.08);
+    }
+
+    .hs-icon{
+        font-size:26px;
+        flex-shrink:0;
+    }
+
+    .hs-entry-num{
+        display:inline-block;
+        font-family:'Consolas','Cascadia Code',monospace;
+        font-size:11.5px;
+        font-weight:700;
+        color:#4a55c7;
+        background:#eef1fb;
+        padding:2px 8px;
+        border-radius:4px;
+        margin-bottom:8px;
+        letter-spacing:0.5px;
+    }
+
+    .hs-title{
+        font-size:16px;
+        font-weight:700;
+        color:var(--text);
+        margin-bottom:10px;
+    }
+
+    .hs-body p{
+        font-size:14px;
+        line-height:1.7;
+        color:var(--text);
+        margin:0 0 12px;
+    }
+
+    .hs-body code{
+        background:var(--panel-alt);
+        border:1px solid var(--border);
+        border-radius:4px;
+        padding:1px 6px;
+        font-family:'Consolas','Cascadia Code',monospace;
+        font-size:13px;
+        color:#4a55c7;
+    }
+
+    .hs-lesson{
+        border-left:3px solid #4a55c7;
+        background:#f6f7fd;
+        padding:10px 14px;
+        font-size:13.5px;
+        font-style:italic;
+        color:#37408f;
+        border-radius:4px;
+        margin-top:14px;
+    }
+</style>
 {% endblock %}
 
 {% block content %}
@@ -495,6 +607,69 @@ if ($timedOutCount -ge $failThreshold) {
                     and usability — and why process-level execution is often preferred
                     for portable automation projects like VirtualHelpDesk.
                 </p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- ===== HEELSTRIKE LAB NOTES ===== -->
+<div class="hs-section">
+    <div class="hs-header">
+        <span class="hs-badge">👟 Heelstrike Lab Notes</span>
+        <h2>Home Lab &middot; Intune &amp; Entra ID</h2>
+    </div>
+    <p class="hs-intro">
+        A separate, ongoing log of what I run into while building out a home lab to get
+        hands-on with Microsoft Entra ID, Intune, and modern cloud-based endpoint
+        management — outside of the enterprise on-prem experience covered above.
+    </p>
+
+    <div class="hs-card">
+        <div class="hs-icon">🔐</div>
+        <div class="hs-body" style="flex:1;">
+            <div class="hs-entry-num">HEELSTRIKE #001</div>
+            <div class="hs-title">BitLocker Activation Blocked by a Mounted ISO</div>
+            <p>
+                While getting hands-on with Intune compliance policies in the lab, I hit
+                a BitLocker failure that took a bit of digging to trace back to something
+                completely unrelated to BitLocker itself.
+            </p>
+            <p>
+                The Intune compliance policy was assigned and correctly targeting the
+                device, but the device kept reporting <code>Protection Status : Off</code>
+                and sat in a <em>Waiting for activation</em> state. Running the BitLocker
+                setup wizard directly on the machine surfaced the real clue: it reported
+                bootable media detected.
+            </p>
+            <p>
+                I checked the Intune side first — compliance policy and assignment were
+                both fine, so this wasn't a targeting problem. Dropping to the device
+                itself, <code>manage-bde -status</code> confirmed protection was off.
+                Working backward from "bootable media detected," I checked the VM's
+                virtual DVD drive in Hyper-V Manager and found a Windows installation ISO
+                still mounted from when the VM was first built.
+            </p>
+            <p>
+                <strong>Root cause:</strong> BitLocker refuses to enable while any
+                bootable removable media — including a mounted ISO presented as a
+                virtual DVD drive — is attached. It's a boot-integrity safeguard, not a
+                bug: BitLocker can't guarantee it controls the full boot chain if
+                something else could boot the machine instead.
+            </p>
+            <p>
+                <strong>Fix:</strong> removed the ISO from the Hyper-V DVD drive,
+                restarted Windows, then enabled BitLocker. Validation confirmed it:
+                <code>manage-bde -status</code> now showed
+                <code>Protection On</code> with TPM and a numerical password as key
+                protectors, and <code>Get-Tpm</code> confirmed the TPM itself was
+                <code>Present</code>, <code>Ready</code>, and <code>Enabled</code>.
+            </p>
+            <div class="hs-lesson">
+                If a managed device reports BitLocker stuck on "Waiting for activation"
+                with no policy or assignment issue in Intune, check what's still attached
+                as bootable media before assuming it's a compliance or TPM problem — a
+                mounted ISO alone is enough to block activation.
             </div>
         </div>
     </div>
