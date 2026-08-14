@@ -14,6 +14,7 @@ from services.network_topology_service import (
     set_link_override,
     reset_overrides,
 )
+from services.schema_service import get_schema_snapshot
 
 
 
@@ -224,7 +225,12 @@ def powershell():
 
 @app.route("/erd")
 def erd():
-    return render_template("erd.html", active_page="erd")
+    schema = get_schema_snapshot()
+    return render_template(
+        "erd.html",
+        active_page="erd",
+        schema=schema,
+    )
 
 @app.route("/field_notes")
 def field_notes():
