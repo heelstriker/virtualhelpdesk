@@ -14,7 +14,6 @@ from services.network_topology_service import (
     set_link_override,
     reset_overrides,
 )
-from services.schema_service import get_schema_snapshot
 
 
 
@@ -130,6 +129,14 @@ def show_readme():
     )
 
 
+@app.route("/support-philosophy")
+def support_philosophy():
+    return render_template(
+        "support_philosophy.html",
+        active_page="support_philosophy",
+    )
+
+
 @app.route("/devices")
 def show_devices():
 
@@ -225,12 +232,7 @@ def powershell():
 
 @app.route("/erd")
 def erd():
-    schema = get_schema_snapshot()
-    return render_template(
-        "erd.html",
-        active_page="erd",
-        schema=schema,
-    )
+    return render_template("erd.html", active_page="erd")
 
 @app.route("/field_notes")
 def field_notes():

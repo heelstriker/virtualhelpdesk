@@ -18,6 +18,7 @@
 
         <div class="navbar-links">
             <a href="{{ url_for('show_readme') }}" class="{{ 'active' if active_page == 'readme' else '' }}">About</a>
+            <a href="{{ url_for('support_philosophy') }}" class="{{ 'active' if active_page == 'support_philosophy' else '' }}">Support Philosophy</a>
             <a href="{{ url_for('dashboard') }}" class="{{ 'active' if active_page == 'dashboard' else '' }}">Dashboard</a>
             <a href="{{ url_for('all_tables') }}" class="{{ 'active' if active_page == 'all_tables' else '' }}">All Tables</a>
             <a href="{{ url_for('erd') }}" class="{{ 'active' if active_page == 'erd' else '' }}">ERD</a>
@@ -35,6 +36,7 @@
 
     <div class="navbar-mobile-menu" id="navbarMobileMenu">
         <a href="{{ url_for('show_readme') }}" class="{{ 'active' if active_page == 'readme' else '' }}">About</a>
+        <a href="{{ url_for('support_philosophy') }}" class="{{ 'active' if active_page == 'support_philosophy' else '' }}">Support Philosophy</a>
         <a href="{{ url_for('dashboard') }}" class="{{ 'active' if active_page == 'dashboard' else '' }}">Dashboard</a>
         <a href="{{ url_for('all_tables') }}" class="{{ 'active' if active_page == 'all_tables' else '' }}">All Tables</a>
         <a href="{{ url_for('erd') }}" class="{{ 'active' if active_page == 'erd' else '' }}">ERD</a>

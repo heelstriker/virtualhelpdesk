@@ -152,7 +152,8 @@ a{
 }
 
 .navbar-mobile-menu.open{
-    max-height:300px;
+    max-height:min(75vh, 520px);
+    overflow-y:auto;
 }
 
 .navbar-mobile-menu a{
@@ -167,7 +168,7 @@ a{
     background:var(--panel-alt);
 }
 
-@media (max-width: 768px){
+@media (max-width: 1180px){
     .navbar-links{
         display:none;
     }
