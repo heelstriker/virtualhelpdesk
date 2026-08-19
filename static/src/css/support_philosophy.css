@@ -105,6 +105,12 @@
     font-size:22px;
 }
 
+.philosophy-section h3{
+    margin:24px 0 10px;
+    color:var(--turquoise-dark);
+    font-size:16px;
+}
+
 .philosophy-number{
     flex:0 0 auto;
     color:var(--turquoise-dark);
