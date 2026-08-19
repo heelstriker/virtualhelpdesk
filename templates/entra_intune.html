@@ -1,0 +1,896 @@
+{% extends "base.html" %}
+
+{% block title %}Microsoft Entra ID & Intune - VirtualHelpDesk{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='src/css/entra_intune.css') }}">
+{% endblock %}
+
+{% block content %}
+<article class="study-shell" id="study-top">
+    <header class="panel study-hero">
+        <p class="study-eyebrow">VirtualHelpDesk · Hands-On Study Log</p>
+        <h1>Microsoft Entra ID &amp; Intune</h1>
+        <p class="study-subtitle">Hands-On Study Notes and Interview Review</p>
+    </header>
+    <details class="panel study-directory">
+        <summary>Study Log Contents · 55 Topics</summary>
+        <ol>
+            <li><a href="#study-1">My Lab Environment</a></li>
+            <li><a href="#study-2">Microsoft Entra ID</a></li>
+            <li><a href="#study-3">Users, Groups, and Administrative Roles</a></li>
+            <li><a href="#study-4">Microsoft Intune</a></li>
+            <li><a href="#study-5">Entra Join vs. Intune Enrollment</a></li>
+            <li><a href="#study-6">Windows Autopilot</a></li>
+            <li><a href="#study-7">Autopilot Hardware Hash</a></li>
+            <li><a href="#study-8">Windows Autopilot Devices vs. Intune Managed Devices</a></li>
+            <li><a href="#study-9">Autopilot Deployment Profile</a></li>
+            <li><a href="#study-10">Enrollment Status Page — ESP</a></li>
+            <li><a href="#study-11">Application Deployment</a></li>
+            <li><a href="#study-12">Required vs. Available Applications</a></li>
+            <li><a href="#study-13">Win32 Application Deployment</a></li>
+            <li><a href="#study-14">Application Detection</a></li>
+            <li><a href="#study-15">Intune Management Extension</a></li>
+            <li><a href="#study-16">Configuration Profiles</a></li>
+            <li><a href="#study-17">Configuration vs. Compliance</a></li>
+            <li><a href="#study-18">Compliance Policies</a></li>
+            <li><a href="#study-19">BitLocker</a></li>
+            <li><a href="#study-20">Windows Update Rings</a></li>
+            <li><a href="#study-21">Device Ownership</a></li>
+            <li><a href="#study-22">Corporate Device Identification</a></li>
+            <li><a href="#study-23">BYOD Enrollment Restrictions</a></li>
+            <li><a href="#study-24">Enrollment Restriction Priority</a></li>
+            <li><a href="#study-25">Assignment Filters</a></li>
+            <li><a href="#study-26">Designing a Restricted BYOD Model</a></li>
+            <li><a href="#study-27">Conditional Access</a></li>
+            <li><a href="#study-28">Configuration → Compliance → Conditional Access</a></li>
+            <li><a href="#study-29">Conditional Access Report-Only Mode</a></li>
+            <li><a href="#study-30">Conditional Access — Compliant Device Test</a></li>
+            <li><a href="#study-31">Conditional Access — Unknown Device Test</a></li>
+            <li><a href="#study-32">Reading Conditional Access Sign-in Logs</a></li>
+            <li><a href="#study-33">Device = Unknown</a></li>
+            <li><a href="#study-34">MFA</a></li>
+            <li><a href="#study-35">Remote Device Actions</a></li>
+            <li><a href="#study-36">Sync</a></li>
+            <li><a href="#study-37">Restart</a></li>
+            <li><a href="#study-38">Autopilot Reset</a></li>
+            <li><a href="#study-39">Operational Lesson from Autopilot Reset</a></li>
+            <li><a href="#study-40">Fresh Start</a></li>
+            <li><a href="#study-41">Retire</a></li>
+            <li><a href="#study-42">Wipe</a></li>
+            <li><a href="#study-43">Delete</a></li>
+            <li><a href="#study-44">Security Lesson: Encryption Before Loss</a></li>
+            <li><a href="#study-45">Device Lifecycle</a></li>
+            <li><a href="#study-46">Troubleshooting Method</a></li>
+            <li><a href="#study-47">Troubleshooting Conditional Access</a></li>
+            <li><a href="#study-48">Traditional AD Knowledge and Modern Management</a></li>
+            <li><a href="#study-49">What I Can Accurately Say in an Interview</a></li>
+            <li><a href="#study-50">Short Interview Answer — “What is Intune?”</a></li>
+            <li><a href="#study-51">Short Interview Answer — “What is Entra ID?”</a></li>
+            <li><a href="#study-52">Short Interview Answer — “Explain Autopilot”</a></li>
+            <li><a href="#study-53">Short Interview Answer — “Configuration vs. Compliance vs. Conditional Access”</a></li>
+            <li><a href="#study-54">Short Interview Answer — “How Would You Troubleshoot Intune?”</a></li>
+            <li><a href="#study-55">Most Important Lessons from the Lab</a></li>
+        </ol>
+    </details>
+
+    <section class="panel study-section" id="study-1">
+        <h2><span class="study-number">01</span>My Lab Environment</h2>
+        <p>I built my own Microsoft 365 Business Premium lab environment to gain hands-on experience with Microsoft Entra ID and Microsoft Intune.</p>
+        <p>The purpose of the lab was not simply to learn where settings are located in the administrative portals. I wanted to understand the complete endpoint lifecycle:</p>
+        <div class="study-flow">Identity → Device Registration → Enrollment → Configuration → Application Deployment → Security → Compliance → Conditional Access → Troubleshooting → Device Retirement or Reset</div>
+        <p>I used Windows virtual machines and test devices so that I could deploy policies, intentionally create problems, observe the results, and troubleshoot them.</p>
+        <p>My professional experience has primarily been with traditional Active Directory and enterprise endpoint support. Intune and Entra ID are areas in which I have been building hands-on experience through this lab.</p>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-2">
+        <h2><span class="study-number">02</span>Microsoft Entra ID</h2>
+        <p>Microsoft Entra ID is Microsoft's cloud identity and access management platform.</p>
+        <p>I used Entra ID to manage:</p>
+        <ul>
+            <li>Users</li>
+            <li>Groups</li>
+            <li>Administrative roles</li>
+            <li>Device identities</li>
+            <li>Authentication</li>
+            <li>MFA</li>
+            <li>Microsoft Intune integration</li>
+            <li>Conditional Access</li>
+        </ul>
+        <p>One important concept I learned is that <strong>Microsoft Entra ID is not simply a cloud version of traditional Active Directory Domain Services.</strong></p>
+        <p>Traditional AD DS uses concepts such as:</p>
+        <ul>
+            <li>Domains</li>
+            <li>Domain Controllers</li>
+            <li>Organizational Units</li>
+            <li>Group Policy</li>
+            <li>LDAP</li>
+            <li>Kerberos</li>
+            <li>Domain Join</li>
+        </ul>
+        <p>Entra ID is designed around cloud identities, cloud applications, modern authentication, device identities, and access control.</p>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-3">
+        <h2><span class="study-number">03</span>Users, Groups, and Administrative Roles</h2>
+        <p>I created users in my Entra tenant and learned how identities created in Entra ID are also used across Microsoft 365 and Intune.</p>
+        <p>I also worked with different types of groups.</p>
+        <h3>User Groups</h3>
+        <p>These can be used to assign:</p>
+        <ul>
+            <li>Applications</li>
+            <li>Configuration</li>
+            <li>Compliance-related settings</li>
+            <li>Access policies</li>
+        </ul>
+        <h3>Device Groups</h3>
+        <p>These allow policies and applications to follow the device rather than a particular user.</p>
+        <h3>Dynamic Groups</h3>
+        <p>Dynamic membership allows devices or users to be automatically placed into groups based on defined attributes.</p>
+        <p>This helped me understand the difference between:</p>
+        <div class="study-key">Who should receive something?</div>
+        <p>and</p>
+        <div class="study-key">Which device should receive something?</div>
+        <p>This distinction becomes very important when designing Intune assignments.</p>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-4">
+        <h2><span class="study-number">04</span>Microsoft Intune</h2>
+        <p>Microsoft Intune is Microsoft's cloud-based endpoint management platform.</p>
+        <p>I learned to think about Intune as a <strong>device lifecycle management system</strong>, rather than simply a configuration tool.</p>
+        <p>A simplified lifecycle is:</p>
+        <div class="study-flow">Enroll → Configure → Protect → Deploy → Evaluate → Maintain → Retire/Reprovision</div>
+        <p>Intune can manage:</p>
+        <ul>
+            <li>Device enrollment</li>
+            <li>Device configuration</li>
+            <li>Applications</li>
+            <li>Security settings</li>
+            <li>Compliance</li>
+            <li>Windows updates</li>
+            <li>Encryption</li>
+            <li>Remote actions</li>
+            <li>Device lifecycle operations</li>
+        </ul>
+        <p>It also integrates closely with Entra ID and Conditional Access.</p>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-5">
+        <h2><span class="study-number">05</span>Entra Join vs. Intune Enrollment</h2>
+        <p>I learned that device identity and device management are related but separate concepts.</p>
+        <p>A Windows computer can have an identity in Entra ID, while Intune provides the MDM management layer.</p>
+        <p>For a corporate Windows device, a common modern workflow is:</p>
+        <div class="study-flow">Windows device → Microsoft Entra Join → Intune enrollment → Configuration and applications → Compliance evaluation → Conditional Access</div>
+        <p>I also learned that this is different from traditional Active Directory Domain Join.</p>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-6">
+        <h2><span class="study-number">06</span>Windows Autopilot</h2>
+        <p>I created a Windows Autopilot deployment in my lab.</p>
+        <p>Autopilot allows an organization to prepare a Windows computer for corporate use without IT manually creating and applying a traditional custom Windows image to every computer.</p>
+        <p>The general workflow I learned was:</p>
+        <div class="study-flow">Hardware identity → Autopilot registration → Deployment profile → Windows OOBE → User authentication → Entra Join → Intune enrollment → Applications and policies → Corporate-ready endpoint</div>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-7">
+        <h2><span class="study-number">07</span>Autopilot Hardware Hash</h2>
+        <p>I learned how Windows Autopilot identifies a particular physical device.</p>
+        <p>The hardware hash is not simply one hash shared by every computer of the same model.</p>
+        <p>It represents hardware information from the <strong>individual device</strong>.</p>
+        <p>Therefore:</p>
+        <div class="study-flow">Laptop A → unique Autopilot device identity Laptop B → different Autopilot device identity</div>
+        <p>even if both computers are the same make and model.</p>
+        <p>In my lab, I collected the hardware information and imported it into Windows Autopilot using CSV.</p>
+        <p>In an enterprise environment, this step can often be performed by the OEM, reseller, or hardware supplier.</p>
+        <p>For example:</p>
+        <div class="study-flow">Company orders laptops → OEM/reseller registers the devices for the company's tenant → Devices are shipped directly to users → Users power them on → Autopilot recognizes the devices → Corporate provisioning begins</div>
+        <p>This is one of the major advantages of modern endpoint provisioning.</p>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-8">
+        <h2><span class="study-number">08</span>Windows Autopilot Devices vs. Intune Managed Devices</h2>
+        <p>I learned that the Autopilot device record and the Intune managed-device record represent different concepts.</p>
+        <p>The Autopilot record identifies the device as a device registered for Windows Autopilot.</p>
+        <p>The Intune device record represents the actively managed endpoint.</p>
+        <p>Completing an Autopilot deployment does not mean that the Autopilot registration disappears.</p>
+        <p>The device may remain registered for future reprovisioning.</p>
+        <p>This distinction helped me understand why device lifecycle actions must be selected carefully.</p>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-9">
+        <h2><span class="study-number">09</span>Autopilot Deployment Profile</h2>
+        <p>I created and assigned an Autopilot deployment profile.</p>
+        <p>The deployment profile determines how Windows OOBE behaves and how the corporate device is provisioned.</p>
+        <p>The goal is to reduce the number of configuration decisions that the end user must make.</p>
+        <p>Instead of IT manually configuring each laptop, the organization defines the desired provisioning experience centrally.</p>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-10">
+        <h2><span class="study-number">10</span>Enrollment Status Page — ESP</h2>
+        <p>I configured and tested the Enrollment Status Page.</p>
+        <p>ESP can prevent the user from reaching the Windows desktop before important provisioning requirements have been completed.</p>
+        <p>Conceptually:</p>
+        <div class="study-flow">User signs in → Device enrolls → Required policies/apps are processed → ESP monitors provisioning → User reaches desktop</div>
+        <p>This is useful because a computer should not necessarily be considered ready simply because Windows can display a desktop.</p>
+        <p>For example, IT may require security software, management components, or other critical applications before the endpoint becomes operational.</p>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-11">
+        <h2><span class="study-number">11</span>Application Deployment</h2>
+        <p>I deployed applications through Intune.</p>
+        <p>This included working with:</p>
+        <ul>
+            <li>Microsoft Store applications</li>
+            <li>Company Portal</li>
+            <li>Win32 applications</li>
+            <li>Required applications</li>
+            <li>Available applications</li>
+            <li>Application assignments</li>
+            <li>Detection rules</li>
+        </ul>
+        <p>I learned that assigning an application does not mean that the application immediately appears on the endpoint.</p>
+        <p>The process involves:</p>
+        <div class="study-flow">Assignment → Device/user check-in → Policy received → Applicability evaluation → Detection → Download → Installation → Detection again → Reporting</div>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-12">
+        <h2><span class="study-number">12</span>Required vs. Available Applications</h2>
+        <p>A <strong>Required</strong> application is automatically installed when the device or user meets the assignment requirements.</p>
+        <p>An <strong>Available</strong> application can be offered through Company Portal so that the user can choose to install it.</p>
+        <p>This provides a useful balance between standardization and user choice.</p>
+        <p>For example:</p>
+        <div class="study-flow">Security software → Required</div>
+        <p>while</p>
+        <div class="study-flow">Optional productivity utility → Available</div>
+        <p>may make more sense.</p>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-13">
+        <h2><span class="study-number">13</span>Win32 Application Deployment</h2>
+        <p>I packaged and deployed Win32 software through Intune.</p>
+        <p>This taught me that application deployment involves more than simply uploading an installer.</p>
+        <p>I had to think about:</p>
+        <ul>
+            <li>Installation commands</li>
+            <li>Uninstallation commands</li>
+            <li>Installation context</li>
+            <li>Requirements</li>
+            <li>Detection rules</li>
+            <li>Assignments</li>
+            <li>Return codes</li>
+        </ul>
+        <p>The detection rule is especially important because Intune needs a reliable way to determine whether the application actually exists after installation.</p>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-14">
+        <h2><span class="study-number">14</span>Application Detection</h2>
+        <p>I investigated application detection using the Intune Management Extension logs.</p>
+        <p>For example, Intune checked for an executable associated with an application.</p>
+        <p>Before installation:</p>
+        <div class="study-flow">Detection → NotDetected</div>
+        <p>After successful installation:</p>
+        <div class="study-flow">Detection → Detected</div>
+        <p>This demonstrated an important troubleshooting concept:</p>
+        <div class="study-key">Installation and detection are separate operations.</div>
+        <p>An installer could theoretically run successfully while Intune still reports a failure if the detection rule is incorrect.</p>
+        <p>Therefore, when troubleshooting an Intune application deployment, I would check:</p>
+        <ol>
+            <li>Assignment</li>
+            <li>Applicability</li>
+            <li>Download</li>
+            <li>Installation</li>
+            <li>Exit code</li>
+            <li>Detection rule</li>
+            <li>Intune Management Extension logs</li>
+            <li>Intune reporting</li>
+        </ol>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-15">
+        <h2><span class="study-number">15</span>Intune Management Extension</h2>
+        <p>I examined the local Intune Management Extension logs under:</p>
+        <p><code>C:\ProgramData\Microsoft\IntuneManagementExtension\Logs</code></p>
+        <p>This gave me a much better understanding of what happens behind the Intune portal.</p>
+        <p>Instead of only seeing:</p>
+        <div class="study-key">Installed / Failed / Pending</div>
+        <p>I could investigate what the endpoint itself was actually doing.</p>
+        <p>For application troubleshooting, I learned to look for information related to:</p>
+        <ul>
+            <li>Policy retrieval</li>
+            <li>Application detection</li>
+            <li>Applicability</li>
+            <li>Download</li>
+            <li>Installation</li>
+            <li>Enforcement state</li>
+            <li>Error codes</li>
+            <li>Detection after installation</li>
+        </ul>
+        <p>This is particularly useful when the Intune portal does not provide enough information to identify the root cause.</p>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-16">
+        <h2><span class="study-number">16</span>Configuration Profiles</h2>
+        <p>I created configuration policies in Intune.</p>
+        <p>Configuration profiles tell managed devices:</p>
+        <blockquote class="study-quote"><strong>This is how I want you to be configured.</strong></blockquote>
+        <p>Examples include:</p>
+        <ul>
+            <li>Microsoft Edge settings</li>
+            <li>Security configuration</li>
+            <li>Device restrictions</li>
+            <li>Windows settings</li>
+        </ul>
+        <p>This helped me understand the relationship between traditional Group Policy and modern MDM.</p>
+        <p>They are not identical technologies, but conceptually both can centrally define endpoint configuration.</p>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-17">
+        <h2><span class="study-number">17</span>Configuration vs. Compliance</h2>
+        <p>One of the most important concepts I learned was the difference between <strong>configuration</strong> and <strong>compliance</strong>.</p>
+        <h3>Configuration</h3>
+        <div class="study-key">“Configure the device this way.”</div>
+        <h3>Compliance</h3>
+        <div class="study-key">“Check whether the device meets this requirement.”</div>
+        <p>For example:</p>
+        <p>A configuration policy may configure BitLocker.</p>
+        <p>A compliance policy may check whether encryption is enabled.</p>
+        <p>These are different functions.</p>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-18">
+        <h2><span class="study-number">18</span>Compliance Policies</h2>
+        <p>I created Windows compliance policies.</p>
+        <p>I evaluated security requirements such as:</p>
+        <ul>
+            <li>BitLocker</li>
+            <li>Secure Boot</li>
+            <li>Firewall</li>
+            <li>Antivirus</li>
+            <li>Antispyware</li>
+            <li>Other device security requirements</li>
+        </ul>
+        <p>A device can therefore be evaluated as:</p>
+        <div class="study-key">Compliant</div>
+        <p>or</p>
+        <div class="study-key">Noncompliant</div>
+        <p>Compliance by itself is primarily an evaluation signal.</p>
+        <p>Its real power becomes clearer when combined with Conditional Access.</p>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-19">
+        <h2><span class="study-number">19</span>BitLocker</h2>
+        <p>I configured and verified BitLocker in my Windows lab.</p>
+        <p>I worked with:</p>
+        <ul>
+            <li>TPM</li>
+            <li>BitLocker encryption</li>
+            <li>XTS-AES</li>
+            <li>Recovery information</li>
+            <li>Compliance requirements</li>
+            <li>Local verification using Windows tools</li>
+        </ul>
+        <p>I learned an important security principle:</p>
+        <div class="study-key">Remote management actions should not be considered a substitute for encryption.</div>
+        <p>If sensitive information is stored on an endpoint, BitLocker should already be protecting the data before a device is lost or stolen.</p>
+        <p>The security model should not depend on successfully sending a remote wipe command after the incident.</p>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-20">
+        <h2><span class="study-number">20</span>Windows Update Rings</h2>
+        <p>I created a Windows Update Ring and observed policy deployment to the managed Windows device.</p>
+        <p>This helped me understand how Intune can centrally control Windows servicing behavior instead of technicians manually updating individual endpoints.</p>
+        <p>The broader operational concept is:</p>
+        <div class="study-flow">Central policy → Controlled update behavior → Endpoint reporting → Reduced configuration drift</div>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-21">
+        <h2><span class="study-number">21</span>Device Ownership</h2>
+        <p>I learned the importance of distinguishing:</p>
+        <div class="study-key">Corporate-owned</div>
+        <p>from</p>
+        <div class="study-key">Personally-owned</div>
+        <p>devices.</p>
+        <p>Intune can classify devices as Personal or Corporate.</p>
+        <p>This classification can then influence:</p>
+        <ul>
+            <li>Enrollment</li>
+            <li>Configuration</li>
+            <li>Application assignment</li>
+            <li>Security requirements</li>
+            <li>Compliance</li>
+            <li>Access</li>
+        </ul>
+        <p>I also learned that organizations should establish reliable mechanisms for identifying corporate devices rather than simply assuming every enrolled endpoint is corporate.</p>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-22">
+        <h2><span class="study-number">22</span>Corporate Device Identification</h2>
+        <p>Windows Autopilot registration is one strong mechanism for establishing that a Windows computer belongs to the organization.</p>
+        <p>In a real enterprise environment, an OEM or reseller may register corporate devices before they reach the employee.</p>
+        <p>Therefore the organization already has knowledge of the device before the employee begins using it.</p>
+        <p>This creates a much stronger trust model than simply allowing any Windows computer to enroll.</p>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-23">
+        <h2><span class="study-number">23</span>BYOD Enrollment Restrictions</h2>
+        <p>I created Windows enrollment restrictions for a BYOD scenario.</p>
+        <p>The default policy was designed to block personally-owned Windows enrollment.</p>
+        <p>I then created a controlled exception for a specific user/group.</p>
+        <p>The concept was:</p>
+        <div class="study-flow">Default position → Personal devices blocked</div>
+        <div class="study-flow">Approved exception → Personal enrollment permitted</div>
+        <p>This taught me that BYOD should not simply mean:</p>
+        <blockquote class="study-quote">“Anyone can enroll any personal computer.”</blockquote>
+        <p>Instead, enrollment should be deliberately controlled.</p>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-24">
+        <h2><span class="study-number">24</span>Enrollment Restriction Priority</h2>
+        <p>I learned that enrollment restrictions have priority.</p>
+        <p>A specific exception policy can have a higher priority than the default restriction.</p>
+        <p>Conceptually:</p>
+        <div class="study-flow">Priority 1 — Approved BYOD exception ↓ Default — Personal Windows devices blocked</div>
+        <p>This allows an organization to maintain a restrictive default while supporting documented exceptions.</p>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-25">
+        <h2><span class="study-number">25</span>Assignment Filters</h2>
+        <p>I created an Intune Assignment Filter based on device ownership.</p>
+        <p>The filter used the concept:</p>
+        <p><code>deviceOwnership = Personal</code></p>
+        <p>This allowed policies to distinguish personal devices from corporate devices without creating unnecessary additional groups for every assignment scenario.</p>
+        <p>I learned that a filter does not decide whether a device is Personal by itself.</p>
+        <p>It evaluates an attribute that Intune already knows about the device.</p>
+        <p>Conceptually:</p>
+        <div class="study-flow">Device enrolled → Intune determines/records ownership → Ownership attribute = Personal → Assignment filter evaluates the attribute → BYOD-specific policy applies</div>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-26">
+        <h2><span class="study-number">26</span>Designing a Restricted BYOD Model</h2>
+        <p>Instead of treating BYOD as equivalent to a corporate computer, I designed the scenario around <strong>minimum necessary access</strong>.</p>
+        <p>The security philosophy was:</p>
+        <blockquote class="study-quote">A personal computer should receive only the access and configuration required for the approved business purpose.</blockquote>
+        <p>For a highly restricted scenario, a personal endpoint might only be allowed to access specific remote-work resources such as a VPN and virtual desktop environment rather than storing sensitive corporate information locally.</p>
+        <p>This follows the principle of minimizing corporate data exposure on unmanaged or personally-owned hardware.</p>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-27">
+        <h2><span class="study-number">27</span>Conditional Access</h2>
+        <p>I created a Conditional Access policy requiring a compliant device to access a selected Microsoft 365 resource.</p>
+        <p>This connected several previously separate concepts:</p>
+        <div class="study-flow">Identity → Device → Compliance → Application = Access decision</div>
+        <p>This was one of the most important parts of the lab because it demonstrated how Intune and Entra ID work together.</p>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-28">
+        <h2><span class="study-number">28</span>Configuration → Compliance → Conditional Access</h2>
+        <p>I use this simple model to remember the relationship:</p>
+        <h3>Configuration</h3>
+        <div class="study-key">Do this.</div>
+        <h3>Compliance</h3>
+        <div class="study-key">Are you meeting the requirement?</div>
+        <h3>Conditional Access</h3>
+        <div class="study-key">Based on those signals, should access be allowed?</div>
+        <p>For example:</p>
+        <div class="study-flow">Intune configuration → security settings applied</div>
+        <div class="study-flow">Compliance policy → endpoint evaluated</div>
+        <div class="study-flow">Conditional Access → compliant device required</div>
+        <div class="study-flow">Microsoft 365 → access allowed or denied</div>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-29">
+        <h2><span class="study-number">29</span>Conditional Access Report-Only Mode</h2>
+        <p>I tested Conditional Access in <strong>Report-only</strong> mode before enforcing the policy.</p>
+        <p>This is an important operational practice.</p>
+        <p>Instead of immediately blocking users, Report-only allows IT to evaluate what the policy <strong>would have done</strong>.</p>
+        <p>This reduces the risk of accidentally locking out legitimate users.</p>
+        <p>The workflow is:</p>
+        <div class="study-flow">Create policy → Report-only → Test → Review Sign-in Logs → Confirm expected behavior → Adjust policy if necessary → Enforce only after validation</div>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-30">
+        <h2><span class="study-number">30</span>Conditional Access — Compliant Device Test</h2>
+        <p>I tested access from a recognized compliant device.</p>
+        <p>The Sign-in Logs showed that the Conditional Access policy matched and the required grant control was satisfied.</p>
+        <p>This demonstrated that a compliant, recognized endpoint could satisfy the device requirement.</p>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-31">
+        <h2><span class="study-number">31</span>Conditional Access — Unknown Device Test</h2>
+        <p>I then tested access from another Windows computer that had not been enrolled as the managed BYOD device.</p>
+        <p>The Sign-in Log showed:</p>
+        <div class="study-key">Device: Unknown</div>
+        <p>and:</p>
+        <div class="study-key">Grant Controls: Not satisfied</div>
+        <p>because the policy required a compliant device.</p>
+        <p>Since the policy was still in Report-only mode, the user could still sign in.</p>
+        <p>However, the log showed that the policy would have blocked the access if it had been enforced.</p>
+        <p>This gave me practical experience interpreting Conditional Access results rather than only configuring the policy.</p>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-32">
+        <h2><span class="study-number">32</span>Reading Conditional Access Sign-in Logs</h2>
+        <p>When troubleshooting Conditional Access, I learned to review the individual components of the sign-in event.</p>
+        <p>I look at:</p>
+        <ul>
+            <li>User</li>
+            <li>Target resource</li>
+            <li>Device platform</li>
+            <li>Device identity</li>
+            <li>Client application</li>
+            <li>Conditions</li>
+            <li>Grant controls</li>
+            <li>Policy result</li>
+        </ul>
+        <p>This allows me to answer:</p>
+        <div class="study-key">Did the policy apply?</div>
+        <p>and then:</p>
+        <div class="study-key">Why did it succeed or fail?</div>
+        <p>This is much more useful than simply seeing that a user “cannot log in.”</p>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-33">
+        <h2><span class="study-number">33</span>Device = Unknown</h2>
+        <p>A particularly useful lesson was understanding:</p>
+        <div class="study-key">Device: Unknown</div>
+        <p>This does not simply mean:</p>
+        <div class="study-key">“The device is noncompliant.”</div>
+        <p>It can mean that Entra Conditional Access cannot identify a managed device identity for that sign-in.</p>
+        <p>Therefore there is an important troubleshooting distinction between:</p>
+        <div class="study-key">Known device + Noncompliant</div>
+        <p>and</p>
+        <div class="study-key">Unknown device + Compliance cannot be established</div>
+        <p>Both may fail a “Require compliant device” control, but for different reasons.</p>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-34">
+        <h2><span class="study-number">34</span>MFA</h2>
+        <p>I configured MFA for administrative/user accounts in the lab.</p>
+        <p>I learned that the important support concept is not memorizing every screen of an Authenticator registration wizard.</p>
+        <p>The important concepts are:</p>
+        <ul>
+            <li>User identity</li>
+            <li>Authentication method registration</li>
+            <li>QR-code-based Authenticator enrollment</li>
+            <li>MFA challenge</li>
+            <li>Lost/replaced device scenarios</li>
+            <li>Re-registration</li>
+            <li>Conditional Access interaction</li>
+        </ul>
+        <p>As an IT support technician, I need to understand the workflow and be able to troubleshoot where the authentication process is failing.</p>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-35">
+        <h2><span class="study-number">35</span>Remote Device Actions</h2>
+        <p>I explored several Intune remote device actions.</p>
+        <p>These included concepts such as:</p>
+        <ul>
+            <li>Sync</li>
+            <li>Restart</li>
+            <li>Retire</li>
+            <li>Wipe</li>
+            <li>Delete</li>
+            <li>Fresh Start</li>
+            <li>Autopilot Reset</li>
+        </ul>
+        <p>The major lesson was that these actions have <strong>very different operational purposes</strong>.</p>
+        <p>They should never be treated as interchangeable “reset” buttons.</p>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-36">
+        <h2><span class="study-number">36</span>Sync</h2>
+        <p>Sync requests that the managed endpoint check in with Intune and retrieve current policy.</p>
+        <p>This can be useful when:</p>
+        <ul>
+            <li>A new application has been assigned</li>
+            <li>A policy has changed</li>
+            <li>Compliance needs to be reevaluated</li>
+            <li>Troubleshooting delayed policy delivery</li>
+        </ul>
+        <p>However, I also learned that cloud management is not always instantaneous.</p>
+        <p>Assignments and device state can take time to propagate.</p>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-37">
+        <h2><span class="study-number">37</span>Restart</h2>
+        <p>A remote restart can be useful operationally, but user impact must be considered.</p>
+        <p>In a production environment, especially a mission-critical environment, IT should understand:</p>
+        <ul>
+            <li>Who is using the computer?</li>
+            <li>What application is running?</li>
+            <li>Can the operation be interrupted?</li>
+            <li>Has the user been notified?</li>
+            <li>Is there a maintenance window?</li>
+        </ul>
+        <p>Technical capability does not automatically mean that an action should be executed immediately.</p>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-38">
+        <h2><span class="study-number">38</span>Autopilot Reset</h2>
+        <p>I tested Autopilot Reset.</p>
+        <p>The goal of Autopilot Reset is to prepare an existing corporate Autopilot device for reuse while maintaining its organizational provisioning relationship.</p>
+        <p>Conceptually:</p>
+        <div class="study-flow">Existing corporate device → Reset → User-specific state removed → Corporate provisioning retained → Device prepared for another user</div>
+        <p>However, the lab also showed me important operational limitations.</p>
+        <p>The reset can be disruptive, and once initiated, IT must carefully consider the user experience and physical device state.</p>
+        <p>A remote reset should therefore be treated as a controlled operational change, not a casual help-desk action.</p>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-39">
+        <h2><span class="study-number">39</span>Operational Lesson from Autopilot Reset</h2>
+        <p>One of my biggest lessons from testing Autopilot Reset was:</p>
+        <blockquote class="study-quote"><strong>Endpoint management is not only about whether a command technically works. It is also about whether the action is operationally appropriate.</strong></blockquote>
+        <p>Before resetting a production computer, I would want to verify:</p>
+        <ul>
+            <li>Correct asset/device</li>
+            <li>Correct user</li>
+            <li>User has saved work</li>
+            <li>Required data is synchronized</li>
+            <li>Business operation can tolerate the interruption</li>
+            <li>Recovery/provisioning requirements are understood</li>
+            <li>Someone can intervene locally if necessary</li>
+        </ul>
+        <p>This is especially important in mission-critical environments.</p>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-40">
+        <h2><span class="study-number">40</span>Fresh Start</h2>
+        <p>I learned that Fresh Start and Autopilot Reset serve different purposes.</p>
+        <p>Fresh Start is generally associated with reinstalling/refeshing Windows while removing unnecessary software and retaining the device's management relationship.</p>
+        <p>Autopilot Reset is more specifically associated with returning an existing managed Autopilot endpoint to a reusable organizational state.</p>
+        <p>The correct choice depends on the business objective.</p>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-41">
+        <h2><span class="study-number">41</span>Retire</h2>
+        <p>Retire is particularly important for BYOD.</p>
+        <p>The goal is to remove the organization's management relationship and managed corporate data/settings where supported without treating the employee's personal computer as corporate property.</p>
+        <p>Conceptually:</p>
+        <div class="study-flow">Employee personal device → Intune enrollment → Business use → Employee leaves / BYOD access ends → Retire → Corporate management removed → Personal device remains</div>
+        <p>This is fundamentally different from wiping a corporate computer.</p>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-42">
+        <h2><span class="study-number">42</span>Wipe</h2>
+        <p>Wipe is a much more destructive action.</p>
+        <p>It is appropriate for scenarios where the organization intends to reset the device rather than simply remove management.</p>
+        <p>I also learned an important security limitation:</p>
+        <blockquote class="study-quote"><strong>Remote wipe should not automatically be treated as forensic-grade data sanitization.</strong></blockquote>
+        <p>For highly sensitive corporate assets being disposed of, the organization should follow its formal media sanitization and disposal policy.</p>
+        <p>BitLocker encryption, secure handling, and appropriate storage-media destruction or sanitization procedures remain important.</p>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-43">
+        <h2><span class="study-number">43</span>Delete</h2>
+        <p>Deleting a device record and sanitizing the physical storage device are different operations.</p>
+        <p>Deleting a management record does not mean that the storage media has been securely erased.</p>
+        <p>This distinction is critical:</p>
+        <div class="study-key">Management-plane cleanup ≠ Data sanitization</div>
+        <p>A device can disappear from a management console while data still physically exists on the endpoint.</p>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-44">
+        <h2><span class="study-number">44</span>Security Lesson: Encryption Before Loss</h2>
+        <p>My previous operational experience strongly influenced how I think about this.</p>
+        <p>The best time to protect data is <strong>before a laptop disappears</strong>.</p>
+        <p>Therefore an enterprise should continuously enforce and monitor security controls such as:</p>
+        <ul>
+            <li>BitLocker</li>
+            <li>Appropriate authentication</li>
+            <li>Secure Boot</li>
+            <li>Firewall</li>
+            <li>Endpoint protection</li>
+            <li>Compliance</li>
+        </ul>
+        <p>The security strategy should not begin after somebody reports:</p>
+        <blockquote class="study-quote">“The laptop has been stolen.”</blockquote>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-45">
+        <h2><span class="study-number">45</span>Device Lifecycle</h2>
+        <p>After working through these features, I now think about endpoint management as a complete lifecycle:</p>
+        <div class="study-flow">Procurement ↓ Corporate device identification ↓ Autopilot registration ↓ Enrollment ↓ Entra identity ↓ Intune management ↓ Configuration ↓ Application deployment ↓ Security ↓ Compliance ↓ Conditional Access ↓ Monitoring and support ↓ Reassignment / Retirement / Disposal</div>
+        <p>This is much more useful than learning individual Intune menu items independently.</p>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-46">
+        <h2><span class="study-number">46</span>Troubleshooting Method</h2>
+        <p>I try to troubleshoot Intune problems by determining <strong>which layer failed</strong>.</p>
+        <p>For example, if an application does not appear:</p>
+        <div class="study-key">1. Identity</div>
+        <ul>
+            <li>Is the correct user signed in?</li>
+        </ul>
+        <div class="study-key">2. Enrollment</div>
+        <ul>
+            <li>Is the endpoint actually enrolled?</li>
+        </ul>
+        <div class="study-key">3. Device identity</div>
+        <ul>
+            <li>Is the correct device visible in Entra and Intune?</li>
+        </ul>
+        <div class="study-key">4. Assignment</div>
+        <ul>
+            <li>Is the user/device in the correct group?</li>
+        </ul>
+        <div class="study-key">5. Filter</div>
+        <ul>
+            <li>Does the assignment filter match?</li>
+        </ul>
+        <div class="study-key">6. Policy delivery</div>
+        <ul>
+            <li>Has the endpoint checked in?</li>
+        </ul>
+        <div class="study-key">7. Applicability</div>
+        <ul>
+            <li>Does the endpoint meet the requirements?</li>
+        </ul>
+        <div class="study-key">8. Installation</div>
+        <ul>
+            <li>Did the installer execute?</li>
+        </ul>
+        <div class="study-key">9. Detection</div>
+        <ul>
+            <li>Does Intune recognize the application afterward?</li>
+        </ul>
+        <div class="study-key">10. Reporting</div>
+        <ul>
+            <li>What does Intune report?</li>
+        </ul>
+        <div class="study-key">11. Local logs</div>
+        <ul>
+            <li>What does the Intune Management Extension say actually happened?</li>
+        </ul>
+        <p>This prevents me from immediately assuming that “Intune is broken.”</p>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-47">
+        <h2><span class="study-number">47</span>Troubleshooting Conditional Access</h2>
+        <p>For an access problem, I use a similar layered approach:</p>
+        <div class="study-flow">User ↓ Authentication ↓ Target resource ↓ Conditional Access policy matching ↓ Device identity ↓ Compliance state ↓ Grant controls ↓ Final access decision</div>
+        <p>The Sign-in Logs are particularly important because they show how Entra evaluated the sign-in.</p>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-48">
+        <h2><span class="study-number">48</span>Traditional AD Knowledge and Modern Management</h2>
+        <p>My professional background gives me experience with traditional enterprise endpoint management concepts such as:</p>
+        <ul>
+            <li>Active Directory users</li>
+            <li>Security groups</li>
+            <li>Access permissions</li>
+            <li>Domain environments</li>
+            <li>Windows support</li>
+            <li>Imaging</li>
+            <li>Endpoint deployment</li>
+            <li>Network troubleshooting</li>
+            <li>Enterprise application support</li>
+        </ul>
+        <p>The Intune/Entra lab is helping me connect that experience with modern endpoint management.</p>
+        <p>For example:</p>
+        <div class="study-key">Traditional</div>
+        <ul>
+            <li>Domain Join</li>
+            <li>AD users/computers</li>
+            <li>Security groups</li>
+            <li>GPO</li>
+            <li>Imaging</li>
+        </ul>
+        <div class="study-key">Modern</div>
+        <ul>
+            <li>Entra Join</li>
+            <li>Entra users/devices</li>
+            <li>Entra groups</li>
+            <li>Intune configuration</li>
+            <li>Windows Autopilot</li>
+        </ul>
+        <p>I understand that these are not exact one-to-one replacements, but the comparison helps connect my existing operational experience to modern management.</p>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-49">
+        <h2><span class="study-number">49</span>What I Can Accurately Say in an Interview</h2>
+        <p>I should NOT say:</p>
+        <blockquote class="study-quote">“I have production Intune administration experience.”</blockquote>
+        <p>That would overstate my experience.</p>
+        <p>A more accurate answer is:</p>
+        <blockquote class="study-quote"><strong>“My production endpoint support experience has primarily been in traditional Active Directory-based enterprise environments. More recently, I built my own Microsoft 365 Business Premium lab to develop hands-on experience with Microsoft Entra ID and Intune. I have enrolled and managed Windows devices, deployed applications and configuration profiles, configured BitLocker and compliance policies, built a Windows Autopilot deployment, worked with enrollment restrictions and device ownership, and tested Conditional Access using actual Entra sign-in logs. So while I am still developing production experience with Intune, I now have hands-on familiarity with how the major components work together.”</strong></blockquote>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-50">
+        <h2><span class="study-number">50</span>Short Interview Answer — “What is Intune?”</h2>
+        <blockquote class="study-quote"><strong>“Microsoft Intune is a cloud-based endpoint management platform. I think of it in terms of the complete device lifecycle: enrollment, configuration, application deployment, security, compliance, remote management, and eventually retirement or reprovisioning. It also integrates with Entra ID and Conditional Access, so the state of a device can become part of the decision about whether a user should be allowed to access corporate resources.”</strong></blockquote>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-51">
+        <h2><span class="study-number">51</span>Short Interview Answer — “What is Entra ID?”</h2>
+        <blockquote class="study-quote"><strong>“Microsoft Entra ID is Microsoft's cloud identity and access management platform. It manages identities such as users, groups, and devices and provides authentication and access-control capabilities. In my lab, I used Entra ID together with Intune for device identity, MFA, groups, and Conditional Access. My professional background is primarily with traditional Active Directory, so I also understand that Entra ID and AD DS are related identity technologies but are not the same thing.”</strong></blockquote>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-52">
+        <h2><span class="study-number">52</span>Short Interview Answer — “Explain Autopilot”</h2>
+        <blockquote class="study-quote"><strong>“Windows Autopilot is a cloud-based Windows provisioning technology. Instead of IT manually imaging every computer, a corporate device can be registered with Autopilot, often by the OEM or reseller. When the user powers on the device and goes through OOBE, the device can receive the organization's deployment profile, join Entra ID, enroll into Intune, and receive the required applications and policies.”</strong></blockquote>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-53">
+        <h2><span class="study-number">53</span>Short Interview Answer — “Configuration vs. Compliance vs. Conditional Access”</h2>
+        <blockquote class="study-quote"><strong>“I think of configuration as ‘Do this,’ compliance as ‘Are you meeting the requirement?’ and Conditional Access as ‘Based on that information, should you be allowed to access the resource?’ For example, Intune can configure security settings, a compliance policy can evaluate the endpoint, and Conditional Access can require that compliant state before allowing access to Microsoft 365.”</strong></blockquote>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-54">
+        <h2><span class="study-number">54</span>Short Interview Answer — “How Would You Troubleshoot Intune?”</h2>
+        <blockquote class="study-quote"><strong>“I would first determine which layer is failing instead of immediately changing settings. I would verify enrollment and device identity, then check group membership, assignments and filters, policy status, and the device's last check-in. For application deployment I would also check applicability, installation status, detection rules, and the Intune Management Extension logs on the endpoint. For access issues involving Conditional Access, I would use the Entra Sign-in Logs to determine exactly which condition or grant control was not satisfied.”</strong></blockquote>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+    <section class="panel study-section" id="study-55">
+        <h2><span class="study-number">55</span>Most Important Lessons from the Lab</h2>
+        <p>The biggest lesson I learned is that Intune is not a collection of isolated buttons.</p>
+        <p>The components form a system:</p>
+        <div class="study-key">Entra ID establishes identity.</div>
+        <div class="study-key">Autopilot establishes the provisioning workflow.</div>
+        <div class="study-key">Intune manages the endpoint.</div>
+        <div class="study-key">Configuration defines the desired state.</div>
+        <div class="study-key">Applications provide the required software.</div>
+        <div class="study-key">Compliance evaluates security posture.</div>
+        <div class="study-key">Conditional Access uses identity and device signals to protect resources.</div>
+        <div class="study-key">Logs and reporting explain what actually happened.</div>
+        <div class="study-key">Lifecycle actions determine what happens when the device changes users, leaves management, or must be rebuilt.</div>
+        <p>And most importantly:</p>
+        <blockquote class="study-quote"><strong>Good endpoint management is not just about making a technical command work. It is about protecting the organization while minimizing disruption to the user and the business operation.</strong></blockquote>
+        <a class="study-back-top" href="#study-top">Back to top ↑</a>
+    </section>
+
+</article>
+{% endblock %}

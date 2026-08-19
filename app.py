@@ -82,7 +82,7 @@ def import_inventory():
 
 @app.route("/")
 def home():
-    return redirect("/dashboard")
+    return redirect("/readme")
 
 
 @app.route("/dashboard")
@@ -134,6 +134,14 @@ def support_philosophy():
     return render_template(
         "support_philosophy.html",
         active_page="support_philosophy",
+    )
+
+
+@app.route("/entra-intune")
+def entra_intune():
+    return render_template(
+        "entra_intune.html",
+        active_page="entra_intune",
     )
 
 
