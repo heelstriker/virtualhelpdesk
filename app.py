@@ -137,6 +137,14 @@ def support_philosophy():
     )
 
 
+@app.route("/knowledge-base")
+def knowledge_base():
+    return render_template(
+        "knowledge_base.html",
+        active_page="knowledge_base",
+    )
+
+
 @app.route("/entra-intune")
 def entra_intune():
     return render_template(

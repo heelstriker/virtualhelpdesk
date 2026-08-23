@@ -1,0 +1,195 @@
+{% extends "base.html" %}
+
+{% block title %}Knowledge Base - VirtualHelpDesk{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='src/css/knowledge_base.css') }}">
+{% endblock %}
+
+{% block content %}
+<article class="kb-shell">
+    <header class="panel kb-hero">
+        <p class="kb-eyebrow">VirtualHelpDesk · Knowledge Operations Concept</p>
+        <h1>Support Knowledge Base</h1>
+        <p class="kb-subtitle">From Support Experience to Organizational Capability</p>
+        <p class="kb-intro">This knowledge base approach turns day-to-day IT support experience into reusable operational knowledge—helping an organization prevent issues, standardize support, reduce repetitive work, and scale more effectively.</p>
+        <p class="kb-scope"><strong>Concept scope:</strong> This is a curated Knowledge Operations model built from hands-on support experience. It is presented separately from the VirtualHelpDesk database and does not claim live ticket-pattern detection or automated incident analysis.</p>
+    </header>
+
+    <section class="panel">
+        <h2 class="kb-section-title">The Knowledge Loop</h2>
+        <p class="kb-section-intro">Closing a ticket restores service. Learning from it gives the organization a better chance of avoiding the same work next time.</p>
+        <ol class="kb-loop" aria-label="Knowledge lifecycle">
+            <li>Incident</li>
+            <li>Pattern</li>
+            <li>Root Cause</li>
+            <li>Resolution</li>
+            <li>Validation</li>
+            <li>Prevention</li>
+            <li>Documentation</li>
+            <li>Team Standard</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="knowledge-pillars-title">
+        <h2 class="kb-section-title" id="knowledge-pillars-title">Four Knowledge Operations Pillars</h2>
+        <p class="kb-section-intro">The ten capability areas are organized around learning, reachability, repeatable execution, and awareness of the wider environment.</p>
+
+        <div class="kb-pillars">
+            <section class="panel kb-pillar">
+                <p class="kb-pillar-number">Pillar 01</p>
+                <h2>Learn from Incidents</h2>
+                <p>Treat every resolved incident as potential evidence about a larger pattern.</p>
+
+                <article class="kb-capability">
+                    <h3>Incident Pattern Detection</h3>
+                    <p>Identify recurring failure patterns instead of treating every ticket as an isolated event.</p>
+                    <ul>
+                        <li>Repeated .NET or Java dependency issues</li>
+                        <li>Similar VPN failures following an update</li>
+                        <li>Hardware failures concentrated in one device model</li>
+                        <li>Recurring Wi-Fi or docking-station incidents</li>
+                    </ul>
+                    <div class="kb-flow">Move from “We resolved 50 tickets” to “Why did the same issue generate 50 tickets?”</div>
+                </article>
+
+                <article class="kb-capability">
+                    <h3>Preventive Problem Management</h3>
+                    <p>Convert incident history into preventive action. A recurring dependency, configuration, or deployment issue should inform the standard environment before more users encounter it.</p>
+                    <div class="kb-flow">Incident → Pattern → Root Cause → Preventive Action</div>
+                </article>
+
+                <article class="kb-capability">
+                    <h3>Knowledge Gap Detection</h3>
+                    <p>Repeatedly answering the same question is evidence that useful knowledge may exist only in people’s heads. The repetition itself should trigger creation or revision of a knowledge article.</p>
+                </article>
+            </section>
+
+            <section class="panel kb-pillar">
+                <p class="kb-pillar-number">Pillar 02</p>
+                <h2>Make Knowledge Reachable</h2>
+                <p>Not everyone needs to know everything, but organizational knowledge should be reachable by everyone who needs it.</p>
+
+                <article class="kb-capability">
+                    <h3>Knowledge Network</h3>
+                    <p>For a given issue, make the most useful resources easy to find:</p>
+                    <ul>
+                        <li>Relevant knowledge articles and similar incidents</li>
+                        <li>Known workarounds and first troubleshooting steps</li>
+                        <li>Escalation criteria</li>
+                        <li>The responsible team or subject-matter expert</li>
+                    </ul>
+                </article>
+
+                <article class="kb-capability">
+                    <h3>Process Standardization</h3>
+                    <p>Small improvements created by individual engineers should be reusable across the organization: build checklists, validation steps, troubleshooting procedures, deployment workflows, escalation templates, and user communications.</p>
+                    <div class="kb-flow">Individual Practice → Team Standard → Organizational Process</div>
+                </article>
+            </section>
+
+            <section class="panel kb-pillar">
+                <p class="kb-pillar-number">Pillar 03</p>
+                <h2>Validate and Scale Operations</h2>
+                <p>Completion should be based on verified readiness, not on a task merely being marked complete.</p>
+
+                <article class="kb-capability">
+                    <h3>Deployment Readiness and Validation</h3>
+                    <p>A reusable endpoint-readiness checklist should cover:</p>
+                    <ul>
+                        <li>Asset registration, hostname, identity, and network settings</li>
+                        <li>Required applications, encryption, and compliance</li>
+                        <li>User data, accessories, and connectivity</li>
+                        <li>User confirmation, exceptions, and unresolved items</li>
+                    </ul>
+                    <div class="kb-flow">Distinguish “task completed” from “user ready to work.”</div>
+                </article>
+
+                <article class="kb-capability">
+                    <h3>Onboarding and Endpoint Lifecycle Readiness</h3>
+                    <p>Provide visibility across the complete employee and device lifecycle.</p>
+                    <div class="kb-flow">Onboarding: Identity → Groups → License → Device → Applications → Security → Compliance → Access → Day 1 Validation</div>
+                    <div class="kb-flow">Role Change: New Role → Access → Groups → Applications → Device Requirements</div>
+                    <div class="kb-flow">Offboarding: Disable Identity → Revoke Access → Recover Licenses → Return Device → Retain or Transfer Data → Update Assets</div>
+                </article>
+            </section>
+
+            <section class="panel kb-pillar">
+                <p class="kb-pillar-number">Pillar 04</p>
+                <h2>See the Whole Environment</h2>
+                <p>Endpoint symptoms often reflect procurement, infrastructure, deployment, or shared-service decisions.</p>
+
+                <article class="kb-capability">
+                    <h3>Hardware Quality and Hidden Support Cost</h3>
+                    <p>Evaluate devices, peripherals, drivers, and configurations by total lifecycle cost—not purchase price alone. Support time, replacements, shipping, user downtime, and reduced satisfaction are real operational costs.</p>
+                    <ul>
+                        <li>Laptop models with repeated keyboard or touchpad complaints</li>
+                        <li>Docks associated with frequent display failures</li>
+                        <li>Peripherals with unusually high replacement rates</li>
+                        <li>Driver versions linked to recurring connectivity problems</li>
+                    </ul>
+                </article>
+
+                <article class="kb-capability">
+                    <h3>Infrastructure Awareness</h3>
+                    <p>When many endpoints fail together, investigate shared dependencies such as network capacity, deployment timing, update rings, site conditions, DNS, authentication, and internet connectivity—not only the endpoint.</p>
+                </article>
+
+                <article class="kb-capability">
+                    <h3>Proactive Monitoring and Rapid Detection</h3>
+                    <p>Make distributed health easier to check: connectivity, site status, endpoint availability, common dependencies, recent changes, and known outages.</p>
+                    <div class="kb-flow">Faster Detection → Faster Investigation → Faster Escalation → Better Communication → Faster Recovery</div>
+                </article>
+            </section>
+        </div>
+    </section>
+
+    <section class="panel">
+        <h2 class="kb-section-title">A Reusable Knowledge Article</h2>
+        <p class="kb-section-intro">An experience becomes organizational knowledge when another technician can understand the context, act safely, validate the outcome, and know when to escalate.</p>
+        <ol class="kb-article-model">
+            <li>Symptom / Trigger</li>
+            <li>Business Impact</li>
+            <li>Scope and Environment</li>
+            <li>Known Pattern</li>
+            <li>Immediate Safe Workaround</li>
+            <li>Diagnostic Path</li>
+            <li>Resolution</li>
+            <li>Validation</li>
+            <li>Prevention / Standardization</li>
+            <li>Escalation Criteria / Owner</li>
+            <li>Related Knowledge</li>
+            <li>Source and Last Validated</li>
+        </ol>
+    </section>
+
+    <section class="panel">
+        <h2 class="kb-section-title">Knowledge Already Inside VirtualHelpDesk</h2>
+        <p class="kb-section-intro">The Knowledge Base does not replace existing material. It provides the operational layer that connects experience, detailed evidence, lab learning, and support principles.</p>
+        <div class="kb-source-links">
+            <a class="kb-source-link" href="{{ url_for('field_notes') }}">
+                <strong>Field Notes</strong>
+                <span>Short practical lessons drawn from troubleshooting and operations.</span>
+            </a>
+            <a class="kb-source-link" href="{{ url_for('case_studies') }}">
+                <strong>Case Studies</strong>
+                <span>Complete incident and project narratives with actions and outcomes.</span>
+            </a>
+            <a class="kb-source-link" href="{{ url_for('entra_intune') }}">
+                <strong>Entra &amp; Intune Study Log</strong>
+                <span>Hands-on lab validation across identity and endpoint lifecycle management.</span>
+            </a>
+            <a class="kb-source-link" href="{{ url_for('support_philosophy') }}">
+                <strong>Support Philosophy</strong>
+                <span>The principles guiding ownership, trust, collaboration, and scale.</span>
+            </a>
+        </div>
+    </section>
+
+    <footer class="panel kb-manifesto">
+        <p class="kb-manifesto-primary">Solve it. Understand it. Prevent it. Document it. Share it. Standardize it. Scale it.</p>
+        <p class="kb-manifesto-secondary">Don’t just close the ticket. Learn something from it.</p>
+        <p class="kb-manifesto-copy">The goal is not simply to make technicians work faster. It is to help an IT organization become more effective by reducing unnecessary work, preserving knowledge, preventing repeat incidents, and turning individual experience into organizational capability.</p>
+    </footer>
+</article>
+{% endblock %}
