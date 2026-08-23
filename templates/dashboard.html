@@ -3,12 +3,15 @@
 {% block title %}Dashboard - VirtualHelpDesk{% endblock %}
 
 {% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='src/css/project_nav.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='src/css/dashboard.css') }}">
 {% endblock %}
 
 {% block content %}
 
 <div class="container">
+
+    {% include "partials/_project_nav.html" %}
 
     <h1>VirtualHelpDesk</h1>
 
@@ -20,6 +23,59 @@
 
 <h2>Operations Center</h2>
 <p>Real-time Endpoint Monitoring & Compliance Dashboard</p>
+
+<section class="readiness-section" aria-labelledby="event-readiness-heading">
+    <div class="readiness-heading">
+        <div>
+            <p class="readiness-eyebrow">Intune-inspired simulation</p>
+            <h2 id="event-readiness-heading">Event Readiness — 50 Endpoint Check</h2>
+            <p>Required applications, applicable patches, operating system, and endpoint status are combined into a simple pre-event operational view. This demonstrates the workflow without claiming a live Microsoft Intune connection.</p>
+        </div>
+    </div>
+
+    <div class="readiness-summary" aria-label="Event readiness totals">
+        <div class="readiness-stat"><strong>{{ event_readiness.total }}</strong><span>Evaluated</span></div>
+        <div class="readiness-stat ready"><strong>{{ event_readiness.ready }}</strong><span>Ready</span></div>
+        <div class="readiness-stat attention"><strong>{{ event_readiness.attention }}</strong><span>Needs Attention</span></div>
+        <div class="readiness-stat blocked"><strong>{{ event_readiness.blocked }}</strong><span>Blocked</span></div>
+    </div>
+
+    <details class="readiness-details">
+        <summary>Review endpoint readiness</summary>
+        <div class="readiness-controls">
+            <label>Search endpoints
+                <input type="search" id="readinessSearch" placeholder="Hostname, owner, team, site, OS">
+            </label>
+            <label>Status
+                <select id="readinessStatus">
+                    <option value="all">All statuses</option>
+                    <option value="blocked">Blocked</option>
+                    <option value="needs-attention">Needs Attention</option>
+                    <option value="ready">Ready</option>
+                </select>
+            </label>
+            <span id="readinessVisibleCount" class="readiness-count" aria-live="polite"></span>
+        </div>
+        <div class="readiness-table-wrap">
+            <table class="readiness-table">
+                <thead><tr><th>Endpoint</th><th>Team / Site</th><th>Readiness</th><th>Observed reason</th><th>Required Apps</th><th>Patches</th><th>OS</th></tr></thead>
+                <tbody id="readinessRows">
+                {% for device in event_readiness.devices %}
+                    <tr data-status="{{ device.readiness|lower|replace(' ', '-') }}" data-search="{{ device.search_text }}">
+                        <td><a href="{{ url_for('device_detail', hostname=device.hostname) }}">{{ device.hostname }}</a><small>{{ device.owner }}</small></td>
+                        <td>{{ device.department }}<small>{{ device.location }}</small></td>
+                        <td><span class="readiness-badge {{ device.readiness|lower|replace(' ', '-') }}">{{ device.readiness }}</span></td>
+                        <td>{{ device.reasons|join('; ') }}</td>
+                        <td>{{ device.required_total - device.required_missing }}/{{ device.required_total }} present</td>
+                        <td>{{ device.patch_total - device.patch_missing }}/{{ device.patch_total }} installed</td>
+                        <td>{{ device.os }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </details>
+</section>
 
 {% include "partials/_network_diagram.html" %}
 
@@ -83,7 +139,8 @@
 
 
 <div class="label">
-    <h2>May 2026 Required Patch (KB5062553) Installation Trend </h2>
+    <h2>Deployment Rings — KB5062553</h2>
+    <p>Pilot validation before broad rollout, modeled after a modern endpoint-management ring deployment.</p>
 </div>
 
 <div class="breakdown-card chart-fixed-width">
@@ -93,12 +150,12 @@
 <div class="patchtrend-wrapper">
 
     <div class="breakdown-card">
-        <h3>Patch Installation Trend by Wave</h3>
+        <h3>Progress by Deployment Ring</h3>
         <canvas id="PatchWaveBreakdownChart"></canvas>
     </div>
 
     <div class="breakdown-card">
-        <h3>Patch Installation Trend by Department</h3>
+        <h3>Progress by Team</h3>
         <canvas id="PatchDeptBreakdownChart"></canvas>
     </div>
 

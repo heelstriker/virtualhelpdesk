@@ -101,47 +101,6 @@
             <span class="page-card-arrow">Explore the Knowledge Base →</span>
         </a>
 
-        <a href="{{ url_for('entra_intune') }}" class="page-card">
-            <div class="page-card-title">☁️ Microsoft Entra ID &amp; Intune</div>
-            <p>Hands-on study notes covering cloud identity, Windows Autopilot, enrollment, application deployment, compliance, Conditional Access, troubleshooting, and the complete endpoint lifecycle.</p>
-            <span class="page-card-arrow">Open Study Log →</span>
-        </a>
-
-        <a href="{{ url_for('dashboard') }}" class="page-card">
-            <div class="page-card-title">📊 Dashboard</div>
-            <p>A live-style Operations Center: real-time endpoint compliance, patch trends, and a risk breakdown
-            across 50 simulated devices — the view an IT team actually watches day to day.</p>
-            <span class="page-card-arrow">View Dashboard →</span>
-        </a>
-
-        <a href="{{ url_for('all_tables') }}" class="page-card">
-            <div class="page-card-title">🗃 All Tables</div>
-            <p>The raw CMDB underneath the dashboard: every catalog and transaction table, browsable directly,
-            the way you'd query a real asset database.</p>
-            <span class="page-card-arrow">View All Tables →</span>
-        </a>
-
-        <a href="{{ url_for('erd') }}" class="page-card">
-            <div class="page-card-title">🧬 ERD</div>
-            <p>The entity-relationship diagram behind the schema — how devices, patches, printers, and network
-            drives actually relate to one another.</p>
-            <span class="page-card-arrow">View ERD →</span>
-        </a>
-
-        <a href="{{ url_for('powershell') }}" class="page-card">
-            <div class="page-card-title">💻 PowerShell Lab</div>
-            <p>An interactive terminal simulating 35 real PowerShell commands used for troubleshooting, inventory,
-            and endpoint management.</p>
-            <span class="page-card-arrow">Open PowerShell Lab →</span>
-        </a>
-
-        <a href="{{ url_for('cmd_reference') }}" class="page-card">
-            <div class="page-card-title">⌨️ CMD Reference</div>
-            <p>A companion reference for classic MS-DOS / CMD commands that are still in daily use across legacy
-            and hybrid environments.</p>
-            <span class="page-card-arrow">View CMD Reference →</span>
-        </a>
-
         <a href="{{ url_for('field_notes') }}" class="page-card">
             <div class="page-card-title">📋 Field Notes</div>
             <p>The PowerShell Lab paired with something a command reference alone can't show: what actually
@@ -156,6 +115,18 @@
             deadline, and four teams — that show the planning and communication side of IT support, not just the
             technical fix.</p>
             <span class="page-card-arrow">Read Case Studies →</span>
+        </a>
+
+        <a href="{{ url_for('technical_library') }}" class="page-card">
+            <div class="page-card-title">📚 Technical Library</div>
+            <p>Microsoft Entra ID and Intune study notes, the interactive PowerShell Lab, and the CMD Reference collected in one technical-learning area.</p>
+            <span class="page-card-arrow">Explore Technical Library →</span>
+        </a>
+
+        <a href="{{ url_for('projects') }}" class="page-card">
+            <div class="page-card-title">🧪 Projects</div>
+            <p>The Enterprise Endpoint Operations Lab: Dashboard, All Tables, and the live System Model working together across 50 simulated endpoints.</p>
+            <span class="page-card-arrow">Open Endpoint Operations Lab →</span>
         </a>
 
     </div>

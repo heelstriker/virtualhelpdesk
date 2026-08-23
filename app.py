@@ -8,6 +8,8 @@ from services.compliance_service import calculate_compliance_score, generate_ale
 from services.inventory_service import get_inventory
 from services.alertboard_service import generate_alertboard
 from services.patch_service import get_patch_progress,get_wave_progress, get_department_progress
+from services.schema_service import ALL_TABLE_NAMES, TABLE_LABELS, get_schema_overview
+from services.event_readiness_service import get_event_readiness
 from services.network_topology_service import (
     get_network_topology_graph,
     set_device_override,
@@ -28,48 +30,6 @@ app = Flask(__name__)
 # ============================================
 create_database()
 initialize_database()
-
-
-# ============================================
-# All Tables: DBの全テーブルをそのまま表示する機能で使用
-# ============================================
-
-# db_init.py の create_database() で作成しているテーブル名と一致させること
-ALL_TABLE_NAMES = [
-    "devices",
-    "hardware",
-    "server_catalog",
-    "patch_catalog",
-    "software_catalog",
-    "printer_catalog",
-    "network_drive_catalog",
-    "switch_catalog",
-    "network_topology",
-    "printers",
-    "network_drives",
-    "patches",
-    "software",
-    
-    
-]
-
-# 画面表示用のラベル
-TABLE_LABELS = {
-    "devices": "Devices Catalog",
-    "hardware": "Hardware Catalog",
-    "server_catalog": "Server Catalog",
-    "patch_catalog": "Patch Catalog",
-    "software_catalog":"Software Catalog",
-    "printer_catalog":"Printer Catalog",
-    "network_drive_catalog":"Network Drive Catalog",
-    "switch_catalog": "Switch and Router Catalog",
-    "network_topology":"Network Topology",
-    "printers": "Printers (Transaction)",
-    "network_drives": "Network Drives (Transaction)",  
-    "patches": "Patches (Transaction)",
-    "software": "Software (Transaction)",
-    
-}
 
 
 @app.route("/admin/import")
@@ -99,6 +59,7 @@ def dashboard():
     patch_progress = get_patch_progress()
     wave_progress = get_wave_progress()
     dept_progress = get_department_progress()
+    event_readiness = get_event_readiness()
 
     device_status_rows = get_device_status_summary()
     device_status_labels = [row["status"] for row in device_status_rows]
@@ -115,6 +76,7 @@ def dashboard():
         patch_progress=patch_progress,
         wave_progress=wave_progress,
         dept_progress=dept_progress,
+        event_readiness=event_readiness,
         device_status_labels=device_status_labels,
         device_status_counts=device_status_counts,
     )
@@ -143,6 +105,16 @@ def knowledge_base():
         "knowledge_base.html",
         active_page="knowledge_base",
     )
+
+
+@app.route("/technical-library")
+def technical_library():
+    return render_template("technical_library.html", active_page="technical_library")
+
+
+@app.route("/projects")
+def projects():
+    return render_template("projects.html", active_page="projects")
 
 
 @app.route("/entra-intune")
@@ -248,7 +220,11 @@ def powershell():
 
 @app.route("/erd")
 def erd():
-    return render_template("erd.html", active_page="erd")
+    return render_template(
+        "erd.html",
+        active_page="erd",
+        schema=get_schema_overview(),
+    )
 
 @app.route("/field_notes")
 def field_notes():

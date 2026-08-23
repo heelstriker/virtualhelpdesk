@@ -3,10 +3,12 @@
 {% block title %}Microsoft Entra ID & Intune - VirtualHelpDesk{% endblock %}
 
 {% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='src/css/project_nav.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='src/css/entra_intune.css') }}">
 {% endblock %}
 
 {% block content %}
+{% include "partials/_technical_library_nav.html" %}
 <article class="study-shell" id="study-top">
     <header class="panel study-hero">
         <p class="study-eyebrow">VirtualHelpDesk · Hands-On Study Log</p>

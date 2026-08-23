@@ -1,0 +1,7 @@
+<nav class="project-nav" aria-label="Technical Library">
+    <span class="project-nav-label">Technical Library</span>
+    <a href="{{ url_for('technical_library') }}" class="{{ 'active' if active_page == 'technical_library' else '' }}">Overview</a>
+    <a href="{{ url_for('entra_intune') }}" class="{{ 'active' if active_page == 'entra_intune' else '' }}">Entra &amp; Intune</a>
+    <a href="{{ url_for('powershell') }}" class="{{ 'active' if active_page == 'powershell' else '' }}">PowerShell</a>
+    <a href="{{ url_for('cmd_reference') }}" class="{{ 'active' if active_page == 'cmd_reference' else '' }}">CMD</a>
+</nav>

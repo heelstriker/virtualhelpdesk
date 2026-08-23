@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Projects - VirtualHelpDesk{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{{ url_for('static', filename='src/css/content_hubs.css') }}">{% endblock %}
+{% block content %}
+<div class="hub-page">
+    <header class="hub-hero">
+        <p class="hub-eyebrow">Active Portfolio Project</p>
+        <h1>Enterprise Endpoint Operations Lab</h1>
+        <p>A connected simulation built around 50 endpoints. The dashboard, raw data explorer, and system model are three views of one developing project.</p>
+    </header>
+    <div class="hub-callout"><strong>Active Development:</strong> the environment now includes an Intune-inspired Event Readiness view and deployment-ring reporting while remaining a local Flask and SQLite simulation.</div>
+    <div class="hub-grid">
+        <a class="hub-card" href="{{ url_for('dashboard') }}">
+            <span class="hub-card-tag">Operations View</span><h2>Dashboard</h2>
+            <p>Endpoint readiness, compliance, active risks, deployment progress, network state, and the 50-device inventory.</p>
+            <span class="hub-card-action">Open dashboard →</span>
+        </a>
+        <a class="hub-card" href="{{ url_for('all_tables') }}">
+            <span class="hub-card-tag">Data Explorer</span><h2>All Tables</h2>
+            <p>Inspect the operational and reference data that drive the simulated environment.</p>
+            <span class="hub-card-action">Browse data →</span>
+        </a>
+        <a class="hub-card" href="{{ url_for('erd') }}">
+            <span class="hub-card-tag">System Model</span><h2>ERD</h2>
+            <p>A live schema inventory covering all current tables, columns, keys, row counts, and application relationships.</p>
+            <span class="hub-card-action">View system model →</span>
+        </a>
+    </div>
+</div>
+{% endblock %}

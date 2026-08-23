@@ -1,97 +1,89 @@
 {% extends "base.html" %}
 
-{% block title %}ER Diagram - VirtualHelpDesk{% endblock %}
+{% block title %}System Model — ERD - VirtualHelpDesk{% endblock %}
 
 {% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='src/css/project_nav.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='src/css/erd.css') }}">
 {% endblock %}
 
 {% block content %}
-<header class="erd-header">
-    <div>
-        <p class="erd-eyebrow">Live SQLite schema</p>
-        <h1>Entity Relationship Diagram</h1>
-        <p class="erd-intro">
-            This page reads table and column metadata from the database currently used by the application.
-            It found <strong>{{ schema.table_count }} tables</strong>.
+<div class="erd-page">
+    {% include "partials/_project_nav.html" %}
+
+    <header class="erd-header">
+        <p class="eyebrow">Enterprise Endpoint Operations Lab</p>
+        <h1>System Model — ERD</h1>
+        <p>
+            A live inventory of the SQLite schema behind VirtualHelpDesk. Table names, columns,
+            primary keys, and row counts are read from the current database so this view stays
+            aligned as the project evolves.
         </p>
-    </div>
-    <dl class="erd-summary" aria-label="Schema summary">
-        <div>
-            <dt>Tables</dt>
-            <dd>{{ schema.table_count }}</dd>
-        </div>
-        <div>
-            <dt>Enforced foreign keys</dt>
-            <dd>{{ schema.enforced_foreign_keys }}</dd>
-        </div>
-    </dl>
-</header>
+    </header>
 
-<section class="erd-note" aria-labelledby="relationship-note-title">
-    <h2 id="relationship-note-title">How to read this page</h2>
-    <p>
-        <span class="column-key">PK</span> marks a SQLite primary key.
-        The application currently declares no SQLite foreign-key constraints, so the connections below are
-        <strong>logical references used by the application</strong>, not database-enforced relationships.
-    </p>
-</section>
+    <section class="schema-metrics" aria-label="Schema summary">
+        <div><strong>{{ schema.table_count }}</strong><span>Tables</span></div>
+        <div><strong>{{ schema.column_count }}</strong><span>Columns</span></div>
+        <div><strong>{{ schema.row_count }}</strong><span>Rows</span></div>
+        <div><strong>{{ schema.relationship_count }}</strong><span>Modeled links</span></div>
+    </section>
 
-{% if schema.relationships %}
-<section class="erd-panel" aria-labelledby="relationships-title">
-    <div class="erd-section-heading">
-        <div>
-            <p class="erd-eyebrow">Application model</p>
-            <h2 id="relationships-title">Logical relationships</h2>
-        </div>
-        <span class="erd-count">{{ schema.relationships|length }} links</span>
+    <div class="schema-note">
+        <strong>How to read this model:</strong> schema structure and row counts are discovered live.
+        Relationship descriptions are curated from the application joins because the current SQLite
+        schema does not declare foreign-key constraints.
     </div>
 
-    <div class="relationship-list">
-        {% for relationship in schema.relationships %}
-        <article class="relationship-row">
-            <code>{{ relationship.from_table }}.{{ relationship.from_column }}</code>
-            <div class="relationship-link" aria-label="{{ relationship.label }}, {{ relationship.cardinality }}">
-                <span>{{ relationship.label }}</span>
-                <span class="relationship-line" aria-hidden="true"></span>
-                <strong>{{ relationship.cardinality }}</strong>
-            </div>
-            <code>{{ relationship.to_table }}.{{ relationship.to_column }}</code>
-        </article>
-        {% endfor %}
-    </div>
-</section>
-{% endif %}
-
-{% for group in schema.groups %}
-<section class="erd-panel schema-group" aria-labelledby="group-{{ loop.index }}">
-    <div class="erd-section-heading">
-        <div>
-            <p class="erd-eyebrow">Schema layer</p>
-            <h2 id="group-{{ loop.index }}">{{ group.name }}</h2>
+    {% for group in schema.groups %}
+    <section class="schema-group" aria-labelledby="group-{{ group.id }}">
+        <div class="schema-group-heading">
+            <h2 id="group-{{ group.id }}">{{ group.label }}</h2>
             <p>{{ group.description }}</p>
         </div>
-        <span class="erd-count">{{ group.tables|length }} tables</span>
-    </div>
 
-    <div class="schema-grid">
-        {% for table in group.tables %}
-        <article class="schema-table">
-            <h3>{{ table.name }}</h3>
-            <ul class="column-list">
-                {% for column in table.columns %}
-                <li>
-                    <span class="column-name">
-                        {% if column.primary_key %}<span class="column-key">PK</span>{% endif %}
-                        {{ column.name }}
+        <div class="schema-grid">
+            {% for table in group.tables %}
+            <details class="table-card" {{ 'open' if table.name == 'devices' else '' }}>
+                <summary>
+                    <span>
+                        <strong>{{ table.label }}</strong>
+                        <code>{{ table.name }}</code>
                     </span>
-                    <span class="column-type">{{ column.type }}{% if column.required %} · required{% endif %}</span>
-                </li>
-                {% endfor %}
-            </ul>
-        </article>
-        {% endfor %}
-    </div>
-</section>
-{% endfor %}
+                    <span class="row-count">{{ table.row_count }} rows</span>
+                </summary>
+                <div class="column-list">
+                    {% for column in table.columns %}
+                    <div class="column-row">
+                        <code>{{ column.name }}</code>
+                        <span class="column-type">{{ column.type }}</span>
+                        <span class="column-flags">
+                            {% if column.primary_key %}<span class="flag flag-pk">PK</span>{% endif %}
+                            {% if column.required %}<span class="flag">Required</span>{% endif %}
+                        </span>
+                    </div>
+                    {% endfor %}
+                </div>
+            </details>
+            {% endfor %}
+        </div>
+    </section>
+    {% endfor %}
+
+    <section class="relationship-panel" aria-labelledby="relationship-heading">
+        <div class="schema-group-heading">
+            <h2 id="relationship-heading">Application Relationships</h2>
+            <p>The shared identifiers used by dashboard, inventory, compliance, and topology queries.</p>
+        </div>
+        <div class="relationship-list">
+            {% for relationship in schema.relationships %}
+            <div class="relationship-row">
+                <code>{{ relationship.source_table }}.{{ relationship.source_column }}</code>
+                <span class="relationship-arrow" aria-hidden="true">→</span>
+                <code>{{ relationship.target_table }}.{{ relationship.target_column }}</code>
+                <span>{{ relationship.description }}</span>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</div>
 {% endblock %}

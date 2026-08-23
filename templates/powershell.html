@@ -3,10 +3,13 @@
 {% block title %}PowerShell Field Reference - VirtualHelpDesk{% endblock %}
 
 {% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='src/css/project_nav.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='src/css/powershell.css') }}">
 {% endblock %}
 
 {% block content %}
+
+{% include "partials/_technical_library_nav.html" %}
 
 <div class="ps-page">
 

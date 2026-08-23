@@ -20,14 +20,10 @@
             <a href="{{ url_for('show_readme') }}" class="{{ 'active' if active_page == 'readme' else '' }}">About</a>
             <a href="{{ url_for('support_philosophy') }}" class="{{ 'active' if active_page == 'support_philosophy' else '' }}">Support Philosophy</a>
             <a href="{{ url_for('knowledge_base') }}" class="{{ 'active' if active_page == 'knowledge_base' else '' }}">Knowledge Base</a>
-            <a href="{{ url_for('entra_intune') }}" class="{{ 'active' if active_page == 'entra_intune' else '' }}">Entra &amp; Intune</a>
-            <a href="{{ url_for('dashboard') }}" class="{{ 'active' if active_page == 'dashboard' else '' }}">Dashboard</a>
-            <a href="{{ url_for('all_tables') }}" class="{{ 'active' if active_page == 'all_tables' else '' }}">All Tables</a>
-            <a href="{{ url_for('erd') }}" class="{{ 'active' if active_page == 'erd' else '' }}">ERD</a>
-            <a href="{{ url_for('powershell') }}" class="{{ 'active' if active_page == 'powershell' else '' }}">PowerShell Lab</a>
-            <a href="{{ url_for('cmd_reference') }}" class="{{ 'active' if active_page == 'cmd_reference' else '' }}">CMD Reference</a>
             <a href="{{ url_for('field_notes') }}" class="{{ 'active' if active_page == 'field_notes' else '' }}">Field Notes</a>
             <a href="{{ url_for('case_studies') }}" class="{{ 'active' if active_page == 'case_studies' else '' }}">Case Studies</a>
+            <a href="{{ url_for('technical_library') }}" class="{{ 'active' if active_page in ['technical_library', 'entra_intune', 'powershell', 'cmd_reference'] else '' }}">Technical Library</a>
+            <a href="{{ url_for('projects') }}" class="{{ 'active' if active_page in ['projects', 'dashboard', 'all_tables', 'erd'] else '' }}">Projects</a>
         </div>
         <button class="navbar-toggle" id="navbarToggle" aria-label="Toggle menu">
             <span></span>
@@ -40,14 +36,10 @@
         <a href="{{ url_for('show_readme') }}" class="{{ 'active' if active_page == 'readme' else '' }}">About</a>
         <a href="{{ url_for('support_philosophy') }}" class="{{ 'active' if active_page == 'support_philosophy' else '' }}">Support Philosophy</a>
         <a href="{{ url_for('knowledge_base') }}" class="{{ 'active' if active_page == 'knowledge_base' else '' }}">Knowledge Base</a>
-        <a href="{{ url_for('entra_intune') }}" class="{{ 'active' if active_page == 'entra_intune' else '' }}">Entra &amp; Intune</a>
-        <a href="{{ url_for('dashboard') }}" class="{{ 'active' if active_page == 'dashboard' else '' }}">Dashboard</a>
-        <a href="{{ url_for('all_tables') }}" class="{{ 'active' if active_page == 'all_tables' else '' }}">All Tables</a>
-        <a href="{{ url_for('erd') }}" class="{{ 'active' if active_page == 'erd' else '' }}">ERD</a>
-        <a href="{{ url_for('powershell') }}" class="{{ 'active' if active_page == 'powershell' else '' }}">PowerShell Lab</a>
-        <a href="{{ url_for('cmd_reference') }}" class="{{ 'active' if active_page == 'cmd_reference' else '' }}">CMD Reference</a>
         <a href="{{ url_for('field_notes') }}" class="{{ 'active' if active_page == 'field_notes' else '' }}">Field Notes</a>
         <a href="{{ url_for('case_studies') }}" class="{{ 'active' if active_page == 'case_studies' else '' }}">Case Studies</a>
+        <a href="{{ url_for('technical_library') }}" class="{{ 'active' if active_page in ['technical_library', 'entra_intune', 'powershell', 'cmd_reference'] else '' }}">Technical Library</a>
+        <a href="{{ url_for('projects') }}" class="{{ 'active' if active_page in ['projects', 'dashboard', 'all_tables', 'erd'] else '' }}">Projects</a>
         
     </div>
 

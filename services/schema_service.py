@@ -1,177 +1,157 @@
-"""Read-only schema metadata used by the ERD page."""
-
-from collections import OrderedDict
-
 from services.db import get_db_connection
 
 
-TABLE_GROUPS = OrderedDict(
-    [
-        (
-            "Inventory and activity",
-            {
-                "description": "Device records and per-device observations.",
-                "tables": {
-                    "devices",
-                    "hardware",
-                    "software",
-                    "printers",
-                    "network_drives",
-                    "patches",
-                },
-            },
+TABLE_GROUPS = (
+    {
+        "id": "endpoint-core",
+        "label": "Endpoint Core",
+        "description": "Primary device identity and its recorded hardware profile.",
+        "tables": ("devices", "hardware"),
+    },
+    {
+        "id": "operational-state",
+        "label": "Operational State",
+        "description": "Per-endpoint software, patch, printer, and network-drive state.",
+        "tables": ("software", "patches", "printers", "network_drives"),
+    },
+    {
+        "id": "reference-catalogs",
+        "label": "Reference Catalogs",
+        "description": "Reusable definitions for infrastructure, software, patches, printers, and shared drives.",
+        "tables": (
+            "server_catalog",
+            "software_catalog",
+            "patch_catalog",
+            "printer_catalog",
+            "network_drive_catalog",
+            "switch_catalog",
         ),
-        (
-            "Catalogs and infrastructure",
-            {
-                "description": "Reference data for software, patches, shared resources, and network equipment.",
-                "tables": {
-                    "server_catalog",
-                    "patch_catalog",
-                    "software_catalog",
-                    "printer_catalog",
-                    "network_drive_catalog",
-                    "switch_catalog",
-                    "network_topology",
-                },
-            },
-        ),
-        (
-            "Runtime state",
-            {
-                "description": "Service-managed state created when network status controls are used.",
-                "tables": {"network_override", "device_status_backup"},
-            },
-        ),
-    ]
+    },
+    {
+        "id": "infrastructure-map",
+        "label": "Infrastructure Map",
+        "description": "Recorded links between managed network and infrastructure assets.",
+        "tables": ("network_topology",),
+    },
 )
 
 
-# These links are conventions used by the application and seed data. They are
-# intentionally separate from SQLite foreign keys, because db_init.py does not
-# currently declare FOREIGN KEY constraints.
-LOGICAL_RELATIONSHIPS = (
-    ("devices", "hostname", "hardware", "hostname", "1 : 0..1", "has profile"),
-    ("devices", "hostname", "software", "hostname", "1 : N", "runs"),
-    ("devices", "hostname", "patches", "hostname", "1 : N", "receives"),
-    ("devices", "hostname", "printers", "hostname", "1 : N", "uses"),
-    ("devices", "hostname", "network_drives", "hostname", "1 : N", "mounts"),
-    ("software_catalog", "software_name", "software", "software_name", "1 : N", "describes"),
-    ("patch_catalog", "patch", "patches", "patch", "1 : N", "describes"),
-    ("network_drive_catalog", "drive_name", "network_drives", "drive_name", "1 : N", "describes"),
-    ("switch_catalog", "device_id", "devices", "switch_id", "1 : N", "connects"),
-    ("switch_catalog", "device_id", "server_catalog", "switch_id", "1 : N", "connects"),
-    ("devices", "hostname", "device_status_backup", "hostname", "1 : 0..1", "backs up status"),
+TABLE_LABELS = {
+    "devices": "Devices",
+    "hardware": "Hardware",
+    "software": "Software State",
+    "patches": "Patch State",
+    "printers": "Printer State",
+    "network_drives": "Network Drive State",
+    "server_catalog": "Server Catalog",
+    "software_catalog": "Software Catalog",
+    "patch_catalog": "Patch Catalog",
+    "printer_catalog": "Printer Catalog",
+    "network_drive_catalog": "Network Drive Catalog",
+    "switch_catalog": "Switch & Router Catalog",
+    "network_topology": "Network Topology",
+}
+
+
+ALL_TABLE_NAMES = [
+    table_name
+    for group in TABLE_GROUPS
+    for table_name in group["tables"]
+]
+
+
+RELATIONSHIPS = (
+    ("devices", "hostname", "hardware", "hostname", "One device identity to one recorded hardware profile"),
+    ("devices", "hostname", "software", "hostname", "One device to many software-state records"),
+    ("devices", "hostname", "patches", "hostname", "One device to many patch-state records"),
+    ("devices", "hostname", "printers", "hostname", "One device to many assigned-printer records"),
+    ("devices", "hostname", "network_drives", "hostname", "One device to many mapped-drive records"),
+    ("software_catalog", "software_name", "software", "software_name", "Software definition to endpoint installation state"),
+    ("patch_catalog", "patch", "patches", "patch", "Patch definition to endpoint deployment state"),
+    ("network_drive_catalog", "drive_name", "network_drives", "drive_name", "Shared-drive definition to endpoint connection state"),
+    ("server_catalog", "hostname", "network_drive_catalog", "server", "Server identity to hosted shared-drive definitions"),
+    ("switch_catalog", "device_id", "devices", "switch_id", "Network device to connected endpoint switch assignment"),
+    ("switch_catalog", "device_id", "server_catalog", "switch_id", "Network device to connected server switch assignment"),
 )
 
 
-def _column_metadata(connection, table_name):
-    escaped_name = table_name.replace('"', '""')
-    rows = connection.execute(f'PRAGMA table_info("{escaped_name}")').fetchall()
-    return [
-        {
-            "name": row[1],
-            "type": row[2] or "ANY",
-            "required": bool(row[3]),
-            "primary_key": bool(row[5]),
-        }
-        for row in rows
-    ]
+def get_schema_overview():
+    """Return a live, presentation-ready view of the configured SQLite schema."""
 
-
-def _foreign_key_metadata(connection, table_name):
-    escaped_name = table_name.replace('"', '""')
-    rows = connection.execute(f'PRAGMA foreign_key_list("{escaped_name}")').fetchall()
-    return [
-        {
-            "from_column": row[3],
-            "to_table": row[2],
-            "to_column": row[4],
-        }
-        for row in rows
-    ]
-
-
-def get_schema_snapshot():
-    """Return the live SQLite schema without reading application data rows."""
-    connection = get_db_connection()
+    conn = get_db_connection()
     try:
-        table_names = [
-            row[0]
-            for row in connection.execute(
+        existing_tables = {
+            row["name"]
+            for row in conn.execute(
                 """
                 SELECT name
                 FROM sqlite_master
-                WHERE type = 'table' AND name NOT LIKE 'sqlite_%'
-                ORDER BY name
+                WHERE type = 'table'
+                  AND name NOT LIKE 'sqlite_%'
                 """
             ).fetchall()
-        ]
-
-        tables = {}
-        for table_name in table_names:
-            tables[table_name] = {
-                "name": table_name,
-                "columns": _column_metadata(connection, table_name),
-                "foreign_keys": _foreign_key_metadata(connection, table_name),
-            }
-    finally:
-        connection.close()
-
-    groups = []
-    assigned_tables = set()
-    for group_name, group_definition in TABLE_GROUPS.items():
-        group_tables = [
-            tables[name]
-            for name in table_names
-            if name in group_definition["tables"]
-        ]
-        if group_tables:
-            groups.append(
-                {
-                    "name": group_name,
-                    "description": group_definition["description"],
-                    "tables": group_tables,
-                }
-            )
-            assigned_tables.update(table["name"] for table in group_tables)
-
-    uncategorized = [tables[name] for name in table_names if name not in assigned_tables]
-    if uncategorized:
-        groups.append(
-            {
-                "name": "Other tables",
-                "description": "Tables discovered in the live database that are not yet categorized.",
-                "tables": uncategorized,
-            }
-        )
-
-    logical_relationships = [
-        {
-            "from_table": from_table,
-            "from_column": from_column,
-            "to_table": to_table,
-            "to_column": to_column,
-            "cardinality": cardinality,
-            "label": label,
         }
-        for (
-            from_table,
-            from_column,
-            to_table,
-            to_column,
-            cardinality,
-            label,
-        ) in LOGICAL_RELATIONSHIPS
-        if from_table in tables and to_table in tables
-    ]
 
-    enforced_foreign_keys = sum(
-        len(table["foreign_keys"]) for table in tables.values()
-    )
-    return {
-        "groups": groups,
-        "relationships": logical_relationships,
-        "table_count": len(table_names),
-        "enforced_foreign_keys": enforced_foreign_keys,
-    }
+        groups = []
+        total_columns = 0
+        total_rows = 0
+
+        for group in TABLE_GROUPS:
+            tables = []
+            for table_name in group["tables"]:
+                if table_name not in existing_tables:
+                    continue
+
+                columns = [
+                    {
+                        "name": row["name"],
+                        "type": row["type"] or "UNSPECIFIED",
+                        "required": bool(row["notnull"]),
+                        "primary_key": bool(row["pk"]),
+                    }
+                    for row in conn.execute(f'PRAGMA table_info("{table_name}")').fetchall()
+                ]
+                row_count = conn.execute(f'SELECT COUNT(*) FROM "{table_name}"').fetchone()[0]
+                total_columns += len(columns)
+                total_rows += row_count
+                tables.append(
+                    {
+                        "name": table_name,
+                        "label": TABLE_LABELS.get(table_name, table_name.replace("_", " ").title()),
+                        "columns": columns,
+                        "row_count": row_count,
+                    }
+                )
+
+            if tables:
+                groups.append(
+                    {
+                        "id": group["id"],
+                        "label": group["label"],
+                        "description": group["description"],
+                        "tables": tables,
+                    }
+                )
+
+        relationships = [
+            {
+                "source_table": source_table,
+                "source_column": source_column,
+                "target_table": target_table,
+                "target_column": target_column,
+                "description": description,
+            }
+            for source_table, source_column, target_table, target_column, description in RELATIONSHIPS
+            if source_table in existing_tables and target_table in existing_tables
+        ]
+
+        return {
+            "groups": groups,
+            "relationships": relationships,
+            "table_count": sum(len(group["tables"]) for group in groups),
+            "column_count": total_columns,
+            "row_count": total_rows,
+            "relationship_count": len(relationships),
+        }
+    finally:
+        conn.close()

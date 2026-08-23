@@ -106,15 +106,26 @@ def get_wave_progress():
     trend_wave = []
     wave_percent = []
 
+    ring_labels = {
+        "Wave 1": "Pilot Ring",
+        "Wave 2": "Early Adopters",
+        "Wave 3": "Event Operations",
+        "Wave 4": "Broad Deployment",
+    }
+
     for wave, total, installed in wave_data:
-        trend_wave.append(wave)
+        trend_wave.append(ring_labels.get(wave, wave))
 
         percent = round((installed / total) * 100, 1) if total else 0
         wave_percent.append(percent)
 
 
+    overall_total = sum(row[1] for row in wave_data)
+    overall_installed = sum(row[2] for row in wave_data)
+    overall_percent = round((overall_installed / overall_total) * 100, 1) if overall_total else 0
+
     return {
-        "percent":percent,
+        "percent": overall_percent,
         "trend_wave": trend_wave,
         "wave_percent": wave_percent,
     }
@@ -157,14 +168,6 @@ def get_department_progress():
 
         percent = round((installed / total) * 100, 1) if total else 0
         dept_percent.append(percent)
-
-
-    print("DEPT TREND DATA TEST")
-    print(trend_dept)
-    print(dept_percent)
-    print(dept_counts)
-    print("END TESTS")
-
     return {
         "trend_dept": trend_dept,
         "dept_counts": dept_counts,

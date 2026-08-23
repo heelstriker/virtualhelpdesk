@@ -1,0 +1,7 @@
+<nav class="project-nav" aria-label="Enterprise Endpoint Operations Lab">
+    <span class="project-nav-label">Endpoint Operations Lab</span>
+    <a href="{{ url_for('projects') }}" class="{{ 'active' if active_page == 'projects' else '' }}">Overview</a>
+    <a href="{{ url_for('dashboard') }}" class="{{ 'active' if active_page == 'dashboard' else '' }}">Dashboard</a>
+    <a href="{{ url_for('all_tables') }}" class="{{ 'active' if active_page == 'all_tables' else '' }}">All Tables</a>
+    <a href="{{ url_for('erd') }}" class="{{ 'active' if active_page == 'erd' else '' }}">ERD</a>
+</nav>

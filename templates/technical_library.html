@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Technical Library - VirtualHelpDesk{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{{ url_for('static', filename='src/css/content_hubs.css') }}">{% endblock %}
+{% block content %}
+<div class="hub-page">
+    <header class="hub-hero">
+        <p class="hub-eyebrow">Knowledge &amp; Practice</p>
+        <h1>Technical Library</h1>
+        <p>Study notes, command references, and hands-on labs collected separately from the simulated operations project.</p>
+    </header>
+    <div class="hub-grid">
+        <a class="hub-card" href="{{ url_for('entra_intune') }}">
+            <span class="hub-card-tag">Study Log</span><h2>Microsoft Entra ID &amp; Intune</h2>
+            <p>Identity, enrollment, Autopilot, applications, compliance, Conditional Access, troubleshooting, and endpoint lifecycle notes.</p>
+            <span class="hub-card-action">Open study log →</span>
+        </a>
+        <a class="hub-card" href="{{ url_for('powershell') }}">
+            <span class="hub-card-tag">Hands-on Lab</span><h2>PowerShell Lab</h2>
+            <p>An interactive command environment for endpoint inventory, diagnostics, and operational troubleshooting.</p>
+            <span class="hub-card-action">Open lab →</span>
+        </a>
+        <a class="hub-card" href="{{ url_for('cmd_reference') }}">
+            <span class="hub-card-tag">Reference</span><h2>CMD Reference</h2>
+            <p>Classic Windows command-line tools that remain practical across legacy, hybrid, and recovery scenarios.</p>
+            <span class="hub-card-action">Open reference →</span>
+        </a>
+    </div>
+</div>
+{% endblock %}

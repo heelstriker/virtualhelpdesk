@@ -6,6 +6,32 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
+    const readinessSearch = document.getElementById('readinessSearch');
+    const readinessStatus = document.getElementById('readinessStatus');
+    const readinessRows = Array.from(document.querySelectorAll('#readinessRows tr'));
+    const readinessVisibleCount = document.getElementById('readinessVisibleCount');
+
+    function filterReadiness() {
+        const query = readinessSearch ? readinessSearch.value.trim().toLowerCase() : '';
+        const status = readinessStatus ? readinessStatus.value : 'all';
+        let visible = 0;
+
+        readinessRows.forEach(function (row) {
+            const matchesQuery = !query || row.dataset.search.includes(query);
+            const matchesStatus = status === 'all' || row.dataset.status === status;
+            row.hidden = !(matchesQuery && matchesStatus);
+            if (!row.hidden) visible += 1;
+        });
+
+        if (readinessVisibleCount) {
+            readinessVisibleCount.textContent = visible + ' of ' + readinessRows.length + ' endpoints';
+        }
+    }
+
+    if (readinessSearch) readinessSearch.addEventListener('input', filterReadiness);
+    if (readinessStatus) readinessStatus.addEventListener('change', filterReadiness);
+    filterReadiness();
+
     const dataEl = document.getElementById('dashboard-data');
     if (!dataEl) {
         console.error('dashboard-data element not found; charts will not render.');
